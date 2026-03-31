@@ -46,7 +46,7 @@ namespace Saltoapis.Auth
         {
             AddCallerMetadata(ref context);
             // call server using a task. This way we can use the same method to handle authentication exceptions.
-            return HandleRpcUnauthenticated(Task.FromResult(continuation(request, context))).Result;
+            return HandleRpcUnauthenticated(Task.Run(() => continuation(request, context))).Result;
         }
 
         public override AsyncClientStreamingCall<TRequest, TResponse> AsyncClientStreamingCall<TRequest, TResponse>(
