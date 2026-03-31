@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <PackageId>Community.Salto.Nebula.EmergencyKey.V1</PackageId>
-    <Description>Contains the SDK related to 'Community.Salto.Nebula.EmergencyKey.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+    <PackageId>Community.Salto.Extended.Nebula.EmergencyKey.V1</PackageId>
+    <Description>Contains the SDK related to 'Community.Salto.Extended.Nebula.EmergencyKey.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>

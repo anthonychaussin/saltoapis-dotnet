@@ -53,7 +53,11 @@ def _nuget_deploy(ctx):
             cd "{project_folder}"
             dotnet restore
             dotnet pack --configuration Release {package_args}
-            dotnet nuget push "bin/Release/{id}.{version}.nupkg" --skip-duplicate --source "github"
+            if [ -n "$NUGET_API_KEY" ]; then
+                dotnet nuget push "bin/Release/{id}.{version}.nupkg" --skip-duplicate --source "https://api.nuget.org/v3/index.json" --api-key "$NUGET_API_KEY"
+            else
+                dotnet nuget push "bin/Release/{id}.{version}.nupkg" --skip-duplicate --source "github"
+            fi
         '''.format(
             project_folder = csproj_file.short_path.split(csproj_file.basename)[0],
             package_args = ' '.join(package_args),
