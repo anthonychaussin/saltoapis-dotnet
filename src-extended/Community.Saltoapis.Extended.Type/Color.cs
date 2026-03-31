@@ -9,17 +9,15 @@ namespace Saltoapis.Type
         private UnknownFieldSet _unknownFields;
         private int _hasBits0;
 
-        public static MessageParser<Color> Parser { get { return _parser; } }
+        public static MessageParser<Color> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ColorReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => ColorReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Color()
         {
@@ -42,57 +40,35 @@ namespace Saltoapis.Type
         /// <summary>Field number for the "red" field.</summary>
         public const int RedFieldNumber = 1;
         private float red_;
-
         /// <summary>
         /// The amount of red in the color as a value in the interval [0, 1].
         /// </summary>
         public float Red
         {
-            get { return red_; }
-            set
-            {
-                red_ = value;
-            }
-        }
-
+            get => red_; set => red_ = value;}
         /// <summary>Field number for the "green" field.</summary>
         public const int GreenFieldNumber = 2;
         private float green_;
-
         /// <summary>
         /// The amount of green in the color as a value in the interval [0, 1].
         /// </summary>
         public float Green
         {
-            get { return green_; }
-            set
-            {
-                green_ = value;
-            }
-        }
-
+            get => green_; set => green_ = value;}
         /// <summary>Field number for the "blue" field.</summary>
         public const int BlueFieldNumber = 3;
         private float blue_;
-
         /// <summary>
         /// The amount of blue in the color as a value in the interval [0, 1].
         /// </summary>
         public float Blue
         {
-            get { return blue_; }
-            set
-            {
-                blue_ = value;
-            }
-        }
-
+            get => blue_; set => blue_ = value;}
         /// <summary>Field number for the "alpha" field.</summary>
         public const int AlphaFieldNumber = 4;
         private static readonly float AlphaDefaultValue = 0F;
 
         private float alpha_;
-
         /// <summary>
         /// The fraction of this color that should be applied to the pixel. That is,
         /// the final pixel color is defined by the equation:
@@ -113,13 +89,8 @@ namespace Saltoapis.Type
                 alpha_ = value;
             }
         }
-
         /// <summary>Gets whether the "alpha" field is set</summary>
-        public bool HasAlpha
-        {
-            get { return (_hasBits0 & 1) != 0; }
-        }
-
+        public bool HasAlpha => (_hasBits0 & 1) != 0;
         /// <summary>Clears the value of the "alpha" field</summary>
         public void ClearAlpha()
         {
@@ -131,8 +102,7 @@ namespace Saltoapis.Type
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Red, other.Red)) || (!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Green, other.Green))) return false;
-            if ((!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Blue, other.Blue)) || (!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Alpha, other.Alpha))) return false;
+            if ((!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Red, other.Red)) || (!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Green, other.Green)) || (!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Blue, other.Blue)) || (!ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Alpha, other.Alpha))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -153,23 +123,28 @@ namespace Saltoapis.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Red != 0F) {
+      if (Red != 0F)
+      {
         output.WriteRawTag(13);
         output.WriteFloat(Red);
       }
-      if (Green != 0F) {
+      if (Green != 0F)
+      {
         output.WriteRawTag(21);
         output.WriteFloat(Green);
       }
-      if (Blue != 0F) {
+      if (Blue != 0F)
+      {
         output.WriteRawTag(29);
         output.WriteFloat(Blue);
       }
-      if (HasAlpha) {
+      if (HasAlpha)
+      {
         output.WriteRawTag(37);
         output.WriteFloat(Alpha);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -227,28 +202,35 @@ namespace Saltoapis.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 13: {
+          case 13:
+          {
             Red = input.ReadFloat();
             break;
           }
-          case 21: {
+          case 21:
+          {
             Green = input.ReadFloat();
             break;
           }
-          case 29: {
+          case 29:
+          {
             Blue = input.ReadFloat();
             break;
           }
-          case 37: {
+          case 37:
+          {
             Alpha = input.ReadFloat();
             break;
           }
@@ -298,6 +280,5 @@ namespace Saltoapis.Type
             }
         }
 #endif
-
     }
 }

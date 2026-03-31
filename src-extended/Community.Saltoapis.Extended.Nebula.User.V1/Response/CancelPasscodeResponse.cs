@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<CancelPasscodeResponse> _parser = new(() => new CancelPasscodeResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CancelPasscodeResponse> Parser { get { return _parser; } }
+        public static MessageParser<CancelPasscodeResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[41]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[41];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CancelPasscodeResponse()
         {
@@ -40,18 +38,12 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 1;
         private Passcode passcode_;
-
         /// <summary>
         /// The canceled passcode.
         /// </summary>
         public Passcode Passcode
         {
-            get { return passcode_; }
-            set
-            {
-                passcode_ = value;
-            }
-        }
+            get => passcode_; set => passcode_ = value;}
 
         public override bool Equals(object other) => Equals(other as CancelPasscodeResponse);
         public bool Equals(CancelPasscodeResponse other)
@@ -76,11 +68,13 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (passcode_ != null) {
+      if (passcode_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Passcode);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -124,17 +118,22 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (passcode_ == null) {
+          case 10:
+          {
+            if (passcode_ == null)
+            {
               Passcode = new Saltoapis.Nebula.User.V1.Passcode();
             }
             input.ReadMessage(Passcode);
@@ -172,8 +171,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }

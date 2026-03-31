@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Iam.V1.Request
         private static readonly MessageParser<GetRoleRequest> _parser = new(() => new GetRoleRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<GetRoleRequest> Parser { get { return _parser; } }
+        public static MessageParser<GetRoleRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IamReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => IamReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public GetRoleRequest()
         {
@@ -40,26 +38,19 @@ namespace Saltoapis.Nebula.Iam.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The name of the requested role resource. For example: `iam-roles/admin`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as GetRoleRequest);
         public bool Equals(GetRoleRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Name != other.Name) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Name != other.Name ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -76,11 +67,13 @@ namespace Saltoapis.Nebula.Iam.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -120,16 +113,20 @@ namespace Saltoapis.Nebula.Iam.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
@@ -164,8 +161,6 @@ namespace Saltoapis.Nebula.Iam.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

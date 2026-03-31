@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Request
         private static readonly MessageParser<CreateElectronicLockRequest> _parser = new(() => new CreateElectronicLockRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateElectronicLockRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateElectronicLockRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicLockReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => ElectronicLockReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateElectronicLockRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the electronic lock. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "electronic_lock_id" field.</summary>
         public const int ElectronicLockIdFieldNumber = 2;
         private static readonly string ElectronicLockIdDefaultValue = "";
 
         private string electronicLockId_;
-
         /// <summary>
         /// The electronic lock ID to use for this electronic lock. In case it's empty the
         /// server will autogenerate a unique identifier.
         /// </summary>
         public string ElectronicLockId
         {
-            get { return electronicLockId_ ?? ElectronicLockIdDefaultValue; }
-            set
-            {
-                electronicLockId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => electronicLockId_ ?? ElectronicLockIdDefaultValue; set => electronicLockId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "electronic_lock_id" field is set</summary>
-        public bool HasElectronicLockId
-        {
-            get { return electronicLockId_ != null; }
-        }
-
+        public bool HasElectronicLockId => electronicLockId_ != null;
         /// <summary>Clears the value of the "electronic_lock_id" field</summary>
-        public void ClearElectronicLockId()
-        {
-            electronicLockId_ = null;
-        }
-
+        public void ClearElectronicLockId() => electronicLockId_ = null;
         /// <summary>Field number for the "electronic_lock" field.</summary>
         public const int ElectronicLockFieldNumber = 3;
         private ElectronicLock electronicLock_;
-
         /// <summary>
         /// The electronic lock resource to be created. Client must not set the
         /// `ElectronicLock.name` field.
         /// </summary>
         public ElectronicLock ElectronicLock
         {
-            get { return electronicLock_; }
-            set
-            {
-                electronicLock_ = value;
-            }
-        }
+            get => electronicLock_; set => electronicLock_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateElectronicLockRequest);
         public bool Equals(CreateElectronicLockRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (ElectronicLockId != other.ElectronicLockId)) return false;
-            if (!Equals(ElectronicLock, other.ElectronicLock)) return false;
+            if ((Parent != other.Parent) || (ElectronicLockId != other.ElectronicLockId) || !Equals(ElectronicLock, other.ElectronicLock)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasElectronicLockId) {
+      if (HasElectronicLockId)
+      {
         output.WriteRawTag(18);
         output.WriteString(ElectronicLockId);
       }
-      if (electronicLock_ != null) {
+      if (electronicLock_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(ElectronicLock);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             ElectronicLockId = input.ReadString();
             break;
           }
-          case 26: {
-            if (electronicLock_ == null) {
+          case 26:
+          {
+            if (electronicLock_ == null)
+            {
               ElectronicLock = new Saltoapis.Nebula.ElectronicLock.V1.ElectronicLock();
             }
             input.ReadMessage(ElectronicLock);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

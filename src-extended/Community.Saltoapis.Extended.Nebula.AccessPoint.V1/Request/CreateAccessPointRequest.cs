@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPoint.V1.Request
         private static readonly MessageParser<CreateAccessPointRequest> _parser = new(() => new CreateAccessPointRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateAccessPointRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateAccessPointRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => AccessPointReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateAccessPointRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.AccessPoint.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource under which the access point is created.
         /// For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_point_id" field.</summary>
         public const int AccessPointIdFieldNumber = 2;
         private static readonly string AccessPointIdDefaultValue = "";
 
         private string accessPointId_;
-
         /// <summary>
         /// The access point id to use for this access point. If it's
         /// empty the server will autogenerate a unique identifier.
         /// </summary>
         public string AccessPointId
         {
-            get { return accessPointId_ ?? AccessPointIdDefaultValue; }
-            set
-            {
-                accessPointId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => accessPointId_ ?? AccessPointIdDefaultValue; set => accessPointId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "access_point_id" field is set</summary>
-        public bool HasAccessPointId
-        {
-            get { return accessPointId_ != null; }
-        }
-
+        public bool HasAccessPointId => accessPointId_ != null;
         /// <summary>Clears the value of the "access_point_id" field</summary>
-        public void ClearAccessPointId()
-        {
-            accessPointId_ = null;
-        }
-
+        public void ClearAccessPointId() => accessPointId_ = null;
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 3;
         private AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point resource to be created. Client must not set the
         /// `AccessPoint.name` field.
         /// </summary>
         public AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
+            get => accessPoint_; set => accessPoint_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateAccessPointRequest);
         public bool Equals(CreateAccessPointRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (AccessPointId != other.AccessPointId)) return false;
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
+            if ((Parent != other.Parent) || (AccessPointId != other.AccessPointId) || !Equals(AccessPoint, other.AccessPoint)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.AccessPoint.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasAccessPointId) {
+      if (HasAccessPointId)
+      {
         output.WriteRawTag(18);
         output.WriteString(AccessPointId);
       }
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(AccessPoint);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.AccessPoint.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             AccessPointId = input.ReadString();
             break;
           }
-          case 26: {
-            if (accessPoint_ == null) {
+          case 26:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.AccessPoint.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

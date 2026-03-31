@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
         private static readonly MessageParser<IntercomAdaptorAccessPoint> _parser = new(() => new IntercomAdaptorAccessPoint());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<IntercomAdaptorAccessPoint> Parser { get { return _parser; } }
+        public static MessageParser<IntercomAdaptorAccessPoint> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => IntercomAdaptorReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public IntercomAdaptorAccessPoint()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private string accessPoint_ = "";
-
         /// <summary>
         /// The access point resource name to bind as an association to the parent
         /// intercom adaptor. For example:
@@ -49,42 +46,22 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
         /// </summary>
         public string AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "frame_settings" field.</summary>
         public const int FrameSettingsFieldNumber = 2;
         private static readonly ByteString FrameSettingsDefaultValue = ByteString.Empty;
 
         private ByteString frameSettings_;
-
         /// <summary>
         /// The set of learnt frames. Left unset for analog intercoms.
         /// </summary>
         public ByteString FrameSettings
         {
-            get { return frameSettings_ ?? FrameSettingsDefaultValue; }
-            set
-            {
-                frameSettings_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => frameSettings_ ?? FrameSettingsDefaultValue; set => frameSettings_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "frame_settings" field is set</summary>
-        public bool HasFrameSettings
-        {
-            get { return frameSettings_ != null; }
-        }
-
+        public bool HasFrameSettings => frameSettings_ != null;
         /// <summary>Clears the value of the "frame_settings" field</summary>
-        public void ClearFrameSettings()
-        {
-            frameSettings_ = null;
-        }
+        public void ClearFrameSettings() => frameSettings_ = null;
 
         public override bool Equals(object other) => Equals(other as IntercomAdaptorAccessPoint);
         public bool Equals(IntercomAdaptorAccessPoint other)
@@ -110,15 +87,18 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (AccessPoint.Length != 0) {
+      if (AccessPoint.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(AccessPoint);
       }
-      if (HasFrameSettings) {
+      if (HasFrameSettings)
+      {
         output.WriteRawTag(18);
         output.WriteBytes(FrameSettings);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -165,20 +145,25 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             AccessPoint = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             FrameSettings = input.ReadBytes();
             break;
           }
@@ -218,8 +203,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             }
         }
 #endif
-
     }
-
 
 }

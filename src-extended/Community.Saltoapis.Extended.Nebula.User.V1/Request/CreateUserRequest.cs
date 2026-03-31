@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         private static readonly MessageParser<CreateUserRequest> _parser = new(() => new CreateUserRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateUserRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateUserRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[7]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[7];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateUserRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where the user is to be created. For
         /// example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "user_id" field.</summary>
         public const int UserIdFieldNumber = 2;
         private static readonly string UserIdDefaultValue = "";
 
         private string userId_;
-
         /// <summary>
         /// The user id to use for this user. In case it's empty the server
         /// will autogenerate a unique identifier.
         /// </summary>
         public string UserId
         {
-            get { return userId_ ?? UserIdDefaultValue; }
-            set
-            {
-                userId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => userId_ ?? UserIdDefaultValue; set => userId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "user_id" field is set</summary>
-        public bool HasUserId
-        {
-            get { return userId_ != null; }
-        }
-
+        public bool HasUserId => userId_ != null;
         /// <summary>Clears the value of the "user_id" field</summary>
-        public void ClearUserId()
-        {
-            userId_ = null;
-        }
-
+        public void ClearUserId() => userId_ = null;
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 3;
         private User user_;
-
         /// <summary>
         /// The user resource to be created. Client must not set the `User.name`
         /// field.
         /// </summary>
         public User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
+            get => user_; set => user_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateUserRequest);
         public bool Equals(CreateUserRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (UserId != other.UserId)) return false;
-            if (!Equals(User, other.User)) return false;
+            if ((Parent != other.Parent) || (UserId != other.UserId) || !Equals(User, other.User)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.User.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasUserId) {
+      if (HasUserId)
+      {
         output.WriteRawTag(18);
         output.WriteString(UserId);
       }
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(User);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.User.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             UserId = input.ReadString();
             break;
           }
-          case 26: {
-            if (user_ == null) {
+          case 26:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.User.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

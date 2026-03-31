@@ -3,12 +3,10 @@ namespace Saltoapis.Nebula.Type
     /// <summary>Holder for reflection information generated from salto/nebula/type/device_metadata.proto</summary>
     public static partial class DeviceMetadataReflection
     {
-
         /// <summary>File descriptor for salto/nebula/type/device_metadata.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -36,8 +34,6 @@ namespace Saltoapis.Nebula.Type
             new(typeof(DeviceMetadata), DeviceMetadata.Parser, ["CircuitBoards"], null, null, null, [new(typeof(DeviceMetadata.Types.CircuitBoard), DeviceMetadata.Types.CircuitBoard.Parser, ["ManufactureDate", "SerialNumber", "Firmwares"], null, null, null, [new(typeof(DeviceMetadata.Types.CircuitBoard.Types.Firmware), DeviceMetadata.Types.CircuitBoard.Types.Firmware.Parser, ["Number", "Version", "Revision"], null, null, null, null)])])
                 ]));
         }
-
     }
-
 
 }

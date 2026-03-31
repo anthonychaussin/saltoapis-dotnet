@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Extender.V1.Request;
+using Saltoapis.Nebula.Extender.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Extender.V1.Response;
 
@@ -112,13 +112,10 @@ namespace Saltoapis.Nebula.Extender.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_extender_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return ExtenderReflection.Descriptor.Services[0]; }
-        }
-
+            get => ExtenderReflection.Descriptor.Services[0];}
         /// <summary>Client for ExtenderService</summary>
         public partial class ExtenderServiceClient : ClientBase<ExtenderServiceClient>
         {
@@ -127,24 +124,20 @@ namespace Saltoapis.Nebula.Extender.V1
             public ExtenderServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for ExtenderService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public ExtenderServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected ExtenderServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected ExtenderServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an extender
             ///
@@ -155,7 +148,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Extender CreateExtender(CreateExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Extender CreateExtender(CreateExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an extender
             ///
@@ -175,11 +168,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> CreateExtenderAsync(CreateExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Extender> CreateExtenderAsync(CreateExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an extender
             ///
@@ -188,11 +177,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> CreateExtenderAsync(CreateExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Extender> CreateExtenderAsync(CreateExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateExtender, null, options, request);
             /// <summary>
             /// Get an extender
             ///
@@ -203,7 +188,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Extender GetExtender(GetExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Extender GetExtender(GetExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an extender
             ///
@@ -223,11 +208,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> GetExtenderAsync(GetExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Extender> GetExtenderAsync(GetExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an extender
             ///
@@ -236,11 +217,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> GetExtenderAsync(GetExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Extender> GetExtenderAsync(GetExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetExtender, null, options, request);
             /// <summary>
             /// List extenders
             ///
@@ -251,7 +228,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListExtendersResponse ListExtenders(ListExtendersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListExtenders(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListExtendersResponse ListExtenders(ListExtendersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListExtenders(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List extenders
             ///
@@ -271,11 +248,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListExtendersResponse> ListExtendersAsync(ListExtendersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListExtendersAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListExtendersResponse> ListExtendersAsync(ListExtendersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListExtendersAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List extenders
             ///
@@ -284,11 +257,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListExtendersResponse> ListExtendersAsync(ListExtendersRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListExtenders, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListExtendersResponse> ListExtendersAsync(ListExtendersRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListExtenders, null, options, request);
             /// <summary>
             /// Update an extender
             ///
@@ -299,7 +268,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Extender UpdateExtender(UpdateExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Extender UpdateExtender(UpdateExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an extender
             ///
@@ -319,11 +288,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> UpdateExtenderAsync(UpdateExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Extender> UpdateExtenderAsync(UpdateExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an extender
             ///
@@ -332,11 +297,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Extender> UpdateExtenderAsync(UpdateExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Extender> UpdateExtenderAsync(UpdateExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateExtender, null, options, request);
             /// <summary>
             /// Delete an extender
             ///
@@ -347,7 +308,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteExtender(DeleteExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteExtender(DeleteExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an extender
             ///
@@ -367,11 +328,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteExtenderAsync(DeleteExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteExtenderAsync(DeleteExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an extender
             ///
@@ -380,11 +337,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteExtenderAsync(DeleteExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteExtenderAsync(DeleteExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteExtender, null, options, request);
             /// <summary>
             /// Bind an extender
             ///
@@ -396,7 +349,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindExtenderResponse BindExtender(BindExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindExtenderResponse BindExtender(BindExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an extender
             ///
@@ -418,11 +371,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindExtenderResponse> BindExtenderAsync(BindExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindExtenderResponse> BindExtenderAsync(BindExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an extender
             ///
@@ -432,11 +381,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindExtenderResponse> BindExtenderAsync(BindExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindExtenderResponse> BindExtenderAsync(BindExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindExtender, null, options, request);
             /// <summary>
             /// Unbind an extender
             ///
@@ -448,7 +393,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindExtenderResponse UnbindExtender(UnbindExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindExtenderResponse UnbindExtender(UnbindExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an extender
             ///
@@ -470,11 +415,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindExtenderResponse> UnbindExtenderAsync(UnbindExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindExtenderResponse> UnbindExtenderAsync(UnbindExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an extender
             ///
@@ -484,11 +425,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindExtenderResponse> UnbindExtenderAsync(UnbindExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindExtenderResponse> UnbindExtenderAsync(UnbindExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindExtender, null, options, request);
             /// <summary>
             /// Update extender firmware
             ///
@@ -500,7 +437,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateExtenderFirmware(UpdateExtenderFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateExtenderFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateExtenderFirmware(UpdateExtenderFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateExtenderFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update extender firmware
             ///
@@ -522,11 +459,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateExtenderFirmwareAsync(UpdateExtenderFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateExtenderFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateExtenderFirmwareAsync(UpdateExtenderFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateExtenderFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update extender firmware
             ///
@@ -536,11 +469,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateExtenderFirmwareAsync(UpdateExtenderFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateExtenderFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateExtenderFirmwareAsync(UpdateExtenderFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateExtenderFirmware, null, options, request);
             /// <summary>
             /// Reset an extender
             ///
@@ -553,7 +482,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetExtender(ResetExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetExtender(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetExtender(ResetExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetExtender(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an extender
             ///
@@ -577,11 +506,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetExtenderAsync(ResetExtenderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetExtenderAsync(ResetExtenderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetExtenderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an extender
             ///
@@ -592,11 +517,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetExtenderAsync(ResetExtenderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetExtender, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetExtenderAsync(ResetExtenderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetExtender, null, options, request);
             /// <summary>
             /// Generate extender firmware download URI
             ///
@@ -609,7 +530,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate extender firmware download URI
             ///
@@ -633,11 +554,7 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate extender firmware download URI
             ///
@@ -648,18 +565,9 @@ namespace Saltoapis.Nebula.Extender.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override ExtenderServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

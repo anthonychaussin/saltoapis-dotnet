@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<DeleteAccessRightRequest> _parser = new(() => new DeleteAccessRightRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DeleteAccessRightRequest> Parser { get { return _parser; } }
+        public static MessageParser<DeleteAccessRightRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[9]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[9];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DeleteAccessRightRequest()
         {
@@ -40,27 +38,20 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the access point to be deleted. For example:
         /// `installations/surelock-homes-hq/access-rights/baskerville`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as DeleteAccessRightRequest);
         public bool Equals(DeleteAccessRightRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Name != other.Name) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Name != other.Name ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -77,11 +68,13 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -121,16 +114,20 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
@@ -165,8 +162,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

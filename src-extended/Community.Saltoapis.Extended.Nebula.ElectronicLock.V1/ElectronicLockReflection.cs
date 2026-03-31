@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
     /// <summary>Holder for reflection information generated from salto/nebula/electroniclock/v1/electronic_lock.proto</summary>
     public static partial class ElectronicLockReflection
     {
-
         /// <summary>File descriptor for salto/nebula/electroniclock/v1/electronic_lock.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -156,8 +154,6 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

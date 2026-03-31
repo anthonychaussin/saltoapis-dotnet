@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
         private static readonly MessageParser<GenerateFirmwareDownloadUriResponse> _parser = new(() => new GenerateFirmwareDownloadUriResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<GenerateFirmwareDownloadUriResponse> Parser { get { return _parser; } }
+        public static MessageParser<GenerateFirmwareDownloadUriResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicLockReflection.Descriptor.MessageTypes[26]; }
-        }
+            get => ElectronicLockReflection.Descriptor.MessageTypes[26];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public GenerateFirmwareDownloadUriResponse()
         {
@@ -41,24 +39,16 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
         /// <summary>Field number for the "download_uri" field.</summary>
         public const int DownloadUriFieldNumber = 1;
         private string downloadUri_ = "";
-
         /// <summary>
         /// The URI to download the firmware bundle. The URI will be valid for 15
         /// minutes.
         /// </summary>
         public string DownloadUri
         {
-            get { return downloadUri_; }
-            set
-            {
-                downloadUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => downloadUri_; set => downloadUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "digest" field.</summary>
         public const int DigestFieldNumber = 2;
         private string digest_ = "";
-
         /// <summary>
         /// Digest of the file to be download. This can be used to cache the file and
         /// avoid downloading it multiple times.
@@ -67,12 +57,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
         /// </summary>
         public string Digest
         {
-            get { return digest_; }
-            set
-            {
-                digest_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => digest_; set => digest_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as GenerateFirmwareDownloadUriResponse);
         public bool Equals(GenerateFirmwareDownloadUriResponse other)
@@ -98,15 +83,18 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (DownloadUri.Length != 0) {
+      if (DownloadUri.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(DownloadUri);
       }
-      if (Digest.Length != 0) {
+      if (Digest.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Digest);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -153,20 +141,25 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             DownloadUri = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Digest = input.ReadString();
             break;
           }
@@ -206,8 +199,6 @@ namespace Saltoapis.Nebula.ElectronicLock.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

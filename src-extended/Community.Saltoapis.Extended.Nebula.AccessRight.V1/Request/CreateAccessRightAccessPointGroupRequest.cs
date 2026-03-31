@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<CreateAccessRightAccessPointGroupRequest> _parser = new(() => new CreateAccessRightAccessPointGroupRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateAccessRightAccessPointGroupRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateAccessRightAccessPointGroupRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[18]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[18];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateAccessRightAccessPointGroupRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where the access right's access
         /// point group association is to be created. For example:
@@ -49,29 +46,17 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_right_access_point_group" field.</summary>
         public const int AccessRightAccessPointGroupFieldNumber = 2;
         private AccessRightAccessPointGroup accessRightAccessPointGroup_;
-
         /// <summary>
         /// The access right's access point group association resource to be created.
         /// Client must not set the `AccessRightAccessPointGroup.name` field.
         /// </summary>
         public AccessRightAccessPointGroup AccessRightAccessPointGroup
         {
-            get { return accessRightAccessPointGroup_; }
-            set
-            {
-                accessRightAccessPointGroup_ = value;
-            }
-        }
+            get => accessRightAccessPointGroup_; set => accessRightAccessPointGroup_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateAccessRightAccessPointGroupRequest);
         public bool Equals(CreateAccessRightAccessPointGroupRequest other)
@@ -97,15 +82,18 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (accessRightAccessPointGroup_ != null) {
+      if (accessRightAccessPointGroup_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessRightAccessPointGroup);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -156,21 +144,27 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
-            if (accessRightAccessPointGroup_ == null) {
+          case 18:
+          {
+            if (accessRightAccessPointGroup_ == null)
+            {
               AccessRightAccessPointGroup = new Saltoapis.Nebula.AccessRight.V1.AccessRightAccessPointGroup();
             }
             input.ReadMessage(AccessRightAccessPointGroup);
@@ -213,8 +207,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

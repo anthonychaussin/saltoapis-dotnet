@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly MessageParser<EthernetSettings> _parser = new(() => new EthernetSettings());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EthernetSettings> Parser { get { return _parser; } }
+        public static MessageParser<EthernetSettings> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EthernetSettings()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// <summary>Field number for the "ipv4_settings" field.</summary>
         public const int Ipv4SettingsFieldNumber = 1;
         private IPv4Settings ipv4Settings_;
-
         /// <summary>
         /// IPv4 (Internet Protocol version 4) settings of an ethernet network.
         /// </summary>
         public IPv4Settings Ipv4Settings
         {
-            get { return ipv4Settings_; }
-            set
-            {
-                ipv4Settings_ = value;
-            }
-        }
-
+            get => ipv4Settings_; set => ipv4Settings_ = value;}
         /// <summary>Field number for the "dns_settings" field.</summary>
         public const int DnsSettingsFieldNumber = 2;
         private DNSSettings dnsSettings_;
-
         /// <summary>
         /// DNS settings of an ethernet network.
         /// </summary>
         public DNSSettings DnsSettings
         {
-            get { return dnsSettings_; }
-            set
-            {
-                dnsSettings_ = value;
-            }
-        }
+            get => dnsSettings_; set => dnsSettings_ = value;}
 
         public override bool Equals(object other) => Equals(other as EthernetSettings);
         public bool Equals(EthernetSettings other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.Gateway.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (ipv4Settings_ != null) {
+      if (ipv4Settings_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Ipv4Settings);
       }
-      if (dnsSettings_ != null) {
+      if (dnsSettings_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(DnsSettings);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Saltoapis.Nebula.Gateway.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (ipv4Settings_ == null) {
+          case 10:
+          {
+            if (ipv4Settings_ == null)
+            {
               Ipv4Settings = new Saltoapis.Nebula.Gateway.V1.IPv4Settings();
             }
             input.ReadMessage(Ipv4Settings);
             break;
           }
-          case 18: {
-            if (dnsSettings_ == null) {
+          case 18:
+          {
+            if (dnsSettings_ == null)
+            {
               DnsSettings = new Saltoapis.Nebula.Gateway.V1.DNSSettings();
             }
             input.ReadMessage(DnsSettings);
@@ -218,8 +213,6 @@ namespace Saltoapis.Nebula.Gateway.V1
             }
         }
 #endif
-
     }
-
 
 }

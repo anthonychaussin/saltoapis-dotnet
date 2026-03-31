@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<CreatePaymentAuthorizationRequest> _parser = new(() => new CreatePaymentAuthorizationRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreatePaymentAuthorizationRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreatePaymentAuthorizationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[32]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[32];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreatePaymentAuthorizationRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// The resource name of the subscription for which the payment authorization is being
         /// requested to be created. For example:
@@ -49,29 +46,17 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "payment_authorization" field.</summary>
         public const int PaymentAuthorizationFieldNumber = 2;
         private PaymentAuthorization paymentAuthorization_;
-
         /// <summary>
         /// The payment authorization resource to be created. Client must not set the
         /// `PaymentAuthorization.name` field.
         /// </summary>
         public PaymentAuthorization PaymentAuthorization
         {
-            get { return paymentAuthorization_; }
-            set
-            {
-                paymentAuthorization_ = value;
-            }
-        }
+            get => paymentAuthorization_; set => paymentAuthorization_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreatePaymentAuthorizationRequest);
         public bool Equals(CreatePaymentAuthorizationRequest other)
@@ -97,15 +82,18 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (paymentAuthorization_ != null) {
+      if (paymentAuthorization_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(PaymentAuthorization);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -156,21 +144,27 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
-            if (paymentAuthorization_ == null) {
+          case 18:
+          {
+            if (paymentAuthorization_ == null)
+            {
               PaymentAuthorization = new Saltoapis.Nebula.Installation.V1.PaymentAuthorization();
             }
             input.ReadMessage(PaymentAuthorization);
@@ -213,8 +207,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

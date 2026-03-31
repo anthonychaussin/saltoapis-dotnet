@@ -14,5 +14,4 @@ namespace Saltoapis.Auth
         public string ErrorDescription
         { get; set; }
     }
-
 }

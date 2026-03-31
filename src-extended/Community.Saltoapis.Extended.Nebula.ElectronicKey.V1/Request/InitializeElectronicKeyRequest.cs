@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         private static readonly MessageParser<InitializeElectronicKeyRequest> _parser = new(() => new InitializeElectronicKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<InitializeElectronicKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<InitializeElectronicKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicKeyReflection.Descriptor.MessageTypes[11]; }
-        }
+            get => ElectronicKeyReflection.Descriptor.MessageTypes[11];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public InitializeElectronicKeyRequest()
         {
@@ -40,27 +38,20 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the electronic key to be initialized. For example:
         /// `installations/surelock-homes-hq/electronic-keys/main-key`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as InitializeElectronicKeyRequest);
         public bool Equals(InitializeElectronicKeyRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Name != other.Name) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Name != other.Name ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -77,11 +68,13 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -121,16 +114,20 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
@@ -165,8 +162,6 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

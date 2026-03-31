@@ -12,17 +12,15 @@ namespace Saltoapis.Nebula.Device.V1
         private UnknownFieldSet _unknownFields;
         private int _hasBits0;
 
-        public static MessageParser<Device> Parser { get { return _parser; } }
+        public static MessageParser<Device> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DeviceReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => DeviceReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Device()
         {
@@ -61,7 +59,6 @@ namespace Saltoapis.Nebula.Device.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the device. It must have the format of
         /// `installations/*/devices/*`. For example:
@@ -69,80 +66,44 @@ namespace Saltoapis.Nebula.Device.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the device.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 3;
         private static readonly string DeviceIdDefaultValue = "";
 
         private string deviceId_;
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, electronic locks and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_ ?? DeviceIdDefaultValue; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_ ?? DeviceIdDefaultValue; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return deviceId_ != null; }
-        }
-
+        public bool HasDeviceId => deviceId_ != null;
         /// <summary>Clears the value of the "device_id" field</summary>
-        public void ClearDeviceId()
-        {
-            deviceId_ = null;
-        }
-
+        public void ClearDeviceId() => deviceId_ = null;
         /// <summary>Field number for the "device_type" field.</summary>
         public const int DeviceTypeFieldNumber = 4;
         private Type.DeviceType deviceType_ = Type.DeviceType.Unspecified;
-
         /// <summary>
         /// Device type.
         /// </summary>
         public Type.DeviceType DeviceType
         {
-            get { return deviceType_; }
-            set
-            {
-                deviceType_ = value;
-            }
-        }
-
+            get => deviceType_; set => deviceType_ = value;}
         /// <summary>Field number for the "source" field.</summary>
         public const int SourceFieldNumber = 5;
         private string source_ = "";
-
         /// <summary>
         /// Resource name of the specific source device (gateway, extender, electronic_lock, encoder). For example:
         /// `installations/surelock-homes-hq/electronic-locks/dancing-men` or
@@ -152,16 +113,9 @@ namespace Saltoapis.Nebula.Device.V1
         /// </summary>
         public string Source
         {
-            get { return source_; }
-            set
-            {
-                source_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => source_; set => source_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "gateway" field.</summary>
         public const int GatewayFieldNumber = 6;
-
         /// <summary>
         /// Parent name, when the device has a gateway relative
         /// </summary>
@@ -174,22 +128,15 @@ namespace Saltoapis.Nebula.Device.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Gateway;
             }
         }
-
         /// <summary>Gets whether the "gateway" field is set</summary>
-        public bool HasGateway
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Gateway; }
-        }
-
+        public bool HasGateway => parentDeviceCase_ == ParentDeviceOneofCase.Gateway;
         /// <summary> Clears the value of the oneof if it's currently set to "gateway" </summary>
         public void ClearGateway()
         {
             if (HasGateway) ClearParentDevice();
         }
-
         /// <summary>Field number for the "extender" field.</summary>
         public const int ExtenderFieldNumber = 7;
-
         /// <summary>
         /// Parent name, when the device has a extender relative
         /// </summary>
@@ -202,23 +149,16 @@ namespace Saltoapis.Nebula.Device.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Extender;
             }
         }
-
         /// <summary>Gets whether the "extender" field is set</summary>
-        public bool HasExtender
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Extender; }
-        }
-
+        public bool HasExtender => parentDeviceCase_ == ParentDeviceOneofCase.Extender;
         /// <summary> Clears the value of the oneof if it's currently set to "extender" </summary>
         public void ClearExtender()
         {
             if (HasExtender) ClearParentDevice();
         }
-
         /// <summary>Field number for the "outdated" field.</summary>
         public const int OutdatedFieldNumber = 8;
         private bool outdated_;
-
         /// <summary>
         /// Indicates whether this device has pending updates or not. This
         /// could be because there was a pending configuration or a firmware update
@@ -226,19 +166,12 @@ namespace Saltoapis.Nebula.Device.V1
         /// </summary>
         public bool Outdated
         {
-            get { return outdated_; }
-            set
-            {
-                outdated_ = value;
-            }
-        }
-
+            get => outdated_; set => outdated_ = value;}
         /// <summary>Field number for the "connected" field.</summary>
         public const int ConnectedFieldNumber = 9;
         private static readonly bool ConnectedDefaultValue = false;
 
         private bool connected_;
-
         /// <summary>
         /// Indicates whether this device is connected or not. The connectivity
         /// detection policy could vary depending on the device. The property is
@@ -253,25 +186,18 @@ namespace Saltoapis.Nebula.Device.V1
                 connected_ = value;
             }
         }
-
         /// <summary>Gets whether the "connected" field is set</summary>
-        public bool HasConnected
-        {
-            get { return (_hasBits0 & 1) != 0; }
-        }
-
+        public bool HasConnected => (_hasBits0 & 1) != 0;
         /// <summary>Clears the value of the "connected" field</summary>
         public void ClearConnected()
         {
             _hasBits0 &= ~1;
         }
-
         /// <summary>Field number for the "low_battery" field.</summary>
         public const int LowBatteryFieldNumber = 10;
         private static readonly bool LowBatteryDefaultValue = false;
 
         private bool lowBattery_;
-
         /// <summary>
         /// Indicates whether the battery of this device is low, and needs
         /// replacing, or is normal and doesn't need replacing. If unset it means
@@ -287,39 +213,25 @@ namespace Saltoapis.Nebula.Device.V1
                 lowBattery_ = value;
             }
         }
-
         /// <summary>Gets whether the "low_battery" field is set</summary>
-        public bool HasLowBattery
-        {
-            get { return (_hasBits0 & 2) != 0; }
-        }
-
+        public bool HasLowBattery => (_hasBits0 & 2) != 0;
         /// <summary>Clears the value of the "low_battery" field</summary>
         public void ClearLowBattery()
         {
             _hasBits0 &= ~2;
         }
-
         /// <summary>Field number for the "last_event_time" field.</summary>
         public const int LastEventTimeFieldNumber = 11;
         private Google.Protobuf.WellKnownTypes.Timestamp lastEventTime_;
-
         /// <summary>
         /// The last time an event was received.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp LastEventTime
         {
-            get { return lastEventTime_; }
-            set
-            {
-                lastEventTime_ = value;
-            }
-        }
-
+            get => lastEventTime_; set => lastEventTime_ = value;}
         /// <summary>Field number for the "initialized" field.</summary>
         public const int InitializedFieldNumber = 12;
         private bool initialized_;
-
         /// <summary>
         /// Indicates whether this device has been initialized or not. To change
         /// the value of this field, you must call the device-type-specific
@@ -327,15 +239,9 @@ namespace Saltoapis.Nebula.Device.V1
         /// </summary>
         public bool Initialized
         {
-            get { return initialized_; }
-            set
-            {
-                initialized_ = value;
-            }
-        }
+            get => initialized_; set => initialized_ = value;}
 
         private object parentDevice_;
-
         /// <summary>Enum of possible cases for the "parent_device" oneof.</summary>
         public enum ParentDeviceOneofCase
         {
@@ -348,8 +254,7 @@ namespace Saltoapis.Nebula.Device.V1
 
         public ParentDeviceOneofCase ParentDeviceCase
         {
-            get { return parentDeviceCase_; }
-        }
+            get => parentDeviceCase_;}
 
         public void ClearParentDevice()
         {
@@ -362,13 +267,7 @@ namespace Saltoapis.Nebula.Device.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((DeviceId != other.DeviceId) || (DeviceType != other.DeviceType)) return false;
-            if ((Source != other.Source) || (Gateway != other.Gateway)) return false;
-            if ((Extender != other.Extender) || (Outdated != other.Outdated)) return false;
-            if ((Connected != other.Connected) || (LowBattery != other.LowBattery)) return false;
-            if ((!Equals(LastEventTime, other.LastEventTime)) || (Initialized != other.Initialized)) return false;
-            if (ParentDeviceCase != other.ParentDeviceCase) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (DeviceId != other.DeviceId) || (DeviceType != other.DeviceType) || (Source != other.Source) || (Gateway != other.Gateway) || (Extender != other.Extender) || (Outdated != other.Outdated) || (Connected != other.Connected) || (LowBattery != other.LowBattery) || (!Equals(LastEventTime, other.LastEventTime)) || (Initialized != other.Initialized) || ParentDeviceCase != other.ParentDeviceCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -398,55 +297,68 @@ namespace Saltoapis.Nebula.Device.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(26);
         output.WriteString(DeviceId);
       }
-      if (DeviceType != Saltoapis.Nebula.Type.DeviceType.Unspecified) {
+      if (DeviceType != Saltoapis.Nebula.Type.DeviceType.Unspecified)
+      {
         output.WriteRawTag(32);
         output.WriteEnum((int) DeviceType);
       }
-      if (Source.Length != 0) {
+      if (Source.Length != 0)
+      {
         output.WriteRawTag(42);
         output.WriteString(Source);
       }
-      if (HasGateway) {
+      if (HasGateway)
+      {
         output.WriteRawTag(50);
         output.WriteString(Gateway);
       }
-      if (HasExtender) {
+      if (HasExtender)
+      {
         output.WriteRawTag(58);
         output.WriteString(Extender);
       }
-      if (Outdated != false) {
+      if (Outdated != false)
+      {
         output.WriteRawTag(64);
         output.WriteBool(Outdated);
       }
-      if (HasConnected) {
+      if (HasConnected)
+      {
         output.WriteRawTag(72);
         output.WriteBool(Connected);
       }
-      if (HasLowBattery) {
+      if (HasLowBattery)
+      {
         output.WriteRawTag(80);
         output.WriteBool(LowBattery);
       }
-      if (lastEventTime_ != null) {
+      if (lastEventTime_ != null)
+      {
         output.WriteRawTag(90);
         output.WriteMessage(LastEventTime);
       }
-      if (Initialized != false) {
+      if (Initialized != false)
+      {
         output.WriteRawTag(96);
         output.WriteBool(Initialized);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -574,63 +486,79 @@ namespace Saltoapis.Nebula.Device.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DeviceId = input.ReadString();
             break;
           }
-          case 32: {
+          case 32:
+          {
             DeviceType = (Saltoapis.Nebula.Type.DeviceType) input.ReadEnum();
             break;
           }
-          case 42: {
+          case 42:
+          {
             Source = input.ReadString();
             break;
           }
-          case 50: {
+          case 50:
+          {
             Gateway = input.ReadString();
             break;
           }
-          case 58: {
+          case 58:
+          {
             Extender = input.ReadString();
             break;
           }
-          case 64: {
+          case 64:
+          {
             Outdated = input.ReadBool();
             break;
           }
-          case 72: {
+          case 72:
+          {
             Connected = input.ReadBool();
             break;
           }
-          case 80: {
+          case 80:
+          {
             LowBattery = input.ReadBool();
             break;
           }
-          case 90: {
-            if (lastEventTime_ == null) {
+          case 90:
+          {
+            if (lastEventTime_ == null)
+            {
               LastEventTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(LastEventTime);
             break;
           }
-          case 96: {
+          case 96:
+          {
             Initialized = input.ReadBool();
             break;
           }
@@ -721,6 +649,5 @@ namespace Saltoapis.Nebula.Device.V1
             }
         }
 #endif
-
     }
 }

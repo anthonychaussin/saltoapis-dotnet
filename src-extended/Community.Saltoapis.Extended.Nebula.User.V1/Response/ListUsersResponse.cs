@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly MessageParser<ListUsersResponse> _parser = new(() => new ListUsersResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListUsersResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListUsersResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[12]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[12];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListUsersResponse()
         {
@@ -44,7 +42,6 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly FieldCodec<User> _repeated_users_codec
             = FieldCodec.ForMessage(10, User.Parser);
         private readonly RepeatedField<User> users_ = [];
-
         /// <summary>
         /// The field name should match the noun `users` in the method name. There
         /// will be a maximum number of items returned based on the `page_size` field
@@ -52,30 +49,20 @@ namespace Saltoapis.Nebula.User.V1.Response
         /// </summary>
         public RepeatedField<User> Users
         {
-            get { return users_; }
-        }
-
+            get => users_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "total_size" field.</summary>
         public const int TotalSizeFieldNumber = 3;
         private int totalSize_;
-
         /// <summary>
         /// The total number of users in all pages, irrespective of any pagination.
         /// This is an estimated number based on the requested filter, and it may change in
@@ -83,20 +70,14 @@ namespace Saltoapis.Nebula.User.V1.Response
         /// </summary>
         public int TotalSize
         {
-            get { return totalSize_; }
-            set
-            {
-                totalSize_ = value;
-            }
-        }
+            get => totalSize_; set => totalSize_ = value;}
 
         public override bool Equals(object other) => Equals(other as ListUsersResponse);
         public bool Equals(ListUsersResponse other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!users_.Equals(other.users_)) || (NextPageToken != other.NextPageToken)) return false;
-            if (TotalSize != other.TotalSize) return false;
+            if ((!users_.Equals(other.users_)) || (NextPageToken != other.NextPageToken) || TotalSize != other.TotalSize) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -117,15 +98,18 @@ namespace Saltoapis.Nebula.User.V1.Response
             output.WriteRawMessage(this);
 #else
       users_.WriteTo(output, _repeated_users_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (TotalSize != 0) {
+      if (TotalSize != 0)
+      {
         output.WriteRawTag(24);
         output.WriteInt32(TotalSize);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -175,24 +159,30 @@ namespace Saltoapis.Nebula.User.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             users_.AddEntriesFrom(input, _repeated_users_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
-          case 24: {
+          case 24:
+          {
             TotalSize = input.ReadInt32();
             break;
           }
@@ -237,8 +227,6 @@ namespace Saltoapis.Nebula.User.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

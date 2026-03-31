@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly MessageParser<ListUserAccessRightsResponse> _parser = new(() => new ListUserAccessRightsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListUserAccessRightsResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListUserAccessRightsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[22]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[22];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListUserAccessRightsResponse()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly FieldCodec<UserAccessRight> _repeated_userAccessRights_codec
             = FieldCodec.ForMessage(10, UserAccessRight.Parser);
         private readonly RepeatedField<UserAccessRight> userAccessRights_ = [];
-
         /// <summary>
         /// The field name should match the noun `user_access_rights` in the method
         /// name. There will be a maximum number of items returned based on the
@@ -51,25 +48,17 @@ namespace Saltoapis.Nebula.User.V1.Response
         /// </summary>
         public RepeatedField<UserAccessRight> UserAccessRights
         {
-            get { return userAccessRights_; }
-        }
-
+            get => userAccessRights_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListUserAccessRightsResponse);
         public bool Equals(ListUserAccessRightsResponse other)
@@ -96,11 +85,13 @@ namespace Saltoapis.Nebula.User.V1.Response
             output.WriteRawMessage(this);
 #else
       userAccessRights_.WriteTo(output, _repeated_userAccessRights_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -143,20 +134,25 @@ namespace Saltoapis.Nebula.User.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             userAccessRights_.AddEntriesFrom(input, _repeated_userAccessRights_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -196,8 +192,6 @@ namespace Saltoapis.Nebula.User.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

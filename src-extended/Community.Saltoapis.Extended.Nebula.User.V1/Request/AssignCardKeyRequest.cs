@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         private static readonly MessageParser<AssignCardKeyRequest> _parser = new(() => new AssignCardKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AssignCardKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<AssignCardKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[25]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[25];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AssignCardKeyRequest()
         {
@@ -41,36 +39,23 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The name of the requested user's card key to be assigned. For example:
         /// `installations/surelock-homes-hq/users/john-watson/card-key`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "uid" field.</summary>
         public const int UidFieldNumber = 2;
         private string uid_ = "";
-
         /// <summary>
         /// Unique identifier of the physical card. Length dependent of technology.
         /// Max length for ISO14443-3 is 10 bytes.
         /// </summary>
         public string Uid
         {
-            get { return uid_; }
-            set
-            {
-                uid_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => uid_; set => uid_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as AssignCardKeyRequest);
         public bool Equals(AssignCardKeyRequest other)
@@ -96,15 +81,18 @@ namespace Saltoapis.Nebula.User.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Uid.Length != 0) {
+      if (Uid.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Uid);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -151,20 +139,25 @@ namespace Saltoapis.Nebula.User.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Uid = input.ReadString();
             break;
           }
@@ -204,8 +197,6 @@ namespace Saltoapis.Nebula.User.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

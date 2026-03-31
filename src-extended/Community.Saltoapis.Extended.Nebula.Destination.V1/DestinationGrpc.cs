@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Destination.V1.Request;
+using Saltoapis.Nebula.Destination.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Destination.V1.Response;
 
@@ -74,13 +74,10 @@ namespace Saltoapis.Nebula.Destination.V1
             "DeleteDestination",
             __Marshaller_salto_nebula_destination_v1_DeleteDestinationRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return DestinationReflection.Descriptor.Services[0]; }
-        }
-
+            get => DestinationReflection.Descriptor.Services[0];}
         /// <summary>Client for DestinationService</summary>
         public partial class DestinationServiceClient : ClientBase<DestinationServiceClient>
         {
@@ -89,24 +86,20 @@ namespace Saltoapis.Nebula.Destination.V1
             public DestinationServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for DestinationService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public DestinationServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected DestinationServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected DestinationServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a destination
             ///
@@ -117,7 +110,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Destination CreateDestination(CreateDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateDestination(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Destination CreateDestination(CreateDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateDestination(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a destination
             ///
@@ -137,11 +130,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> CreateDestinationAsync(CreateDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Destination> CreateDestinationAsync(CreateDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a destination
             ///
@@ -150,11 +139,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> CreateDestinationAsync(CreateDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Destination> CreateDestinationAsync(CreateDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateDestination, null, options, request);
             /// <summary>
             /// Get an existing destination
             ///
@@ -165,7 +150,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Destination GetDestination(GetDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetDestination(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Destination GetDestination(GetDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetDestination(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing destination
             ///
@@ -185,11 +170,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> GetDestinationAsync(GetDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Destination> GetDestinationAsync(GetDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing destination
             ///
@@ -198,11 +179,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> GetDestinationAsync(GetDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Destination> GetDestinationAsync(GetDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetDestination, null, options, request);
             /// <summary>
             /// Get a batch of destinations
             ///
@@ -213,7 +190,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchGetDestinationsResponse BatchGetDestinations(BatchGetDestinationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchGetDestinations(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchGetDestinationsResponse BatchGetDestinations(BatchGetDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchGetDestinations(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a batch of destinations
             ///
@@ -233,11 +210,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchGetDestinationsResponse> BatchGetDestinationsAsync(BatchGetDestinationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchGetDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchGetDestinationsResponse> BatchGetDestinationsAsync(BatchGetDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchGetDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a batch of destinations
             ///
@@ -246,11 +219,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchGetDestinationsResponse> BatchGetDestinationsAsync(BatchGetDestinationsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchGetDestinations, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchGetDestinationsResponse> BatchGetDestinationsAsync(BatchGetDestinationsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchGetDestinations, null, options, request);
             /// <summary>
             /// Update an existing destination
             ///
@@ -261,7 +230,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Destination UpdateDestination(UpdateDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateDestination(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Destination UpdateDestination(UpdateDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateDestination(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing destination
             ///
@@ -281,11 +250,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> UpdateDestinationAsync(UpdateDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Destination> UpdateDestinationAsync(UpdateDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing destination
             ///
@@ -294,11 +259,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Destination> UpdateDestinationAsync(UpdateDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Destination> UpdateDestinationAsync(UpdateDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateDestination, null, options, request);
             /// <summary>
             /// List destinations
             ///
@@ -309,7 +270,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListDestinationsResponse ListDestinations(ListDestinationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListDestinations(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListDestinationsResponse ListDestinations(ListDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListDestinations(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List destinations
             ///
@@ -329,11 +290,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDestinationsResponse> ListDestinationsAsync(ListDestinationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListDestinationsResponse> ListDestinationsAsync(ListDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List destinations
             ///
@@ -342,11 +299,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDestinationsResponse> ListDestinationsAsync(ListDestinationsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListDestinations, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListDestinationsResponse> ListDestinationsAsync(ListDestinationsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListDestinations, null, options, request);
             /// <summary>
             /// Delete a destination
             ///
@@ -357,7 +310,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteDestination(DeleteDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteDestination(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteDestination(DeleteDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteDestination(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a destination
             ///
@@ -377,11 +330,7 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteDestinationAsync(DeleteDestinationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteDestinationAsync(DeleteDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a destination
             ///
@@ -390,18 +339,9 @@ namespace Saltoapis.Nebula.Destination.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteDestinationAsync(DeleteDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteDestinationAsync(DeleteDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteDestination, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override DestinationServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

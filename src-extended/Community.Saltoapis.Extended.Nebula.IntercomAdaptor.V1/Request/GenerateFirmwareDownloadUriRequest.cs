@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         private static readonly MessageParser<GenerateFirmwareDownloadUriRequest> _parser = new(() => new GenerateFirmwareDownloadUriRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<GenerateFirmwareDownloadUriRequest> Parser { get { return _parser; } }
+        public static MessageParser<GenerateFirmwareDownloadUriRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.MessageTypes[26]; }
-        }
+            get => IntercomAdaptorReflection.Descriptor.MessageTypes[26];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public GenerateFirmwareDownloadUriRequest()
         {
@@ -40,27 +38,20 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         /// <summary>Field number for the "intercom_adaptor" field.</summary>
         public const int IntercomAdaptorFieldNumber = 1;
         private string intercomAdaptor_ = "";
-
         /// <summary>
         /// The resource name of the intercom adaptor to get the firmware download URI.
         /// For example: `installations/surelock-homes-hq/intercom-adaptors/baker-street-entrance`.
         /// </summary>
         public string IntercomAdaptor
         {
-            get { return intercomAdaptor_; }
-            set
-            {
-                intercomAdaptor_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => intercomAdaptor_; set => intercomAdaptor_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as GenerateFirmwareDownloadUriRequest);
         public bool Equals(GenerateFirmwareDownloadUriRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (IntercomAdaptor != other.IntercomAdaptor) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return IntercomAdaptor != other.IntercomAdaptor ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -77,11 +68,13 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (IntercomAdaptor.Length != 0) {
+      if (IntercomAdaptor.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(IntercomAdaptor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -121,16 +114,20 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             IntercomAdaptor = input.ReadString();
             break;
           }
@@ -165,8 +162,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

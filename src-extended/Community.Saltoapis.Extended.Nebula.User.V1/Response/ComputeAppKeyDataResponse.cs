@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<ComputeAppKeyDataResponse> _parser = new(() => new ComputeAppKeyDataResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ComputeAppKeyDataResponse> Parser { get { return _parser; } }
+        public static MessageParser<ComputeAppKeyDataResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[33]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[33];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ComputeAppKeyDataResponse()
         {
@@ -40,26 +38,19 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "data" field.</summary>
         public const int DataFieldNumber = 1;
         private ByteString data_ = ByteString.Empty;
-
         /// <summary>
         /// Computed data of the requested app key.
         /// </summary>
         public ByteString Data
         {
-            get { return data_; }
-            set
-            {
-                data_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => data_; set => data_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ComputeAppKeyDataResponse);
         public bool Equals(ComputeAppKeyDataResponse other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Data != other.Data) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Data != other.Data ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -76,11 +67,13 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Data.Length != 0) {
+      if (Data.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteBytes(Data);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -120,16 +113,20 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Data = input.ReadBytes();
             break;
           }
@@ -164,8 +161,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }

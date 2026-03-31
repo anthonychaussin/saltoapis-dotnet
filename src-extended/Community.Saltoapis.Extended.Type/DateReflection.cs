@@ -1,7 +1,6 @@
 namespace Saltoapis.Type
 {
     /// <summary>Holder for reflection information generated from salto/type/date.proto</summary>
-
     /// <summary>
     /// Represents a whole calendar date, for example: date of birth. The time of day
     /// and time zone are either specified elsewhere or are not significant. The date
@@ -17,8 +16,7 @@ namespace Saltoapis.Type
         /// <summary>File descriptor for salto/type/date.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 

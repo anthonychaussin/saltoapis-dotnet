@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Booking.V1.Request
         private static readonly MessageParser<CreateBookingRequest> _parser = new(() => new CreateBookingRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateBookingRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateBookingRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return BookingReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => BookingReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateBookingRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.Booking.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource under which the booking is created. For
         /// example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "booking_id" field.</summary>
         public const int BookingIdFieldNumber = 2;
         private static readonly string BookingIdDefaultValue = "";
 
         private string bookingId_;
-
         /// <summary>
         /// The booking ID to use for this booking. In case it's empty the
         /// server will autogenerate a unique identifier.
         /// </summary>
         public string BookingId
         {
-            get { return bookingId_ ?? BookingIdDefaultValue; }
-            set
-            {
-                bookingId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => bookingId_ ?? BookingIdDefaultValue; set => bookingId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "booking_id" field is set</summary>
-        public bool HasBookingId
-        {
-            get { return bookingId_ != null; }
-        }
-
+        public bool HasBookingId => bookingId_ != null;
         /// <summary>Clears the value of the "booking_id" field</summary>
-        public void ClearBookingId()
-        {
-            bookingId_ = null;
-        }
-
+        public void ClearBookingId() => bookingId_ = null;
         /// <summary>Field number for the "booking" field.</summary>
         public const int BookingFieldNumber = 3;
         private Booking booking_;
-
         /// <summary>
         /// The booking resource to be created. Client must not set the
         /// `Booking.name` field.
         /// </summary>
         public Booking Booking
         {
-            get { return booking_; }
-            set
-            {
-                booking_ = value;
-            }
-        }
+            get => booking_; set => booking_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateBookingRequest);
         public bool Equals(CreateBookingRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (BookingId != other.BookingId)) return false;
-            if (!Equals(Booking, other.Booking)) return false;
+            if ((Parent != other.Parent) || (BookingId != other.BookingId) || !Equals(Booking, other.Booking)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.Booking.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasBookingId) {
+      if (HasBookingId)
+      {
         output.WriteRawTag(18);
         output.WriteString(BookingId);
       }
-      if (booking_ != null) {
+      if (booking_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Booking);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.Booking.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             BookingId = input.ReadString();
             break;
           }
-          case 26: {
-            if (booking_ == null) {
+          case 26:
+          {
+            if (booking_ == null)
+            {
               Booking = new Saltoapis.Nebula.Booking.V1.Booking();
             }
             input.ReadMessage(Booking);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.Booking.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly MessageParser<DNSSettings> _parser = new(() => new DNSSettings());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DNSSettings> Parser { get { return _parser; } }
+        public static MessageParser<DNSSettings> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DNSSettings()
         {
@@ -42,7 +40,6 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly FieldCodec<string> _repeated_dnsAddresses_codec
             = FieldCodec.ForString(10);
         private readonly RepeatedField<string> dnsAddresses_ = [];
-
         /// <summary>
         /// DNS server IP addresses. The order of the elements in this list will mark
         /// priorities. For example: the first element will be primary DNS and the
@@ -52,8 +49,7 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public RepeatedField<string> DnsAddresses
         {
-            get { return dnsAddresses_; }
-        }
+            get => dnsAddresses_;}
 
         public override bool Equals(object other) => Equals(other as DNSSettings);
         public bool Equals(DNSSettings other)
@@ -79,7 +75,8 @@ namespace Saltoapis.Nebula.Gateway.V1
             output.WriteRawMessage(this);
 #else
       dnsAddresses_.WriteTo(output, _repeated_dnsAddresses_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -115,16 +112,20 @@ namespace Saltoapis.Nebula.Gateway.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             dnsAddresses_.AddEntriesFrom(input, _repeated_dnsAddresses_codec);
             break;
           }
@@ -159,8 +160,6 @@ namespace Saltoapis.Nebula.Gateway.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         private static readonly MessageParser<CreateIntercomAdaptorRequest> _parser = new(() => new CreateIntercomAdaptorRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateIntercomAdaptorRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateIntercomAdaptorRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.MessageTypes[2]; }
-        }
+            get => IntercomAdaptorReflection.Descriptor.MessageTypes[2];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateIntercomAdaptorRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the intercom adaptor. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "intercom_adaptor_id" field.</summary>
         public const int IntercomAdaptorIdFieldNumber = 2;
         private static readonly string IntercomAdaptorIdDefaultValue = "";
 
         private string intercomAdaptorId_;
-
         /// <summary>
         /// The intercom adaptor ID to use for this intercom adaptor. In case it's empty the
         /// server will autogenerate a unique identifier.
         /// </summary>
         public string IntercomAdaptorId
         {
-            get { return intercomAdaptorId_ ?? IntercomAdaptorIdDefaultValue; }
-            set
-            {
-                intercomAdaptorId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => intercomAdaptorId_ ?? IntercomAdaptorIdDefaultValue; set => intercomAdaptorId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "intercom_adaptor_id" field is set</summary>
-        public bool HasIntercomAdaptorId
-        {
-            get { return intercomAdaptorId_ != null; }
-        }
-
+        public bool HasIntercomAdaptorId => intercomAdaptorId_ != null;
         /// <summary>Clears the value of the "intercom_adaptor_id" field</summary>
-        public void ClearIntercomAdaptorId()
-        {
-            intercomAdaptorId_ = null;
-        }
-
+        public void ClearIntercomAdaptorId() => intercomAdaptorId_ = null;
         /// <summary>Field number for the "intercom_adaptor" field.</summary>
         public const int IntercomAdaptorFieldNumber = 3;
         private IntercomAdaptor intercomAdaptor_;
-
         /// <summary>
         /// The intercom adaptor resource to be created. Client must not set the
         /// `IntercomAdaptor.name` field.
         /// </summary>
         public IntercomAdaptor IntercomAdaptor
         {
-            get { return intercomAdaptor_; }
-            set
-            {
-                intercomAdaptor_ = value;
-            }
-        }
+            get => intercomAdaptor_; set => intercomAdaptor_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateIntercomAdaptorRequest);
         public bool Equals(CreateIntercomAdaptorRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (IntercomAdaptorId != other.IntercomAdaptorId)) return false;
-            if (!Equals(IntercomAdaptor, other.IntercomAdaptor)) return false;
+            if ((Parent != other.Parent) || (IntercomAdaptorId != other.IntercomAdaptorId) || !Equals(IntercomAdaptor, other.IntercomAdaptor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasIntercomAdaptorId) {
+      if (HasIntercomAdaptorId)
+      {
         output.WriteRawTag(18);
         output.WriteString(IntercomAdaptorId);
       }
-      if (intercomAdaptor_ != null) {
+      if (intercomAdaptor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(IntercomAdaptor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             IntercomAdaptorId = input.ReadString();
             break;
           }
-          case 26: {
-            if (intercomAdaptor_ == null) {
+          case 26:
+          {
+            if (intercomAdaptor_ == null)
+            {
               IntercomAdaptor = new Saltoapis.Nebula.IntercomAdaptor.V1.IntercomAdaptor();
             }
             input.ReadMessage(IntercomAdaptor);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

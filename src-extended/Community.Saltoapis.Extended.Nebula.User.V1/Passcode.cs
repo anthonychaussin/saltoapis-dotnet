@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<Passcode> _parser = new(() => new Passcode());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Passcode> Parser { get { return _parser; } }
+        public static MessageParser<Passcode> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Passcode()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the user's passcode. It must have the
         /// format of `installations/*/users/*/passcode`. For example:
@@ -49,17 +46,10 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "state" field.</summary>
         public const int StateFieldNumber = 2;
         private Types.State state_ = Types.State.Unspecified;
-
         /// <summary>
         /// Indicates whether this passcode has been assigned, not assigned or is
         /// active and ready for use. This field cannot be modified using a standard
@@ -72,12 +62,7 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public Types.State State
         {
-            get { return state_; }
-            set
-            {
-                state_ = value;
-            }
-        }
+            get => state_; set => state_ = value;}
 
         public override bool Equals(object other) => Equals(other as Passcode);
         public bool Equals(Passcode other)
@@ -103,15 +88,18 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (State != Saltoapis.Nebula.User.V1.Passcode.Types.State.Unspecified) {
+      if (State != Saltoapis.Nebula.User.V1.Passcode.Types.State.Unspecified)
+      {
         output.WriteRawTag(16);
         output.WriteEnum((int) State);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -158,20 +146,25 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 16:
+          {
             State = (Saltoapis.Nebula.User.V1.Passcode.Types.State) input.ReadEnum();
             break;
           }
@@ -211,7 +204,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Passcode message type.</summary>
         public static partial class Types
         {
@@ -234,10 +226,7 @@ namespace Saltoapis.Nebula.User.V1
                 /// </summary>
                 [OriginalName("ACTIVE")] Active = 2,
             }
-
         }
-
     }
-
 
 }

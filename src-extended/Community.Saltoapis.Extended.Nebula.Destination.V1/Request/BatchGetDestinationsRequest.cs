@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Destination.V1.Request
         private static readonly MessageParser<BatchGetDestinationsRequest> _parser = new(() => new BatchGetDestinationsRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchGetDestinationsRequest> Parser { get { return _parser; } }
+        public static MessageParser<BatchGetDestinationsRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DestinationReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => DestinationReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchGetDestinationsRequest()
         {
@@ -41,33 +39,24 @@ namespace Saltoapis.Nebula.Destination.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent of the destinations to be retreived.
         /// For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "names" field.</summary>
         public const int NamesFieldNumber = 2;
         private static readonly FieldCodec<string> _repeated_names_codec
             = FieldCodec.ForString(18);
         private readonly RepeatedField<string> names_ = [];
-
         /// <summary>
         /// The names of the destinations requested.
         /// </summary>
         public RepeatedField<string> Names
         {
-            get { return names_; }
-        }
+            get => names_;}
 
         public override bool Equals(object other) => Equals(other as BatchGetDestinationsRequest);
         public bool Equals(BatchGetDestinationsRequest other)
@@ -93,12 +82,14 @@ namespace Saltoapis.Nebula.Destination.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
       names_.WriteTo(output, _repeated_names_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -141,20 +132,25 @@ namespace Saltoapis.Nebula.Destination.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             names_.AddEntriesFrom(input, _repeated_names_codec);
             break;
           }
@@ -194,8 +190,6 @@ namespace Saltoapis.Nebula.Destination.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

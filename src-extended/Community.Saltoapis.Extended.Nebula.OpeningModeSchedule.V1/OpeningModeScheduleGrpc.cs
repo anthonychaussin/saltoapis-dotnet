@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.OpeningModeSchedule.V1.Request;
+using Saltoapis.Nebula.OpeningModeSchedule.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.OpeningModeSchedule.V1.Response;
 
@@ -62,13 +62,10 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             "DeleteOpeningModeSchedule",
             __Marshaller_salto_nebula_openingmodeschedule_v1_DeleteOpeningModeScheduleRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return OpeningModeScheduleReflection.Descriptor.Services[0]; }
-        }
-
+            get => OpeningModeScheduleReflection.Descriptor.Services[0];}
         /// <summary>Client for OpeningModeScheduleService</summary>
         public partial class OpeningModeScheduleServiceClient : ClientBase<OpeningModeScheduleServiceClient>
         {
@@ -77,24 +74,20 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             public OpeningModeScheduleServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for OpeningModeScheduleService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public OpeningModeScheduleServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected OpeningModeScheduleServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected OpeningModeScheduleServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an opening mode schedule
             ///
@@ -105,7 +98,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual OpeningModeSchedule CreateOpeningModeSchedule(CreateOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual OpeningModeSchedule CreateOpeningModeSchedule(CreateOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an opening mode schedule
             ///
@@ -125,11 +118,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> CreateOpeningModeScheduleAsync(CreateOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> CreateOpeningModeScheduleAsync(CreateOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an opening mode schedule
             ///
@@ -138,11 +127,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> CreateOpeningModeScheduleAsync(CreateOpeningModeScheduleRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateOpeningModeSchedule, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> CreateOpeningModeScheduleAsync(CreateOpeningModeScheduleRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateOpeningModeSchedule, null, options, request);
             /// <summary>
             /// Get an opening mode schedule
             ///
@@ -153,7 +138,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual OpeningModeSchedule GetOpeningModeSchedule(GetOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual OpeningModeSchedule GetOpeningModeSchedule(GetOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an opening mode schedule
             ///
@@ -173,11 +158,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> GetOpeningModeScheduleAsync(GetOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> GetOpeningModeScheduleAsync(GetOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an opening mode schedule
             ///
@@ -186,11 +167,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> GetOpeningModeScheduleAsync(GetOpeningModeScheduleRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetOpeningModeSchedule, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> GetOpeningModeScheduleAsync(GetOpeningModeScheduleRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetOpeningModeSchedule, null, options, request);
             /// <summary>
             /// List opening mode schedules
             ///
@@ -202,7 +179,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListOpeningModeSchedulesResponse ListOpeningModeSchedules(ListOpeningModeSchedulesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListOpeningModeSchedules(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListOpeningModeSchedulesResponse ListOpeningModeSchedules(ListOpeningModeSchedulesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListOpeningModeSchedules(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List opening mode schedules
             ///
@@ -224,11 +201,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListOpeningModeSchedulesResponse> ListOpeningModeSchedulesAsync(ListOpeningModeSchedulesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListOpeningModeSchedulesAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListOpeningModeSchedulesResponse> ListOpeningModeSchedulesAsync(ListOpeningModeSchedulesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListOpeningModeSchedulesAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List opening mode schedules
             ///
@@ -238,11 +211,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListOpeningModeSchedulesResponse> ListOpeningModeSchedulesAsync(ListOpeningModeSchedulesRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListOpeningModeSchedules, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListOpeningModeSchedulesResponse> ListOpeningModeSchedulesAsync(ListOpeningModeSchedulesRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListOpeningModeSchedules, null, options, request);
             /// <summary>
             /// Update an opening mode schedule
             ///
@@ -253,7 +222,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual OpeningModeSchedule UpdateOpeningModeSchedule(UpdateOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual OpeningModeSchedule UpdateOpeningModeSchedule(UpdateOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an opening mode schedule
             ///
@@ -273,11 +242,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> UpdateOpeningModeScheduleAsync(UpdateOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> UpdateOpeningModeScheduleAsync(UpdateOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an opening mode schedule
             ///
@@ -286,11 +251,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<OpeningModeSchedule> UpdateOpeningModeScheduleAsync(UpdateOpeningModeScheduleRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateOpeningModeSchedule, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<OpeningModeSchedule> UpdateOpeningModeScheduleAsync(UpdateOpeningModeScheduleRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateOpeningModeSchedule, null, options, request);
             /// <summary>
             /// Delete an opening mode schedule
             ///
@@ -301,7 +262,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOpeningModeSchedule(DeleteOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOpeningModeSchedule(DeleteOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteOpeningModeSchedule(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an opening mode schedule
             ///
@@ -321,11 +282,7 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOpeningModeScheduleAsync(DeleteOpeningModeScheduleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOpeningModeScheduleAsync(DeleteOpeningModeScheduleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteOpeningModeScheduleAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an opening mode schedule
             ///
@@ -334,18 +291,9 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOpeningModeScheduleAsync(DeleteOpeningModeScheduleRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteOpeningModeSchedule, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOpeningModeScheduleAsync(DeleteOpeningModeScheduleRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteOpeningModeSchedule, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override OpeningModeScheduleServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Extender.V1.Request
         private static readonly MessageParser<UpdateExtenderFirmwareRequest> _parser = new(() => new UpdateExtenderFirmwareRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateExtenderFirmwareRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateExtenderFirmwareRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ExtenderReflection.Descriptor.MessageTypes[11]; }
-        }
+            get => ExtenderReflection.Descriptor.MessageTypes[11];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateExtenderFirmwareRequest()
         {
@@ -40,7 +38,6 @@ namespace Saltoapis.Nebula.Extender.V1.Request
         /// <summary>Field number for the "extender" field.</summary>
         public const int ExtenderFieldNumber = 1;
         private string extender_ = "";
-
         /// <summary>
         /// The resource name of the extender whose firmware will be updated, for
         /// example:
@@ -48,20 +45,14 @@ namespace Saltoapis.Nebula.Extender.V1.Request
         /// </summary>
         public string Extender
         {
-            get { return extender_; }
-            set
-            {
-                extender_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => extender_; set => extender_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as UpdateExtenderFirmwareRequest);
         public bool Equals(UpdateExtenderFirmwareRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Extender != other.Extender) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Extender != other.Extender ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -78,11 +69,13 @@ namespace Saltoapis.Nebula.Extender.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Extender.Length != 0) {
+      if (Extender.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Extender);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -122,16 +115,20 @@ namespace Saltoapis.Nebula.Extender.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Extender = input.ReadString();
             break;
           }
@@ -166,8 +163,6 @@ namespace Saltoapis.Nebula.Extender.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

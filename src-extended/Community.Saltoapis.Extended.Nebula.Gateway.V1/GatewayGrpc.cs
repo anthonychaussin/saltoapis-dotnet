@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Gateway.V1.Request;
+using Saltoapis.Nebula.Gateway.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Gateway.V1.Response;
 
@@ -141,13 +141,10 @@ namespace Saltoapis.Nebula.Gateway.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_gateway_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.Services[0]; }
-        }
-
+            get => GatewayReflection.Descriptor.Services[0];}
         /// <summary>Client for GatewayService</summary>
         public partial class GatewayServiceClient : ClientBase<GatewayServiceClient>
         {
@@ -156,24 +153,20 @@ namespace Saltoapis.Nebula.Gateway.V1
             public GatewayServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for GatewayService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public GatewayServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected GatewayServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected GatewayServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a gateway
             ///
@@ -184,7 +177,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Gateway CreateGateway(CreateGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Gateway CreateGateway(CreateGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a gateway
             ///
@@ -204,11 +197,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> CreateGatewayAsync(CreateGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Gateway> CreateGatewayAsync(CreateGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a gateway
             ///
@@ -217,11 +206,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> CreateGatewayAsync(CreateGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Gateway> CreateGatewayAsync(CreateGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateGateway, null, options, request);
             /// <summary>
             /// Get a gateway
             ///
@@ -232,7 +217,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Gateway GetGateway(GetGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Gateway GetGateway(GetGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a gateway
             ///
@@ -252,11 +237,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> GetGatewayAsync(GetGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Gateway> GetGatewayAsync(GetGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a gateway
             ///
@@ -265,11 +246,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> GetGatewayAsync(GetGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Gateway> GetGatewayAsync(GetGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetGateway, null, options, request);
             /// <summary>
             /// List gateways
             ///
@@ -280,7 +257,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListGatewaysResponse ListGateways(ListGatewaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListGateways(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListGatewaysResponse ListGateways(ListGatewaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListGateways(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List gateways
             ///
@@ -300,11 +277,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListGatewaysResponse> ListGatewaysAsync(ListGatewaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListGatewaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListGatewaysResponse> ListGatewaysAsync(ListGatewaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListGatewaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List gateways
             ///
@@ -313,11 +286,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListGatewaysResponse> ListGatewaysAsync(ListGatewaysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListGateways, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListGatewaysResponse> ListGatewaysAsync(ListGatewaysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListGateways, null, options, request);
             /// <summary>
             /// Update a gateway
             ///
@@ -328,7 +297,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Gateway UpdateGateway(UpdateGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Gateway UpdateGateway(UpdateGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a gateway
             ///
@@ -348,11 +317,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> UpdateGatewayAsync(UpdateGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Gateway> UpdateGatewayAsync(UpdateGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a gateway
             ///
@@ -361,11 +326,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Gateway> UpdateGatewayAsync(UpdateGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Gateway> UpdateGatewayAsync(UpdateGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateGateway, null, options, request);
             /// <summary>
             /// Delete a gateway
             ///
@@ -376,7 +337,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteGateway(DeleteGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteGateway(DeleteGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a gateway
             ///
@@ -396,11 +357,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteGatewayAsync(DeleteGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteGatewayAsync(DeleteGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a gateway
             ///
@@ -409,11 +366,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteGatewayAsync(DeleteGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteGatewayAsync(DeleteGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteGateway, null, options, request);
             /// <summary>
             /// Bind a gateway
             ///
@@ -426,7 +379,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindGatewayResponse BindGateway(BindGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindGatewayResponse BindGateway(BindGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind a gateway
             ///
@@ -450,11 +403,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindGatewayResponse> BindGatewayAsync(BindGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindGatewayResponse> BindGatewayAsync(BindGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind a gateway
             ///
@@ -465,11 +414,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindGatewayResponse> BindGatewayAsync(BindGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindGatewayResponse> BindGatewayAsync(BindGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindGateway, null, options, request);
             /// <summary>
             /// Unbind a gateway
             ///
@@ -486,7 +431,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindGatewayResponse UnbindGateway(UnbindGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindGatewayResponse UnbindGateway(UnbindGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind a gateway
             ///
@@ -518,11 +463,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindGatewayResponse> UnbindGatewayAsync(UnbindGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindGatewayResponse> UnbindGatewayAsync(UnbindGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind a gateway
             ///
@@ -537,11 +478,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindGatewayResponse> UnbindGatewayAsync(UnbindGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindGatewayResponse> UnbindGatewayAsync(UnbindGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindGateway, null, options, request);
             /// <summary>
             /// Initialize a gateway
             ///
@@ -553,7 +490,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeGateway(InitializeGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeGateway(InitializeGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize a gateway
             ///
@@ -575,11 +512,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeGatewayAsync(InitializeGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeGatewayAsync(InitializeGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize a gateway
             ///
@@ -589,11 +522,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeGatewayAsync(InitializeGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeGatewayAsync(InitializeGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeGateway, null, options, request);
             /// <summary>
             /// Configure a gateway
             ///
@@ -605,7 +534,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureGateway(ConfigureGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureGateway(ConfigureGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure a gateway
             ///
@@ -627,11 +556,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureGatewayAsync(ConfigureGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureGatewayAsync(ConfigureGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure a gateway
             ///
@@ -641,11 +566,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureGatewayAsync(ConfigureGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureGatewayAsync(ConfigureGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureGateway, null, options, request);
             /// <summary>
             /// Reset a gateway
             ///
@@ -659,7 +580,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetGateway(ResetGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetGateway(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetGateway(ResetGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetGateway(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset a gateway
             ///
@@ -685,11 +606,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetGatewayAsync(ResetGatewayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetGatewayAsync(ResetGatewayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetGatewayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset a gateway
             ///
@@ -701,11 +618,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetGatewayAsync(ResetGatewayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetGateway, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetGatewayAsync(ResetGatewayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetGateway, null, options, request);
             /// <summary>
             /// Update gateway firmware
             ///
@@ -717,7 +630,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateGatewayFirmware(UpdateGatewayFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateGatewayFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateGatewayFirmware(UpdateGatewayFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateGatewayFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update gateway firmware
             ///
@@ -739,11 +652,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateGatewayFirmwareAsync(UpdateGatewayFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateGatewayFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateGatewayFirmwareAsync(UpdateGatewayFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateGatewayFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update gateway firmware
             ///
@@ -753,11 +662,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateGatewayFirmwareAsync(UpdateGatewayFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateGatewayFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateGatewayFirmwareAsync(UpdateGatewayFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateGatewayFirmware, null, options, request);
             /// <summary>
             /// Generates an authorization token for a gateway
             ///
@@ -769,7 +674,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for a gateway
             ///
@@ -791,11 +696,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for a gateway
             ///
@@ -805,11 +706,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate gateway firmware download URI
             ///
@@ -822,7 +719,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate gateway firmware download URI
             ///
@@ -846,11 +743,7 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate gateway firmware download URI
             ///
@@ -861,18 +754,9 @@ namespace Saltoapis.Nebula.Gateway.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override GatewayServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

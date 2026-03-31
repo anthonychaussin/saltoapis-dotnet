@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Encoder.V1.Request;
+using Saltoapis.Nebula.Encoder.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Encoder.V1.Response;
 
@@ -150,13 +150,10 @@ namespace Saltoapis.Nebula.Encoder.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_encoder_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.Services[0]; }
-        }
-
+            get => EncoderReflection.Descriptor.Services[0];}
         /// <summary>Client for EncoderService</summary>
         public partial class EncoderServiceClient : ClientBase<EncoderServiceClient>
         {
@@ -165,24 +162,20 @@ namespace Saltoapis.Nebula.Encoder.V1
             public EncoderServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for EncoderService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public EncoderServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected EncoderServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected EncoderServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an encoder
             ///
@@ -193,7 +186,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Encoder CreateEncoder(CreateEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Encoder CreateEncoder(CreateEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an encoder
             ///
@@ -213,11 +206,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> CreateEncoderAsync(CreateEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Encoder> CreateEncoderAsync(CreateEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an encoder
             ///
@@ -226,11 +215,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> CreateEncoderAsync(CreateEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Encoder> CreateEncoderAsync(CreateEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateEncoder, null, options, request);
             /// <summary>
             /// Get an encoder
             ///
@@ -241,7 +226,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Encoder GetEncoder(GetEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Encoder GetEncoder(GetEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an encoder
             ///
@@ -261,11 +246,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> GetEncoderAsync(GetEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Encoder> GetEncoderAsync(GetEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an encoder
             ///
@@ -274,11 +255,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> GetEncoderAsync(GetEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Encoder> GetEncoderAsync(GetEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetEncoder, null, options, request);
             /// <summary>
             /// List encoders
             ///
@@ -289,7 +266,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListEncodersResponse ListEncoders(ListEncodersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListEncoders(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListEncodersResponse ListEncoders(ListEncodersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListEncoders(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List encoders
             ///
@@ -309,11 +286,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListEncodersResponse> ListEncodersAsync(ListEncodersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListEncodersAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListEncodersResponse> ListEncodersAsync(ListEncodersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListEncodersAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List encoders
             ///
@@ -322,11 +295,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListEncodersResponse> ListEncodersAsync(ListEncodersRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListEncoders, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListEncodersResponse> ListEncodersAsync(ListEncodersRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListEncoders, null, options, request);
             /// <summary>
             /// Update an encoder
             ///
@@ -337,7 +306,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Encoder UpdateEncoder(UpdateEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Encoder UpdateEncoder(UpdateEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an encoder
             ///
@@ -357,11 +326,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> UpdateEncoderAsync(UpdateEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Encoder> UpdateEncoderAsync(UpdateEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an encoder
             ///
@@ -370,11 +335,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Encoder> UpdateEncoderAsync(UpdateEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Encoder> UpdateEncoderAsync(UpdateEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateEncoder, null, options, request);
             /// <summary>
             /// Delete an encoder
             ///
@@ -385,7 +346,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteEncoder(DeleteEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteEncoder(DeleteEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an encoder
             ///
@@ -405,11 +366,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEncoderAsync(DeleteEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEncoderAsync(DeleteEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an encoder
             ///
@@ -418,11 +375,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEncoderAsync(DeleteEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEncoderAsync(DeleteEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteEncoder, null, options, request);
             /// <summary>
             /// Initialize an encoder
             ///
@@ -434,7 +387,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeEncoder(InitializeEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeEncoder(InitializeEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an encoder
             ///
@@ -456,11 +409,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeEncoderAsync(InitializeEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeEncoderAsync(InitializeEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an encoder
             ///
@@ -470,11 +419,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeEncoderAsync(InitializeEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeEncoderAsync(InitializeEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeEncoder, null, options, request);
             /// <summary>
             /// Configure an encoder
             ///
@@ -486,7 +431,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureEncoder(ConfigureEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureEncoder(ConfigureEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an encoder
             ///
@@ -508,11 +453,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureEncoderAsync(ConfigureEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureEncoderAsync(ConfigureEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an encoder
             ///
@@ -522,11 +463,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureEncoderAsync(ConfigureEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureEncoderAsync(ConfigureEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureEncoder, null, options, request);
             /// <summary>
             /// Reset an encoder
             ///
@@ -540,7 +477,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetEncoder(ResetEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetEncoder(ResetEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an encoder
             ///
@@ -566,11 +503,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetEncoderAsync(ResetEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetEncoderAsync(ResetEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an encoder
             ///
@@ -582,11 +515,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetEncoderAsync(ResetEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetEncoderAsync(ResetEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetEncoder, null, options, request);
             /// <summary>
             /// Update encoder firmware
             ///
@@ -598,7 +527,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateEncoderFirmware(UpdateEncoderFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateEncoderFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateEncoderFirmware(UpdateEncoderFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEncoderFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update encoder firmware
             ///
@@ -620,11 +549,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateEncoderFirmwareAsync(UpdateEncoderFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateEncoderFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateEncoderFirmwareAsync(UpdateEncoderFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEncoderFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update encoder firmware
             ///
@@ -634,11 +559,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateEncoderFirmwareAsync(UpdateEncoderFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateEncoderFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateEncoderFirmwareAsync(UpdateEncoderFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateEncoderFirmware, null, options, request);
             /// <summary>
             /// Bind an encoder
             ///
@@ -651,7 +572,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindEncoderResponse BindEncoder(BindEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindEncoderResponse BindEncoder(BindEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an encoder
             ///
@@ -675,11 +596,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindEncoderResponse> BindEncoderAsync(BindEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindEncoderResponse> BindEncoderAsync(BindEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an encoder
             ///
@@ -690,11 +607,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindEncoderResponse> BindEncoderAsync(BindEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindEncoderResponse> BindEncoderAsync(BindEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindEncoder, null, options, request);
             /// <summary>
             /// Unbind an encoder
             ///
@@ -711,7 +624,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindEncoderResponse UnbindEncoder(UnbindEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindEncoder(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindEncoderResponse UnbindEncoder(UnbindEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindEncoder(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an encoder
             ///
@@ -743,11 +656,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindEncoderResponse> UnbindEncoderAsync(UnbindEncoderRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindEncoderResponse> UnbindEncoderAsync(UnbindEncoderRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindEncoderAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an encoder
             ///
@@ -762,11 +671,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindEncoderResponse> UnbindEncoderAsync(UnbindEncoderRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindEncoder, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindEncoderResponse> UnbindEncoderAsync(UnbindEncoderRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindEncoder, null, options, request);
             /// <summary>
             /// Read a key
             ///
@@ -778,7 +683,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ReadKey(ReadKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ReadKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ReadKey(ReadKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ReadKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Read a key
             ///
@@ -800,11 +705,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ReadKeyAsync(ReadKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ReadKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ReadKeyAsync(ReadKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ReadKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Read a key
             ///
@@ -814,11 +715,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ReadKeyAsync(ReadKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ReadKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ReadKeyAsync(ReadKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ReadKey, null, options, request);
             /// <summary>
             /// Generates an authorization token for an encoder
             ///
@@ -830,7 +727,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for an encoder
             ///
@@ -852,11 +749,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for an encoder
             ///
@@ -866,11 +759,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate encoder firmware download URI
             ///
@@ -883,7 +772,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate encoder firmware download URI
             ///
@@ -907,11 +796,7 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate encoder firmware download URI
             ///
@@ -922,18 +807,9 @@ namespace Saltoapis.Nebula.Encoder.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override EncoderServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
         private static readonly MessageParser<ListAccessPointGroupsResponse> _parser = new(() => new ListAccessPointGroupsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListAccessPointGroupsResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListAccessPointGroupsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => AccessPointGroupReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListAccessPointGroupsResponse()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
         private static readonly FieldCodec<AccessPointGroup> _repeated_accessPointGroups_codec
             = FieldCodec.ForMessage(10, AccessPointGroup.Parser);
         private readonly RepeatedField<AccessPointGroup> accessPointGroups_ = [];
-
         /// <summary>
         /// The field name should match the noun `access_point_groups` in the method name.
         /// There will be a maximum number of items returned based on the `page_size`
@@ -51,25 +48,17 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
         /// </summary>
         public RepeatedField<AccessPointGroup> AccessPointGroups
         {
-            get { return accessPointGroups_; }
-        }
-
+            get => accessPointGroups_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListAccessPointGroupsResponse);
         public bool Equals(ListAccessPointGroupsResponse other)
@@ -96,11 +85,13 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             output.WriteRawMessage(this);
 #else
       accessPointGroups_.WriteTo(output, _repeated_accessPointGroups_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -143,20 +134,25 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             accessPointGroups_.AddEntriesFrom(input, _repeated_accessPointGroups_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -196,8 +192,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
         private static readonly MessageParser<ListDigitalKeyAccessPointsResponse> _parser = new(() => new ListDigitalKeyAccessPointsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListDigitalKeyAccessPointsResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListDigitalKeyAccessPointsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DigitalKeyReflection.Descriptor.MessageTypes[7]; }
-        }
+            get => DigitalKeyReflection.Descriptor.MessageTypes[7];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListDigitalKeyAccessPointsResponse()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
         private static readonly FieldCodec<DigitalKeyAccessPoint> _repeated_digitalKeyAccessPoints_codec
             = FieldCodec.ForMessage(10, DigitalKeyAccessPoint.Parser);
         private readonly RepeatedField<DigitalKeyAccessPoint> digitalKeyAccessPoints_ = [];
-
         /// <summary>
         /// The field name should match the noun `digital_key_access_points` in the method name.
         /// There will be a maximum number of items returned based on the `page_size`
@@ -51,13 +48,10 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
         /// </summary>
         public RepeatedField<DigitalKeyAccessPoint> DigitalKeyAccessPoints
         {
-            get { return digitalKeyAccessPoints_; }
-        }
-
+            get => digitalKeyAccessPoints_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
@@ -65,12 +59,7 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListDigitalKeyAccessPointsResponse);
         public bool Equals(ListDigitalKeyAccessPointsResponse other)
@@ -97,11 +86,13 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
             output.WriteRawMessage(this);
 #else
       digitalKeyAccessPoints_.WriteTo(output, _repeated_digitalKeyAccessPoints_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -144,20 +135,25 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             digitalKeyAccessPoints_.AddEntriesFrom(input, _repeated_digitalKeyAccessPoints_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -197,8 +193,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

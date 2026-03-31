@@ -1,6 +1,5 @@
 namespace Saltoapis.Nebula.Installation.V1.Response
 {
-
     /// <summary>
     /// The response message for [`IngestEncryptedPayloads`][salto.nebula.installation.v1.EncryptedPayloadService.IngestEncryptedPayloads]
     /// </summary>
@@ -12,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Response
         private static readonly MessageParser<IngestEncryptedPayloadsResponse> _parser = new(() => new IngestEncryptedPayloadsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<IngestEncryptedPayloadsResponse> Parser { get { return _parser; } }
+        public static MessageParser<IngestEncryptedPayloadsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncryptedPayloadReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => EncryptedPayloadReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public IngestEncryptedPayloadsResponse()
         {
@@ -58,7 +55,8 @@ namespace Saltoapis.Nebula.Installation.V1.Response
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -91,12 +89,15 @@ namespace Saltoapis.Nebula.Installation.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -124,8 +125,6 @@ namespace Saltoapis.Nebula.Installation.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

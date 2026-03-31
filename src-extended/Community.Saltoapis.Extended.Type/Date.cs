@@ -8,17 +8,15 @@ namespace Saltoapis.Type
         private static readonly MessageParser<Date> _parser = new(() => new Date());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Date> Parser { get { return _parser; } }
+        public static MessageParser<Date> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DateReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => DateReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Date()
         {
@@ -39,60 +37,39 @@ namespace Saltoapis.Type
         /// <summary>Field number for the "year" field.</summary>
         public const int YearFieldNumber = 1;
         private int year_;
-
         /// <summary>
         /// Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
         /// year.
         /// </summary>
         public int Year
         {
-            get { return year_; }
-            set
-            {
-                year_ = value;
-            }
-        }
-
+            get => year_; set => year_ = value;}
         /// <summary>Field number for the "month" field.</summary>
         public const int MonthFieldNumber = 2;
         private int month_;
-
         /// <summary>
         /// Month of year. Must be from 1 to 12.
         /// </summary>
         public int Month
         {
-            get { return month_; }
-            set
-            {
-                month_ = value;
-            }
-        }
-
+            get => month_; set => month_ = value;}
         /// <summary>Field number for the "day" field.</summary>
         public const int DayFieldNumber = 3;
         private int day_;
-
         /// <summary>
         /// Day of month. Must be from 1 to 31 and valid for the year and month, or 0
         /// if specifying a year/month where the day is not significant.
         /// </summary>
         public int Day
         {
-            get { return day_; }
-            set
-            {
-                day_ = value;
-            }
-        }
+            get => day_; set => day_ = value;}
 
         public override bool Equals(object other) => Equals(other as Date);
         public bool Equals(Date other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Year != other.Year) || (Month != other.Month)) return false;
-            if (Day != other.Day) return false;
+            if ((Year != other.Year) || (Month != other.Month) || Day != other.Day) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -112,19 +89,23 @@ namespace Saltoapis.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Year != 0) {
+      if (Year != 0)
+      {
         output.WriteRawTag(8);
         output.WriteInt32(Year);
       }
-      if (Month != 0) {
+      if (Month != 0)
+      {
         output.WriteRawTag(16);
         output.WriteInt32(Month);
       }
-      if (Day != 0) {
+      if (Day != 0)
+      {
         output.WriteRawTag(24);
         output.WriteInt32(Day);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -178,24 +159,30 @@ namespace Saltoapis.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 8:
+          {
             Year = input.ReadInt32();
             break;
           }
-          case 16: {
+          case 16:
+          {
             Month = input.ReadInt32();
             break;
           }
-          case 24: {
+          case 24:
+          {
             Day = input.ReadInt32();
             break;
           }
@@ -240,6 +227,5 @@ namespace Saltoapis.Type
             }
         }
 #endif
-
     }
 }

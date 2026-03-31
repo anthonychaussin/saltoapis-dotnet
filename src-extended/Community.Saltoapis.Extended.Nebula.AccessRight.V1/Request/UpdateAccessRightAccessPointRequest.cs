@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<UpdateAccessRightAccessPointRequest> _parser = new(() => new UpdateAccessRightAccessPointRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateAccessRightAccessPointRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateAccessRightAccessPointRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[16]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[16];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateAccessRightAccessPointRequest()
         {
@@ -41,35 +39,22 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "access_right_access_point" field.</summary>
         public const int AccessRightAccessPointFieldNumber = 1;
         private AccessRightAccessPoint accessRightAccessPoint_;
-
         /// <summary>
         /// The access right's access point resource which replaces the resource on
         /// the server.
         /// </summary>
         public AccessRightAccessPoint AccessRightAccessPoint
         {
-            get { return accessRightAccessPoint_; }
-            set
-            {
-                accessRightAccessPoint_ = value;
-            }
-        }
-
+            get => accessRightAccessPoint_; set => accessRightAccessPoint_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateAccessRightAccessPointRequest);
         public bool Equals(UpdateAccessRightAccessPointRequest other)
@@ -95,15 +80,18 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRightAccessPoint_ != null) {
+      if (accessRightAccessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRightAccessPoint);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -158,24 +146,31 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRightAccessPoint_ == null) {
+          case 10:
+          {
+            if (accessRightAccessPoint_ == null)
+            {
               AccessRightAccessPoint = new Saltoapis.Nebula.AccessRight.V1.AccessRightAccessPoint();
             }
             input.ReadMessage(AccessRightAccessPoint);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -219,8 +214,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

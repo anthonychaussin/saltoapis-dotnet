@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         private static readonly MessageParser<UpdateIntercomAdaptorRequest> _parser = new(() => new UpdateIntercomAdaptorRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateIntercomAdaptorRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateIntercomAdaptorRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.MessageTypes[6]; }
-        }
+            get => IntercomAdaptorReflection.Descriptor.MessageTypes[6];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateIntercomAdaptorRequest()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
         /// <summary>Field number for the "intercom_adaptor" field.</summary>
         public const int IntercomAdaptorFieldNumber = 1;
         private IntercomAdaptor intercomAdaptor_;
-
         /// <summary>
         /// The intercom adaptor resource which replaces the resource on the server.
         /// </summary>
         public IntercomAdaptor IntercomAdaptor
         {
-            get { return intercomAdaptor_; }
-            set
-            {
-                intercomAdaptor_ = value;
-            }
-        }
-
+            get => intercomAdaptor_; set => intercomAdaptor_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateIntercomAdaptorRequest);
         public bool Equals(UpdateIntercomAdaptorRequest other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (intercomAdaptor_ != null) {
+      if (intercomAdaptor_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(IntercomAdaptor);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (intercomAdaptor_ == null) {
+          case 10:
+          {
+            if (intercomAdaptor_ == null)
+            {
               IntercomAdaptor = new Saltoapis.Nebula.IntercomAdaptor.V1.IntercomAdaptor();
             }
             input.ReadMessage(IntercomAdaptor);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -218,8 +213,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

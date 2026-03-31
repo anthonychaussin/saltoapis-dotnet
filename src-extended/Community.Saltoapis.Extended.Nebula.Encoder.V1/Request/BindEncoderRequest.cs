@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
         private static readonly MessageParser<BindEncoderRequest> _parser = new(() => new BindEncoderRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BindEncoderRequest> Parser { get { return _parser; } }
+        public static MessageParser<BindEncoderRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.MessageTypes[7]; }
-        }
+            get => EncoderReflection.Descriptor.MessageTypes[7];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BindEncoderRequest()
         {
@@ -41,36 +39,23 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the encoder to be bound. For example:
         /// `installations/surelock-homes-hq/encoders/baker-street-entrance`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 2;
         private string deviceId_ = "";
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, electronic locks and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => deviceId_; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as BindEncoderRequest);
         public bool Equals(BindEncoderRequest other)
@@ -96,15 +81,18 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DeviceId.Length != 0) {
+      if (DeviceId.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DeviceId);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -151,20 +139,25 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DeviceId = input.ReadString();
             break;
           }
@@ -204,8 +197,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

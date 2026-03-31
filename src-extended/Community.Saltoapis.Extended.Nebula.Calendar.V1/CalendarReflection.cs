@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Calendar.V1
     /// <summary>Holder for reflection information generated from salto/nebula/calendar/v1/calendar.proto</summary>
     public static partial class CalendarReflection
     {
-
         /// <summary>File descriptor for salto/nebula/calendar/v1/calendar.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -98,8 +96,6 @@ namespace Saltoapis.Nebula.Calendar.V1
             new(typeof(DeleteEventRequest), DeleteEventRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1
         private static readonly MessageParser<BillingInfo> _parser = new(() => new BillingInfo());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BillingInfo> Parser { get { return _parser; } }
+        public static MessageParser<BillingInfo> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[2]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[2];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BillingInfo()
         {
@@ -47,7 +45,6 @@ namespace Saltoapis.Nebula.Installation.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the subscription's billing info. It must have the format of
         /// `installations/*/subscription/billing-info`. For example:
@@ -55,35 +52,21 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "company" field.</summary>
         public const int CompanyFieldNumber = 2;
         private string company_ = "";
-
         /// <summary>
         /// The company name.
         /// </summary>
         public string Company
         {
-            get { return company_; }
-            set
-            {
-                company_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => company_; set => company_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "address" field.</summary>
         public const int AddressFieldNumber = 3;
         private static readonly FieldCodec<string> _repeated_address_codec
             = FieldCodec.ForString(26);
         private readonly RepeatedField<string> address_ = [];
-
         /// <summary>
         /// The lines of the address. The first line may include the street name,
         /// number, P.O. box, and further lines can include information such as
@@ -91,47 +74,30 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public RepeatedField<string> Address
         {
-            get { return address_; }
-        }
-
+            get => address_;}
         /// <summary>Field number for the "region_code" field.</summary>
         public const int RegionCodeFieldNumber = 4;
         private string regionCode_ = "";
-
         /// <summary>
         /// The region, country or territory code. Must be in ISO 3166-1 format.
         /// </summary>
         public string RegionCode
         {
-            get { return regionCode_; }
-            set
-            {
-                regionCode_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => regionCode_; set => regionCode_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "city" field.</summary>
         public const int CityFieldNumber = 5;
         private string city_ = "";
-
         /// <summary>
         /// The city, district, suburb, town, or village name.
         /// </summary>
         public string City
         {
-            get { return city_; }
-            set
-            {
-                city_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => city_; set => city_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "state_code" field.</summary>
         public const int StateCodeFieldNumber = 6;
         private static readonly string StateCodeDefaultValue = "";
 
         private string stateCode_;
-
         /// <summary>
         /// The state or province code. Must be in ISO 3166-2 format.
         /// Mandatory for the following countries: USA, Canada and India.
@@ -139,80 +105,42 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string StateCode
         {
-            get { return stateCode_ ?? StateCodeDefaultValue; }
-            set
-            {
-                stateCode_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => stateCode_ ?? StateCodeDefaultValue; set => stateCode_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "state_code" field is set</summary>
-        public bool HasStateCode
-        {
-            get { return stateCode_ != null; }
-        }
-
+        public bool HasStateCode => stateCode_ != null;
         /// <summary>Clears the value of the "state_code" field</summary>
-        public void ClearStateCode()
-        {
-            stateCode_ = null;
-        }
-
+        public void ClearStateCode() => stateCode_ = null;
         /// <summary>Field number for the "zip" field.</summary>
         public const int ZipFieldNumber = 7;
         private string zip_ = "";
-
         /// <summary>
         /// The ZIP or postal code.
         /// </summary>
         public string Zip
         {
-            get { return zip_; }
-            set
-            {
-                zip_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => zip_; set => zip_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "vat_number" field.</summary>
         public const int VatNumberFieldNumber = 8;
         private static readonly string VatNumberDefaultValue = "";
 
         private string vatNumber_;
-
         /// <summary>
         /// The VAT or Tax Registration Number (TRN).
         /// </summary>
         public string VatNumber
         {
-            get { return vatNumber_ ?? VatNumberDefaultValue; }
-            set
-            {
-                vatNumber_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => vatNumber_ ?? VatNumberDefaultValue; set => vatNumber_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "vat_number" field is set</summary>
-        public bool HasVatNumber
-        {
-            get { return vatNumber_ != null; }
-        }
-
+        public bool HasVatNumber => vatNumber_ != null;
         /// <summary>Clears the value of the "vat_number" field</summary>
-        public void ClearVatNumber()
-        {
-            vatNumber_ = null;
-        }
+        public void ClearVatNumber() => vatNumber_ = null;
 
         public override bool Equals(object other) => Equals(other as BillingInfo);
         public bool Equals(BillingInfo other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (Company != other.Company)) return false;
-            if ((!address_.Equals(other.address_)) || (RegionCode != other.RegionCode)) return false;
-            if ((City != other.City) || (StateCode != other.StateCode)) return false;
-            if ((Zip != other.Zip) || (VatNumber != other.VatNumber)) return false;
+            if ((Name != other.Name) || (Company != other.Company) || (!address_.Equals(other.address_)) || (RegionCode != other.RegionCode) || (City != other.City) || (StateCode != other.StateCode) || (Zip != other.Zip) || (VatNumber != other.VatNumber)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -237,36 +165,44 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Company.Length != 0) {
+      if (Company.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Company);
       }
       address_.WriteTo(output, _repeated_address_codec);
-      if (RegionCode.Length != 0) {
+      if (RegionCode.Length != 0)
+      {
         output.WriteRawTag(34);
         output.WriteString(RegionCode);
       }
-      if (City.Length != 0) {
+      if (City.Length != 0)
+      {
         output.WriteRawTag(42);
         output.WriteString(City);
       }
-      if (HasStateCode) {
+      if (HasStateCode)
+      {
         output.WriteRawTag(50);
         output.WriteString(StateCode);
       }
-      if (Zip.Length != 0) {
+      if (Zip.Length != 0)
+      {
         output.WriteRawTag(58);
         output.WriteString(Zip);
       }
-      if (HasVatNumber) {
+      if (HasVatNumber)
+      {
         output.WriteRawTag(66);
         output.WriteString(VatNumber);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -351,44 +287,55 @@ namespace Saltoapis.Nebula.Installation.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Company = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             address_.AddEntriesFrom(input, _repeated_address_codec);
             break;
           }
-          case 34: {
+          case 34:
+          {
             RegionCode = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             City = input.ReadString();
             break;
           }
-          case 50: {
+          case 50:
+          {
             StateCode = input.ReadString();
             break;
           }
-          case 58: {
+          case 58:
+          {
             Zip = input.ReadString();
             break;
           }
-          case 66: {
+          case 66:
+          {
             VatNumber = input.ReadString();
             break;
           }
@@ -458,8 +405,6 @@ namespace Saltoapis.Nebula.Installation.V1
             }
         }
 #endif
-
     }
-
 
 }

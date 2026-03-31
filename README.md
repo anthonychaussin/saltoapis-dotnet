@@ -4,6 +4,13 @@ This repository contains the source code for the C# SALTO APIs SDK.
 
 > Some of these APIs are using gRPC. Refer to the [official gRPC documentation](https://docs.microsoft.com/en-us/aspnet/core/grpc/client?view=aspnetcore-5.0) to learn more about gRPC.
 
+## Status (Unofficial)
+
+These packages are **not official** SALTO packages.
+
+- Packages under `src` are rebuilds of the SALTO code.
+- Packages under `src-extended` are rebuilds of the original code with refactoring to reduce size and improve performance.
+
 
 ## Authentication Example
 

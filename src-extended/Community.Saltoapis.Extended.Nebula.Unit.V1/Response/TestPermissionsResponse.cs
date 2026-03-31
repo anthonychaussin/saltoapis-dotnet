@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Unit.V1.Response
         private static readonly MessageParser<TestPermissionsResponse> _parser = new(() => new TestPermissionsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<TestPermissionsResponse> Parser { get { return _parser; } }
+        public static MessageParser<TestPermissionsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UnitReflection.Descriptor.MessageTypes[21]; }
-        }
+            get => UnitReflection.Descriptor.MessageTypes[21];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public TestPermissionsResponse()
         {
@@ -42,15 +40,13 @@ namespace Saltoapis.Nebula.Unit.V1.Response
         private static readonly FieldCodec<string> _repeated_permissions_codec
             = FieldCodec.ForString(10);
         private readonly RepeatedField<string> permissions_ = [];
-
         /// <summary>
         /// A subset of `TestPermissionsRequest.permissions` that the caller is
         /// allowed.
         /// </summary>
         public RepeatedField<string> Permissions
         {
-            get { return permissions_; }
-        }
+            get => permissions_;}
 
         public override bool Equals(object other) => Equals(other as TestPermissionsResponse);
         public bool Equals(TestPermissionsResponse other)
@@ -76,7 +72,8 @@ namespace Saltoapis.Nebula.Unit.V1.Response
             output.WriteRawMessage(this);
 #else
       permissions_.WriteTo(output, _repeated_permissions_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -112,16 +109,20 @@ namespace Saltoapis.Nebula.Unit.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             permissions_.AddEntriesFrom(input, _repeated_permissions_codec);
             break;
           }
@@ -156,8 +157,6 @@ namespace Saltoapis.Nebula.Unit.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<UpdateCardRequest> _parser = new(() => new UpdateCardRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateCardRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateCardRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[30]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[30];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateCardRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "payment_method" field.</summary>
         public const int PaymentMethodFieldNumber = 1;
         private string paymentMethod_ = "";
-
         /// <summary>
         /// The resource name of the subscription's payment method for which the card is being
         /// requested to be updated. For example:
@@ -49,28 +46,16 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// </summary>
         public string PaymentMethod
         {
-            get { return paymentMethod_; }
-            set
-            {
-                paymentMethod_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => paymentMethod_; set => paymentMethod_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "token" field.</summary>
         public const int TokenFieldNumber = 2;
         private string token_ = "";
-
         /// <summary>
         /// The token provided for the operation.
         /// </summary>
         public string Token
         {
-            get { return token_; }
-            set
-            {
-                token_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => token_; set => token_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as UpdateCardRequest);
         public bool Equals(UpdateCardRequest other)
@@ -96,15 +81,18 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (PaymentMethod.Length != 0) {
+      if (PaymentMethod.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(PaymentMethod);
       }
-      if (Token.Length != 0) {
+      if (Token.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Token);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -151,20 +139,25 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             PaymentMethod = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Token = input.ReadString();
             break;
           }
@@ -204,8 +197,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

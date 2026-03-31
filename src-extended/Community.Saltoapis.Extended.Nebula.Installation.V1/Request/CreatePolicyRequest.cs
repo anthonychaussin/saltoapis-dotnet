@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<CreatePolicyRequest> _parser = new(() => new CreatePolicyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreatePolicyRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreatePolicyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[15]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[15];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreatePolicyRequest()
         {
@@ -42,61 +40,40 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the IAM policy. For
         /// example: `installations/salto-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "policy_id" field.</summary>
         public const int PolicyIdFieldNumber = 2;
         private string policyId_ = "";
-
         /// <summary>
         /// The policy ID to use for the IAM policy. In case it's empty the server
         /// will autogenerate a unique identifier.
         /// </summary>
         public string PolicyId
         {
-            get { return policyId_; }
-            set
-            {
-                policyId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => policyId_; set => policyId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "policy" field.</summary>
         public const int PolicyFieldNumber = 3;
         private Policy policy_;
-
         /// <summary>
         /// The policy resource to be created. Client must not set the `Policy.name`
         /// field.
         /// </summary>
         public Policy Policy
         {
-            get { return policy_; }
-            set
-            {
-                policy_ = value;
-            }
-        }
+            get => policy_; set => policy_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreatePolicyRequest);
         public bool Equals(CreatePolicyRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (PolicyId != other.PolicyId)) return false;
-            if (!Equals(Policy, other.Policy)) return false;
+            if ((Parent != other.Parent) || (PolicyId != other.PolicyId) || !Equals(Policy, other.Policy)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -116,19 +93,23 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (PolicyId.Length != 0) {
+      if (PolicyId.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(PolicyId);
       }
-      if (policy_ != null) {
+      if (policy_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Policy);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -186,25 +167,32 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             PolicyId = input.ReadString();
             break;
           }
-          case 26: {
-            if (policy_ == null) {
+          case 26:
+          {
+            if (policy_ == null)
+            {
               Policy = new Saltoapis.Nebula.Installation.V1.Policy();
             }
             input.ReadMessage(Policy);
@@ -252,8 +240,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

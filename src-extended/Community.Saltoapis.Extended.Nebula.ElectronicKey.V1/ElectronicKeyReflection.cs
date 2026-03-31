@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
     /// <summary>Holder for reflection information generated from salto/nebula/electronickey/v1/electronic_key.proto</summary>
     public static partial class ElectronicKeyReflection
     {
-
         /// <summary>File descriptor for salto/nebula/electronickey/v1/electronic_key.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -133,8 +131,6 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

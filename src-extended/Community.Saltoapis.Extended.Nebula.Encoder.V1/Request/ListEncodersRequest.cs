@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
         private static readonly MessageParser<ListEncodersRequest> _parser = new(() => new ListEncodersRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListEncodersRequest> Parser { get { return _parser; } }
+        public static MessageParser<ListEncodersRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => EncoderReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListEncodersRequest()
         {
@@ -44,92 +42,56 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// The parent resource name. For example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "page_size" field.</summary>
         public const int PageSizeFieldNumber = 2;
         private int pageSize_;
-
         /// <summary>
         /// The maximum number of items to return.
         /// </summary>
         public int PageSize
         {
-            get { return pageSize_; }
-            set
-            {
-                pageSize_ = value;
-            }
-        }
-
+            get => pageSize_; set => pageSize_ = value;}
         /// <summary>Field number for the "page_token" field.</summary>
         public const int PageTokenFieldNumber = 3;
         private string pageToken_ = "";
-
         /// <summary>
         /// The `next_page_token` value returned from a previous `List` request, if
         /// any.
         /// </summary>
         public string PageToken
         {
-            get { return pageToken_; }
-            set
-            {
-                pageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => pageToken_; set => pageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "filter" field.</summary>
         public const int FilterFieldNumber = 4;
         private string filter_ = "";
-
         /// <summary>
         /// A filter that chooses which encoders to return.
         /// </summary>
         public string Filter
         {
-            get { return filter_; }
-            set
-            {
-                filter_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => filter_; set => filter_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "order_by" field.</summary>
         public const int OrderByFieldNumber = 5;
         private string orderBy_ = "";
-
         /// <summary>
         /// How the results should be sorted.
         /// </summary>
         public string OrderBy
         {
-            get { return orderBy_; }
-            set
-            {
-                orderBy_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => orderBy_; set => orderBy_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListEncodersRequest);
         public bool Equals(ListEncodersRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (PageSize != other.PageSize)) return false;
-            if ((PageToken != other.PageToken) || (Filter != other.Filter)) return false;
-            if (OrderBy != other.OrderBy) return false;
+            if ((Parent != other.Parent) || (PageSize != other.PageSize) || (PageToken != other.PageToken) || (Filter != other.Filter) || OrderBy != other.OrderBy) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -151,27 +113,33 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (PageSize != 0) {
+      if (PageSize != 0)
+      {
         output.WriteRawTag(16);
         output.WriteInt32(PageSize);
       }
-      if (PageToken.Length != 0) {
+      if (PageToken.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(PageToken);
       }
-      if (Filter.Length != 0) {
+      if (Filter.Length != 0)
+      {
         output.WriteRawTag(34);
         output.WriteString(Filter);
       }
-      if (OrderBy.Length != 0) {
+      if (OrderBy.Length != 0)
+      {
         output.WriteRawTag(42);
         output.WriteString(OrderBy);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -239,32 +207,40 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 16: {
+          case 16:
+          {
             PageSize = input.ReadInt32();
             break;
           }
-          case 26: {
+          case 26:
+          {
             PageToken = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Filter = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             OrderBy = input.ReadString();
             break;
           }
@@ -319,8 +295,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,5 +6,4 @@ namespace Saltoapis.Auth
         public string TokenEndpoint
         { get; set; }
     }
-
 }

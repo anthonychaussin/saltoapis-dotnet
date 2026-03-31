@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         private static readonly MessageParser<UpdateUserAccessRightRequest> _parser = new(() => new UpdateUserAccessRightRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateUserAccessRightRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateUserAccessRightRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[23]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[23];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateUserAccessRightRequest()
         {
@@ -41,35 +39,22 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// <summary>Field number for the "user_access_right" field.</summary>
         public const int UserAccessRightFieldNumber = 1;
         private UserAccessRight userAccessRight_;
-
         /// <summary>
         /// The user's access right resource which replaces the resource on the
         /// server.
         /// </summary>
         public UserAccessRight UserAccessRight
         {
-            get { return userAccessRight_; }
-            set
-            {
-                userAccessRight_ = value;
-            }
-        }
-
+            get => userAccessRight_; set => userAccessRight_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateUserAccessRightRequest);
         public bool Equals(UpdateUserAccessRightRequest other)
@@ -95,15 +80,18 @@ namespace Saltoapis.Nebula.User.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (userAccessRight_ != null) {
+      if (userAccessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(UserAccessRight);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -158,24 +146,31 @@ namespace Saltoapis.Nebula.User.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (userAccessRight_ == null) {
+          case 10:
+          {
+            if (userAccessRight_ == null)
+            {
               UserAccessRight = new Saltoapis.Nebula.User.V1.UserAccessRight();
             }
             input.ReadMessage(UserAccessRight);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -219,8 +214,6 @@ namespace Saltoapis.Nebula.User.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

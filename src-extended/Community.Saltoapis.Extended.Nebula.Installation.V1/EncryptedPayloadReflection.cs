@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Installation.V1
     /// <summary>Holder for reflection information generated from salto/nebula/installation/v1/encrypted_payload.proto</summary>
     public static partial class EncryptedPayloadReflection
     {
-
         /// <summary>File descriptor for salto/nebula/installation/v1/encrypted_payload.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -41,8 +39,6 @@ namespace Saltoapis.Nebula.Installation.V1
             new(typeof(IngestEncryptedPayloadsResponse), IngestEncryptedPayloadsResponse.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

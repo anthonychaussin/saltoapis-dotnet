@@ -15,17 +15,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<ListInvoicesRequest> _parser = new(() => new ListInvoicesRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListInvoicesRequest> Parser { get { return _parser; } }
+        public static MessageParser<ListInvoicesRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[33]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[33];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListInvoicesRequest()
         {
@@ -44,27 +42,20 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// The parent resource name. It must have the format of
         /// `installations/*/subscription`. For example: `installations/surelock-homes-hq/subscription`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListInvoicesRequest);
         public bool Equals(ListInvoicesRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Parent != other.Parent) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Parent != other.Parent ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -81,11 +72,13 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -125,16 +118,20 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
@@ -169,8 +166,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

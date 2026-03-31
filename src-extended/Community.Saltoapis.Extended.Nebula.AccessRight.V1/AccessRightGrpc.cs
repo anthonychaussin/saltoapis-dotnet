@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.AccessRight.V1.Request;
+using Saltoapis.Nebula.AccessRight.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.AccessRight.V1.Response;
 
@@ -254,13 +254,10 @@ namespace Saltoapis.Nebula.AccessRight.V1
             "DeleteAccessRightDestination",
             __Marshaller_salto_nebula_accessright_v1_DeleteAccessRightDestinationRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
         public static ServiceDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.Services[0]; }
-        }
-
+            get => AccessRightReflection.Descriptor.Services[0];}
         /// <summary>Client for AccessRightService</summary>
         public partial class AccessRightServiceClient : ClientBase<AccessRightServiceClient>
         {
@@ -269,24 +266,20 @@ namespace Saltoapis.Nebula.AccessRight.V1
             public AccessRightServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for AccessRightService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public AccessRightServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected AccessRightServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected AccessRightServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an access right
             ///
@@ -298,7 +291,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual AccessRight CreateAccessRight(CreateAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessRight(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Create an access right
             ///
@@ -308,7 +300,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual AccessRight CreateAccessRight(CreateAccessRightRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_CreateAccessRight, null, options, request);
-
             /// <summary>
             /// Create an access right
             ///
@@ -319,11 +310,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> CreateAccessRightAsync(CreateAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return CreateAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> CreateAccessRightAsync(CreateAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access right
             ///
@@ -332,11 +319,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> CreateAccessRightAsync(CreateAccessRightRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessRight, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> CreateAccessRightAsync(CreateAccessRightRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessRight, null, options, request);
             /// <summary>
             /// Get an access right
             ///
@@ -348,7 +331,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual AccessRight GetAccessRight(GetAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessRight(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Get an access right
             ///
@@ -358,7 +340,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual AccessRight GetAccessRight(GetAccessRightRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_GetAccessRight, null, options, request);
-
             /// <summary>
             /// Get an access right
             ///
@@ -369,11 +350,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> GetAccessRightAsync(GetAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return GetAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> GetAccessRightAsync(GetAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access right
             ///
@@ -382,11 +359,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> GetAccessRightAsync(GetAccessRightRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessRight, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> GetAccessRightAsync(GetAccessRightRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessRight, null, options, request);
             /// <summary>
             /// List access rights
             ///
@@ -417,11 +390,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightsResponse> ListAccessRightsAsync(ListAccessRightsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return ListAccessRightsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightsResponse> ListAccessRightsAsync(ListAccessRightsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessRightsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access rights
             ///
@@ -430,11 +399,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightsResponse> ListAccessRightsAsync(ListAccessRightsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessRights, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightsResponse> ListAccessRightsAsync(ListAccessRightsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessRights, null, options, request);
             /// <summary>
             /// Update an access right
             ///
@@ -465,11 +430,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> UpdateAccessRightAsync(UpdateAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> UpdateAccessRightAsync(UpdateAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access right
             ///
@@ -478,11 +439,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRight> UpdateAccessRightAsync(UpdateAccessRightRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRight, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRight> UpdateAccessRightAsync(UpdateAccessRightRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRight, null, options, request);
             /// <summary>
             /// Delete an access right
             ///
@@ -513,11 +470,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAsync(DeleteAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAsync(DeleteAccessRightRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessRightAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access right
             ///
@@ -526,11 +479,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAsync(DeleteAccessRightRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRight, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAsync(DeleteAccessRightRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRight, null, options, request);
             /// <summary>
             /// Create an access point
             ///
@@ -561,11 +510,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> CreateAccessRightAccessPointAsync(CreateAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return CreateAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> CreateAccessRightAccessPointAsync(CreateAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point
             ///
@@ -574,11 +519,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> CreateAccessRightAccessPointAsync(CreateAccessRightAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> CreateAccessRightAccessPointAsync(CreateAccessRightAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightAccessPoint, null, options, request);
             /// <summary>
             /// Create a batch of access rights access points
             ///
@@ -612,11 +553,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointsResponse> BatchCreateAccessRightAccessPointsAsync(BatchCreateAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return BatchCreateAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointsResponse> BatchCreateAccessRightAccessPointsAsync(BatchCreateAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of access rights access points
             ///
@@ -626,11 +563,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointsResponse> BatchCreateAccessRightAccessPointsAsync(BatchCreateAccessRightAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessRightAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointsResponse> BatchCreateAccessRightAccessPointsAsync(BatchCreateAccessRightAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessRightAccessPoints, null, options, request);
             /// <summary>
             /// Get an access point
             ///
@@ -661,11 +594,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> GetAccessRightAccessPointAsync(GetAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return GetAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> GetAccessRightAccessPointAsync(GetAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point
             ///
@@ -674,11 +603,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> GetAccessRightAccessPointAsync(GetAccessRightAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessRightAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> GetAccessRightAccessPointAsync(GetAccessRightAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessRightAccessPoint, null, options, request);
             /// <summary>
             /// List access points
             ///
@@ -709,11 +634,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightAccessPointsResponse> ListAccessRightAccessPointsAsync(ListAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return ListAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightAccessPointsResponse> ListAccessRightAccessPointsAsync(ListAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access points
             ///
@@ -722,11 +643,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightAccessPointsResponse> ListAccessRightAccessPointsAsync(ListAccessRightAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessRightAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightAccessPointsResponse> ListAccessRightAccessPointsAsync(ListAccessRightAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessRightAccessPoints, null, options, request);
             /// <summary>
             /// Update an access point
             ///
@@ -757,11 +674,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> UpdateAccessRightAccessPointAsync(UpdateAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> UpdateAccessRightAccessPointAsync(UpdateAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point
             ///
@@ -770,11 +683,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPoint> UpdateAccessRightAccessPointAsync(UpdateAccessRightAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPoint> UpdateAccessRightAccessPointAsync(UpdateAccessRightAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightAccessPoint, null, options, request);
             /// <summary>
             /// Delete an access point
             ///
@@ -805,11 +714,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointAsync(DeleteAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointAsync(DeleteAccessRightAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessRightAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point
             ///
@@ -818,11 +723,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointAsync(DeleteAccessRightAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointAsync(DeleteAccessRightAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightAccessPoint, null, options, request);
             /// <summary>
             /// Delete a batch of access points
             ///
@@ -856,11 +757,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointsResponse> BatchDeleteAccessRightAccessPointsAsync(BatchDeleteAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return BatchDeleteAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointsResponse> BatchDeleteAccessRightAccessPointsAsync(BatchDeleteAccessRightAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteAccessRightAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of access points
             ///
@@ -870,11 +767,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointsResponse> BatchDeleteAccessRightAccessPointsAsync(BatchDeleteAccessRightAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessRightAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointsResponse> BatchDeleteAccessRightAccessPointsAsync(BatchDeleteAccessRightAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessRightAccessPoints, null, options, request);
             /// <summary>
             /// Create an access point group
             ///
@@ -905,11 +798,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> CreateAccessRightAccessPointGroupAsync(CreateAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return CreateAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> CreateAccessRightAccessPointGroupAsync(CreateAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point group
             ///
@@ -918,11 +807,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> CreateAccessRightAccessPointGroupAsync(CreateAccessRightAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> CreateAccessRightAccessPointGroupAsync(CreateAccessRightAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightAccessPointGroup, null, options, request);
             /// <summary>
             /// Create a batch of access right's access point groups
             ///
@@ -956,11 +841,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointGroupsResponse> BatchCreateAccessRightAccessPointGroupsAsync(BatchCreateAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return BatchCreateAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointGroupsResponse> BatchCreateAccessRightAccessPointGroupsAsync(BatchCreateAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of access right's access point groups
             ///
@@ -970,11 +851,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointGroupsResponse> BatchCreateAccessRightAccessPointGroupsAsync(BatchCreateAccessRightAccessPointGroupsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessRightAccessPointGroups, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessRightAccessPointGroupsResponse> BatchCreateAccessRightAccessPointGroupsAsync(BatchCreateAccessRightAccessPointGroupsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessRightAccessPointGroups, null, options, request);
             /// <summary>
             /// Get an access point group
             ///
@@ -1005,11 +882,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> GetAccessRightAccessPointGroupAsync(GetAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return GetAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> GetAccessRightAccessPointGroupAsync(GetAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point group
             ///
@@ -1018,11 +891,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> GetAccessRightAccessPointGroupAsync(GetAccessRightAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessRightAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> GetAccessRightAccessPointGroupAsync(GetAccessRightAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessRightAccessPointGroup, null, options, request);
             /// <summary>
             /// List access point groups
             ///
@@ -1053,11 +922,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightAccessPointGroupsResponse> ListAccessRightAccessPointGroupsAsync(ListAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return ListAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightAccessPointGroupsResponse> ListAccessRightAccessPointGroupsAsync(ListAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access point groups
             ///
@@ -1066,11 +931,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightAccessPointGroupsResponse> ListAccessRightAccessPointGroupsAsync(ListAccessRightAccessPointGroupsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessRightAccessPointGroups, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightAccessPointGroupsResponse> ListAccessRightAccessPointGroupsAsync(ListAccessRightAccessPointGroupsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessRightAccessPointGroups, null, options, request);
             /// <summary>
             /// Update an access point group
             ///
@@ -1101,11 +962,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> UpdateAccessRightAccessPointGroupAsync(UpdateAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> UpdateAccessRightAccessPointGroupAsync(UpdateAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point group
             ///
@@ -1114,11 +971,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> UpdateAccessRightAccessPointGroupAsync(UpdateAccessRightAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightAccessPointGroup> UpdateAccessRightAccessPointGroupAsync(UpdateAccessRightAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightAccessPointGroup, null, options, request);
             /// <summary>
             /// Delete an access point group
             ///
@@ -1149,11 +1002,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointGroupAsync(DeleteAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointGroupAsync(DeleteAccessRightAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessRightAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point group
             ///
@@ -1162,11 +1011,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointGroupAsync(DeleteAccessRightAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightAccessPointGroupAsync(DeleteAccessRightAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightAccessPointGroup, null, options, request);
             /// <summary>
             /// Delete a batch of access point groups
             ///
@@ -1197,11 +1042,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointGroupsResponse> BatchDeleteAccessRightAccessPointGroupsAsync(BatchDeleteAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return BatchDeleteAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointGroupsResponse> BatchDeleteAccessRightAccessPointGroupsAsync(BatchDeleteAccessRightAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteAccessRightAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of access point groups
             ///
@@ -1210,11 +1051,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointGroupsResponse> BatchDeleteAccessRightAccessPointGroupsAsync(BatchDeleteAccessRightAccessPointGroupsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessRightAccessPointGroups, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessRightAccessPointGroupsResponse> BatchDeleteAccessRightAccessPointGroupsAsync(BatchDeleteAccessRightAccessPointGroupsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessRightAccessPointGroups, null, options, request);
             /// <summary>
             /// Create an access right destination
             ///
@@ -1245,11 +1082,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> CreateAccessRightDestinationAsync(CreateAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return CreateAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> CreateAccessRightDestinationAsync(CreateAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access right destination
             ///
@@ -1258,11 +1091,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> CreateAccessRightDestinationAsync(CreateAccessRightDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> CreateAccessRightDestinationAsync(CreateAccessRightDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessRightDestination, null, options, request);
             /// <summary>
             /// Get an access right destination
             ///
@@ -1293,11 +1122,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> GetAccessRightDestinationAsync(GetAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return GetAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> GetAccessRightDestinationAsync(GetAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access right destination
             ///
@@ -1306,11 +1131,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> GetAccessRightDestinationAsync(GetAccessRightDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessRightDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> GetAccessRightDestinationAsync(GetAccessRightDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessRightDestination, null, options, request);
             /// <summary>
             /// List access right destinations
             ///
@@ -1341,11 +1162,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightDestinationsResponse> ListAccessRightDestinationsAsync(ListAccessRightDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return ListAccessRightDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightDestinationsResponse> ListAccessRightDestinationsAsync(ListAccessRightDestinationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessRightDestinationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access right destinations
             ///
@@ -1354,11 +1171,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessRightDestinationsResponse> ListAccessRightDestinationsAsync(ListAccessRightDestinationsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessRightDestinations, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessRightDestinationsResponse> ListAccessRightDestinationsAsync(ListAccessRightDestinationsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessRightDestinations, null, options, request);
             /// <summary>
             /// Update an access right destination
             ///
@@ -1389,11 +1202,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> UpdateAccessRightDestinationAsync(UpdateAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> UpdateAccessRightDestinationAsync(UpdateAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access right destination
             ///
@@ -1402,11 +1211,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessRightDestination> UpdateAccessRightDestinationAsync(UpdateAccessRightDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessRightDestination> UpdateAccessRightDestinationAsync(UpdateAccessRightDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessRightDestination, null, options, request);
             /// <summary>
             /// Delete an access right destination
             ///
@@ -1437,11 +1242,7 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightDestinationAsync(DeleteAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightDestinationAsync(DeleteAccessRightDestinationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessRightDestinationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access right destination
             ///
@@ -1450,18 +1251,9 @@ namespace Saltoapis.Nebula.AccessRight.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightDestinationAsync(DeleteAccessRightDestinationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightDestination, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessRightDestinationAsync(DeleteAccessRightDestinationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessRightDestination, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override AccessRightServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Iam.V1
     /// <summary>Holder for reflection information generated from salto/nebula/iam/v1/iam.proto</summary>
     public static partial class IamReflection
     {
-
         /// <summary>File descriptor for salto/nebula/iam/v1/iam.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -45,8 +43,6 @@ namespace Saltoapis.Nebula.Iam.V1
             new(typeof(ListRolesResponse), ListRolesResponse.Parser, ["Roles", "NextPageToken"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

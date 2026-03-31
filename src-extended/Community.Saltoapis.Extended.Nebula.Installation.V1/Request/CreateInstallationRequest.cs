@@ -12,17 +12,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private UnknownFieldSet _unknownFields;
         private int _hasBits0;
 
-        public static MessageParser<CreateInstallationRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateInstallationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[8]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[8];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateInstallationRequest()
         {
@@ -46,55 +44,32 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly string InstallationIdDefaultValue = "";
 
         private string installationId_;
-
         /// <summary>
         /// The installation ID to use for this installation. In case it's
         /// empty the server will autogenerate a unique identifier.
         /// </summary>
         public string InstallationId
         {
-            get { return installationId_ ?? InstallationIdDefaultValue; }
-            set
-            {
-                installationId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => installationId_ ?? InstallationIdDefaultValue; set => installationId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "installation_id" field is set</summary>
-        public bool HasInstallationId
-        {
-            get { return installationId_ != null; }
-        }
-
+        public bool HasInstallationId => installationId_ != null;
         /// <summary>Clears the value of the "installation_id" field</summary>
-        public void ClearInstallationId()
-        {
-            installationId_ = null;
-        }
-
+        public void ClearInstallationId() => installationId_ = null;
         /// <summary>Field number for the "installation" field.</summary>
         public const int InstallationFieldNumber = 2;
         private Installation installation_;
-
         /// <summary>
         /// The installation resource to be created. Client must not set the
         /// `Installation.name` field.
         /// </summary>
         public Installation Installation
         {
-            get { return installation_; }
-            set
-            {
-                installation_ = value;
-            }
-        }
-
+            get => installation_; set => installation_ = value;}
         /// <summary>Field number for the "validate_only" field.</summary>
         public const int ValidateOnlyFieldNumber = 5;
         private static readonly bool ValidateOnlyDefaultValue = false;
 
         private bool validateOnly_;
-
         /// <summary>
         /// If set, validate the request but do not actually create the installation.
         /// </summary>
@@ -107,13 +82,8 @@ namespace Saltoapis.Nebula.Installation.V1.Request
                 validateOnly_ = value;
             }
         }
-
         /// <summary>Gets whether the "validate_only" field is set</summary>
-        public bool HasValidateOnly
-        {
-            get { return (_hasBits0 & 1) != 0; }
-        }
-
+        public bool HasValidateOnly => (_hasBits0 & 1) != 0;
         /// <summary>Clears the value of the "validate_only" field</summary>
         public void ClearValidateOnly()
         {
@@ -125,8 +95,7 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((InstallationId != other.InstallationId) || (!Equals(Installation, other.Installation))) return false;
-            if (ValidateOnly != other.ValidateOnly) return false;
+            if ((InstallationId != other.InstallationId) || (!Equals(Installation, other.Installation)) || ValidateOnly != other.ValidateOnly) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -146,19 +115,23 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (HasInstallationId) {
+      if (HasInstallationId)
+      {
         output.WriteRawTag(10);
         output.WriteString(InstallationId);
       }
-      if (installation_ != null) {
+      if (installation_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Installation);
       }
-      if (HasValidateOnly) {
+      if (HasValidateOnly)
+      {
         output.WriteRawTag(40);
         output.WriteBool(ValidateOnly);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -216,27 +189,34 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             InstallationId = input.ReadString();
             break;
           }
-          case 18: {
-            if (installation_ == null) {
+          case 18:
+          {
+            if (installation_ == null)
+            {
               Installation = new Saltoapis.Nebula.Installation.V1.Installation();
             }
             input.ReadMessage(Installation);
             break;
           }
-          case 40: {
+          case 40:
+          {
             ValidateOnly = input.ReadBool();
             break;
           }
@@ -282,8 +262,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

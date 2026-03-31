@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Controller.V1.Response
         private static readonly MessageParser<BatchUpdateControllerRelaysResponse> _parser = new(() => new BatchUpdateControllerRelaysResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchUpdateControllerRelaysResponse> Parser { get { return _parser; } }
+        public static MessageParser<BatchUpdateControllerRelaysResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ControllerReflection.Descriptor.MessageTypes[40]; }
-        }
+            get => ControllerReflection.Descriptor.MessageTypes[40];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchUpdateControllerRelaysResponse()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.Controller.V1.Response
         private static readonly FieldCodec<ControllerRelay> _repeated_controllerRelays_codec
             = FieldCodec.ForMessage(10, ControllerRelay.Parser);
         private readonly RepeatedField<ControllerRelay> controllerRelays_ = [];
-
         /// <summary>
         /// The controller relay resources updated.
         /// </summary>
         public RepeatedField<ControllerRelay> ControllerRelays
         {
-            get { return controllerRelays_; }
-        }
+            get => controllerRelays_;}
 
         public override bool Equals(object other) => Equals(other as BatchUpdateControllerRelaysResponse);
         public bool Equals(BatchUpdateControllerRelaysResponse other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.Controller.V1.Response
             output.WriteRawMessage(this);
 #else
       controllerRelays_.WriteTo(output, _repeated_controllerRelays_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.Controller.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             controllerRelays_.AddEntriesFrom(input, _repeated_controllerRelays_codec);
             break;
           }
@@ -155,8 +156,6 @@ namespace Saltoapis.Nebula.Controller.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

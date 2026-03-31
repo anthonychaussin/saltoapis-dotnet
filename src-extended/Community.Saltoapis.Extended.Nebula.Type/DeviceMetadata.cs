@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Type
         private static readonly MessageParser<DeviceMetadata> _parser = new(() => new DeviceMetadata());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DeviceMetadata> Parser { get { return _parser; } }
+        public static MessageParser<DeviceMetadata> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DeviceMetadataReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => DeviceMetadataReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DeviceMetadata()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.Type
         private static readonly FieldCodec<Types.CircuitBoard> _repeated_circuitBoards_codec
             = FieldCodec.ForMessage(10, Types.CircuitBoard.Parser);
         private readonly RepeatedField<Types.CircuitBoard> circuitBoards_ = [];
-
         /// <summary>
         /// Circuit boards present in this device.
         /// </summary>
         public RepeatedField<Types.CircuitBoard> CircuitBoards
         {
-            get { return circuitBoards_; }
-        }
+            get => circuitBoards_;}
 
         public override bool Equals(object other) => Equals(other as DeviceMetadata);
         public bool Equals(DeviceMetadata other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.Type
             output.WriteRawMessage(this);
 #else
       circuitBoards_.WriteTo(output, _repeated_circuitBoards_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             circuitBoards_.AddEntriesFrom(input, _repeated_circuitBoards_codec);
             break;
           }
@@ -155,7 +156,6 @@ namespace Saltoapis.Nebula.Type
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the DeviceMetadata message type.</summary>
         public static partial class Types
         {
@@ -170,17 +170,15 @@ namespace Saltoapis.Nebula.Type
                 private static readonly MessageParser<CircuitBoard> _parser = new(() => new CircuitBoard());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<CircuitBoard> Parser { get { return _parser; } }
+                public static MessageParser<CircuitBoard> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return DeviceMetadata.Descriptor.NestedTypes[0]; }
-                }
+                    get => DeviceMetadata.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public CircuitBoard()
                 {
@@ -201,56 +199,39 @@ namespace Saltoapis.Nebula.Type
                 /// <summary>Field number for the "manufacture_date" field.</summary>
                 public const int ManufactureDateFieldNumber = 2;
                 private Saltoapis.Type.Date manufactureDate_;
-
                 /// <summary>
                 /// Date manufactured
                 /// </summary>
                 public Saltoapis.Type.Date ManufactureDate
                 {
-                    get { return manufactureDate_; }
-                    set
-                    {
-                        manufactureDate_ = value;
-                    }
-                }
-
+                    get => manufactureDate_; set => manufactureDate_ = value;}
                 /// <summary>Field number for the "serial_number" field.</summary>
                 public const int SerialNumberFieldNumber = 3;
                 private string serialNumber_ = "";
-
                 /// <summary>
                 /// Hardware serial number, for example, `2.000.0020`
                 /// </summary>
                 public string SerialNumber
                 {
-                    get { return serialNumber_; }
-                    set
-                    {
-                        serialNumber_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => serialNumber_; set => serialNumber_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "firmwares" field.</summary>
                 public const int FirmwaresFieldNumber = 4;
                 private static readonly FieldCodec<Types.Firmware> _repeated_firmwares_codec
                     = FieldCodec.ForMessage(34, Types.Firmware.Parser);
                 private readonly RepeatedField<Types.Firmware> firmwares_ = [];
-
                 /// <summary>
                 /// Firmwares present in this circuit board.
                 /// </summary>
                 public RepeatedField<Types.Firmware> Firmwares
                 {
-                    get { return firmwares_; }
-                }
+                    get => firmwares_;}
 
                 public override bool Equals(object other) => Equals(other as CircuitBoard);
                 public bool Equals(CircuitBoard other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if ((!Equals(ManufactureDate, other.ManufactureDate)) || (SerialNumber != other.SerialNumber)) return false;
-                    if (!firmwares_.Equals(other.firmwares_)) return false;
+                    if ((!Equals(ManufactureDate, other.ManufactureDate)) || (SerialNumber != other.SerialNumber) || !firmwares_.Equals(other.firmwares_)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -270,16 +251,19 @@ namespace Saltoapis.Nebula.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (manufactureDate_ != null) {
+          if (manufactureDate_ != null)
+          {
             output.WriteRawTag(18);
             output.WriteMessage(ManufactureDate);
           }
-          if (SerialNumber.Length != 0) {
+          if (SerialNumber.Length != 0)
+          {
             output.WriteRawTag(26);
             output.WriteString(SerialNumber);
           }
           firmwares_.WriteTo(output, _repeated_firmwares_codec);
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -333,27 +317,34 @@ namespace Saltoapis.Nebula.Type
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 18: {
-                if (manufactureDate_ == null) {
+              case 18:
+              {
+                if (manufactureDate_ == null)
+                {
                   ManufactureDate = new Saltoapis.Type.Date();
                 }
                 input.ReadMessage(ManufactureDate);
                 break;
               }
-              case 26: {
+              case 26:
+              {
                 SerialNumber = input.ReadString();
                 break;
               }
-              case 34: {
+              case 34:
+              {
                 firmwares_.AddEntriesFrom(input, _repeated_firmwares_codec);
                 break;
               }
@@ -399,7 +390,6 @@ namespace Saltoapis.Nebula.Type
                     }
                 }
 #endif
-
                 /// <summary>Container for nested types declared in the CircuitBoard message type.</summary>
                 public static partial class Types
                 {
@@ -414,17 +404,15 @@ namespace Saltoapis.Nebula.Type
                         private static readonly MessageParser<Firmware> _parser = new(() => new Firmware());
                         private UnknownFieldSet _unknownFields;
 
-                        public static MessageParser<Firmware> Parser { get { return _parser; } }
+                        public static MessageParser<Firmware> Parser { get => _parser;}
 
                         public static MessageDescriptor Descriptor
                         {
-                            get { return CircuitBoard.Descriptor.NestedTypes[0]; }
-                        }
+                            get => CircuitBoard.Descriptor.NestedTypes[0];}
 
                         MessageDescriptor IMessage.Descriptor
                         {
-                            get { return Descriptor; }
-                        }
+                            get => Descriptor;}
 
                         public Firmware()
                         {
@@ -445,58 +433,37 @@ namespace Saltoapis.Nebula.Type
                         /// <summary>Field number for the "number" field.</summary>
                         public const int NumberFieldNumber = 1;
                         private string number_ = "";
-
                         /// <summary>
                         /// Firmware number, for example '0180'.
                         /// </summary>
                         public string Number
                         {
-                            get { return number_; }
-                            set
-                            {
-                                number_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => number_; set => number_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "version" field.</summary>
                         public const int VersionFieldNumber = 2;
                         private string version_ = "";
-
                         /// <summary>
                         /// Firmware version of a specific firmware number.
                         /// </summary>
                         public string Version
                         {
-                            get { return version_; }
-                            set
-                            {
-                                version_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => version_; set => version_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "revision" field.</summary>
                         public const int RevisionFieldNumber = 3;
                         private string revision_ = "";
-
                         /// <summary>
                         /// Firmware revision of a specific firmware number and version.
                         /// </summary>
                         public string Revision
                         {
-                            get { return revision_; }
-                            set
-                            {
-                                revision_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
+                            get => revision_; set => revision_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
                         public override bool Equals(object other) => Equals(other as Firmware);
                         public bool Equals(Firmware other)
                         {
                             if (other is null) return false;
                             if (ReferenceEquals(other, this)) return true;
-                            if ((Number != other.Number) || (Version != other.Version)) return false;
-                            if (Revision != other.Revision) return false;
+                            if ((Number != other.Number) || (Version != other.Version) || Revision != other.Revision) return false;
                             return Equals(_unknownFields, other._unknownFields);
                         }
 
@@ -516,19 +483,23 @@ namespace Saltoapis.Nebula.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                             output.WriteRawMessage(this);
 #else
-              if (Number.Length != 0) {
+              if (Number.Length != 0)
+              {
                 output.WriteRawTag(10);
                 output.WriteString(Number);
               }
-              if (Version.Length != 0) {
+              if (Version.Length != 0)
+              {
                 output.WriteRawTag(18);
                 output.WriteString(Version);
               }
-              if (Revision.Length != 0) {
+              if (Revision.Length != 0)
+              {
                 output.WriteRawTag(26);
                 output.WriteString(Revision);
               }
-              if (_unknownFields != null) {
+              if (_unknownFields != null)
+              {
                 _unknownFields.WriteTo(output);
               }
 #endif
@@ -582,24 +553,30 @@ namespace Saltoapis.Nebula.Type
                             input.ReadRawMessage(this);
 #else
               uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-              if ((tag & 7) == 4) {
+              while ((tag = input.ReadTag()) != 0)
+              {
+              if ((tag & 7) == 4)
+              {
                 // Abort on any end group tag.
                 return;
               }
-              switch(tag) {
+              switch(tag)
+              {
                   default:
                     _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10: {
+                  case 10:
+                  {
                     Number = input.ReadString();
                     break;
                   }
-                  case 18: {
+                  case 18:
+                  {
                     Version = input.ReadString();
                     break;
                   }
-                  case 26: {
+                  case 26:
+                  {
                     Revision = input.ReadString();
                     break;
                   }
@@ -644,14 +621,9 @@ namespace Saltoapis.Nebula.Type
                             }
                         }
 #endif
-
                     }
-
                 }
-
             }
-
         }
-
     }
 }

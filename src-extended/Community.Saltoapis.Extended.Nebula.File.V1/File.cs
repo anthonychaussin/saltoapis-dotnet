@@ -13,17 +13,15 @@ namespace Saltoapis.Nebula.File.V1
         private static readonly MessageParser<File> _parser = new(() => new File());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<File> Parser { get { return _parser; } }
+        public static MessageParser<File> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return FileReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => FileReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public File()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.File.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the file. It must have the format
         /// `installations/*/files/*`. For example:
@@ -51,28 +48,16 @@ namespace Saltoapis.Nebula.File.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "upload_uri" field.</summary>
         public const int UploadUriFieldNumber = 2;
         private string uploadUri_ = "";
-
         /// <summary>
         /// The private URL to upload the file to.
         /// </summary>
         public string UploadUri
         {
-            get { return uploadUri_; }
-            set
-            {
-                uploadUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => uploadUri_; set => uploadUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as File);
         public bool Equals(File other)
@@ -98,15 +83,18 @@ namespace Saltoapis.Nebula.File.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (UploadUri.Length != 0) {
+      if (UploadUri.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(UploadUri);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -153,20 +141,25 @@ namespace Saltoapis.Nebula.File.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             UploadUri = input.ReadString();
             break;
           }
@@ -206,6 +199,5 @@ namespace Saltoapis.Nebula.File.V1
             }
         }
 #endif
-
     }
 }

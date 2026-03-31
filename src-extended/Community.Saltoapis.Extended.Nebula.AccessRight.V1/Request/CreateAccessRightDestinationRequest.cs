@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<CreateAccessRightDestinationRequest> _parser = new(() => new CreateAccessRightDestinationRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateAccessRightDestinationRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateAccessRightDestinationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[30]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[30];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateAccessRightDestinationRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where the access right's destination
         /// association is to be created. For example:
@@ -49,29 +46,17 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_right_destination" field.</summary>
         public const int AccessRightDestinationFieldNumber = 2;
         private AccessRightDestination accessRightDestination_;
-
         /// <summary>
         /// The access right's destination association resource to be created.
         /// Client must not set the `AccessRightDestination.name` field.
         /// </summary>
         public AccessRightDestination AccessRightDestination
         {
-            get { return accessRightDestination_; }
-            set
-            {
-                accessRightDestination_ = value;
-            }
-        }
+            get => accessRightDestination_; set => accessRightDestination_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateAccessRightDestinationRequest);
         public bool Equals(CreateAccessRightDestinationRequest other)
@@ -97,15 +82,18 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (accessRightDestination_ != null) {
+      if (accessRightDestination_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessRightDestination);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -156,21 +144,27 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
-            if (accessRightDestination_ == null) {
+          case 18:
+          {
+            if (accessRightDestination_ == null)
+            {
               AccessRightDestination = new Saltoapis.Nebula.AccessRight.V1.AccessRightDestination();
             }
             input.ReadMessage(AccessRightDestination);
@@ -213,8 +207,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

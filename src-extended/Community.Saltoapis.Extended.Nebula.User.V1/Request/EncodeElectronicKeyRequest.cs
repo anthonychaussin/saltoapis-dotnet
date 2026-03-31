@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         private static readonly MessageParser<EncodeElectronicKeyRequest> _parser = new(() => new EncodeElectronicKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EncodeElectronicKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<EncodeElectronicKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[46]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[46];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EncodeElectronicKeyRequest()
         {
@@ -53,23 +51,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The name of the requested user's electronic key to be encoded. For example:
         /// `installations/surelock-homes-hq/users/john-watson/electronic-key`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "encoder" field.</summary>
         public const int EncoderFieldNumber = 2;
-
         /// <summary>
         /// Device name, when device is an encoder
         /// </summary>
@@ -82,22 +72,15 @@ namespace Saltoapis.Nebula.User.V1.Request
                 deviceCase_ = DeviceOneofCase.Encoder;
             }
         }
-
         /// <summary>Gets whether the "encoder" field is set</summary>
-        public bool HasEncoder
-        {
-            get { return deviceCase_ == DeviceOneofCase.Encoder; }
-        }
-
+        public bool HasEncoder => deviceCase_ == DeviceOneofCase.Encoder;
         /// <summary> Clears the value of the oneof if it's currently set to "encoder" </summary>
         public void ClearEncoder()
         {
             if (HasEncoder) ClearDevice();
         }
-
         /// <summary>Field number for the "electronic_lock" field.</summary>
         public const int ElectronicLockFieldNumber = 3;
-
         /// <summary>
         /// Device name, when device is an electronic lock
         /// </summary>
@@ -110,22 +93,15 @@ namespace Saltoapis.Nebula.User.V1.Request
                 deviceCase_ = DeviceOneofCase.ElectronicLock;
             }
         }
-
         /// <summary>Gets whether the "electronic_lock" field is set</summary>
-        public bool HasElectronicLock
-        {
-            get { return deviceCase_ == DeviceOneofCase.ElectronicLock; }
-        }
-
+        public bool HasElectronicLock => deviceCase_ == DeviceOneofCase.ElectronicLock;
         /// <summary> Clears the value of the oneof if it's currently set to "electronic_lock" </summary>
         public void ClearElectronicLock()
         {
             if (HasElectronicLock) ClearDevice();
         }
-
         /// <summary>Field number for the "controller" field.</summary>
         public const int ControllerFieldNumber = 4;
-
         /// <summary>
         /// Device name, when device is a controller
         /// </summary>
@@ -138,13 +114,8 @@ namespace Saltoapis.Nebula.User.V1.Request
                 deviceCase_ = DeviceOneofCase.Controller;
             }
         }
-
         /// <summary>Gets whether the "controller" field is set</summary>
-        public bool HasController
-        {
-            get { return deviceCase_ == DeviceOneofCase.Controller; }
-        }
-
+        public bool HasController => deviceCase_ == DeviceOneofCase.Controller;
         /// <summary> Clears the value of the oneof if it's currently set to "controller" </summary>
         public void ClearController()
         {
@@ -152,7 +123,6 @@ namespace Saltoapis.Nebula.User.V1.Request
         }
 
         private object device_;
-
         /// <summary>Enum of possible cases for the "device" oneof.</summary>
         public enum DeviceOneofCase
         {
@@ -166,8 +136,7 @@ namespace Saltoapis.Nebula.User.V1.Request
 
         public DeviceOneofCase DeviceCase
         {
-            get { return deviceCase_; }
-        }
+            get => deviceCase_;}
 
         public void ClearDevice()
         {
@@ -180,9 +149,7 @@ namespace Saltoapis.Nebula.User.V1.Request
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (Encoder != other.Encoder)) return false;
-            if ((ElectronicLock != other.ElectronicLock) || (Controller != other.Controller)) return false;
-            if (DeviceCase != other.DeviceCase) return false;
+            if ((Name != other.Name) || (Encoder != other.Encoder) || (ElectronicLock != other.ElectronicLock) || (Controller != other.Controller) || DeviceCase != other.DeviceCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -204,23 +171,28 @@ namespace Saltoapis.Nebula.User.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (HasEncoder) {
+      if (HasEncoder)
+      {
         output.WriteRawTag(18);
         output.WriteString(Encoder);
       }
-      if (HasElectronicLock) {
+      if (HasElectronicLock)
+      {
         output.WriteRawTag(26);
         output.WriteString(ElectronicLock);
       }
-      if (HasController) {
+      if (HasController)
+      {
         output.WriteRawTag(34);
         output.WriteString(Controller);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -291,28 +263,35 @@ namespace Saltoapis.Nebula.User.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Encoder = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             ElectronicLock = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Controller = input.ReadString();
             break;
           }
@@ -362,8 +341,6 @@ namespace Saltoapis.Nebula.User.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

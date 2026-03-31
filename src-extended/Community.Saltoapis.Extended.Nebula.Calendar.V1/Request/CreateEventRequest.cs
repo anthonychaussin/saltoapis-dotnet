@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Calendar.V1.Request
         private static readonly MessageParser<CreateEventRequest> _parser = new(() => new CreateEventRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateEventRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateEventRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return CalendarReflection.Descriptor.MessageTypes[8]; }
-        }
+            get => CalendarReflection.Descriptor.MessageTypes[8];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateEventRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.Calendar.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the calendar
         /// event. For example: `installations/surelock-homes-hq/calendars/gmt`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "event_id" field.</summary>
         public const int EventIdFieldNumber = 2;
         private static readonly string EventIdDefaultValue = "";
 
         private string eventId_;
-
         /// <summary>
         /// The event ID to use for this calendar event. In case it's
         /// empty the server will autogenerate a unique identifier.
         /// </summary>
         public string EventId
         {
-            get { return eventId_ ?? EventIdDefaultValue; }
-            set
-            {
-                eventId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => eventId_ ?? EventIdDefaultValue; set => eventId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "event_id" field is set</summary>
-        public bool HasEventId
-        {
-            get { return eventId_ != null; }
-        }
-
+        public bool HasEventId => eventId_ != null;
         /// <summary>Clears the value of the "event_id" field</summary>
-        public void ClearEventId()
-        {
-            eventId_ = null;
-        }
-
+        public void ClearEventId() => eventId_ = null;
         /// <summary>Field number for the "event" field.</summary>
         public const int EventFieldNumber = 3;
         private Event event_;
-
         /// <summary>
         /// The calendar event resource to be created. Client must not set the
         /// `Event.name` field.
         /// </summary>
         public Event Event
         {
-            get { return event_; }
-            set
-            {
-                event_ = value;
-            }
-        }
+            get => event_; set => event_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateEventRequest);
         public bool Equals(CreateEventRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (EventId != other.EventId)) return false;
-            if (!Equals(Event, other.Event)) return false;
+            if ((Parent != other.Parent) || (EventId != other.EventId) || !Equals(Event, other.Event)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.Calendar.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasEventId) {
+      if (HasEventId)
+      {
         output.WriteRawTag(18);
         output.WriteString(EventId);
       }
-      if (event_ != null) {
+      if (event_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Event);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.Calendar.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             EventId = input.ReadString();
             break;
           }
-          case 26: {
-            if (event_ == null) {
+          case 26:
+          {
+            if (event_ == null)
+            {
               Event = new Saltoapis.Nebula.Calendar.V1.Event();
             }
             input.ReadMessage(Event);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.Calendar.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

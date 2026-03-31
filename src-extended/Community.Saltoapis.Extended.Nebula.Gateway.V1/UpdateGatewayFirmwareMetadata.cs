@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly MessageParser<UpdateGatewayFirmwareMetadata> _parser = new(() => new UpdateGatewayFirmwareMetadata());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateGatewayFirmwareMetadata> Parser { get { return _parser; } }
+        public static MessageParser<UpdateGatewayFirmwareMetadata> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[26]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[26];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateGatewayFirmwareMetadata()
         {
@@ -40,26 +38,19 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// <summary>Field number for the "progress_percent" field.</summary>
         public const int ProgressPercentFieldNumber = 1;
         private int progressPercent_;
-
         /// <summary>
         /// Progress of operation. Range: [0, 100].
         /// </summary>
         public int ProgressPercent
         {
-            get { return progressPercent_; }
-            set
-            {
-                progressPercent_ = value;
-            }
-        }
+            get => progressPercent_; set => progressPercent_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateGatewayFirmwareMetadata);
         public bool Equals(UpdateGatewayFirmwareMetadata other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (ProgressPercent != other.ProgressPercent) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return ProgressPercent != other.ProgressPercent ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -76,11 +67,13 @@ namespace Saltoapis.Nebula.Gateway.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (ProgressPercent != 0) {
+      if (ProgressPercent != 0)
+      {
         output.WriteRawTag(8);
         output.WriteInt32(ProgressPercent);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -120,16 +113,20 @@ namespace Saltoapis.Nebula.Gateway.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 8:
+          {
             ProgressPercent = input.ReadInt32();
             break;
           }
@@ -164,8 +161,6 @@ namespace Saltoapis.Nebula.Gateway.V1
             }
         }
 #endif
-
     }
-
 
 }

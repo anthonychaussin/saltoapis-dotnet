@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
     /// <summary>Holder for reflection information generated from salto/nebula/intercomadaptor/v1/intercom_adaptor.proto</summary>
     public static partial class IntercomAdaptorReflection
     {
-
         /// <summary>File descriptor for salto/nebula/intercomadaptor/v1/intercom_adaptor.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -158,8 +156,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

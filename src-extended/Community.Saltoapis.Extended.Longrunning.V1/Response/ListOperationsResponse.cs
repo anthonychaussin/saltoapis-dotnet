@@ -12,17 +12,15 @@ namespace Saltoapis.Longrunning.V1.Response
         private static readonly MessageParser<ListOperationsResponse> _parser = new(() => new ListOperationsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListOperationsResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListOperationsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return OperationReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => OperationReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListOperationsResponse()
         {
@@ -44,30 +42,21 @@ namespace Saltoapis.Longrunning.V1.Response
         private static readonly FieldCodec<Operation> _repeated_operations_codec
             = FieldCodec.ForMessage(10, Operation.Parser);
         private readonly RepeatedField<Operation> operations_ = [];
-
         /// <summary>
         /// A list of operations that matches the specified filter in the request.
         /// </summary>
         public RepeatedField<Operation> Operations
         {
-            get { return operations_; }
-        }
-
+            get => operations_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// The standard List next-page token.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListOperationsResponse);
         public bool Equals(ListOperationsResponse other)
@@ -94,11 +83,13 @@ namespace Saltoapis.Longrunning.V1.Response
             output.WriteRawMessage(this);
 #else
       operations_.WriteTo(output, _repeated_operations_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -141,20 +132,25 @@ namespace Saltoapis.Longrunning.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             operations_.AddEntriesFrom(input, _repeated_operations_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -194,8 +190,6 @@ namespace Saltoapis.Longrunning.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

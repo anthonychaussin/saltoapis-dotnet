@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<TransferInstallationOwnershipRequest> _parser = new(() => new TransferInstallationOwnershipRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<TransferInstallationOwnershipRequest> Parser { get { return _parser; } }
+        public static MessageParser<TransferInstallationOwnershipRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[23]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[23];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public TransferInstallationOwnershipRequest()
         {
@@ -41,35 +39,22 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "installation" field.</summary>
         public const int InstallationFieldNumber = 1;
         private string installation_ = "";
-
         /// <summary>
         /// The resource name for which the transfer ownership is being requested.
         /// For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Installation
         {
-            get { return installation_; }
-            set
-            {
-                installation_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => installation_; set => installation_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "email" field.</summary>
         public const int EmailFieldNumber = 2;
         private string email_ = "";
-
         /// <summary>
         /// Email address for the proposed installation owner.
         /// </summary>
         public string Email
         {
-            get { return email_; }
-            set
-            {
-                email_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => email_; set => email_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as TransferInstallationOwnershipRequest);
         public bool Equals(TransferInstallationOwnershipRequest other)
@@ -95,15 +80,18 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Installation.Length != 0) {
+      if (Installation.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Installation);
       }
-      if (Email.Length != 0) {
+      if (Email.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Email);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -150,20 +138,25 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Installation = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Email = input.ReadString();
             break;
           }
@@ -203,8 +196,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

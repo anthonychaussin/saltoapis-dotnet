@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Device.V1.Request;
+using Saltoapis.Nebula.Device.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Device.V1.Response;
 
@@ -34,13 +34,10 @@ namespace Saltoapis.Nebula.Device.V1
             "ListDevices",
             __Marshaller_salto_nebula_device_v1_ListDevicesRequest,
             __Marshaller_salto_nebula_device_v1_ListDevicesResponse);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return DeviceReflection.Descriptor.Services[0]; }
-        }
-
+            get => DeviceReflection.Descriptor.Services[0];}
         /// <summary>Client for DeviceService</summary>
         public partial class DeviceServiceClient : ClientBase<DeviceServiceClient>
         {
@@ -49,24 +46,20 @@ namespace Saltoapis.Nebula.Device.V1
             public DeviceServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for DeviceService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public DeviceServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected DeviceServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected DeviceServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Get a device
             ///
@@ -77,7 +70,7 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Device GetDevice(GetDeviceRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetDevice(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Device GetDevice(GetDeviceRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetDevice(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a device
             ///
@@ -97,11 +90,7 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Device> GetDeviceAsync(GetDeviceRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetDeviceAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Device> GetDeviceAsync(GetDeviceRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetDeviceAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a device
             ///
@@ -110,11 +99,7 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Device> GetDeviceAsync(GetDeviceRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetDevice, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Device> GetDeviceAsync(GetDeviceRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetDevice, null, options, request);
             /// <summary>
             /// List devices
             ///
@@ -125,7 +110,7 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListDevicesResponse ListDevices(ListDevicesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListDevices(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListDevicesResponse ListDevices(ListDevicesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListDevices(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List devices
             ///
@@ -145,11 +130,7 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDevicesResponse> ListDevicesAsync(ListDevicesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListDevicesAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListDevicesResponse> ListDevicesAsync(ListDevicesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListDevicesAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List devices
             ///
@@ -158,18 +139,9 @@ namespace Saltoapis.Nebula.Device.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDevicesResponse> ListDevicesAsync(ListDevicesRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListDevices, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListDevicesResponse> ListDevicesAsync(ListDevicesRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListDevices, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override DeviceServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

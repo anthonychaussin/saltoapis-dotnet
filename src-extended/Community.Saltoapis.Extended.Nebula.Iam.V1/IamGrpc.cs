@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Iam.V1.Request;
+using Saltoapis.Nebula.Iam.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Iam.V1.Response;
 
@@ -36,13 +36,10 @@ namespace Saltoapis.Nebula.Iam.V1
             "ListRoles",
             __Marshaller_salto_nebula_iam_v1_ListRolesRequest,
             __Marshaller_salto_nebula_iam_v1_ListRolesResponse);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return IamReflection.Descriptor.Services[0]; }
-        }
-
+            get => IamReflection.Descriptor.Services[0];}
         /// <summary>Client for IAMService</summary>
         public partial class IAMServiceClient : ClientBase<IAMServiceClient>
         {
@@ -51,24 +48,20 @@ namespace Saltoapis.Nebula.Iam.V1
             public IAMServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for IAMService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public IAMServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected IAMServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected IAMServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Get a role
             ///
@@ -79,7 +72,7 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Role GetRole(GetRoleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetRole(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Role GetRole(GetRoleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetRole(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a role
             ///
@@ -99,11 +92,7 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Role> GetRoleAsync(GetRoleRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetRoleAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Role> GetRoleAsync(GetRoleRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetRoleAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a role
             ///
@@ -112,11 +101,7 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Role> GetRoleAsync(GetRoleRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetRole, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Role> GetRoleAsync(GetRoleRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetRole, null, options, request);
             /// <summary>
             /// List roles
             ///
@@ -127,7 +112,7 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListRolesResponse ListRoles(ListRolesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListRoles(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListRolesResponse ListRoles(ListRolesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListRoles(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List roles
             ///
@@ -147,11 +132,7 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListRolesResponse> ListRolesAsync(ListRolesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListRolesAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListRolesResponse> ListRolesAsync(ListRolesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListRolesAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List roles
             ///
@@ -160,18 +141,9 @@ namespace Saltoapis.Nebula.Iam.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListRolesResponse> ListRolesAsync(ListRolesRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListRoles, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListRolesResponse> ListRolesAsync(ListRolesRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListRoles, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override IAMServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

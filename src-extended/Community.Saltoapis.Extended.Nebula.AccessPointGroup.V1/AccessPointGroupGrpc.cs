@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.AccessPointGroup.V1.Request;
+using Saltoapis.Nebula.AccessPointGroup.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.AccessPointGroup.V1.Response;
 
@@ -134,13 +134,10 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             "BatchDeleteAccessPointGroupAccessPoints",
             __Marshaller_salto_nebula_accesspointgroup_v1_BatchDeleteAccessPointGroupAccessPointsRequest,
             __Marshaller_salto_nebula_accesspointgroup_v1_BatchDeleteAccessPointGroupAccessPointsResponse);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.Services[0]; }
-        }
-
+            get => AccessPointGroupReflection.Descriptor.Services[0];}
         /// <summary>Client for AccessPointGroupService</summary>
         public partial class AccessPointGroupServiceClient : ClientBase<AccessPointGroupServiceClient>
         {
@@ -149,24 +146,20 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             public AccessPointGroupServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for AccessPointGroupService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public AccessPointGroupServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected AccessPointGroupServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected AccessPointGroupServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an access point group
             ///
@@ -177,7 +170,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroup CreateAccessPointGroup(CreateAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroup CreateAccessPointGroup(CreateAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point group
             ///
@@ -197,11 +190,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> CreateAccessPointGroupAsync(CreateAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> CreateAccessPointGroupAsync(CreateAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point group
             ///
@@ -210,11 +199,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> CreateAccessPointGroupAsync(CreateAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> CreateAccessPointGroupAsync(CreateAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessPointGroup, null, options, request);
             /// <summary>
             /// Get an access point group
             ///
@@ -225,7 +210,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroup GetAccessPointGroup(GetAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroup GetAccessPointGroup(GetAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point group
             ///
@@ -245,11 +230,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> GetAccessPointGroupAsync(GetAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> GetAccessPointGroupAsync(GetAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point group
             ///
@@ -258,11 +239,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> GetAccessPointGroupAsync(GetAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> GetAccessPointGroupAsync(GetAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessPointGroup, null, options, request);
             /// <summary>
             /// List access point groups
             ///
@@ -274,7 +251,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListAccessPointGroupsResponse ListAccessPointGroups(ListAccessPointGroupsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListAccessPointGroups(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListAccessPointGroupsResponse ListAccessPointGroups(ListAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessPointGroups(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access point groups
             ///
@@ -296,11 +273,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessPointGroupsResponse> ListAccessPointGroupsAsync(ListAccessPointGroupsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessPointGroupsResponse> ListAccessPointGroupsAsync(ListAccessPointGroupsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessPointGroupsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access point groups
             ///
@@ -310,11 +283,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessPointGroupsResponse> ListAccessPointGroupsAsync(ListAccessPointGroupsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessPointGroups, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessPointGroupsResponse> ListAccessPointGroupsAsync(ListAccessPointGroupsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessPointGroups, null, options, request);
             /// <summary>
             /// Update an access point group
             ///
@@ -325,7 +294,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroup UpdateAccessPointGroup(UpdateAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroup UpdateAccessPointGroup(UpdateAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point group
             ///
@@ -345,11 +314,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> UpdateAccessPointGroupAsync(UpdateAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> UpdateAccessPointGroupAsync(UpdateAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point group
             ///
@@ -358,11 +323,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> UpdateAccessPointGroupAsync(UpdateAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> UpdateAccessPointGroupAsync(UpdateAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessPointGroup, null, options, request);
             /// <summary>
             /// Delete an access point group
             ///
@@ -373,7 +334,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroup DeleteAccessPointGroup(DeleteAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroup DeleteAccessPointGroup(DeleteAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessPointGroup(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point group
             ///
@@ -393,11 +354,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> DeleteAccessPointGroupAsync(DeleteAccessPointGroupRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> DeleteAccessPointGroupAsync(DeleteAccessPointGroupRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessPointGroupAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point group
             ///
@@ -406,11 +363,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroup> DeleteAccessPointGroupAsync(DeleteAccessPointGroupRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessPointGroup, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroup> DeleteAccessPointGroupAsync(DeleteAccessPointGroupRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessPointGroup, null, options, request);
             /// <summary>
             /// Create an access point
             ///
@@ -421,7 +374,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroupAccessPoint CreateAccessPointGroupAccessPoint(CreateAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroupAccessPoint CreateAccessPointGroupAccessPoint(CreateAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point
             ///
@@ -441,11 +394,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> CreateAccessPointGroupAccessPointAsync(CreateAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> CreateAccessPointGroupAccessPointAsync(CreateAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an access point
             ///
@@ -454,11 +403,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> CreateAccessPointGroupAccessPointAsync(CreateAccessPointGroupAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateAccessPointGroupAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> CreateAccessPointGroupAccessPointAsync(CreateAccessPointGroupAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateAccessPointGroupAccessPoint, null, options, request);
             /// <summary>
             /// Create a batch of access point group access points
             ///
@@ -470,7 +415,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchCreateAccessPointGroupAccessPointsResponse BatchCreateAccessPointGroupAccessPoints(BatchCreateAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchCreateAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchCreateAccessPointGroupAccessPointsResponse BatchCreateAccessPointGroupAccessPoints(BatchCreateAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of access point group access points
             ///
@@ -492,11 +437,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessPointGroupAccessPointsResponse> BatchCreateAccessPointGroupAccessPointsAsync(BatchCreateAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchCreateAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessPointGroupAccessPointsResponse> BatchCreateAccessPointGroupAccessPointsAsync(BatchCreateAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of access point group access points
             ///
@@ -506,11 +447,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateAccessPointGroupAccessPointsResponse> BatchCreateAccessPointGroupAccessPointsAsync(BatchCreateAccessPointGroupAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessPointGroupAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateAccessPointGroupAccessPointsResponse> BatchCreateAccessPointGroupAccessPointsAsync(BatchCreateAccessPointGroupAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchCreateAccessPointGroupAccessPoints, null, options, request);
             /// <summary>
             /// Get an access point
             ///
@@ -521,7 +458,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroupAccessPoint GetAccessPointGroupAccessPoint(GetAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroupAccessPoint GetAccessPointGroupAccessPoint(GetAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point
             ///
@@ -541,11 +478,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> GetAccessPointGroupAccessPointAsync(GetAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> GetAccessPointGroupAccessPointAsync(GetAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an access point
             ///
@@ -554,11 +487,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> GetAccessPointGroupAccessPointAsync(GetAccessPointGroupAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetAccessPointGroupAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> GetAccessPointGroupAccessPointAsync(GetAccessPointGroupAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetAccessPointGroupAccessPoint, null, options, request);
             /// <summary>
             /// List access points
             ///
@@ -569,7 +498,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListAccessPointGroupAccessPointsResponse ListAccessPointGroupAccessPoints(ListAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListAccessPointGroupAccessPointsResponse ListAccessPointGroupAccessPoints(ListAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access points
             ///
@@ -589,11 +518,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessPointGroupAccessPointsResponse> ListAccessPointGroupAccessPointsAsync(ListAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListAccessPointGroupAccessPointsResponse> ListAccessPointGroupAccessPointsAsync(ListAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List access points
             ///
@@ -602,11 +527,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListAccessPointGroupAccessPointsResponse> ListAccessPointGroupAccessPointsAsync(ListAccessPointGroupAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListAccessPointGroupAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListAccessPointGroupAccessPointsResponse> ListAccessPointGroupAccessPointsAsync(ListAccessPointGroupAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListAccessPointGroupAccessPoints, null, options, request);
             /// <summary>
             /// Update an access point
             ///
@@ -617,7 +538,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual AccessPointGroupAccessPoint UpdateAccessPointGroupAccessPoint(UpdateAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual AccessPointGroupAccessPoint UpdateAccessPointGroupAccessPoint(UpdateAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point
             ///
@@ -637,11 +558,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> UpdateAccessPointGroupAccessPointAsync(UpdateAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> UpdateAccessPointGroupAccessPointAsync(UpdateAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an access point
             ///
@@ -650,11 +567,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> UpdateAccessPointGroupAccessPointAsync(UpdateAccessPointGroupAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateAccessPointGroupAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<AccessPointGroupAccessPoint> UpdateAccessPointGroupAccessPointAsync(UpdateAccessPointGroupAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateAccessPointGroupAccessPoint, null, options, request);
             /// <summary>
             /// Delete an access point
             ///
@@ -665,7 +578,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteAccessPointGroupAccessPoint(DeleteAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteAccessPointGroupAccessPoint(DeleteAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessPointGroupAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point
             ///
@@ -685,11 +598,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessPointGroupAccessPointAsync(DeleteAccessPointGroupAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessPointGroupAccessPointAsync(DeleteAccessPointGroupAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteAccessPointGroupAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an access point
             ///
@@ -698,11 +607,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessPointGroupAccessPointAsync(DeleteAccessPointGroupAccessPointRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteAccessPointGroupAccessPoint, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteAccessPointGroupAccessPointAsync(DeleteAccessPointGroupAccessPointRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteAccessPointGroupAccessPoint, null, options, request);
             /// <summary>
             /// Delete a batch of access point group access point associations
             ///
@@ -714,7 +619,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchDeleteAccessPointGroupAccessPointsResponse BatchDeleteAccessPointGroupAccessPoints(BatchDeleteAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchDeleteAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchDeleteAccessPointGroupAccessPointsResponse BatchDeleteAccessPointGroupAccessPoints(BatchDeleteAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteAccessPointGroupAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of access point group access point associations
             ///
@@ -736,11 +641,7 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessPointGroupAccessPointsResponse> BatchDeleteAccessPointGroupAccessPointsAsync(BatchDeleteAccessPointGroupAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchDeleteAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessPointGroupAccessPointsResponse> BatchDeleteAccessPointGroupAccessPointsAsync(BatchDeleteAccessPointGroupAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteAccessPointGroupAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of access point group access point associations
             ///
@@ -750,18 +651,9 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteAccessPointGroupAccessPointsResponse> BatchDeleteAccessPointGroupAccessPointsAsync(BatchDeleteAccessPointGroupAccessPointsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessPointGroupAccessPoints, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteAccessPointGroupAccessPointsResponse> BatchDeleteAccessPointGroupAccessPointsAsync(BatchDeleteAccessPointGroupAccessPointsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchDeleteAccessPointGroupAccessPoints, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override AccessPointGroupServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

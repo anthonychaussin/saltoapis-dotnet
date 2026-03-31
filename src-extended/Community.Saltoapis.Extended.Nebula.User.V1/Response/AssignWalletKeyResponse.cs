@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<AssignWalletKeyResponse> _parser = new(() => new AssignWalletKeyResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AssignWalletKeyResponse> Parser { get { return _parser; } }
+        public static MessageParser<AssignWalletKeyResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[35]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[35];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AssignWalletKeyResponse()
         {
@@ -41,23 +39,15 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 1;
         private WalletKey walletKey_;
-
         /// <summary>
         /// The newly-assigned wallet key.
         /// </summary>
         public WalletKey WalletKey
         {
-            get { return walletKey_; }
-            set
-            {
-                walletKey_ = value;
-            }
-        }
-
+            get => walletKey_; set => walletKey_ = value;}
         /// <summary>Field number for the "access_uri" field.</summary>
         public const int AccessUriFieldNumber = 2;
         private string accessUri_ = "";
-
         /// <summary>
         /// The access URL which contains the data to allow end users to
         /// sign in to SALTO Identity seamlessly and which is also used
@@ -65,12 +55,7 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public string AccessUri
         {
-            get { return accessUri_; }
-            set
-            {
-                accessUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => accessUri_; set => accessUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as AssignWalletKeyResponse);
         public bool Equals(AssignWalletKeyResponse other)
@@ -96,15 +81,18 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (walletKey_ != null) {
+      if (walletKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(WalletKey);
       }
-      if (AccessUri.Length != 0) {
+      if (AccessUri.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(AccessUri);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -155,23 +143,29 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (walletKey_ == null) {
+          case 10:
+          {
+            if (walletKey_ == null)
+            {
               WalletKey = new Saltoapis.Nebula.User.V1.WalletKey();
             }
             input.ReadMessage(WalletKey);
             break;
           }
-          case 18: {
+          case 18:
+          {
             AccessUri = input.ReadString();
             break;
           }
@@ -212,8 +206,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }

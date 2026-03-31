@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Destination.V1
     /// <summary>Holder for reflection information generated from salto/nebula/destination/v1/destination.proto</summary>
     public static partial class DestinationReflection
     {
-
         /// <summary>File descriptor for salto/nebula/destination/v1/destination.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -77,8 +75,6 @@ namespace Saltoapis.Nebula.Destination.V1
             new(typeof(DeleteDestinationRequest), DeleteDestinationRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

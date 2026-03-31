@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Unit.V1
         private static readonly MessageParser<Unit> _parser = new(() => new Unit());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Unit> Parser { get { return _parser; } }
+        public static MessageParser<Unit> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UnitReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => UnitReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Unit()
         {
@@ -46,7 +44,6 @@ namespace Saltoapis.Nebula.Unit.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the unit. It must have the format
         /// `installations/*/units/*`, for example:
@@ -54,65 +51,37 @@ namespace Saltoapis.Nebula.Unit.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "move_in_time" field.</summary>
         public const int MoveInTimeFieldNumber = 3;
         private Google.Protobuf.WellKnownTypes.Timestamp moveInTime_;
-
         /// <summary>
         /// Time the unit was moved in.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp MoveInTime
         {
-            get { return moveInTime_; }
-            set
-            {
-                moveInTime_ = value;
-            }
-        }
-
+            get => moveInTime_; set => moveInTime_ = value;}
         /// <summary>Field number for the "move_out_time" field.</summary>
         public const int MoveOutTimeFieldNumber = 4;
         private Google.Protobuf.WellKnownTypes.Timestamp moveOutTime_;
-
         /// <summary>
         /// Time the unit was moved out.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp MoveOutTime
         {
-            get { return moveOutTime_; }
-            set
-            {
-                moveOutTime_ = value;
-            }
-        }
-
+            get => moveOutTime_; set => moveOutTime_ = value;}
         /// <summary>Field number for the "privacy_settings" field.</summary>
         public const int PrivacySettingsFieldNumber = 5;
         private Types.PrivacySettings privacySettings_;
-
         /// <summary>
         /// The privacy settings of the unit. Can either be enabled or disabled.
         /// If enabled, owners and installation managers can see neither events
@@ -120,19 +89,12 @@ namespace Saltoapis.Nebula.Unit.V1
         /// </summary>
         public Types.PrivacySettings PrivacySettings
         {
-            get { return privacySettings_; }
-            set
-            {
-                privacySettings_ = value;
-            }
-        }
-
+            get => privacySettings_; set => privacySettings_ = value;}
         /// <summary>Field number for the "default_access_rights" field.</summary>
         public const int DefaultAccessRightsFieldNumber = 6;
         private static readonly FieldCodec<string> _repeated_defaultAccessRights_codec
             = FieldCodec.ForString(50);
         private readonly RepeatedField<string> defaultAccessRights_ = [];
-
         /// <summary>
         /// The resource names of the default access rights to be associated within this unit.
         /// For example: installations/surelock-homes-hq/access-rights/baskerville.
@@ -140,15 +102,12 @@ namespace Saltoapis.Nebula.Unit.V1
         /// </summary>
         public RepeatedField<string> DefaultAccessRights
         {
-            get { return defaultAccessRights_; }
-        }
-
+            get => defaultAccessRights_;}
         /// <summary>Field number for the "manager" field.</summary>
         public const int ManagerFieldNumber = 7;
         private static readonly string ManagerDefaultValue = "";
 
         private string manager_;
-
         /// <summary>
         /// The resource name of the manager resource that currently controls this
         /// unit. A manager resource is any resource (such as a booking) that creates
@@ -163,34 +122,18 @@ namespace Saltoapis.Nebula.Unit.V1
         /// </summary>
         public string Manager
         {
-            get { return manager_ ?? ManagerDefaultValue; }
-            set
-            {
-                manager_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => manager_ ?? ManagerDefaultValue; set => manager_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "manager" field is set</summary>
-        public bool HasManager
-        {
-            get { return manager_ != null; }
-        }
-
+        public bool HasManager => manager_ != null;
         /// <summary>Clears the value of the "manager" field</summary>
-        public void ClearManager()
-        {
-            manager_ = null;
-        }
+        public void ClearManager() => manager_ = null;
 
         public override bool Equals(object other) => Equals(other as Unit);
         public bool Equals(Unit other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((!Equals(MoveInTime, other.MoveInTime)) || (!Equals(MoveOutTime, other.MoveOutTime))) return false;
-            if ((!Equals(PrivacySettings, other.PrivacySettings)) || (!defaultAccessRights_.Equals(other.defaultAccessRights_))) return false;
-            if (Manager != other.Manager) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (!Equals(MoveInTime, other.MoveInTime)) || (!Equals(MoveOutTime, other.MoveOutTime)) || (!Equals(PrivacySettings, other.PrivacySettings)) || (!defaultAccessRights_.Equals(other.defaultAccessRights_)) || Manager != other.Manager) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -214,32 +157,39 @@ namespace Saltoapis.Nebula.Unit.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (moveInTime_ != null) {
+      if (moveInTime_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(MoveInTime);
       }
-      if (moveOutTime_ != null) {
+      if (moveOutTime_ != null)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(MoveOutTime);
       }
-      if (privacySettings_ != null) {
+      if (privacySettings_ != null)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(PrivacySettings);
       }
       defaultAccessRights_.WriteTo(output, _repeated_defaultAccessRights_codec);
-      if (HasManager) {
+      if (HasManager)
+      {
         output.WriteRawTag(58);
         output.WriteString(Manager);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -329,49 +279,62 @@ namespace Saltoapis.Nebula.Unit.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
-            if (moveInTime_ == null) {
+          case 26:
+          {
+            if (moveInTime_ == null)
+            {
               MoveInTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MoveInTime);
             break;
           }
-          case 34: {
-            if (moveOutTime_ == null) {
+          case 34:
+          {
+            if (moveOutTime_ == null)
+            {
               MoveOutTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MoveOutTime);
             break;
           }
-          case 42: {
-            if (privacySettings_ == null) {
+          case 42:
+          {
+            if (privacySettings_ == null)
+            {
               PrivacySettings = new Saltoapis.Nebula.Unit.V1.Unit.Types.PrivacySettings();
             }
             input.ReadMessage(PrivacySettings);
             break;
           }
-          case 50: {
+          case 50:
+          {
             defaultAccessRights_.AddEntriesFrom(input, _repeated_defaultAccessRights_codec);
             break;
           }
-          case 58: {
+          case 58:
+          {
             Manager = input.ReadString();
             break;
           }
@@ -439,7 +402,6 @@ namespace Saltoapis.Nebula.Unit.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Unit message type.</summary>
         public static partial class Types
         {
@@ -454,17 +416,15 @@ namespace Saltoapis.Nebula.Unit.V1
                 private static readonly MessageParser<PrivacySettings> _parser = new(() => new PrivacySettings());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<PrivacySettings> Parser { get { return _parser; } }
+                public static MessageParser<PrivacySettings> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Unit.Descriptor.NestedTypes[0]; }
-                }
+                    get => Unit.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public PrivacySettings()
                 {
@@ -483,26 +443,19 @@ namespace Saltoapis.Nebula.Unit.V1
                 /// <summary>Field number for the "enabled" field.</summary>
                 public const int EnabledFieldNumber = 1;
                 private bool enabled_;
-
                 /// <summary>
                 /// The privacy status of the unit.
                 /// </summary>
                 public bool Enabled
                 {
-                    get { return enabled_; }
-                    set
-                    {
-                        enabled_ = value;
-                    }
-                }
+                    get => enabled_; set => enabled_ = value;}
 
                 public override bool Equals(object other) => Equals(other as PrivacySettings);
                 public bool Equals(PrivacySettings other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if (Enabled != other.Enabled) return false;
-                    return Equals(_unknownFields, other._unknownFields);
+return Enabled != other.Enabled ? false : Equals(_unknownFields, other._unknownFields);
                 }
 
                 public override int GetHashCode()
@@ -519,11 +472,13 @@ namespace Saltoapis.Nebula.Unit.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (Enabled != false) {
+          if (Enabled != false)
+          {
             output.WriteRawTag(8);
             output.WriteBool(Enabled);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -563,16 +518,20 @@ namespace Saltoapis.Nebula.Unit.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 8: {
+              case 8:
+              {
                 Enabled = input.ReadBool();
                 break;
               }
@@ -607,10 +566,7 @@ namespace Saltoapis.Nebula.Unit.V1
                     }
                 }
 #endif
-
             }
-
         }
-
     }
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
     /// <summary>Holder for reflection information generated from salto/nebula/accesspointgroup/v1/access_point_group.proto</summary>
     public static partial class AccessPointGroupReflection
     {
-
         /// <summary>File descriptor for salto/nebula/accesspointgroup/v1/access_point_group.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -146,8 +144,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             new(typeof(BatchDeleteAccessPointGroupAccessPointsResponse), BatchDeleteAccessPointGroupAccessPointsResponse.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

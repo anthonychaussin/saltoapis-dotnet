@@ -12,17 +12,15 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         private UnknownFieldSet _unknownFields;
         private int _hasBits0;
 
-        public static MessageParser<AccessPoint> Parser { get { return _parser; } }
+        public static MessageParser<AccessPoint> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => AccessPointReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPoint()
         {
@@ -70,7 +68,6 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         ///  Resource name of the access point. It must have the format
         /// `installations/*/access-points/*`. For example:
@@ -78,32 +75,18 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the access point.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "fixed" field.</summary>
         public const int FixedFieldNumber = 3;
-
         /// <summary>
         /// The opening mode to be used permanently.
         /// </summary>
@@ -116,22 +99,15 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 openingModeCase_ = OpeningModeOneofCase.Fixed;
             }
         }
-
         /// <summary>Gets whether the "fixed" field is set</summary>
-        public bool HasFixed
-        {
-            get { return openingModeCase_ == OpeningModeOneofCase.Fixed; }
-        }
-
+        public bool HasFixed => openingModeCase_ == OpeningModeOneofCase.Fixed;
         /// <summary> Clears the value of the oneof if it's currently set to "fixed" </summary>
         public void ClearFixed()
         {
             if (HasFixed) ClearOpeningMode();
         }
-
         /// <summary>Field number for the "schedule" field.</summary>
         public const int ScheduleFieldNumber = 4;
-
         /// <summary>
         /// Reference to an opening mode schedule
         /// </summary>
@@ -144,25 +120,18 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 openingModeCase_ = OpeningModeOneofCase.Schedule;
             }
         }
-
         /// <summary>Gets whether the "schedule" field is set</summary>
-        public bool HasSchedule
-        {
-            get { return openingModeCase_ == OpeningModeOneofCase.Schedule; }
-        }
-
+        public bool HasSchedule => openingModeCase_ == OpeningModeOneofCase.Schedule;
         /// <summary> Clears the value of the oneof if it's currently set to "schedule" </summary>
         public void ClearSchedule()
         {
             if (HasSchedule) ClearOpeningMode();
         }
-
         /// <summary>Field number for the "calendar" field.</summary>
         public const int CalendarFieldNumber = 5;
         private static readonly string CalendarDefaultValue = "";
 
         private string calendar_;
-
         /// <summary>
         /// Calendar reference assigned to this access point.
         /// If not set, a calendar where all days are NORMAL will be used.
@@ -171,31 +140,16 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         /// </summary>
         public string Calendar
         {
-            get { return calendar_ ?? CalendarDefaultValue; }
-            set
-            {
-                calendar_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => calendar_ ?? CalendarDefaultValue; set => calendar_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "calendar" field is set</summary>
-        public bool HasCalendar
-        {
-            get { return calendar_ != null; }
-        }
-
+        public bool HasCalendar => calendar_ != null;
         /// <summary>Clears the value of the "calendar" field</summary>
-        public void ClearCalendar()
-        {
-            calendar_ = null;
-        }
-
+        public void ClearCalendar() => calendar_ = null;
         /// <summary>Field number for the "card_key_updater" field.</summary>
         public const int CardKeyUpdaterFieldNumber = 6;
         private static readonly bool CardKeyUpdaterDefaultValue = false;
 
         private bool cardKeyUpdater_;
-
         /// <summary>
         /// Enables or disables card key updates. This parameter doesn't have any
         /// effect on access points where its associated device is offline.
@@ -212,55 +166,34 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 cardKeyUpdater_ = value;
             }
         }
-
         /// <summary>Gets whether the "card_key_updater" field is set</summary>
-        public bool HasCardKeyUpdater
-        {
-            get { return (_hasBits0 & 1) != 0; }
-        }
-
+        public bool HasCardKeyUpdater => (_hasBits0 & 1) != 0;
         /// <summary>Clears the value of the "card_key_updater" field</summary>
         public void ClearCardKeyUpdater()
         {
             _hasBits0 &= ~1;
         }
-
         /// <summary>Field number for the "unlock_duration" field.</summary>
         public const int UnlockDurationFieldNumber = 7;
         private Google.Protobuf.WellKnownTypes.Duration unlockDuration_;
-
         /// <summary>
         /// The duration the access point remains unlocked. This field is optional
         /// for the server to check for its presence and assign a default value if it's missing.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Duration UnlockDuration
         {
-            get { return unlockDuration_; }
-            set
-            {
-                unlockDuration_ = value;
-            }
-        }
-
+            get => unlockDuration_; set => unlockDuration_ = value;}
         /// <summary>Field number for the "left_open" field.</summary>
         public const int LeftOpenFieldNumber = 8;
         private bool leftOpen_;
-
         /// <summary>
         /// Indicates whether the access point was left open.
         /// </summary>
         public bool LeftOpen
         {
-            get { return leftOpen_; }
-            set
-            {
-                leftOpen_ = value;
-            }
-        }
-
+            get => leftOpen_; set => leftOpen_ = value;}
         /// <summary>Field number for the "electronic_lock" field.</summary>
         public const int ElectronicLockFieldNumber = 9;
-
         /// <summary>
         /// Source name, when source is an electronic lock.
         /// </summary>
@@ -273,22 +206,15 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 sourceCase_ = SourceOneofCase.ElectronicLock;
             }
         }
-
         /// <summary>Gets whether the "electronic_lock" field is set</summary>
-        public bool HasElectronicLock
-        {
-            get { return sourceCase_ == SourceOneofCase.ElectronicLock; }
-        }
-
+        public bool HasElectronicLock => sourceCase_ == SourceOneofCase.ElectronicLock;
         /// <summary> Clears the value of the oneof if it's currently set to "electronic_lock" </summary>
         public void ClearElectronicLock()
         {
             if (HasElectronicLock) ClearSource();
         }
-
         /// <summary>Field number for the "controller" field.</summary>
         public const int ControllerFieldNumber = 10;
-
         /// <summary>
         /// Source name, when source is a controller.
         /// </summary>
@@ -301,22 +227,15 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 sourceCase_ = SourceOneofCase.Controller;
             }
         }
-
         /// <summary>Gets whether the "controller" field is set</summary>
-        public bool HasController
-        {
-            get { return sourceCase_ == SourceOneofCase.Controller; }
-        }
-
+        public bool HasController => sourceCase_ == SourceOneofCase.Controller;
         /// <summary> Clears the value of the oneof if it's currently set to "controller" </summary>
         public void ClearController()
         {
             if (HasController) ClearSource();
         }
-
         /// <summary>Field number for the "intercom_adaptor" field.</summary>
         public const int IntercomAdaptorFieldNumber = 11;
-
         /// <summary>
         /// Source name, when source is an intercom adaptor.
         /// </summary>
@@ -329,13 +248,8 @@ namespace Saltoapis.Nebula.AccessPoint.V1
                 sourceCase_ = SourceOneofCase.IntercomAdaptor;
             }
         }
-
         /// <summary>Gets whether the "intercom_adaptor" field is set</summary>
-        public bool HasIntercomAdaptor
-        {
-            get { return sourceCase_ == SourceOneofCase.IntercomAdaptor; }
-        }
-
+        public bool HasIntercomAdaptor => sourceCase_ == SourceOneofCase.IntercomAdaptor;
         /// <summary> Clears the value of the oneof if it's currently set to "intercom_adaptor" </summary>
         public void ClearIntercomAdaptor()
         {
@@ -343,7 +257,6 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         }
 
         private object openingMode_;
-
         /// <summary>Enum of possible cases for the "opening_mode" oneof.</summary>
         public enum OpeningModeOneofCase
         {
@@ -356,8 +269,7 @@ namespace Saltoapis.Nebula.AccessPoint.V1
 
         public OpeningModeOneofCase OpeningModeCase
         {
-            get { return openingModeCase_; }
-        }
+            get => openingModeCase_;}
 
         public void ClearOpeningMode()
         {
@@ -366,7 +278,6 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         }
 
         private object source_;
-
         /// <summary>Enum of possible cases for the "source" oneof.</summary>
         public enum SourceOneofCase
         {
@@ -380,8 +291,7 @@ namespace Saltoapis.Nebula.AccessPoint.V1
 
         public SourceOneofCase SourceCase
         {
-            get { return sourceCase_; }
-        }
+            get => sourceCase_;}
 
         public void ClearSource()
         {
@@ -394,13 +304,7 @@ namespace Saltoapis.Nebula.AccessPoint.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((Fixed != other.Fixed) || (Schedule != other.Schedule)) return false;
-            if ((Calendar != other.Calendar) || (CardKeyUpdater != other.CardKeyUpdater)) return false;
-            if ((!Equals(UnlockDuration, other.UnlockDuration)) || (LeftOpen != other.LeftOpen)) return false;
-            if ((ElectronicLock != other.ElectronicLock) || (Controller != other.Controller)) return false;
-            if ((IntercomAdaptor != other.IntercomAdaptor) || (OpeningModeCase != other.OpeningModeCase)) return false;
-            if (SourceCase != other.SourceCase) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (Fixed != other.Fixed) || (Schedule != other.Schedule) || (Calendar != other.Calendar) || (CardKeyUpdater != other.CardKeyUpdater) || (!Equals(UnlockDuration, other.UnlockDuration)) || (LeftOpen != other.LeftOpen) || (ElectronicLock != other.ElectronicLock) || (Controller != other.Controller) || (IntercomAdaptor != other.IntercomAdaptor) || (OpeningModeCase != other.OpeningModeCase) || SourceCase != other.SourceCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -430,51 +334,63 @@ namespace Saltoapis.Nebula.AccessPoint.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasFixed) {
+      if (HasFixed)
+      {
         output.WriteRawTag(24);
         output.WriteEnum((int) Fixed);
       }
-      if (HasSchedule) {
+      if (HasSchedule)
+      {
         output.WriteRawTag(34);
         output.WriteString(Schedule);
       }
-      if (HasCalendar) {
+      if (HasCalendar)
+      {
         output.WriteRawTag(42);
         output.WriteString(Calendar);
       }
-      if (HasCardKeyUpdater) {
+      if (HasCardKeyUpdater)
+      {
         output.WriteRawTag(48);
         output.WriteBool(CardKeyUpdater);
       }
-      if (unlockDuration_ != null) {
+      if (unlockDuration_ != null)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(UnlockDuration);
       }
-      if (LeftOpen != false) {
+      if (LeftOpen != false)
+      {
         output.WriteRawTag(64);
         output.WriteBool(LeftOpen);
       }
-      if (HasElectronicLock) {
+      if (HasElectronicLock)
+      {
         output.WriteRawTag(74);
         output.WriteString(ElectronicLock);
       }
-      if (HasController) {
+      if (HasController)
+      {
         output.WriteRawTag(82);
         output.WriteString(Controller);
       }
-      if (HasIntercomAdaptor) {
+      if (HasIntercomAdaptor)
+      {
         output.WriteRawTag(90);
         output.WriteString(IntercomAdaptor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -606,60 +522,75 @@ namespace Saltoapis.Nebula.AccessPoint.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 24: {
+          case 24:
+          {
             openingMode_ = input.ReadEnum();
             openingModeCase_ = OpeningModeOneofCase.Fixed;
             break;
           }
-          case 34: {
+          case 34:
+          {
             Schedule = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             Calendar = input.ReadString();
             break;
           }
-          case 48: {
+          case 48:
+          {
             CardKeyUpdater = input.ReadBool();
             break;
           }
-          case 58: {
-            if (unlockDuration_ == null) {
+          case 58:
+          {
+            if (unlockDuration_ == null)
+            {
               UnlockDuration = new Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(UnlockDuration);
             break;
           }
-          case 64: {
+          case 64:
+          {
             LeftOpen = input.ReadBool();
             break;
           }
-          case 74: {
+          case 74:
+          {
             ElectronicLock = input.ReadString();
             break;
           }
-          case 82: {
+          case 82:
+          {
             Controller = input.ReadString();
             break;
           }
-          case 90: {
+          case 90:
+          {
             IntercomAdaptor = input.ReadString();
             break;
           }
@@ -746,6 +677,5 @@ namespace Saltoapis.Nebula.AccessPoint.V1
             }
         }
 #endif
-
     }
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Booking.V1
         private static readonly MessageParser<BookingUser> _parser = new(() => new BookingUser());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BookingUser> Parser { get { return _parser; } }
+        public static MessageParser<BookingUser> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return BookingReflection.Descriptor.MessageTypes[9]; }
-        }
+            get => BookingReflection.Descriptor.MessageTypes[9];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BookingUser()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.Booking.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the booking's user association.
         /// It must have the format of `installations/*/bookings/*/users/*`.
@@ -49,17 +46,10 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 2;
         private string user_ = "";
-
         /// <summary>
         /// The user resource name to bind as an association to the parent booking.
         /// For example:
@@ -67,12 +57,7 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public string User
         {
-            get { return user_; }
-            set
-            {
-                user_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => user_; set => user_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as BookingUser);
         public bool Equals(BookingUser other)
@@ -98,15 +83,18 @@ namespace Saltoapis.Nebula.Booking.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (User.Length != 0) {
+      if (User.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(User);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -153,20 +141,25 @@ namespace Saltoapis.Nebula.Booking.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             User = input.ReadString();
             break;
           }
@@ -206,8 +199,6 @@ namespace Saltoapis.Nebula.Booking.V1
             }
         }
 #endif
-
     }
-
 
 }

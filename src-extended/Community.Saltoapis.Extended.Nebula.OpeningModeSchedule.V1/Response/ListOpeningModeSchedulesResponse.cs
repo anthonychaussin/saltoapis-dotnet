@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
         private static readonly MessageParser<ListOpeningModeSchedulesResponse> _parser = new(() => new ListOpeningModeSchedulesResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListOpeningModeSchedulesResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListOpeningModeSchedulesResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return OpeningModeScheduleReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => OpeningModeScheduleReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListOpeningModeSchedulesResponse()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
         private static readonly FieldCodec<OpeningModeSchedule> _repeated_openingModeSchedules_codec
             = FieldCodec.ForMessage(10, OpeningModeSchedule.Parser);
         private readonly RepeatedField<OpeningModeSchedule> openingModeSchedules_ = [];
-
         /// <summary>
         /// The field name should match the noun `opening_mode_schedules` in the method name.
         /// There will be a maximum number of items returned based on the `page_size`
@@ -51,25 +48,17 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
         /// </summary>
         public RepeatedField<OpeningModeSchedule> OpeningModeSchedules
         {
-            get { return openingModeSchedules_; }
-        }
-
+            get => openingModeSchedules_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListOpeningModeSchedulesResponse);
         public bool Equals(ListOpeningModeSchedulesResponse other)
@@ -96,11 +85,13 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
             output.WriteRawMessage(this);
 #else
       openingModeSchedules_.WriteTo(output, _repeated_openingModeSchedules_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -143,20 +134,25 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             openingModeSchedules_.AddEntriesFrom(input, _repeated_openingModeSchedules_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -196,8 +192,6 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

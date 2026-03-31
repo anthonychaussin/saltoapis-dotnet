@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Extender.V1
         private static readonly MessageParser<Extender> _parser = new(() => new Extender());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Extender> Parser { get { return _parser; } }
+        public static MessageParser<Extender> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ExtenderReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => ExtenderReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Extender()
         {
@@ -52,7 +50,6 @@ namespace Saltoapis.Nebula.Extender.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the extender. It must have the format of
         /// `installations/*/extenders/*`. For example:
@@ -60,63 +57,34 @@ namespace Saltoapis.Nebula.Extender.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the extender.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 3;
         private static readonly string DeviceIdDefaultValue = "";
 
         private string deviceId_;
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, encoders and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_ ?? DeviceIdDefaultValue; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_ ?? DeviceIdDefaultValue; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return deviceId_ != null; }
-        }
-
+        public bool HasDeviceId => deviceId_ != null;
         /// <summary>Clears the value of the "device_id" field</summary>
-        public void ClearDeviceId()
-        {
-            deviceId_ = null;
-        }
-
+        public void ClearDeviceId() => deviceId_ = null;
         /// <summary>Field number for the "gateway" field.</summary>
         public const int GatewayFieldNumber = 4;
-
         /// <summary>
         /// Parent name, when extender is connected to a gateway
         /// </summary>
@@ -129,22 +97,15 @@ namespace Saltoapis.Nebula.Extender.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Gateway;
             }
         }
-
         /// <summary>Gets whether the "gateway" field is set</summary>
-        public bool HasGateway
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Gateway; }
-        }
-
+        public bool HasGateway => parentDeviceCase_ == ParentDeviceOneofCase.Gateway;
         /// <summary> Clears the value of the oneof if it's currently set to "gateway" </summary>
         public void ClearGateway()
         {
             if (HasGateway) ClearParentDevice();
         }
-
         /// <summary>Field number for the "extender" field.</summary>
         public const int Extender_FieldNumber = 5;
-
         /// <summary>
         /// Parent name, when extender is connected to an extender
         /// </summary>
@@ -157,13 +118,8 @@ namespace Saltoapis.Nebula.Extender.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Extender_;
             }
         }
-
         /// <summary>Gets whether the "extender" field is set</summary>
-        public bool HasExtender_
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Extender_; }
-        }
-
+        public bool HasExtender_ => parentDeviceCase_ == ParentDeviceOneofCase.Extender_;
         /// <summary> Clears the value of the oneof if it's currently set to "extender" </summary>
         public void ClearExtender_()
         {
@@ -171,7 +127,6 @@ namespace Saltoapis.Nebula.Extender.V1
         }
 
         private object parentDevice_;
-
         /// <summary>Enum of possible cases for the "parent_device" oneof.</summary>
         public enum ParentDeviceOneofCase
         {
@@ -184,8 +139,7 @@ namespace Saltoapis.Nebula.Extender.V1
 
         public ParentDeviceOneofCase ParentDeviceCase
         {
-            get { return parentDeviceCase_; }
-        }
+            get => parentDeviceCase_;}
 
         public void ClearParentDevice()
         {
@@ -198,9 +152,7 @@ namespace Saltoapis.Nebula.Extender.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((DeviceId != other.DeviceId) || (Gateway != other.Gateway)) return false;
-            if ((Extender_ != other.Extender_) || (ParentDeviceCase != other.ParentDeviceCase)) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (DeviceId != other.DeviceId) || (Gateway != other.Gateway) || (Extender_ != other.Extender_) || (ParentDeviceCase != other.ParentDeviceCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -223,27 +175,33 @@ namespace Saltoapis.Nebula.Extender.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(26);
         output.WriteString(DeviceId);
       }
-      if (HasGateway) {
+      if (HasGateway)
+      {
         output.WriteRawTag(34);
         output.WriteString(Gateway);
       }
-      if (HasExtender_) {
+      if (HasExtender_)
+      {
         output.WriteRawTag(42);
         output.WriteString(Extender_);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -319,32 +277,40 @@ namespace Saltoapis.Nebula.Extender.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DeviceId = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Gateway = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             Extender_ = input.ReadString();
             break;
           }
@@ -399,6 +365,5 @@ namespace Saltoapis.Nebula.Extender.V1
             }
         }
 #endif
-
     }
 }

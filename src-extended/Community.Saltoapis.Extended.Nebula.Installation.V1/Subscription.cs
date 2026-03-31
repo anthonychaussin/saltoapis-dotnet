@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1
         private static readonly MessageParser<Subscription> _parser = new(() => new Subscription());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Subscription> Parser { get { return _parser; } }
+        public static MessageParser<Subscription> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Subscription()
         {
@@ -44,7 +42,6 @@ namespace Saltoapis.Nebula.Installation.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the subscription. It must have the format of
         /// `installations/*/subscription`. For example:
@@ -52,83 +49,52 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "trial_end_time" field.</summary>
         public const int TrialEndTimeFieldNumber = 3;
         private Google.Protobuf.WellKnownTypes.Timestamp trialEndTime_;
-
         /// <summary>
         /// End of the trial period for the subscription.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp TrialEndTime
         {
-            get { return trialEndTime_; }
-            set
-            {
-                trialEndTime_ = value;
-            }
-        }
-
+            get => trialEndTime_; set => trialEndTime_ = value;}
         /// <summary>Field number for the "billing_info" field.</summary>
         public const int BillingInfoFieldNumber = 4;
         private BillingInfo billingInfo_;
-
         /// <summary>
         /// The billing information of the subscription.
         /// </summary>
         public BillingInfo BillingInfo
         {
-            get { return billingInfo_; }
-            set
-            {
-                billingInfo_ = value;
-            }
-        }
-
+            get => billingInfo_; set => billingInfo_ = value;}
         /// <summary>Field number for the "payment_method" field.</summary>
         public const int PaymentMethodFieldNumber = 5;
         private PaymentMethod paymentMethod_;
-
         /// <summary>
         /// The payment method of the subscription.
         /// </summary>
         public PaymentMethod PaymentMethod
         {
-            get { return paymentMethod_; }
-            set
-            {
-                paymentMethod_ = value;
-            }
-        }
-
+            get => paymentMethod_; set => paymentMethod_ = value;}
         /// <summary>Field number for the "coupons" field.</summary>
         public const int CouponsFieldNumber = 6;
         private static readonly FieldCodec<Coupon> _repeated_coupons_codec
             = FieldCodec.ForMessage(50, Coupon.Parser);
         private readonly RepeatedField<Coupon> coupons_ = [];
-
         /// <summary>
         /// The coupons applied to the subscription.
         /// </summary>
         public RepeatedField<Coupon> Coupons
         {
-            get { return coupons_; }
-        }
+            get => coupons_;}
 
         public override bool Equals(object other) => Equals(other as Subscription);
         public bool Equals(Subscription other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (!Equals(TrialEndTime, other.TrialEndTime))) return false;
-            if ((!Equals(BillingInfo, other.BillingInfo)) || (!Equals(PaymentMethod, other.PaymentMethod))) return false;
-            if (!coupons_.Equals(other.coupons_)) return false;
+            if ((Name != other.Name) || (!Equals(TrialEndTime, other.TrialEndTime)) || (!Equals(BillingInfo, other.BillingInfo)) || (!Equals(PaymentMethod, other.PaymentMethod)) || !coupons_.Equals(other.coupons_)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -150,24 +116,29 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (trialEndTime_ != null) {
+      if (trialEndTime_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(TrialEndTime);
       }
-      if (billingInfo_ != null) {
+      if (billingInfo_ != null)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(BillingInfo);
       }
-      if (paymentMethod_ != null) {
+      if (paymentMethod_ != null)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(PaymentMethod);
       }
       coupons_.WriteTo(output, _repeated_coupons_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -243,41 +214,52 @@ namespace Saltoapis.Nebula.Installation.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 26: {
-            if (trialEndTime_ == null) {
+          case 26:
+          {
+            if (trialEndTime_ == null)
+            {
               TrialEndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(TrialEndTime);
             break;
           }
-          case 34: {
-            if (billingInfo_ == null) {
+          case 34:
+          {
+            if (billingInfo_ == null)
+            {
               BillingInfo = new Saltoapis.Nebula.Installation.V1.BillingInfo();
             }
             input.ReadMessage(BillingInfo);
             break;
           }
-          case 42: {
-            if (paymentMethod_ == null) {
+          case 42:
+          {
+            if (paymentMethod_ == null)
+            {
               PaymentMethod = new Saltoapis.Nebula.Installation.V1.PaymentMethod();
             }
             input.ReadMessage(PaymentMethod);
             break;
           }
-          case 50: {
+          case 50:
+          {
             coupons_.AddEntriesFrom(input, _repeated_coupons_codec);
             break;
           }
@@ -335,8 +317,6 @@ namespace Saltoapis.Nebula.Installation.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.DigitalKey.V1.Request;
+using Saltoapis.Nebula.DigitalKey.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.DigitalKey.V1.Response;
 
@@ -76,40 +76,32 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             "UnlockDigitalKeyAccessPoint",
             __Marshaller_salto_nebula_digitalkey_v1_UnlockDigitalKeyAccessPointRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return DigitalKeyReflection.Descriptor.Services[0]; }
-        }
-
+            get => DigitalKeyReflection.Descriptor.Services[0];}
         /// <summary>Client for DigitalKeyService</summary>
         public partial class DigitalKeyServiceClient : ClientBase<DigitalKeyServiceClient>
         {
-
             /// <summary>Creates a new client for DigitalKeyService</summary>
             /// <param name="channel">The channel to use to make remote calls.</param>
             public DigitalKeyServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for DigitalKeyService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public DigitalKeyServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected DigitalKeyServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected DigitalKeyServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Get a digital key
             ///
@@ -120,9 +112,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual DigitalKey GetDigitalKey(GetDigitalKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual DigitalKey GetDigitalKey(GetDigitalKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
                       => GetDigitalKey(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Get a digital key
             ///
@@ -133,7 +124,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual DigitalKey GetDigitalKey(GetDigitalKeyRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_GetDigitalKey, null, options, request);
-
             /// <summary>
             /// Get a digital key
             ///
@@ -144,9 +134,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<DigitalKey> GetDigitalKeyAsync(GetDigitalKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<DigitalKey> GetDigitalKeyAsync(GetDigitalKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => GetDigitalKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Get a digital key
             ///
@@ -157,7 +146,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<DigitalKey> GetDigitalKeyAsync(GetDigitalKeyRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_GetDigitalKey, null, options, request);
-
             /// <summary>
             /// List digital keys
             ///
@@ -168,9 +156,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListDigitalKeysResponse ListDigitalKeys(ListDigitalKeysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual ListDigitalKeysResponse ListDigitalKeys(ListDigitalKeysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => ListDigitalKeys(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// List digital keys
             ///
@@ -181,7 +168,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual ListDigitalKeysResponse ListDigitalKeys(ListDigitalKeysRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_ListDigitalKeys, null, options, request);
-
             /// <summary>
             /// List digital keys
             ///
@@ -192,9 +178,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDigitalKeysResponse> ListDigitalKeysAsync(ListDigitalKeysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<ListDigitalKeysResponse> ListDigitalKeysAsync(ListDigitalKeysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => ListDigitalKeysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// List digital keys
             ///
@@ -205,7 +190,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<ListDigitalKeysResponse> ListDigitalKeysAsync(ListDigitalKeysRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_ListDigitalKeys, null, options, request);
-
             /// <summary>
             /// Get an access point
             ///
@@ -216,9 +200,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual DigitalKeyAccessPoint GetDigitalKeyAccessPoint(GetDigitalKeyAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual DigitalKeyAccessPoint GetDigitalKeyAccessPoint(GetDigitalKeyAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => GetDigitalKeyAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Get an access point
             ///
@@ -229,7 +212,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual DigitalKeyAccessPoint GetDigitalKeyAccessPoint(GetDigitalKeyAccessPointRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_GetDigitalKeyAccessPoint, null, options, request);
-
             /// <summary>
             /// Get an access point
             ///
@@ -240,9 +222,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<DigitalKeyAccessPoint> GetDigitalKeyAccessPointAsync(GetDigitalKeyAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<DigitalKeyAccessPoint> GetDigitalKeyAccessPointAsync(GetDigitalKeyAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => GetDigitalKeyAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Get an access point
             ///
@@ -253,7 +234,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<DigitalKeyAccessPoint> GetDigitalKeyAccessPointAsync(GetDigitalKeyAccessPointRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_GetDigitalKeyAccessPoint, null, options, request);
-
             /// <summary>
             /// List access points
             ///
@@ -264,9 +244,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListDigitalKeyAccessPointsResponse ListDigitalKeyAccessPoints(ListDigitalKeyAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual ListDigitalKeyAccessPointsResponse ListDigitalKeyAccessPoints(ListDigitalKeyAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => ListDigitalKeyAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// List access points
             ///
@@ -277,7 +256,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual ListDigitalKeyAccessPointsResponse ListDigitalKeyAccessPoints(ListDigitalKeyAccessPointsRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_ListDigitalKeyAccessPoints, null, options, request);
-
             /// <summary>
             /// List access points
             ///
@@ -288,9 +266,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListDigitalKeyAccessPointsResponse> ListDigitalKeyAccessPointsAsync(ListDigitalKeyAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<ListDigitalKeyAccessPointsResponse> ListDigitalKeyAccessPointsAsync(ListDigitalKeyAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => ListDigitalKeyAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// List access points
             ///
@@ -301,7 +278,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<ListDigitalKeyAccessPointsResponse> ListDigitalKeyAccessPointsAsync(ListDigitalKeyAccessPointsRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_ListDigitalKeyAccessPoints, null, options, request);
-
             /// <summary>
             /// Synchronize access points
             ///
@@ -315,9 +291,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation SyncDigitalKeyAccessPoints(SyncDigitalKeyAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual Longrunning.V1.Operation SyncDigitalKeyAccessPoints(SyncDigitalKeyAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => SyncDigitalKeyAccessPoints(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Synchronize access points
             ///
@@ -331,7 +306,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual Longrunning.V1.Operation SyncDigitalKeyAccessPoints(SyncDigitalKeyAccessPointsRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_SyncDigitalKeyAccessPoints, null, options, request);
-
             /// <summary>
             /// Synchronize access points
             ///
@@ -345,9 +319,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> SyncDigitalKeyAccessPointsAsync(SyncDigitalKeyAccessPointsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> SyncDigitalKeyAccessPointsAsync(SyncDigitalKeyAccessPointsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => SyncDigitalKeyAccessPointsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Synchronize access points
             ///
@@ -361,7 +334,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<Longrunning.V1.Operation> SyncDigitalKeyAccessPointsAsync(SyncDigitalKeyAccessPointsRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_SyncDigitalKeyAccessPoints, null, options, request);
-
             /// <summary>
             /// Unlock an user access point
             ///
@@ -375,9 +347,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UnlockDigitalKeyAccessPoint(UnlockDigitalKeyAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual Longrunning.V1.Operation UnlockDigitalKeyAccessPoint(UnlockDigitalKeyAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => UnlockDigitalKeyAccessPoint(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Unlock an user access point
             ///
@@ -391,7 +362,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The response received from the server.</returns>
             public virtual Longrunning.V1.Operation UnlockDigitalKeyAccessPoint(UnlockDigitalKeyAccessPointRequest request, CallOptions options)
             => CallInvoker.BlockingUnaryCall(__Method_UnlockDigitalKeyAccessPoint, null, options, request);
-
             /// <summary>
             /// Unlock an user access point
             ///
@@ -405,9 +375,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UnlockDigitalKeyAccessPointAsync(UnlockDigitalKeyAccessPointRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UnlockDigitalKeyAccessPointAsync(UnlockDigitalKeyAccessPointRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
             => UnlockDigitalKeyAccessPointAsync(request, new CallOptions(headers, deadline, cancellationToken));
-
             /// <summary>
             /// Unlock an user access point
             ///
@@ -421,15 +390,9 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             /// <returns>The call object.</returns>
             public virtual AsyncUnaryCall<Longrunning.V1.Operation> UnlockDigitalKeyAccessPointAsync(UnlockDigitalKeyAccessPointRequest request, CallOptions options)
             => CallInvoker.AsyncUnaryCall(__Method_UnlockDigitalKeyAccessPoint, null, options, request);
-
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override DigitalKeyServiceClient NewInstance(ClientBaseConfiguration configuration)
             => new(configuration);
         }
-
     }
 }
-
-
-
-

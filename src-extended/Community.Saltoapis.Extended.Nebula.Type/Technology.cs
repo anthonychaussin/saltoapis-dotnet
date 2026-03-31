@@ -29,5 +29,4 @@ namespace Saltoapis.Nebula.Type
         [OriginalName("NFC_READER")] NfcReader = 3,
     }
 
-
 }

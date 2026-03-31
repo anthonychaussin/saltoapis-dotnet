@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1
         private static readonly MessageParser<Invoice> _parser = new(() => new Invoice());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Invoice> Parser { get { return _parser; } }
+        public static MessageParser<Invoice> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[6]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[6];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Invoice()
         {
@@ -45,7 +43,6 @@ namespace Saltoapis.Nebula.Installation.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the invoice. It must have the format of
         /// `installations/*/subscription/invoices/*`. For example:
@@ -53,101 +50,63 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "start_time" field.</summary>
         public const int StartTimeFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.Timestamp startTime_;
-
         /// <summary>
         /// Start time of the invoice. It must be past time.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp StartTime
         {
-            get { return startTime_; }
-            set
-            {
-                startTime_ = value;
-            }
-        }
-
+            get => startTime_; set => startTime_ = value;}
         /// <summary>Field number for the "end_time" field.</summary>
         public const int EndTimeFieldNumber = 3;
         private Google.Protobuf.WellKnownTypes.Timestamp endTime_;
-
         /// <summary>
         /// End time of the invoice.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp EndTime
         {
-            get { return endTime_; }
-            set
-            {
-                endTime_ = value;
-            }
-        }
-
+            get => endTime_; set => endTime_ = value;}
         /// <summary>Field number for the "line_items" field.</summary>
         public const int LineItemsFieldNumber = 4;
         private static readonly FieldCodec<Types.LineItem> _repeated_lineItems_codec
             = FieldCodec.ForMessage(34, Types.LineItem.Parser);
         private readonly RepeatedField<Types.LineItem> lineItems_ = [];
-
         /// <summary>
         /// The line items included in the invoice. Must include at least one
         /// item and no more than 50.
         /// </summary>
         public RepeatedField<Types.LineItem> LineItems
         {
-            get { return lineItems_; }
-        }
-
+            get => lineItems_;}
         /// <summary>Field number for the "total" field.</summary>
         public const int TotalFieldNumber = 5;
         private long total_;
-
         /// <summary>
         /// The total cost of the invoice.
         /// The value is in the minor unit of the currency. (for example: cents).
         /// </summary>
         public long Total
         {
-            get { return total_; }
-            set
-            {
-                total_ = value;
-            }
-        }
-
+            get => total_; set => total_ = value;}
         /// <summary>Field number for the "state" field.</summary>
         public const int StateFieldNumber = 6;
         private Types.State state_ = Types.State.Unspecified;
-
         /// <summary>
         /// Indicates whether this invoice has been paid or not.
         /// </summary>
         public Types.State State
         {
-            get { return state_; }
-            set
-            {
-                state_ = value;
-            }
-        }
+            get => state_; set => state_ = value;}
 
         public override bool Equals(object other) => Equals(other as Invoice);
         public bool Equals(Invoice other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (!Equals(StartTime, other.StartTime))) return false;
-            if ((!Equals(EndTime, other.EndTime)) || (!lineItems_.Equals(other.lineItems_))) return false;
-            if ((Total != other.Total) || (State != other.State)) return false;
+            if ((Name != other.Name) || (!Equals(StartTime, other.StartTime)) || (!Equals(EndTime, other.EndTime)) || (!lineItems_.Equals(other.lineItems_)) || (Total != other.Total) || (State != other.State)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -170,28 +129,34 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (startTime_ != null) {
+      if (startTime_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(StartTime);
       }
-      if (endTime_ != null) {
+      if (endTime_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EndTime);
       }
       lineItems_.WriteTo(output, _repeated_lineItems_codec);
-      if (Total != 0L) {
+      if (Total != 0L)
+      {
         output.WriteRawTag(40);
         output.WriteInt64(Total);
       }
-      if (State != Saltoapis.Nebula.Installation.V1.Invoice.Types.State.Unspecified) {
+      if (State != Saltoapis.Nebula.Installation.V1.Invoice.Types.State.Unspecified)
+      {
         output.WriteRawTag(48);
         output.WriteEnum((int) State);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -270,42 +235,53 @@ namespace Saltoapis.Nebula.Installation.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
-            if (startTime_ == null) {
+          case 18:
+          {
+            if (startTime_ == null)
+            {
               StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(StartTime);
             break;
           }
-          case 26: {
-            if (endTime_ == null) {
+          case 26:
+          {
+            if (endTime_ == null)
+            {
               EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(EndTime);
             break;
           }
-          case 34: {
+          case 34:
+          {
             lineItems_.AddEntriesFrom(input, _repeated_lineItems_codec);
             break;
           }
-          case 40: {
+          case 40:
+          {
             Total = input.ReadInt64();
             break;
           }
-          case 48: {
+          case 48:
+          {
             State = (Saltoapis.Nebula.Installation.V1.Invoice.Types.State) input.ReadEnum();
             break;
           }
@@ -367,7 +343,6 @@ namespace Saltoapis.Nebula.Installation.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Invoice message type.</summary>
         public static partial class Types
         {
@@ -390,7 +365,6 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// </summary>
                 [OriginalName("PAID")] Paid = 2,
             }
-
             /// <summary>
             /// The line item object.
             /// </summary>
@@ -402,17 +376,15 @@ namespace Saltoapis.Nebula.Installation.V1
                 private static readonly MessageParser<LineItem> _parser = new(() => new LineItem());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<LineItem> Parser { get { return _parser; } }
+                public static MessageParser<LineItem> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Invoice.Descriptor.NestedTypes[0]; }
-                }
+                    get => Invoice.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public LineItem()
                 {
@@ -433,40 +405,25 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// <summary>Field number for the "id" field.</summary>
                 public const int IdFieldNumber = 1;
                 private string id_ = "";
-
                 /// <summary>
                 /// The line item ID belonging to the subscription. For example:
                 /// `elevators`.
                 /// </summary>
                 public string Id
                 {
-                    get { return id_; }
-                    set
-                    {
-                        id_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => id_; set => id_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "quantity" field.</summary>
                 public const int QuantityFieldNumber = 2;
                 private int quantity_;
-
                 /// <summary>
                 /// The quantity of the line item used.
                 /// </summary>
                 public int Quantity
                 {
-                    get { return quantity_; }
-                    set
-                    {
-                        quantity_ = value;
-                    }
-                }
-
+                    get => quantity_; set => quantity_ = value;}
                 /// <summary>Field number for the "price" field.</summary>
                 public const int PriceFieldNumber = 3;
                 private long price_;
-
                 /// <summary>
                 /// The cost of the item price when the pricing model is flat fee.
                 /// When the pricing model is per unit, it is the price per unit quantity of the item.
@@ -474,20 +431,14 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// </summary>
                 public long Price
                 {
-                    get { return price_; }
-                    set
-                    {
-                        price_ = value;
-                    }
-                }
+                    get => price_; set => price_ = value;}
 
                 public override bool Equals(object other) => Equals(other as LineItem);
                 public bool Equals(LineItem other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if ((Id != other.Id) || (Quantity != other.Quantity)) return false;
-                    if (Price != other.Price) return false;
+                    if ((Id != other.Id) || (Quantity != other.Quantity) || Price != other.Price) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -507,19 +458,23 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (Id.Length != 0) {
+          if (Id.Length != 0)
+          {
             output.WriteRawTag(10);
             output.WriteString(Id);
           }
-          if (Quantity != 0) {
+          if (Quantity != 0)
+          {
             output.WriteRawTag(16);
             output.WriteInt32(Quantity);
           }
-          if (Price != 0L) {
+          if (Price != 0L)
+          {
             output.WriteRawTag(24);
             output.WriteInt64(Price);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -573,24 +528,30 @@ namespace Saltoapis.Nebula.Installation.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
+              case 10:
+              {
                 Id = input.ReadString();
                 break;
               }
-              case 16: {
+              case 16:
+              {
                 Quantity = input.ReadInt32();
                 break;
               }
-              case 24: {
+              case 24:
+              {
                 Price = input.ReadInt64();
                 break;
               }
@@ -635,12 +596,8 @@ namespace Saltoapis.Nebula.Installation.V1
                     }
                 }
 #endif
-
             }
-
         }
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
         private static readonly MessageParser<AccessPointGroupAccessPoint> _parser = new(() => new AccessPointGroupAccessPoint());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointGroupAccessPoint> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointGroupAccessPoint> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => AccessPointGroupReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointGroupAccessPoint()
         {
@@ -42,7 +40,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the access point groups's access point association. It
         /// must have the format of
@@ -51,17 +48,10 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 2;
         private string accessPoint_ = "";
-
         /// <summary>
         /// The access point resource name to bind as an association to the parent
         /// access point group. For example:
@@ -69,36 +59,23 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
         /// </summary>
         public string AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 3;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the associated entity. In this case an access point.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as AccessPointGroupAccessPoint);
         public bool Equals(AccessPointGroupAccessPoint other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (AccessPoint != other.AccessPoint)) return false;
-            if (DisplayName != other.DisplayName) return false;
+            if ((Name != other.Name) || (AccessPoint != other.AccessPoint) || DisplayName != other.DisplayName) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -118,19 +95,23 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (AccessPoint.Length != 0) {
+      if (AccessPoint.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(AccessPoint);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(DisplayName);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -184,24 +165,30 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             AccessPoint = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DisplayName = input.ReadString();
             break;
           }
@@ -246,8 +233,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1
             }
         }
 #endif
-
     }
-
 
 }

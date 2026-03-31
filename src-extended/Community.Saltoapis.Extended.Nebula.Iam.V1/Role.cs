@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Iam.V1
         private static readonly MessageParser<Role> _parser = new(() => new Role());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Role> Parser { get { return _parser; } }
+        public static MessageParser<Role> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IamReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => IamReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Role()
         {
@@ -42,56 +40,39 @@ namespace Saltoapis.Nebula.Iam.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the role.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// A human-readable display name for the role.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "permissions" field.</summary>
         public const int PermissionsFieldNumber = 3;
         private static readonly FieldCodec<string> _repeated_permissions_codec
             = FieldCodec.ForString(26);
         private readonly RepeatedField<string> permissions_ = [];
-
         /// <summary>
         /// The names of the permissions this role grants.
         /// </summary>
         public RepeatedField<string> Permissions
         {
-            get { return permissions_; }
-        }
+            get => permissions_;}
 
         public override bool Equals(object other) => Equals(other as Role);
         public bool Equals(Role other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if (!permissions_.Equals(other.permissions_)) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || !permissions_.Equals(other.permissions_)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -111,16 +92,19 @@ namespace Saltoapis.Nebula.Iam.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
       permissions_.WriteTo(output, _repeated_permissions_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -170,24 +154,30 @@ namespace Saltoapis.Nebula.Iam.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             permissions_.AddEntriesFrom(input, _repeated_permissions_codec);
             break;
           }
@@ -232,8 +222,6 @@ namespace Saltoapis.Nebula.Iam.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.User.V1
     /// <summary>Holder for reflection information generated from salto/nebula/user/v1/user.proto</summary>
     public static partial class UserReflection
     {
-
         /// <summary>File descriptor for salto/nebula/user/v1/user.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -245,8 +243,5 @@ namespace Saltoapis.Nebula.User.V1
             new(typeof(EncodeElectronicKeyMetadata), EncodeElectronicKeyMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
-
 }

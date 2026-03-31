@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Controller.V1
     /// <summary>Holder for reflection information generated from salto/nebula/controller/v1/controller.proto</summary>
     public static partial class ControllerReflection
     {
-
         /// <summary>File descriptor for salto/nebula/controller/v1/controller.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -218,8 +216,6 @@ namespace Saltoapis.Nebula.Controller.V1
             new(typeof(BatchUpdateControllerRelaysResponse), BatchUpdateControllerRelaysResponse.Parser, ["ControllerRelays"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

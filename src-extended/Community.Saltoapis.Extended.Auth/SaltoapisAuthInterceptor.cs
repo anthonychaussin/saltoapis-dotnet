@@ -29,7 +29,6 @@ namespace Saltoapis.Auth
             AddCallerMetadata(ref context);
 
             AsyncUnaryCall<TResponse> call = continuation(request, context);
-
             // wrap response to capture errors
             return new AsyncUnaryCall<TResponse>(
                 HandleRpcUnauthenticated(call.ResponseAsync),
@@ -46,9 +45,8 @@ namespace Saltoapis.Auth
             BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
-
             // call server using a task. This way we can use the same method to handle authentication exceptions.
-            return HandleRpcUnauthenticated(Task.Run(() => continuation(request, context))).Result;
+            return HandleRpcUnauthenticated(Task.FromResult(continuation(request, context))).Result;
         }
 
         public override AsyncClientStreamingCall<TRequest, TResponse> AsyncClientStreamingCall<TRequest, TResponse>(
@@ -58,7 +56,6 @@ namespace Saltoapis.Auth
             AddCallerMetadata(ref context);
 
             AsyncClientStreamingCall<TRequest, TResponse> call = continuation(context);
-
             // wrap response to capture errors
             return new AsyncClientStreamingCall<TRequest, TResponse>(
                 call.RequestStream,
@@ -117,7 +114,6 @@ namespace Saltoapis.Auth
             where TResponse : class
         {
             Metadata headers = context.Options.Headers;
-
             // Call doesn't have a headers collection to add to.
             // Need to create a new context with headers for the call.
             if (headers == null)
@@ -126,7 +122,6 @@ namespace Saltoapis.Auth
                 CallOptions options = context.Options.WithHeaders(headers);
                 context = new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, options);
             }
-
             // this call may take a while (depending if we have the token or not)
             string token = OAuthClient.GetToken().Result;
             headers.Add("Authorization", $"Bearer {token}");

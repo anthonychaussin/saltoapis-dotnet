@@ -39,5 +39,4 @@ namespace Saltoapis.Nebula.Type
         [OriginalName("ELECTRONIC_KEY")] ElectronicKey = 7,
     }
 
-
 }

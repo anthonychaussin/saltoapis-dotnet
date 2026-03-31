@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         private static readonly MessageParser<DigitalKey> _parser = new(() => new DigitalKey());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DigitalKey> Parser { get { return _parser; } }
+        public static MessageParser<DigitalKey> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DigitalKeyReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => DigitalKeyReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DigitalKey()
         {
@@ -50,23 +48,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the digital key. It must have the format of
         /// `digital-keys/*`. For example: `digital-keys/baker-street-entrance`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 2;
-
         /// <summary>
         /// An app key.
         /// </summary>
@@ -79,10 +69,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 typeCase_ = value == null ? TypeOneofCase.None : TypeOneofCase.AppKey;
             }
         }
-
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 3;
-
         /// <summary>
         /// A wallet key.
         /// </summary>
@@ -97,7 +85,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         }
 
         private object type_;
-
         /// <summary>Enum of possible cases for the "type" oneof.</summary>
         public enum TypeOneofCase
         {
@@ -110,8 +97,7 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 
         public TypeOneofCase TypeCase
         {
-            get { return typeCase_; }
-        }
+            get => typeCase_;}
 
         public void ClearType()
         {
@@ -124,8 +110,7 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (!Equals(AppKey, other.AppKey))) return false;
-            if ((!Equals(WalletKey, other.WalletKey)) || (TypeCase != other.TypeCase)) return false;
+            if ((Name != other.Name) || (!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey)) || (TypeCase != other.TypeCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -146,19 +131,23 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (typeCase_ == TypeOneofCase.AppKey) {
+      if (typeCase_ == TypeOneofCase.AppKey)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AppKey);
       }
-      if (typeCase_ == TypeOneofCase.WalletKey) {
+      if (typeCase_ == TypeOneofCase.WalletKey)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(WalletKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -222,31 +211,39 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.AppKey subBuilder = new Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.AppKey();
-            if (typeCase_ == TypeOneofCase.AppKey) {
+            if (typeCase_ == TypeOneofCase.AppKey)
+            {
               subBuilder.MergeFrom(AppKey);
             }
             input.ReadMessage(subBuilder);
             AppKey = subBuilder;
             break;
           }
-          case 26: {
+          case 26:
+          {
             Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.WalletKey subBuilder = new Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.WalletKey();
-            if (typeCase_ == TypeOneofCase.WalletKey) {
+            if (typeCase_ == TypeOneofCase.WalletKey)
+            {
               subBuilder.MergeFrom(WalletKey);
             }
             input.ReadMessage(subBuilder);
@@ -300,7 +297,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the DigitalKey message type.</summary>
         public static partial class Types
         {
@@ -315,17 +311,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 private static readonly MessageParser<Metadata> _parser = new(() => new Metadata());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<Metadata> Parser { get { return _parser; } }
+                public static MessageParser<Metadata> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return DigitalKey.Descriptor.NestedTypes[0]; }
-                }
+                    get => DigitalKey.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public Metadata()
                 {
@@ -348,55 +342,33 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// <summary>Field number for the "title" field.</summary>
                 public const int TitleFieldNumber = 1;
                 private string title_ = "";
-
                 /// <summary>
                 /// The title of the digital key.
                 /// </summary>
                 public string Title
                 {
-                    get { return title_; }
-                    set
-                    {
-                        title_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => title_; set => title_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "subtitle" field.</summary>
                 public const int SubtitleFieldNumber = 2;
                 private string subtitle_ = "";
-
                 /// <summary>
                 /// The subtitle of the digital key.
                 /// </summary>
                 public string Subtitle
                 {
-                    get { return subtitle_; }
-                    set
-                    {
-                        subtitle_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => subtitle_; set => subtitle_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "photo_uri" field.</summary>
                 public const int PhotoUriFieldNumber = 3;
                 private string photoUri_ = "";
-
                 /// <summary>
                 /// The URI to view the digital key photo.
                 /// </summary>
                 public string PhotoUri
                 {
-                    get { return photoUri_; }
-                    set
-                    {
-                        photoUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => photoUri_; set => photoUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "address" field.</summary>
                 public const int AddressFieldNumber = 4;
                 private string address_ = "";
-
                 /// <summary>
                 /// Unstructured address of the digital key location.
                 ///
@@ -405,37 +377,23 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// </summary>
                 public string Address
                 {
-                    get { return address_; }
-                    set
-                    {
-                        address_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => address_; set => address_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "text_color" field.</summary>
                 public const int TextColorFieldNumber = 5;
                 private Saltoapis.Type.Color textColor_;
-
                 /// <summary>
                 /// The color used to display the text on top of the background image.
                 /// </summary>
                 public Saltoapis.Type.Color TextColor
                 {
-                    get { return textColor_; }
-                    set
-                    {
-                        textColor_ = value;
-                    }
-                }
+                    get => textColor_; set => textColor_ = value;}
 
                 public override bool Equals(object other) => Equals(other as Metadata);
                 public bool Equals(Metadata other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if ((Title != other.Title) || (Subtitle != other.Subtitle)) return false;
-                    if ((PhotoUri != other.PhotoUri) || (Address != other.Address)) return false;
-                    if (!Equals(TextColor, other.TextColor)) return false;
+                    if ((Title != other.Title) || (Subtitle != other.Subtitle) || (PhotoUri != other.PhotoUri) || (Address != other.Address) || !Equals(TextColor, other.TextColor)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -457,27 +415,33 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (Title.Length != 0) {
+          if (Title.Length != 0)
+          {
             output.WriteRawTag(10);
             output.WriteString(Title);
           }
-          if (Subtitle.Length != 0) {
+          if (Subtitle.Length != 0)
+          {
             output.WriteRawTag(18);
             output.WriteString(Subtitle);
           }
-          if (PhotoUri.Length != 0) {
+          if (PhotoUri.Length != 0)
+          {
             output.WriteRawTag(26);
             output.WriteString(PhotoUri);
           }
-          if (Address.Length != 0) {
+          if (Address.Length != 0)
+          {
             output.WriteRawTag(34);
             output.WriteString(Address);
           }
-          if (textColor_ != null) {
+          if (textColor_ != null)
+          {
             output.WriteRawTag(42);
             output.WriteMessage(TextColor);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -549,33 +513,42 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
+              case 10:
+              {
                 Title = input.ReadString();
                 break;
               }
-              case 18: {
+              case 18:
+              {
                 Subtitle = input.ReadString();
                 break;
               }
-              case 26: {
+              case 26:
+              {
                 PhotoUri = input.ReadString();
                 break;
               }
-              case 34: {
+              case 34:
+              {
                 Address = input.ReadString();
                 break;
               }
-              case 42: {
-                if (textColor_ == null) {
+              case 42:
+              {
+                if (textColor_ == null)
+                {
                   TextColor = new Saltoapis.Type.Color();
                 }
                 input.ReadMessage(TextColor);
@@ -633,9 +606,7 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     }
                 }
 #endif
-
             }
-
             /// <summary>
             /// App key.
             /// </summary>
@@ -647,17 +618,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 private static readonly MessageParser<AppKey> _parser = new(() => new AppKey());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<AppKey> Parser { get { return _parser; } }
+                public static MessageParser<AppKey> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return DigitalKey.Descriptor.NestedTypes[1]; }
-                }
+                    get => DigitalKey.Descriptor.NestedTypes[1];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public AppKey()
                 {
@@ -683,87 +652,50 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// <summary>Field number for the "metadata" field.</summary>
                 public const int MetadataFieldNumber = 1;
                 private Metadata metadata_;
-
                 /// <summary>
                 /// Metadata associated to this app key.
                 /// </summary>
                 public Metadata Metadata
                 {
-                    get { return metadata_; }
-                    set
-                    {
-                        metadata_ = value;
-                    }
-                }
-
+                    get => metadata_; set => metadata_ = value;}
                 /// <summary>Field number for the "data" field.</summary>
                 public const int DataFieldNumber = 2;
                 private ByteString data_ = ByteString.Empty;
-
                 /// <summary>
                 /// An encrypted and authenticated data blob of the app key.
                 /// </summary>
                 public ByteString Data
                 {
-                    get { return data_; }
-                    set
-                    {
-                        data_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => data_; set => data_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "installation" field.</summary>
                 public const int InstallationFieldNumber = 5;
                 private string installation_ = "";
-
                 /// <summary>
                 /// The resource name of the installation this app key belong to.
                 /// For example: `installations/surelock-homes-hq`.
                 /// </summary>
                 public string Installation
                 {
-                    get { return installation_; }
-                    set
-                    {
-                        installation_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => installation_; set => installation_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "unit" field.</summary>
                 public const int UnitFieldNumber = 6;
                 private static readonly string UnitDefaultValue = "";
 
                 private string unit_;
-
                 /// <summary>
                 /// The resource name of the unit this app key belong to.
                 /// For example: `installations/surelock-homes-hq/units/101`.
                 /// </summary>
                 public string Unit
                 {
-                    get { return unit_ ?? UnitDefaultValue; }
-                    set
-                    {
-                        unit_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => unit_ ?? UnitDefaultValue; set => unit_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Gets whether the "unit" field is set</summary>
-                public bool HasUnit
-                {
-                    get { return unit_ != null; }
-                }
-
+                public bool HasUnit => unit_ != null;
                 /// <summary>Clears the value of the "unit" field</summary>
-                public void ClearUnit()
-                {
-                    unit_ = null;
-                }
-
+                public void ClearUnit() => unit_ = null;
                 /// <summary>Field number for the "installation_id" field.</summary>
                 public const int InstallationIdFieldNumber = 3;
                 private string installationId_ = "";
-
                 /// <summary>
                 /// Installation identifier for low-level purposes.
                 ///
@@ -773,19 +705,12 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// </summary>
                 public string InstallationId
                 {
-                    get { return installationId_; }
-                    set
-                    {
-                        installationId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => installationId_; set => installationId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "unit_id" field.</summary>
                 public const int UnitIdFieldNumber = 4;
                 private static readonly string UnitIdDefaultValue = "";
 
                 private string unitId_;
-
                 /// <summary>
                 /// Unit identifier for low-level purposes.
                 ///
@@ -795,29 +720,14 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// </summary>
                 public string UnitId
                 {
-                    get { return unitId_ ?? UnitIdDefaultValue; }
-                    set
-                    {
-                        unitId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => unitId_ ?? UnitIdDefaultValue; set => unitId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Gets whether the "unit_id" field is set</summary>
-                public bool HasUnitId
-                {
-                    get { return unitId_ != null; }
-                }
-
+                public bool HasUnitId => unitId_ != null;
                 /// <summary>Clears the value of the "unit_id" field</summary>
-                public void ClearUnitId()
-                {
-                    unitId_ = null;
-                }
-
+                public void ClearUnitId() => unitId_ = null;
                 /// <summary>Field number for the "access_points_sync_time" field.</summary>
                 public const int AccessPointsSyncTimeFieldNumber = 7;
                 private Google.Protobuf.WellKnownTypes.Timestamp accessPointsSyncTime_;
-
                 /// <summary>
                 /// Access points synchronization time.
                 ///
@@ -826,38 +736,23 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// </summary>
                 public Google.Protobuf.WellKnownTypes.Timestamp AccessPointsSyncTime
                 {
-                    get { return accessPointsSyncTime_; }
-                    set
-                    {
-                        accessPointsSyncTime_ = value;
-                    }
-                }
-
+                    get => accessPointsSyncTime_; set => accessPointsSyncTime_ = value;}
                 /// <summary>Field number for the "access_points_sync_state" field.</summary>
                 public const int AccessPointsSyncStateFieldNumber = 8;
                 private Types.AccessPointsSyncState accessPointsSyncState_ = Types.AccessPointsSyncState.Unspecified;
-
                 /// <summary>
                 /// The sync state of the digital key's access points.
                 /// </summary>
                 public Types.AccessPointsSyncState AccessPointsSyncState
                 {
-                    get { return accessPointsSyncState_; }
-                    set
-                    {
-                        accessPointsSyncState_ = value;
-                    }
-                }
+                    get => accessPointsSyncState_; set => accessPointsSyncState_ = value;}
 
                 public override bool Equals(object other) => Equals(other as AppKey);
                 public bool Equals(AppKey other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if ((!Equals(Metadata, other.Metadata)) || (Data != other.Data)) return false;
-                    if ((Installation != other.Installation) || (Unit != other.Unit)) return false;
-                    if ((InstallationId != other.InstallationId) || (UnitId != other.UnitId)) return false;
-                    if ((!Equals(AccessPointsSyncTime, other.AccessPointsSyncTime)) || (AccessPointsSyncState != other.AccessPointsSyncState)) return false;
+                    if ((!Equals(Metadata, other.Metadata)) || (Data != other.Data) || (Installation != other.Installation) || (Unit != other.Unit) || (InstallationId != other.InstallationId) || (UnitId != other.UnitId) || (!Equals(AccessPointsSyncTime, other.AccessPointsSyncTime)) || (AccessPointsSyncState != other.AccessPointsSyncState)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -882,39 +777,48 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (metadata_ != null) {
+          if (metadata_ != null)
+          {
             output.WriteRawTag(10);
             output.WriteMessage(Metadata);
           }
-          if (Data.Length != 0) {
+          if (Data.Length != 0)
+          {
             output.WriteRawTag(18);
             output.WriteBytes(Data);
           }
-          if (InstallationId.Length != 0) {
+          if (InstallationId.Length != 0)
+          {
             output.WriteRawTag(26);
             output.WriteString(InstallationId);
           }
-          if (HasUnitId) {
+          if (HasUnitId)
+          {
             output.WriteRawTag(34);
             output.WriteString(UnitId);
           }
-          if (Installation.Length != 0) {
+          if (Installation.Length != 0)
+          {
             output.WriteRawTag(42);
             output.WriteString(Installation);
           }
-          if (HasUnit) {
+          if (HasUnit)
+          {
             output.WriteRawTag(50);
             output.WriteString(Unit);
           }
-          if (accessPointsSyncTime_ != null) {
+          if (accessPointsSyncTime_ != null)
+          {
             output.WriteRawTag(58);
             output.WriteMessage(AccessPointsSyncTime);
           }
-          if (AccessPointsSyncState != Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.AppKey.Types.AccessPointsSyncState.Unspecified) {
+          if (AccessPointsSyncState != Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.AppKey.Types.AccessPointsSyncState.Unspecified)
+          {
             output.WriteRawTag(64);
             output.WriteEnum((int) AccessPointsSyncState);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -1011,50 +915,63 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
-                if (metadata_ == null) {
+              case 10:
+              {
+                if (metadata_ == null)
+                {
                   Metadata = new Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.Metadata();
                 }
                 input.ReadMessage(Metadata);
                 break;
               }
-              case 18: {
+              case 18:
+              {
                 Data = input.ReadBytes();
                 break;
               }
-              case 26: {
+              case 26:
+              {
                 InstallationId = input.ReadString();
                 break;
               }
-              case 34: {
+              case 34:
+              {
                 UnitId = input.ReadString();
                 break;
               }
-              case 42: {
+              case 42:
+              {
                 Installation = input.ReadString();
                 break;
               }
-              case 50: {
+              case 50:
+              {
                 Unit = input.ReadString();
                 break;
               }
-              case 58: {
-                if (accessPointsSyncTime_ == null) {
+              case 58:
+              {
+                if (accessPointsSyncTime_ == null)
+                {
                   AccessPointsSyncTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                 }
                 input.ReadMessage(AccessPointsSyncTime);
                 break;
               }
-              case 64: {
+              case 64:
+              {
                 AccessPointsSyncState = (Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.AppKey.Types.AccessPointsSyncState) input.ReadEnum();
                 break;
               }
@@ -1126,7 +1043,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     }
                 }
 #endif
-
                 /// <summary>Container for nested types declared in the AppKey message type.</summary>
                 public static partial class Types
                 {
@@ -1163,11 +1079,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                         /// </summary>
                         [OriginalName("LIMIT_EXCEEDED")] LimitExceeded = 5,
                     }
-
                 }
-
             }
-
             /// <summary>
             /// Wallet key.
             /// </summary>
@@ -1179,17 +1092,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 private static readonly MessageParser<WalletKey> _parser = new(() => new WalletKey());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<WalletKey> Parser { get { return _parser; } }
+                public static MessageParser<WalletKey> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return DigitalKey.Descriptor.NestedTypes[2]; }
-                }
+                    get => DigitalKey.Descriptor.NestedTypes[2];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public WalletKey()
                 {
@@ -1209,34 +1120,21 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                 /// <summary>Field number for the "metadata" field.</summary>
                 public const int MetadataFieldNumber = 1;
                 private Metadata metadata_;
-
                 /// <summary>
                 /// Metadata associated to this wallet key.
                 /// </summary>
                 public Metadata Metadata
                 {
-                    get { return metadata_; }
-                    set
-                    {
-                        metadata_ = value;
-                    }
-                }
-
+                    get => metadata_; set => metadata_ = value;}
                 /// <summary>Field number for the "hydra_credential" field.</summary>
                 public const int HydraCredentialFieldNumber = 2;
                 private Types.HydraCredential hydraCredential_;
-
                 /// <summary>
                 /// Hydra credential of this user's wallet key.
                 /// </summary>
                 public Types.HydraCredential HydraCredential
                 {
-                    get { return hydraCredential_; }
-                    set
-                    {
-                        hydraCredential_ = value;
-                    }
-                }
+                    get => hydraCredential_; set => hydraCredential_ = value;}
 
                 public override bool Equals(object other) => Equals(other as WalletKey);
                 public bool Equals(WalletKey other)
@@ -1262,15 +1160,18 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (metadata_ != null) {
+          if (metadata_ != null)
+          {
             output.WriteRawTag(10);
             output.WriteMessage(Metadata);
           }
-          if (hydraCredential_ != null) {
+          if (hydraCredential_ != null)
+          {
             output.WriteRawTag(18);
             output.WriteMessage(HydraCredential);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -1325,24 +1226,31 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
-                if (metadata_ == null) {
+              case 10:
+              {
+                if (metadata_ == null)
+                {
                   Metadata = new Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.Metadata();
                 }
                 input.ReadMessage(Metadata);
                 break;
               }
-              case 18: {
-                if (hydraCredential_ == null) {
+              case 18:
+              {
+                if (hydraCredential_ == null)
+                {
                   HydraCredential = new Saltoapis.Nebula.DigitalKey.V1.DigitalKey.Types.WalletKey.Types.HydraCredential();
                 }
                 input.ReadMessage(HydraCredential);
@@ -1386,7 +1294,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                     }
                 }
 #endif
-
                 /// <summary>Container for nested types declared in the WalletKey message type.</summary>
                 public static partial class Types
                 {
@@ -1401,17 +1308,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                         private static readonly MessageParser<HydraCredential> _parser = new(() => new HydraCredential());
                         private UnknownFieldSet _unknownFields;
 
-                        public static MessageParser<HydraCredential> Parser { get { return _parser; } }
+                        public static MessageParser<HydraCredential> Parser { get => _parser;}
 
                         public static MessageDescriptor Descriptor
                         {
-                            get { return WalletKey.Descriptor.NestedTypes[0]; }
-                        }
+                            get => WalletKey.Descriptor.NestedTypes[0];}
 
                         MessageDescriptor IMessage.Descriptor
                         {
-                            get { return Descriptor; }
-                        }
+                            get => Descriptor;}
 
                         public HydraCredential()
                         {
@@ -1435,23 +1340,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                         /// <summary>Field number for the "credential_id" field.</summary>
                         public const int CredentialIdFieldNumber = 1;
                         private string credentialId_ = "";
-
                         /// <summary>
                         /// Credential identifier created and managed by Wallet Hub.
                         /// </summary>
                         public string CredentialId
                         {
-                            get { return credentialId_; }
-                            set
-                            {
-                                credentialId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => credentialId_; set => credentialId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "sharing_instance_id" field.</summary>
                         public const int SharingInstanceIdFieldNumber = 2;
                         private string sharingInstanceId_ = "";
-
                         /// <summary>
                         /// An identifier that helps mapping which devices are being provisioned
                         /// simultaneously as a result of user initiating an in-app provisioning
@@ -1459,34 +1356,20 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                         /// </summary>
                         public string SharingInstanceId
                         {
-                            get { return sharingInstanceId_; }
-                            set
-                            {
-                                sharingInstanceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => sharingInstanceId_; set => sharingInstanceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "account_hash" field.</summary>
                         public const int AccountHashFieldNumber = 3;
                         private string accountHash_ = "";
-
                         /// <summary>
                         /// An identifier that has a direct reference to user's account with the
                         /// issuer.
                         /// </summary>
                         public string AccountHash
                         {
-                            get { return accountHash_; }
-                            set
-                            {
-                                accountHash_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => accountHash_; set => accountHash_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "template_id" field.</summary>
                         public const int TemplateIdFieldNumber = 4;
                         private string templateId_ = "";
-
                         /// <summary>
                         /// Card template identifier. Identifies a combination of
                         /// card profile identifier, card configuration identifier and
@@ -1494,54 +1377,33 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                         /// </summary>
                         public string TemplateId
                         {
-                            get { return templateId_; }
-                            set
-                            {
-                                templateId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => templateId_; set => templateId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "relying_party_id" field.</summary>
                         public const int RelyingPartyIdFieldNumber = 5;
                         private string relyingPartyId_ = "";
-
                         /// <summary>
                         /// An identifier representing an entity that uses a FIDO protocol to
                         /// directly authenticate users.
                         /// </summary>
                         public string RelyingPartyId
                         {
-                            get { return relyingPartyId_; }
-                            set
-                            {
-                                relyingPartyId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
-
+                            get => relyingPartyId_; set => relyingPartyId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                         /// <summary>Field number for the "reference_id" field.</summary>
                         public const int ReferenceIdFieldNumber = 6;
                         private string referenceId_ = "";
-
                         /// <summary>
                         /// Reference identifier for this card.
                         /// </summary>
                         public string ReferenceId
                         {
-                            get { return referenceId_; }
-                            set
-                            {
-                                referenceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                            }
-                        }
+                            get => referenceId_; set => referenceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
                         public override bool Equals(object other) => Equals(other as HydraCredential);
                         public bool Equals(HydraCredential other)
                         {
                             if (other is null) return false;
                             if (ReferenceEquals(other, this)) return true;
-                            if ((CredentialId != other.CredentialId) || (SharingInstanceId != other.SharingInstanceId)) return false;
-                            if ((AccountHash != other.AccountHash) || (TemplateId != other.TemplateId)) return false;
-                            if ((RelyingPartyId != other.RelyingPartyId) || (ReferenceId != other.ReferenceId)) return false;
+                            if ((CredentialId != other.CredentialId) || (SharingInstanceId != other.SharingInstanceId) || (AccountHash != other.AccountHash) || (TemplateId != other.TemplateId) || (RelyingPartyId != other.RelyingPartyId) || (ReferenceId != other.ReferenceId)) return false;
                             return Equals(_unknownFields, other._unknownFields);
                         }
 
@@ -1564,31 +1426,38 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                             output.WriteRawMessage(this);
 #else
-              if (CredentialId.Length != 0) {
+              if (CredentialId.Length != 0)
+              {
                 output.WriteRawTag(10);
                 output.WriteString(CredentialId);
               }
-              if (SharingInstanceId.Length != 0) {
+              if (SharingInstanceId.Length != 0)
+              {
                 output.WriteRawTag(18);
                 output.WriteString(SharingInstanceId);
               }
-              if (AccountHash.Length != 0) {
+              if (AccountHash.Length != 0)
+              {
                 output.WriteRawTag(26);
                 output.WriteString(AccountHash);
               }
-              if (TemplateId.Length != 0) {
+              if (TemplateId.Length != 0)
+              {
                 output.WriteRawTag(34);
                 output.WriteString(TemplateId);
               }
-              if (RelyingPartyId.Length != 0) {
+              if (RelyingPartyId.Length != 0)
+              {
                 output.WriteRawTag(42);
                 output.WriteString(RelyingPartyId);
               }
-              if (ReferenceId.Length != 0) {
+              if (ReferenceId.Length != 0)
+              {
                 output.WriteRawTag(50);
                 output.WriteString(ReferenceId);
               }
-              if (_unknownFields != null) {
+              if (_unknownFields != null)
+              {
                 _unknownFields.WriteTo(output);
               }
 #endif
@@ -1663,36 +1532,45 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                             input.ReadRawMessage(this);
 #else
               uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-              if ((tag & 7) == 4) {
+              while ((tag = input.ReadTag()) != 0)
+              {
+              if ((tag & 7) == 4)
+              {
                 // Abort on any end group tag.
                 return;
               }
-              switch(tag) {
+              switch(tag)
+              {
                   default:
                     _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10: {
+                  case 10:
+                  {
                     CredentialId = input.ReadString();
                     break;
                   }
-                  case 18: {
+                  case 18:
+                  {
                     SharingInstanceId = input.ReadString();
                     break;
                   }
-                  case 26: {
+                  case 26:
+                  {
                     AccountHash = input.ReadString();
                     break;
                   }
-                  case 34: {
+                  case 34:
+                  {
                     TemplateId = input.ReadString();
                     break;
                   }
-                  case 42: {
+                  case 42:
+                  {
                     RelyingPartyId = input.ReadString();
                     break;
                   }
-                  case 50: {
+                  case 50:
+                  {
                     ReferenceId = input.ReadString();
                     break;
                   }
@@ -1752,14 +1630,9 @@ namespace Saltoapis.Nebula.DigitalKey.V1
                             }
                         }
 #endif
-
                     }
-
                 }
-
             }
-
         }
-
     }
 }

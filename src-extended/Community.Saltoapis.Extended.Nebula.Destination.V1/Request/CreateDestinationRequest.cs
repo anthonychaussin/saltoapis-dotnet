@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Destination.V1.Request
         private static readonly MessageParser<CreateDestinationRequest> _parser = new(() => new CreateDestinationRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateDestinationRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateDestinationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DestinationReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => DestinationReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateDestinationRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.Destination.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource under which the destination is created. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "destination_id" field.</summary>
         public const int DestinationIdFieldNumber = 2;
         private static readonly string DestinationIdDefaultValue = "";
 
         private string destinationId_;
-
         /// <summary>
         /// The destination id to use for this destination. If it's empty the server will
         /// autogenerate a unique identifier.
         /// </summary>
         public string DestinationId
         {
-            get { return destinationId_ ?? DestinationIdDefaultValue; }
-            set
-            {
-                destinationId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => destinationId_ ?? DestinationIdDefaultValue; set => destinationId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "destination_id" field is set</summary>
-        public bool HasDestinationId
-        {
-            get { return destinationId_ != null; }
-        }
-
+        public bool HasDestinationId => destinationId_ != null;
         /// <summary>Clears the value of the "destination_id" field</summary>
-        public void ClearDestinationId()
-        {
-            destinationId_ = null;
-        }
-
+        public void ClearDestinationId() => destinationId_ = null;
         /// <summary>Field number for the "destination" field.</summary>
         public const int DestinationFieldNumber = 3;
         private Destination destination_;
-
         /// <summary>
         /// The destination resource to be created. Client must not set the `Destination.name`
         /// field.
         /// </summary>
         public Destination Destination
         {
-            get { return destination_; }
-            set
-            {
-                destination_ = value;
-            }
-        }
+            get => destination_; set => destination_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateDestinationRequest);
         public bool Equals(CreateDestinationRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (DestinationId != other.DestinationId)) return false;
-            if (!Equals(Destination, other.Destination)) return false;
+            if ((Parent != other.Parent) || (DestinationId != other.DestinationId) || !Equals(Destination, other.Destination)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.Destination.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasDestinationId) {
+      if (HasDestinationId)
+      {
         output.WriteRawTag(18);
         output.WriteString(DestinationId);
       }
-      if (destination_ != null) {
+      if (destination_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Destination);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.Destination.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DestinationId = input.ReadString();
             break;
           }
-          case 26: {
-            if (destination_ == null) {
+          case 26:
+          {
+            if (destination_ == null)
+            {
               Destination = new Saltoapis.Nebula.Destination.V1.Destination();
             }
             input.ReadMessage(Destination);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.Destination.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -27,5 +27,4 @@ namespace Saltoapis.Nebula.Type
         [OriginalName("SPECIAL_2")] Special2 = 4,
     }
 
-
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1
         private static readonly MessageParser<Installation> _parser = new(() => new Installation());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Installation> Parser { get { return _parser; } }
+        public static MessageParser<Installation> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Installation()
         {
@@ -51,42 +49,27 @@ namespace Saltoapis.Nebula.Installation.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the installation. It must have the format
         /// of `installations/*`. For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the installation.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "photo" field.</summary>
         public const int PhotoFieldNumber = 3;
         private static readonly string PhotoDefaultValue = "";
 
         private string photo_;
-
         /// <summary>
         /// The file resource name for the installation photo. It must have the
         /// format of
@@ -94,45 +77,23 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string Photo
         {
-            get { return photo_ ?? PhotoDefaultValue; }
-            set
-            {
-                photo_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => photo_ ?? PhotoDefaultValue; set => photo_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "photo" field is set</summary>
-        public bool HasPhoto
-        {
-            get { return photo_ != null; }
-        }
-
+        public bool HasPhoto => photo_ != null;
         /// <summary>Clears the value of the "photo" field</summary>
-        public void ClearPhoto()
-        {
-            photo_ = null;
-        }
-
+        public void ClearPhoto() => photo_ = null;
         /// <summary>Field number for the "photo_uri" field.</summary>
         public const int PhotoUriFieldNumber = 4;
         private string photoUri_ = "";
-
         /// <summary>
         /// The URI to view the installation photo.
         /// </summary>
         public string PhotoUri
         {
-            get { return photoUri_; }
-            set
-            {
-                photoUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => photoUri_; set => photoUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "address" field.</summary>
         public const int AddressFieldNumber = 5;
         private string address_ = "";
-
         /// <summary>
         /// Unstructured address.
         ///
@@ -141,50 +102,29 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public string Address
         {
-            get { return address_; }
-            set
-            {
-                address_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => address_; set => address_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "time_zone" field.</summary>
         public const int TimeZoneFieldNumber = 6;
         private string timeZone_ = "";
-
         /// <summary>
         /// Time zone where the installation is located. It must follow the IANA Time
         /// Zone Database format. For example, "America/New_York."
         /// </summary>
         public string TimeZone
         {
-            get { return timeZone_; }
-            set
-            {
-                timeZone_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => timeZone_; set => timeZone_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "digital_key_art" field.</summary>
         public const int DigitalKeyArtFieldNumber = 7;
         private Types.DigitalKeyArt digitalKeyArt_;
-
         /// <summary>
         /// The digital key art configuration resource that belongs to the installation.
         /// </summary>
         public Types.DigitalKeyArt DigitalKeyArt
         {
-            get { return digitalKeyArt_; }
-            set
-            {
-                digitalKeyArt_ = value;
-            }
-        }
-
+            get => digitalKeyArt_; set => digitalKeyArt_ = value;}
         /// <summary>Field number for the "transfer_ownership_state" field.</summary>
         public const int TransferOwnershipStateFieldNumber = 8;
         private Types.TransferOwnershipState transferOwnershipState_;
-
         /// <summary>
         /// Current state of the ownership transfer. Client must not set the
         /// `Installation.transfer_ownership_state` field. This data is only
@@ -192,65 +132,37 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public Types.TransferOwnershipState TransferOwnershipState
         {
-            get { return transferOwnershipState_; }
-            set
-            {
-                transferOwnershipState_ = value;
-            }
-        }
-
+            get => transferOwnershipState_; set => transferOwnershipState_ = value;}
         /// <summary>Field number for the "delete_time" field.</summary>
         public const int DeleteTimeFieldNumber = 12;
         private Google.Protobuf.WellKnownTypes.Timestamp deleteTime_;
-
         /// <summary>
         /// The time when the installation was soft deleted.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp DeleteTime
         {
-            get { return deleteTime_; }
-            set
-            {
-                deleteTime_ = value;
-            }
-        }
-
+            get => deleteTime_; set => deleteTime_ = value;}
         /// <summary>Field number for the "partner_info" field.</summary>
         public const int PartnerInfoFieldNumber = 9;
         private Types.PartnerInfo partnerInfo_;
-
         /// <summary>
         /// The information of the partner who created the installation.
         /// </summary>
         public Types.PartnerInfo PartnerInfo
         {
-            get { return partnerInfo_; }
-            set
-            {
-                partnerInfo_ = value;
-            }
-        }
-
+            get => partnerInfo_; set => partnerInfo_ = value;}
         /// <summary>Field number for the "block_time" field.</summary>
         public const int BlockTimeFieldNumber = 11;
         private Google.Protobuf.WellKnownTypes.Timestamp blockTime_;
-
         /// <summary>
         /// The time when the installation was blocked.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp BlockTime
         {
-            get { return blockTime_; }
-            set
-            {
-                blockTime_ = value;
-            }
-        }
-
+            get => blockTime_; set => blockTime_ = value;}
         /// <summary>Field number for the "key_renewal_duration" field.</summary>
         public const int KeyRenewalDurationFieldNumber = 10;
         private Google.Protobuf.WellKnownTypes.Duration keyRenewalDuration_;
-
         /// <summary>
         /// The length of time a key remains valid before requiring renewal. This
         /// duration defines the effective lifespan of a key, after which it must be
@@ -260,24 +172,14 @@ namespace Saltoapis.Nebula.Installation.V1
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Duration KeyRenewalDuration
         {
-            get { return keyRenewalDuration_; }
-            set
-            {
-                keyRenewalDuration_ = value;
-            }
-        }
+            get => keyRenewalDuration_; set => keyRenewalDuration_ = value;}
 
         public override bool Equals(object other) => Equals(other as Installation);
         public bool Equals(Installation other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((Photo != other.Photo) || (PhotoUri != other.PhotoUri)) return false;
-            if ((Address != other.Address) || (TimeZone != other.TimeZone)) return false;
-            if ((!Equals(DigitalKeyArt, other.DigitalKeyArt)) || (!Equals(TransferOwnershipState, other.TransferOwnershipState))) return false;
-            if ((!Equals(DeleteTime, other.DeleteTime)) || (!Equals(PartnerInfo, other.PartnerInfo))) return false;
-            if ((!Equals(BlockTime, other.BlockTime)) || (!Equals(KeyRenewalDuration, other.KeyRenewalDuration))) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (Photo != other.Photo) || (PhotoUri != other.PhotoUri) || (Address != other.Address) || (TimeZone != other.TimeZone) || (!Equals(DigitalKeyArt, other.DigitalKeyArt)) || (!Equals(TransferOwnershipState, other.TransferOwnershipState)) || (!Equals(DeleteTime, other.DeleteTime)) || (!Equals(PartnerInfo, other.PartnerInfo)) || (!Equals(BlockTime, other.BlockTime)) || (!Equals(KeyRenewalDuration, other.KeyRenewalDuration))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -306,55 +208,68 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasPhoto) {
+      if (HasPhoto)
+      {
         output.WriteRawTag(26);
         output.WriteString(Photo);
       }
-      if (PhotoUri.Length != 0) {
+      if (PhotoUri.Length != 0)
+      {
         output.WriteRawTag(34);
         output.WriteString(PhotoUri);
       }
-      if (Address.Length != 0) {
+      if (Address.Length != 0)
+      {
         output.WriteRawTag(42);
         output.WriteString(Address);
       }
-      if (TimeZone.Length != 0) {
+      if (TimeZone.Length != 0)
+      {
         output.WriteRawTag(50);
         output.WriteString(TimeZone);
       }
-      if (digitalKeyArt_ != null) {
+      if (digitalKeyArt_ != null)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(DigitalKeyArt);
       }
-      if (transferOwnershipState_ != null) {
+      if (transferOwnershipState_ != null)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(TransferOwnershipState);
       }
-      if (partnerInfo_ != null) {
+      if (partnerInfo_ != null)
+      {
         output.WriteRawTag(74);
         output.WriteMessage(PartnerInfo);
       }
-      if (keyRenewalDuration_ != null) {
+      if (keyRenewalDuration_ != null)
+      {
         output.WriteRawTag(82);
         output.WriteMessage(KeyRenewalDuration);
       }
-      if (blockTime_ != null) {
+      if (blockTime_ != null)
+      {
         output.WriteRawTag(90);
         output.WriteMessage(BlockTime);
       }
-      if (deleteTime_ != null) {
+      if (deleteTime_ != null)
+      {
         output.WriteRawTag(98);
         output.WriteMessage(DeleteTime);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -495,76 +410,97 @@ namespace Saltoapis.Nebula.Installation.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             Photo = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             PhotoUri = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             Address = input.ReadString();
             break;
           }
-          case 50: {
+          case 50:
+          {
             TimeZone = input.ReadString();
             break;
           }
-          case 58: {
-            if (digitalKeyArt_ == null) {
+          case 58:
+          {
+            if (digitalKeyArt_ == null)
+            {
               DigitalKeyArt = new Saltoapis.Nebula.Installation.V1.Installation.Types.DigitalKeyArt();
             }
             input.ReadMessage(DigitalKeyArt);
             break;
           }
-          case 66: {
-            if (transferOwnershipState_ == null) {
+          case 66:
+          {
+            if (transferOwnershipState_ == null)
+            {
               TransferOwnershipState = new Saltoapis.Nebula.Installation.V1.Installation.Types.TransferOwnershipState();
             }
             input.ReadMessage(TransferOwnershipState);
             break;
           }
-          case 74: {
-            if (partnerInfo_ == null) {
+          case 74:
+          {
+            if (partnerInfo_ == null)
+            {
               PartnerInfo = new Saltoapis.Nebula.Installation.V1.Installation.Types.PartnerInfo();
             }
             input.ReadMessage(PartnerInfo);
             break;
           }
-          case 82: {
-            if (keyRenewalDuration_ == null) {
+          case 82:
+          {
+            if (keyRenewalDuration_ == null)
+            {
               KeyRenewalDuration = new Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(KeyRenewalDuration);
             break;
           }
-          case 90: {
-            if (blockTime_ == null) {
+          case 90:
+          {
+            if (blockTime_ == null)
+            {
               BlockTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(BlockTime);
             break;
           }
-          case 98: {
-            if (deleteTime_ == null) {
+          case 98:
+          {
+            if (deleteTime_ == null)
+            {
               DeleteTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(DeleteTime);
@@ -662,7 +598,6 @@ namespace Saltoapis.Nebula.Installation.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Installation message type.</summary>
         public static partial class Types
         {
@@ -677,17 +612,15 @@ namespace Saltoapis.Nebula.Installation.V1
                 private static readonly MessageParser<DigitalKeyArt> _parser = new(() => new DigitalKeyArt());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<DigitalKeyArt> Parser { get { return _parser; } }
+                public static MessageParser<DigitalKeyArt> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Installation.Descriptor.NestedTypes[0]; }
-                }
+                    get => Installation.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public DigitalKeyArt()
                 {
@@ -710,7 +643,6 @@ namespace Saltoapis.Nebula.Installation.V1
                 private static readonly string BackgroundImageDefaultValue = "";
 
                 private string backgroundImage_;
-
                 /// <summary>
                 /// The file resource name for the digital key background image. It must
                 /// have the format of
@@ -718,64 +650,36 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// </summary>
                 public string BackgroundImage
                 {
-                    get { return backgroundImage_ ?? BackgroundImageDefaultValue; }
-                    set
-                    {
-                        backgroundImage_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => backgroundImage_ ?? BackgroundImageDefaultValue; set => backgroundImage_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Gets whether the "background_image" field is set</summary>
-                public bool HasBackgroundImage
-                {
-                    get { return backgroundImage_ != null; }
-                }
-
+                public bool HasBackgroundImage => backgroundImage_ != null;
                 /// <summary>Clears the value of the "background_image" field</summary>
-                public void ClearBackgroundImage()
-                {
-                    backgroundImage_ = null;
-                }
-
+                public void ClearBackgroundImage() => backgroundImage_ = null;
                 /// <summary>Field number for the "background_image_uri" field.</summary>
                 public const int BackgroundImageUriFieldNumber = 2;
                 private string backgroundImageUri_ = "";
-
                 /// <summary>
                 /// The URI to view the digital key background image.
                 /// </summary>
                 public string BackgroundImageUri
                 {
-                    get { return backgroundImageUri_; }
-                    set
-                    {
-                        backgroundImageUri_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => backgroundImageUri_; set => backgroundImageUri_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "text_color" field.</summary>
                 public const int TextColorFieldNumber = 3;
                 private Type.Color textColor_;
-
                 /// <summary>
                 /// The color used to display the installation name text on top of the background image.
                 /// </summary>
                 public Type.Color TextColor
                 {
-                    get { return textColor_; }
-                    set
-                    {
-                        textColor_ = value;
-                    }
-                }
+                    get => textColor_; set => textColor_ = value;}
 
                 public override bool Equals(object other) => Equals(other as DigitalKeyArt);
                 public bool Equals(DigitalKeyArt other)
                 {
                     if (other is null) return false;
                     if (ReferenceEquals(other, this)) return true;
-                    if ((BackgroundImage != other.BackgroundImage) || (BackgroundImageUri != other.BackgroundImageUri)) return false;
-                    if (!Equals(TextColor, other.TextColor)) return false;
+                    if ((BackgroundImage != other.BackgroundImage) || (BackgroundImageUri != other.BackgroundImageUri) || !Equals(TextColor, other.TextColor)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -795,19 +699,23 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (HasBackgroundImage) {
+          if (HasBackgroundImage)
+          {
             output.WriteRawTag(10);
             output.WriteString(BackgroundImage);
           }
-          if (BackgroundImageUri.Length != 0) {
+          if (BackgroundImageUri.Length != 0)
+          {
             output.WriteRawTag(18);
             output.WriteString(BackgroundImageUri);
           }
-          if (textColor_ != null) {
+          if (textColor_ != null)
+          {
             output.WriteRawTag(26);
             output.WriteMessage(TextColor);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -865,25 +773,32 @@ namespace Saltoapis.Nebula.Installation.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
+              case 10:
+              {
                 BackgroundImage = input.ReadString();
                 break;
               }
-              case 18: {
+              case 18:
+              {
                 BackgroundImageUri = input.ReadString();
                 break;
               }
-              case 26: {
-                if (textColor_ == null) {
+              case 26:
+              {
+                if (textColor_ == null)
+                {
                   TextColor = new Saltoapis.Type.Color();
                 }
                 input.ReadMessage(TextColor);
@@ -931,9 +846,7 @@ namespace Saltoapis.Nebula.Installation.V1
                     }
                 }
 #endif
-
             }
-
             /// <summary>
             /// Represents the current state of the ownership transfer.
             /// </summary>
@@ -945,17 +858,15 @@ namespace Saltoapis.Nebula.Installation.V1
                 private static readonly MessageParser<TransferOwnershipState> _parser = new(() => new TransferOwnershipState());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<TransferOwnershipState> Parser { get { return _parser; } }
+                public static MessageParser<TransferOwnershipState> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Installation.Descriptor.NestedTypes[1]; }
-                }
+                    get => Installation.Descriptor.NestedTypes[1];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public TransferOwnershipState()
                 {
@@ -975,35 +886,22 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// <summary>Field number for the "email" field.</summary>
                 public const int EmailFieldNumber = 1;
                 private string email_ = "";
-
                 /// <summary>
                 /// Email address for the proposed installation owner.
                 /// </summary>
                 public string Email
                 {
-                    get { return email_; }
-                    set
-                    {
-                        email_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => email_; set => email_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "expire_time" field.</summary>
                 public const int ExpireTimeFieldNumber = 2;
                 private Google.Protobuf.WellKnownTypes.Timestamp expireTime_;
-
                 /// <summary>
                 /// Expiration time of the transfer proposal.
                 /// (-- api-linter: core::0214::resource-expiry=disabled  --)
                 /// </summary>
                 public Google.Protobuf.WellKnownTypes.Timestamp ExpireTime
                 {
-                    get { return expireTime_; }
-                    set
-                    {
-                        expireTime_ = value;
-                    }
-                }
+                    get => expireTime_; set => expireTime_ = value;}
 
                 public override bool Equals(object other) => Equals(other as TransferOwnershipState);
                 public bool Equals(TransferOwnershipState other)
@@ -1029,15 +927,18 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (Email.Length != 0) {
+          if (Email.Length != 0)
+          {
             output.WriteRawTag(10);
             output.WriteString(Email);
           }
-          if (expireTime_ != null) {
+          if (expireTime_ != null)
+          {
             output.WriteRawTag(18);
             output.WriteMessage(ExpireTime);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -1088,21 +989,27 @@ namespace Saltoapis.Nebula.Installation.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
+              case 10:
+              {
                 Email = input.ReadString();
                 break;
               }
-              case 18: {
-                if (expireTime_ == null) {
+              case 18:
+              {
+                if (expireTime_ == null)
+                {
                   ExpireTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                 }
                 input.ReadMessage(ExpireTime);
@@ -1145,9 +1052,7 @@ namespace Saltoapis.Nebula.Installation.V1
                     }
                 }
 #endif
-
             }
-
             /// <summary>
             /// The partner info object.
             /// </summary>
@@ -1159,17 +1064,15 @@ namespace Saltoapis.Nebula.Installation.V1
                 private static readonly MessageParser<PartnerInfo> _parser = new(() => new PartnerInfo());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<PartnerInfo> Parser { get { return _parser; } }
+                public static MessageParser<PartnerInfo> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Installation.Descriptor.NestedTypes[2]; }
-                }
+                    get => Installation.Descriptor.NestedTypes[2];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public PartnerInfo()
                 {
@@ -1189,34 +1092,21 @@ namespace Saltoapis.Nebula.Installation.V1
                 /// <summary>Field number for the "partner_id" field.</summary>
                 public const int PartnerIdFieldNumber = 1;
                 private string partnerId_ = "";
-
                 /// <summary>
                 /// The identifier of the partner who created the installation.
                 /// </summary>
                 public string PartnerId
                 {
-                    get { return partnerId_; }
-                    set
-                    {
-                        partnerId_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
-
+                    get => partnerId_; set => partnerId_ = ProtoPreconditions.CheckNotNull(value, "value");}
                 /// <summary>Field number for the "currency_code" field.</summary>
                 public const int CurrencyCodeFieldNumber = 2;
                 private string currencyCode_ = "";
-
                 /// <summary>
                 /// The currency code the partner used for the installation (ISO 4217 format).
                 /// </summary>
                 public string CurrencyCode
                 {
-                    get { return currencyCode_; }
-                    set
-                    {
-                        currencyCode_ = ProtoPreconditions.CheckNotNull(value, "value");
-                    }
-                }
+                    get => currencyCode_; set => currencyCode_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
                 public override bool Equals(object other) => Equals(other as PartnerInfo);
                 public bool Equals(PartnerInfo other)
@@ -1242,15 +1132,18 @@ namespace Saltoapis.Nebula.Installation.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (PartnerId.Length != 0) {
+          if (PartnerId.Length != 0)
+          {
             output.WriteRawTag(10);
             output.WriteString(PartnerId);
           }
-          if (CurrencyCode.Length != 0) {
+          if (CurrencyCode.Length != 0)
+          {
             output.WriteRawTag(18);
             output.WriteString(CurrencyCode);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -1297,20 +1190,25 @@ namespace Saltoapis.Nebula.Installation.V1
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10: {
+              case 10:
+              {
                 PartnerId = input.ReadString();
                 break;
               }
-              case 18: {
+              case 18:
+              {
                 CurrencyCode = input.ReadString();
                 break;
               }
@@ -1350,10 +1248,7 @@ namespace Saltoapis.Nebula.Installation.V1
                     }
                 }
 #endif
-
             }
-
         }
-
     }
 }

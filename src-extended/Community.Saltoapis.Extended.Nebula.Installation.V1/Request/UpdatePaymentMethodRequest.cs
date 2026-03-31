@@ -13,17 +13,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<UpdatePaymentMethodRequest> _parser = new(() => new UpdatePaymentMethodRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdatePaymentMethodRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdatePaymentMethodRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[29]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[29];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdatePaymentMethodRequest()
         {
@@ -42,18 +40,12 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "payment_method" field.</summary>
         public const int PaymentMethodFieldNumber = 1;
         private PaymentMethod paymentMethod_;
-
         /// <summary>
         /// The payment method resource which replaces the resource on the server.
         /// </summary>
         public PaymentMethod PaymentMethod
         {
-            get { return paymentMethod_; }
-            set
-            {
-                paymentMethod_ = value;
-            }
-        }
+            get => paymentMethod_; set => paymentMethod_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdatePaymentMethodRequest);
         public bool Equals(UpdatePaymentMethodRequest other)
@@ -78,11 +70,13 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (paymentMethod_ != null) {
+      if (paymentMethod_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(PaymentMethod);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -126,17 +120,22 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (paymentMethod_ == null) {
+          case 10:
+          {
+            if (paymentMethod_ == null)
+            {
               PaymentMethod = new Saltoapis.Nebula.Installation.V1.PaymentMethod();
             }
             input.ReadMessage(PaymentMethod);
@@ -174,8 +173,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

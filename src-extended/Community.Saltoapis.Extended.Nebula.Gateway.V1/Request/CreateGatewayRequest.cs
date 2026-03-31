@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
         private static readonly MessageParser<CreateGatewayRequest> _parser = new(() => new CreateGatewayRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateGatewayRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateGatewayRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateGatewayRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the gateway. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "gateway_id" field.</summary>
         public const int GatewayIdFieldNumber = 2;
         private static readonly string GatewayIdDefaultValue = "";
 
         private string gatewayId_;
-
         /// <summary>
         /// The gateway ID to use for this gateway. In case it's empty the
         /// server will autogenerate a unique identifier.
         /// </summary>
         public string GatewayId
         {
-            get { return gatewayId_ ?? GatewayIdDefaultValue; }
-            set
-            {
-                gatewayId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => gatewayId_ ?? GatewayIdDefaultValue; set => gatewayId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "gateway_id" field is set</summary>
-        public bool HasGatewayId
-        {
-            get { return gatewayId_ != null; }
-        }
-
+        public bool HasGatewayId => gatewayId_ != null;
         /// <summary>Clears the value of the "gateway_id" field</summary>
-        public void ClearGatewayId()
-        {
-            gatewayId_ = null;
-        }
-
+        public void ClearGatewayId() => gatewayId_ = null;
         /// <summary>Field number for the "gateway" field.</summary>
         public const int GatewayFieldNumber = 3;
         private Gateway gateway_;
-
         /// <summary>
         /// The gateway resource to be created. Client must not set the
         /// `Gateway.name` field.
         /// </summary>
         public Gateway Gateway
         {
-            get { return gateway_; }
-            set
-            {
-                gateway_ = value;
-            }
-        }
+            get => gateway_; set => gateway_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateGatewayRequest);
         public bool Equals(CreateGatewayRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (GatewayId != other.GatewayId)) return false;
-            if (!Equals(Gateway, other.Gateway)) return false;
+            if ((Parent != other.Parent) || (GatewayId != other.GatewayId) || !Equals(Gateway, other.Gateway)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasGatewayId) {
+      if (HasGatewayId)
+      {
         output.WriteRawTag(18);
         output.WriteString(GatewayId);
       }
-      if (gateway_ != null) {
+      if (gateway_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Gateway);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             GatewayId = input.ReadString();
             break;
           }
-          case 26: {
-            if (gateway_ == null) {
+          case 26:
+          {
+            if (gateway_ == null)
+            {
               Gateway = new Saltoapis.Nebula.Gateway.V1.Gateway();
             }
             input.ReadMessage(Gateway);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
     /// <summary>Holder for reflection information generated from salto/nebula/openingmodeschedule/v1/opening_mode_schedule.proto</summary>
     public static partial class OpeningModeScheduleReflection
     {
-
         /// <summary>File descriptor for salto/nebula/openingmodeschedule/v1/opening_mode_schedule.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -89,8 +87,6 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1
             new(typeof(DeleteOpeningModeScheduleRequest), DeleteOpeningModeScheduleRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

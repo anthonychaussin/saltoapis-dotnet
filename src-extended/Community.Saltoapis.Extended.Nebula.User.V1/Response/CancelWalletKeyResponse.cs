@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<CancelWalletKeyResponse> _parser = new(() => new CancelWalletKeyResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CancelWalletKeyResponse> Parser { get { return _parser; } }
+        public static MessageParser<CancelWalletKeyResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[37]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[37];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CancelWalletKeyResponse()
         {
@@ -40,18 +38,12 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 1;
         private WalletKey walletKey_;
-
         /// <summary>
         /// The canceled wallet key.
         /// </summary>
         public WalletKey WalletKey
         {
-            get { return walletKey_; }
-            set
-            {
-                walletKey_ = value;
-            }
-        }
+            get => walletKey_; set => walletKey_ = value;}
 
         public override bool Equals(object other) => Equals(other as CancelWalletKeyResponse);
         public bool Equals(CancelWalletKeyResponse other)
@@ -76,11 +68,13 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (walletKey_ != null) {
+      if (walletKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(WalletKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -124,17 +118,22 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (walletKey_ == null) {
+          case 10:
+          {
+            if (walletKey_ == null)
+            {
               WalletKey = new Saltoapis.Nebula.User.V1.WalletKey();
             }
             input.ReadMessage(WalletKey);
@@ -172,8 +171,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -3,12 +3,10 @@ namespace Saltoapis.Type
     /// <summary>Holder for reflection information generated from salto/type/day_of_week.proto</summary>
     public static partial class DayOfWeekReflection
     {
-
         /// <summary>File descriptor for salto/type/day_of_week.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -28,8 +26,6 @@ namespace Saltoapis.Type
                 [],
                 new GeneratedClrTypeInfo([typeof(DayOfWeek),], null, null));
         }
-
     }
-
 
 }

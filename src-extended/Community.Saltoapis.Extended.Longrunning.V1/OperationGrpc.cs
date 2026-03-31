@@ -1,4 +1,4 @@
-﻿using Saltoapis.Longrunning.V1.Request;
+using Saltoapis.Longrunning.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Longrunning.V1.Response;
 
@@ -58,13 +58,10 @@ namespace Saltoapis.Longrunning.V1
             "CancelOperation",
             __Marshaller_salto_longrunning_v1_CancelOperationRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return OperationReflection.Descriptor.Services[0]; }
-        }
-
+            get => OperationReflection.Descriptor.Services[0];}
         /// <summary>Client for OperationService</summary>
         public partial class OperationServiceClient : ClientBase<OperationServiceClient>
         {
@@ -73,24 +70,20 @@ namespace Saltoapis.Longrunning.V1
             public OperationServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for OperationService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public OperationServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected OperationServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected OperationServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Get a operation
             ///
@@ -101,8 +94,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Operation GetOperation(GetOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetOperation(request, new CallOptions(headers, deadline, cancellationToken));
-
+            public virtual Operation GetOperation(GetOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetOperation(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a operation
             ///
@@ -112,7 +104,6 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Operation GetOperation(GetOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_GetOperation, null, options, request);
-
             /// <summary>
             /// Get a operation
             ///
@@ -123,11 +114,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Operation> GetOperationAsync(GetOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Operation> GetOperationAsync(GetOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a operation
             ///
@@ -136,11 +123,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Operation> GetOperationAsync(GetOperationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetOperation, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Operation> GetOperationAsync(GetOperationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetOperation, null, options, request);
             /// <summary>
             /// List operations
             ///
@@ -151,8 +134,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListOperationsResponse ListOperations(ListOperationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListOperations(request, new CallOptions(headers, deadline, cancellationToken));
-
+            public virtual ListOperationsResponse ListOperations(ListOperationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListOperations(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List operations
             ///
@@ -162,7 +144,6 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual ListOperationsResponse ListOperations(ListOperationsRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_ListOperations, null, options, request);
-
             /// <summary>
             /// List operations
             ///
@@ -173,11 +154,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListOperationsResponse> ListOperationsAsync(ListOperationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListOperationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListOperationsResponse> ListOperationsAsync(ListOperationsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListOperationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List operations
             ///
@@ -186,11 +163,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListOperationsResponse> ListOperationsAsync(ListOperationsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListOperations, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListOperationsResponse> ListOperationsAsync(ListOperationsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListOperations, null, options, request);
             /// <summary>
             /// Delete an operation
             ///
@@ -201,8 +174,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOperation(DeleteOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteOperation(request, new CallOptions(headers, deadline, cancellationToken));
-
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOperation(DeleteOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteOperation(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an operation
             ///
@@ -212,7 +184,6 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOperation(DeleteOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_DeleteOperation, null, options, request);
-
             /// <summary>
             /// Delete an operation
             ///
@@ -223,11 +194,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOperationAsync(DeleteOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOperationAsync(DeleteOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an operation
             ///
@@ -236,11 +203,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOperationAsync(DeleteOperationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteOperation, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteOperationAsync(DeleteOperationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteOperation, null, options, request);
             /// <summary>
             /// Cancel an operation
             ///
@@ -260,8 +223,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty CancelOperation(CancelOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CancelOperation(request, new CallOptions(headers, deadline, cancellationToken));
-
+            public virtual Google.Protobuf.WellKnownTypes.Empty CancelOperation(CancelOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CancelOperation(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Cancel an operation
             ///
@@ -280,7 +242,6 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty CancelOperation(CancelOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_CancelOperation, null, options, request);
-
             /// <summary>
             /// Cancel an operation
             ///
@@ -300,11 +261,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> CancelOperationAsync(CancelOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CancelOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> CancelOperationAsync(CancelOperationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CancelOperationAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Cancel an operation
             ///
@@ -322,18 +279,9 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> CancelOperationAsync(CancelOperationRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CancelOperation, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> CancelOperationAsync(CancelOperationRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CancelOperation, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override OperationServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

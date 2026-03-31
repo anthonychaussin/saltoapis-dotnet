@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Booking.V1
     /// <summary>Holder for reflection information generated from salto/nebula/booking/v1/booking.proto</summary>
     public static partial class BookingReflection
     {
-
         /// <summary>File descriptor for salto/nebula/booking/v1/booking.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -106,8 +104,6 @@ namespace Saltoapis.Nebula.Booking.V1
             new(typeof(DeleteBookingUserRequest), DeleteBookingUserRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

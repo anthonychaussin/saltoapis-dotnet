@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<AppKey> _parser = new(() => new AppKey());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AppKey> Parser { get { return _parser; } }
+        public static MessageParser<AppKey> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AppKey()
         {
@@ -50,12 +48,7 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         /// <summary>Field number for the "state" field.</summary>
         public const int StateFieldNumber = 2;
@@ -70,12 +63,7 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public Types.State State
         {
-            get { return state_; }
-            set
-            {
-                state_ = value;
-            }
-        }
+            get => state_; set => state_ = value;}
 
         /// <summary>Field number for the "outdated" field.</summary>
         public const int OutdatedFieldNumber = 3;
@@ -90,20 +78,14 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public bool Outdated
         {
-            get { return outdated_; }
-            set
-            {
-                outdated_ = value;
-            }
-        }
+            get => outdated_; set => outdated_ = value;}
 
         public override bool Equals(object other) => Equals(other as AppKey);
         public bool Equals(AppKey other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (State != other.State)) return false;
-            if (Outdated != other.Outdated) return false;
+            if ((Name != other.Name) || (State != other.State) || Outdated != other.Outdated) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -282,6 +264,4 @@ namespace Saltoapis.Nebula.User.V1
         }
 
     }
-
-
 }

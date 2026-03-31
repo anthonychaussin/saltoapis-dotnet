@@ -5,12 +5,10 @@ namespace Saltoapis.Nebula.File.V1
     /// <summary>Holder for reflection information generated from salto/nebula/file/v1/file.proto</summary>
     public static partial class FileReflection
     {
-
         /// <summary>File descriptor for salto/nebula/file/v1/file.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -35,8 +33,6 @@ namespace Saltoapis.Nebula.File.V1
             new(typeof(CreateFileRequest), CreateFileRequest.Parser, ["Parent"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

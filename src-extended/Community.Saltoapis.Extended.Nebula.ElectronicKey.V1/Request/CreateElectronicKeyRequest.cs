@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         private static readonly MessageParser<CreateElectronicKeyRequest> _parser = new(() => new CreateElectronicKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateElectronicKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateElectronicKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicKeyReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => ElectronicKeyReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateElectronicKeyRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the electronic key. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "electronic_key_id" field.</summary>
         public const int ElectronicKeyIdFieldNumber = 2;
         private static readonly string ElectronicKeyIdDefaultValue = "";
 
         private string electronicKeyId_;
-
         /// <summary>
         /// The electronic key ID to use for this electronic key. In case it's empty the
         /// server will autogenerate a unique identifier.
         /// </summary>
         public string ElectronicKeyId
         {
-            get { return electronicKeyId_ ?? ElectronicKeyIdDefaultValue; }
-            set
-            {
-                electronicKeyId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => electronicKeyId_ ?? ElectronicKeyIdDefaultValue; set => electronicKeyId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "electronic_key_id" field is set</summary>
-        public bool HasElectronicKeyId
-        {
-            get { return electronicKeyId_ != null; }
-        }
-
+        public bool HasElectronicKeyId => electronicKeyId_ != null;
         /// <summary>Clears the value of the "electronic_key_id" field</summary>
-        public void ClearElectronicKeyId()
-        {
-            electronicKeyId_ = null;
-        }
-
+        public void ClearElectronicKeyId() => electronicKeyId_ = null;
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 3;
         private ElectronicKey electronicKey_;
-
         /// <summary>
         /// The electronic key resource to be created. Client must not set the
         /// `ElectronicKey.name` field.
         /// </summary>
         public ElectronicKey ElectronicKey
         {
-            get { return electronicKey_; }
-            set
-            {
-                electronicKey_ = value;
-            }
-        }
+            get => electronicKey_; set => electronicKey_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateElectronicKeyRequest);
         public bool Equals(CreateElectronicKeyRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (ElectronicKeyId != other.ElectronicKeyId)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
+            if ((Parent != other.Parent) || (ElectronicKeyId != other.ElectronicKeyId) || !Equals(ElectronicKey, other.ElectronicKey)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasElectronicKeyId) {
+      if (HasElectronicKeyId)
+      {
         output.WriteRawTag(18);
         output.WriteString(ElectronicKeyId);
       }
-      if (electronicKey_ != null) {
+      if (electronicKey_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(ElectronicKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             ElectronicKeyId = input.ReadString();
             break;
           }
-          case 26: {
-            if (electronicKey_ == null) {
+          case 26:
+          {
+            if (electronicKey_ == null)
+            {
               ElectronicKey = new Saltoapis.Nebula.ElectronicKey.V1.ElectronicKey();
             }
             input.ReadMessage(ElectronicKey);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -26,8 +26,8 @@ namespace workspace.Tests
         [TearDown]
         public void Cleanup()
         {
-            channel.ShutdownAsync().Wait();
-            server.ShutdownAsync().Wait();
+            channel.ShutdownAsync().GetAwaiter().GetResult();
+            server.ShutdownAsync().GetAwaiter().GetResult();
         }
 
         [Test]
@@ -45,11 +45,9 @@ namespace workspace.Tests
 
                 return Task.FromResult("result");
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             string response = helper.CreateBlockingUnaryCall(invoker, "request");
-
             // then
             Assert.True(authorization_received);
         }
@@ -69,11 +67,9 @@ namespace workspace.Tests
 
                 return Task.FromResult("result");
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             string response = await helper.CreateAsyncUnaryCall(invoker, "request").ResponseAsync;
-
             // then
             Assert.True(authorization_received);
         }
@@ -92,11 +88,9 @@ namespace workspace.Tests
                 authorization_received = MetadataContainsAuth(context.RequestHeaders, credentials);
                 return Task.FromResult("result");
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             string response = await helper.CreateClientStreamingCall(invoker).ResponseAsync;
-
             // then
             Assert.True(authorization_received);
         }
@@ -115,11 +109,9 @@ namespace workspace.Tests
                 authorization_received = MetadataContainsAuth(context.RequestHeaders, credentials);
                 return TaskUtils.CompletedTask;
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             List<string> response = await helper.CreateServerStreamingCall(invoker, "request").ResponseStream.ToListAsync();
-
             // then
             Assert.True(authorization_received);
         }
@@ -138,13 +130,11 @@ namespace workspace.Tests
                 authorization_received = MetadataContainsAuth(context.RequestHeaders, credentials);
                 return TaskUtils.CompletedTask;
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             AsyncDuplexStreamingCall<string, string> call = helper.CreateDuplexStreamingCall(invoker);
             // receive response (otherwise it gets stuck)
             await call.ResponseStream.ToListAsync();
-
             // then
             Assert.True(authorization_received);
         }
@@ -161,7 +151,6 @@ namespace workspace.Tests
             {
                 throw new RpcException(new Status(StatusCode.Unauthenticated, ""));
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
 
@@ -171,9 +160,7 @@ namespace workspace.Tests
             }
             catch (Exception)
             {
-
             }
-
             // then
             Assert.True(credentialsProvider.WasInvalidated);
         }
@@ -190,7 +177,6 @@ namespace workspace.Tests
             {
                 throw new RpcException(new Status(StatusCode.Unauthenticated, ""));
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
 
@@ -200,9 +186,7 @@ namespace workspace.Tests
             }
             catch (Exception)
             {
-
             }
-
             // then
             Assert.True(credentialsProvider.WasInvalidated);
         }
@@ -219,7 +203,6 @@ namespace workspace.Tests
             {
                 throw new RpcException(new Status(StatusCode.Unauthenticated, ""));
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             try
@@ -228,9 +211,7 @@ namespace workspace.Tests
             }
             catch (Exception)
             {
-
             }
-
             // then
             Assert.True(credentialsProvider.WasInvalidated);
         }
@@ -247,7 +228,6 @@ namespace workspace.Tests
             {
                 throw new RpcException(new Status(StatusCode.Unauthenticated, ""));
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             try
@@ -256,9 +236,7 @@ namespace workspace.Tests
             }
             catch (Exception)
             {
-
             }
-
             // then
             Assert.True(credentialsProvider.WasInvalidated);
         }
@@ -275,7 +253,6 @@ namespace workspace.Tests
             {
                 throw new RpcException(new Status(StatusCode.Unauthenticated, ""));
             });
-
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
             AsyncDuplexStreamingCall<string, string> call = helper.CreateDuplexStreamingCall(invoker);
@@ -286,9 +263,7 @@ namespace workspace.Tests
             }
             catch (Exception)
             {
-
             }
-
             // then
             Assert.True(credentialsProvider.WasInvalidated);
         }
@@ -306,7 +281,6 @@ namespace workspace.Tests
             }
             return false;
         }
-
     }
 
     internal class TestCredentialsProvider : IOAuthClientCredentialsProvider
@@ -318,7 +292,7 @@ namespace workspace.Tests
             this.credentials = credentials;
         }
 
-        public Task<string> GetToken() => Task.Run(() => credentials);
+        public Task<string> GetToken() => Task.FromResult(credentials);
         public void InvalidateToken()
         {
             wasInvalidated = true;
@@ -326,14 +300,8 @@ namespace workspace.Tests
 
         public bool WasInvalidated
         {
-            get
-            {
-                return wasInvalidated;
-            }
-        }
-
+            get => wasInvalidated;}
     }
-
     /// <summary>
     /// Allows setting up a mock service in the client-server tests easily.
     /// </summary>
@@ -424,7 +392,6 @@ namespace workspace.Tests
                 return TaskUtils.CompletedTask;
             });
         }
-
         /// <summary>
         /// Returns the default server for this service and creates one if not yet created.
         /// </summary>
@@ -438,7 +405,6 @@ namespace workspace.Tests
             };
             return server;
         }
-
         /// <summary>
         /// Returns the default channel for this service and creates one if not yet created.
         /// </summary>
@@ -450,64 +416,24 @@ namespace workspace.Tests
         public AsyncDuplexStreamingCall<string, string> CreateDuplexStreamingCall(CallInvoker invoker, CallOptions options = default) => invoker.AsyncDuplexStreamingCall(duplexStreamingMethod, Host, options);
         public string Host
         {
-            get
-            {
-                return host;
-            }
-        }
+            get => host;}
 
         public ServerServiceDefinition ServiceDefinition { get; set; }
 
         public UnaryServerMethod<string, string> UnaryHandler
         {
-            get
-            {
-                return unaryHandler;
-            }
-
-            set
-            {
-                unaryHandler = value;
-            }
-        }
+            get => unaryHandler; set => unaryHandler = value;}
 
         public ClientStreamingServerMethod<string, string> ClientStreamingHandler
         {
-            get
-            {
-                return clientStreamingHandler;
-            }
-
-            set
-            {
-                clientStreamingHandler = value;
-            }
-        }
+            get => clientStreamingHandler; set => clientStreamingHandler = value;}
 
         public ServerStreamingServerMethod<string, string> ServerStreamingHandler
         {
-            get
-            {
-                return serverStreamingHandler;
-            }
-
-            set
-            {
-                serverStreamingHandler = value;
-            }
-        }
+            get => serverStreamingHandler; set => serverStreamingHandler = value;}
 
         public DuplexStreamingServerMethod<string, string> DuplexStreamingHandler
         {
-            get
-            {
-                return duplexStreamingHandler;
-            }
-
-            set
-            {
-                duplexStreamingHandler = value;
-            }
-        }
+            get => duplexStreamingHandler; set => duplexStreamingHandler = value;}
     }
 }

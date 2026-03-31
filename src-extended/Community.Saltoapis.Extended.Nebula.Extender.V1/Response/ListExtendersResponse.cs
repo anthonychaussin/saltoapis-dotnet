@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Extender.V1.Response
         private static readonly MessageParser<ListExtendersResponse> _parser = new(() => new ListExtendersResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListExtendersResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListExtendersResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ExtenderReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => ExtenderReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListExtendersResponse()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.Extender.V1.Response
         private static readonly FieldCodec<Extender> _repeated_extenders_codec
             = FieldCodec.ForMessage(10, Extender.Parser);
         private readonly RepeatedField<Extender> extenders_ = [];
-
         /// <summary>
         /// The field name should match the noun `extenders` in the method name.
         /// There will be a maximum number of items returned based on the `page_size`
@@ -51,25 +48,17 @@ namespace Saltoapis.Nebula.Extender.V1.Response
         /// </summary>
         public RepeatedField<Extender> Extenders
         {
-            get { return extenders_; }
-        }
-
+            get => extenders_;}
         /// <summary>Field number for the "next_page_token" field.</summary>
         public const int NextPageTokenFieldNumber = 2;
         private string nextPageToken_ = "";
-
         /// <summary>
         /// Token to retrieve the next page of results, or empty if there are no more
         /// results in the list.
         /// </summary>
         public string NextPageToken
         {
-            get { return nextPageToken_; }
-            set
-            {
-                nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => nextPageToken_; set => nextPageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as ListExtendersResponse);
         public bool Equals(ListExtendersResponse other)
@@ -96,11 +85,13 @@ namespace Saltoapis.Nebula.Extender.V1.Response
             output.WriteRawMessage(this);
 #else
       extenders_.WriteTo(output, _repeated_extenders_codec);
-      if (NextPageToken.Length != 0) {
+      if (NextPageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(NextPageToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -143,20 +134,25 @@ namespace Saltoapis.Nebula.Extender.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             extenders_.AddEntriesFrom(input, _repeated_extenders_codec);
             break;
           }
-          case 18: {
+          case 18:
+          {
             NextPageToken = input.ReadString();
             break;
           }
@@ -196,8 +192,6 @@ namespace Saltoapis.Nebula.Extender.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

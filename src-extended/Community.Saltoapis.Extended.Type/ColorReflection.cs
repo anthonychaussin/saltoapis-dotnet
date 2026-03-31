@@ -1,8 +1,6 @@
 namespace Saltoapis.Type
 {
-
     /// <summary>Holder for reflection information generated from salto/type/color.proto</summary>
-
     /// <summary>
     /// Represents a color in the RGBA color space.
     /// By default, applications should assume the sRGB color space.
@@ -13,12 +11,10 @@ namespace Saltoapis.Type
     /// </summary>
     public static partial class ColorReflection
     {
-
         /// <summary>File descriptor for salto/type/color.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -39,6 +35,5 @@ namespace Saltoapis.Type
             new(typeof(Color), Color.Parser, ["Red", "Green", "Blue", "Alpha"], ["Alpha"], null, null, null)
                 ]));
         }
-
     }
 }

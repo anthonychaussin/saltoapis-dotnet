@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Unit.V1.Request;
+using Saltoapis.Nebula.Unit.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Unit.V1.Response;
 
@@ -152,13 +152,10 @@ namespace Saltoapis.Nebula.Unit.V1
             "TestPermissions",
             __Marshaller_salto_nebula_unit_v1_TestPermissionsRequest,
             __Marshaller_salto_nebula_unit_v1_TestPermissionsResponse);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return UnitReflection.Descriptor.Services[0]; }
-        }
-
+            get => UnitReflection.Descriptor.Services[0];}
         /// <summary>Client for UnitService</summary>
         public partial class UnitServiceClient : ClientBase<UnitServiceClient>
         {
@@ -167,24 +164,20 @@ namespace Saltoapis.Nebula.Unit.V1
             public UnitServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for UnitService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public UnitServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected UnitServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected UnitServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a unit
             ///
@@ -195,7 +188,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Unit CreateUnit(CreateUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Unit CreateUnit(CreateUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a unit
             ///
@@ -215,11 +208,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> CreateUnitAsync(CreateUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Unit> CreateUnitAsync(CreateUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a unit
             ///
@@ -228,11 +217,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> CreateUnitAsync(CreateUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Unit> CreateUnitAsync(CreateUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateUnit, null, options, request);
             /// <summary>
             /// Get an existing unit
             ///
@@ -243,7 +228,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Unit GetUnit(GetUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Unit GetUnit(GetUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing unit
             ///
@@ -263,11 +248,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> GetUnitAsync(GetUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Unit> GetUnitAsync(GetUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing unit
             ///
@@ -276,11 +257,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> GetUnitAsync(GetUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Unit> GetUnitAsync(GetUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetUnit, null, options, request);
             /// <summary>
             /// List units
             ///
@@ -291,7 +268,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListUnitsResponse ListUnits(ListUnitsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListUnits(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListUnitsResponse ListUnits(ListUnitsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListUnits(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List units
             ///
@@ -311,11 +288,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListUnitsResponse> ListUnitsAsync(ListUnitsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListUnitsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListUnitsResponse> ListUnitsAsync(ListUnitsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListUnitsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List units
             ///
@@ -324,11 +297,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListUnitsResponse> ListUnitsAsync(ListUnitsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListUnits, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListUnitsResponse> ListUnitsAsync(ListUnitsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListUnits, null, options, request);
             /// <summary>
             /// Update an existing unit
             ///
@@ -339,7 +308,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Unit UpdateUnit(UpdateUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Unit UpdateUnit(UpdateUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing unit
             ///
@@ -359,11 +328,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> UpdateUnitAsync(UpdateUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Unit> UpdateUnitAsync(UpdateUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing unit
             ///
@@ -372,11 +337,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Unit> UpdateUnitAsync(UpdateUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Unit> UpdateUnitAsync(UpdateUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateUnit, null, options, request);
             /// <summary>
             /// Delete a unit
             ///
@@ -387,7 +348,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteUnit(DeleteUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteUnit(DeleteUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a unit
             ///
@@ -407,11 +368,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteUnitAsync(DeleteUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteUnitAsync(DeleteUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a unit
             ///
@@ -420,11 +377,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteUnitAsync(DeleteUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteUnitAsync(DeleteUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteUnit, null, options, request);
             /// <summary>
             /// Clean out a unit
             ///
@@ -438,7 +391,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual CleanOutUnitResponse CleanOutUnit(CleanOutUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CleanOutUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual CleanOutUnitResponse CleanOutUnit(CleanOutUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CleanOutUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Clean out a unit
             ///
@@ -464,11 +417,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<CleanOutUnitResponse> CleanOutUnitAsync(CleanOutUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CleanOutUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<CleanOutUnitResponse> CleanOutUnitAsync(CleanOutUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CleanOutUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Clean out a unit
             ///
@@ -480,11 +429,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<CleanOutUnitResponse> CleanOutUnitAsync(CleanOutUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CleanOutUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<CleanOutUnitResponse> CleanOutUnitAsync(CleanOutUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CleanOutUnit, null, options, request);
             /// <summary>
             /// Move in a unit
             ///
@@ -498,7 +443,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual MoveInUnitResponse MoveInUnit(MoveInUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => MoveInUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual MoveInUnitResponse MoveInUnit(MoveInUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => MoveInUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Move in a unit
             ///
@@ -524,11 +469,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<MoveInUnitResponse> MoveInUnitAsync(MoveInUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return MoveInUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<MoveInUnitResponse> MoveInUnitAsync(MoveInUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => MoveInUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Move in a unit
             ///
@@ -540,11 +481,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<MoveInUnitResponse> MoveInUnitAsync(MoveInUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_MoveInUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<MoveInUnitResponse> MoveInUnitAsync(MoveInUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_MoveInUnit, null, options, request);
             /// <summary>
             /// Move out a unit
             ///
@@ -561,7 +498,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual MoveOutUnitResponse MoveOutUnit(MoveOutUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => MoveOutUnit(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual MoveOutUnitResponse MoveOutUnit(MoveOutUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => MoveOutUnit(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Move out a unit
             ///
@@ -593,11 +530,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<MoveOutUnitResponse> MoveOutUnitAsync(MoveOutUnitRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return MoveOutUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<MoveOutUnitResponse> MoveOutUnitAsync(MoveOutUnitRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => MoveOutUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Move out a unit
             ///
@@ -612,11 +545,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<MoveOutUnitResponse> MoveOutUnitAsync(MoveOutUnitRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_MoveOutUnit, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<MoveOutUnitResponse> MoveOutUnitAsync(MoveOutUnitRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_MoveOutUnit, null, options, request);
             /// <summary>
             /// Create a policy
             ///
@@ -627,7 +556,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Policy CreatePolicy(CreatePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreatePolicy(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Policy CreatePolicy(CreatePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreatePolicy(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a policy
             ///
@@ -647,11 +576,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> CreatePolicyAsync(CreatePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreatePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Policy> CreatePolicyAsync(CreatePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreatePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a policy
             ///
@@ -660,11 +585,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> CreatePolicyAsync(CreatePolicyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreatePolicy, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Policy> CreatePolicyAsync(CreatePolicyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreatePolicy, null, options, request);
             /// <summary>
             /// Get an existing policy
             ///
@@ -675,7 +596,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Policy GetPolicy(GetPolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetPolicy(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Policy GetPolicy(GetPolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetPolicy(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing policy
             ///
@@ -695,11 +616,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> GetPolicyAsync(GetPolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetPolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Policy> GetPolicyAsync(GetPolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetPolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an existing policy
             ///
@@ -708,11 +625,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> GetPolicyAsync(GetPolicyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetPolicy, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Policy> GetPolicyAsync(GetPolicyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetPolicy, null, options, request);
             /// <summary>
             /// List policies
             ///
@@ -723,7 +636,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListPoliciesResponse ListPolicies(ListPoliciesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListPolicies(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListPoliciesResponse ListPolicies(ListPoliciesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListPolicies(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List policies
             ///
@@ -743,11 +656,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListPoliciesResponse> ListPoliciesAsync(ListPoliciesRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListPoliciesAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListPoliciesResponse> ListPoliciesAsync(ListPoliciesRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListPoliciesAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List policies
             ///
@@ -756,11 +665,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListPoliciesResponse> ListPoliciesAsync(ListPoliciesRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListPolicies, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListPoliciesResponse> ListPoliciesAsync(ListPoliciesRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListPolicies, null, options, request);
             /// <summary>
             /// Update an existing policy
             ///
@@ -771,7 +676,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Policy UpdatePolicy(UpdatePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdatePolicy(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Policy UpdatePolicy(UpdatePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdatePolicy(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing policy
             ///
@@ -791,11 +696,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> UpdatePolicyAsync(UpdatePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdatePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Policy> UpdatePolicyAsync(UpdatePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdatePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an existing policy
             ///
@@ -804,11 +705,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Policy> UpdatePolicyAsync(UpdatePolicyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdatePolicy, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Policy> UpdatePolicyAsync(UpdatePolicyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdatePolicy, null, options, request);
             /// <summary>
             /// Delete a policy
             ///
@@ -819,7 +716,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeletePolicy(DeletePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeletePolicy(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeletePolicy(DeletePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeletePolicy(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a policy
             ///
@@ -839,11 +736,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeletePolicyAsync(DeletePolicyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeletePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeletePolicyAsync(DeletePolicyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeletePolicyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a policy
             ///
@@ -852,11 +745,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeletePolicyAsync(DeletePolicyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeletePolicy, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeletePolicyAsync(DeletePolicyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeletePolicy, null, options, request);
             /// <summary>
             /// Test a permission
             ///
@@ -869,7 +758,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual TestPermissionsResponse TestPermissions(TestPermissionsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => TestPermissions(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual TestPermissionsResponse TestPermissions(TestPermissionsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => TestPermissions(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Test a permission
             ///
@@ -893,11 +782,7 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<TestPermissionsResponse> TestPermissionsAsync(TestPermissionsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return TestPermissionsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<TestPermissionsResponse> TestPermissionsAsync(TestPermissionsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => TestPermissionsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Test a permission
             ///
@@ -908,18 +793,9 @@ namespace Saltoapis.Nebula.Unit.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<TestPermissionsResponse> TestPermissionsAsync(TestPermissionsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_TestPermissions, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<TestPermissionsResponse> TestPermissionsAsync(TestPermissionsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_TestPermissions, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override UnitServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

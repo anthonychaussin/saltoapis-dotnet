@@ -6,12 +6,10 @@ namespace Saltoapis.Longrunning.V1
     /// <summary>Holder for reflection information generated from salto/longrunning/v1/operation.proto</summary>
     public static partial class OperationReflection
     {
-
         /// <summary>File descriptor for salto/longrunning/v1/operation.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -58,6 +56,5 @@ namespace Saltoapis.Longrunning.V1
             new(typeof(CancelOperationRequest), CancelOperationRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
 }

@@ -44,6 +44,16 @@ def _nuget_deploy(ctx):
             )
             run_files.append(f)
 
+    if ctx.file.readme:
+        readme_file = ctx.actions.declare_file(out_dir + "/README.md")
+        ctx.actions.run_shell(
+            outputs = [readme_file],
+            inputs = [ctx.file.readme],
+            arguments = [ctx.file.readme.path, readme_file.path],
+            command = "cp $1 $2",
+        )
+        run_files.append(readme_file)
+
     # create nuget config file if required
     result = ctx.actions.declare_file('publish.sh')
     ctx.actions.write(
@@ -106,6 +116,10 @@ nuget_deploy = rule(
         '_csproj_template': attr.label(
             allow_single_file = True,
             default = ":package.csproj.tmpl"
+        ),
+        'readme': attr.label(
+            allow_single_file = True,
+            default = "README.md",
         ),
     },
     executable = True,

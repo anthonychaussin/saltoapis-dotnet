@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         private static readonly MessageParser<SyncDigitalKeyAccessPointsMetadata> _parser = new(() => new SyncDigitalKeyAccessPointsMetadata());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<SyncDigitalKeyAccessPointsMetadata> Parser { get { return _parser; } }
+        public static MessageParser<SyncDigitalKeyAccessPointsMetadata> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DigitalKeyReflection.Descriptor.MessageTypes[10]; }
-        }
+            get => DigitalKeyReflection.Descriptor.MessageTypes[10];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public SyncDigitalKeyAccessPointsMetadata()
         {
@@ -57,7 +55,8 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -90,12 +89,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -123,8 +125,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -3,7 +3,6 @@ using System.Text.Json;
 
 namespace Saltoapis.Auth
 {
-
     /// <summary>
     /// This class performs the OAuth2 client credentials flow. It gets a valid
     /// access token from the authorization server and stores it while it's still
@@ -36,7 +35,6 @@ namespace Saltoapis.Auth
             else
             {
                 // Token is expired or null. Getting a new one.
-
                 // expired token => get a new one
                 SaltoTokenResponse tokenResult = await GetNewToken();
 
@@ -51,7 +49,6 @@ namespace Saltoapis.Auth
             using HttpClient httpClient = new();
             // oidc discovery
             await EnsureOidcConfiguration(httpClient);
-
             // OAuth token
             return await ObtainOAuthToken(httpClient);
         }
@@ -123,5 +120,4 @@ namespace Saltoapis.Auth
             token = null;
         }
     }
-
 }

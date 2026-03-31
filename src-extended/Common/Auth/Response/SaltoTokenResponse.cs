@@ -49,5 +49,4 @@ namespace Saltoapis.Auth.Response
 
         public bool IsExpired() => authenticationExpiration != null && DateTimeOffset.Now.AddSeconds(TokenExpiryTimeWindowSeconds) >= authenticationExpiration;
     }
-
 }

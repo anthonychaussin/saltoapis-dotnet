@@ -6,12 +6,10 @@ namespace Salto.Nebula.EmergencyKey.V1
     /// <summary>Holder for reflection information generated from salto/nebula/emergencykey/v1/emergency_key.proto</summary>
     public static partial class EmergencyKeyReflection
     {
-
         /// <summary>File descriptor for salto/nebula/emergencykey/v1/emergency_key.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -69,6 +67,5 @@ namespace Salto.Nebula.EmergencyKey.V1
             new(typeof(DeleteEmergencyKeyRequest), DeleteEmergencyKeyRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
 }

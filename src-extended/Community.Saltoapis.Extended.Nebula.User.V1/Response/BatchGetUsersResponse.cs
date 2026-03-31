@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly MessageParser<BatchGetUsersResponse> _parser = new(() => new BatchGetUsersResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchGetUsersResponse> Parser { get { return _parser; } }
+        public static MessageParser<BatchGetUsersResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[10]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[10];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchGetUsersResponse()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.User.V1.Response
         private static readonly FieldCodec<User> _repeated_users_codec
             = FieldCodec.ForMessage(10, User.Parser);
         private readonly RepeatedField<User> users_ = [];
-
         /// <summary>
         /// Users requested.
         /// </summary>
         public RepeatedField<User> Users
         {
-            get { return users_; }
-        }
+            get => users_;}
 
         public override bool Equals(object other) => Equals(other as BatchGetUsersResponse);
         public bool Equals(BatchGetUsersResponse other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.User.V1.Response
             output.WriteRawMessage(this);
 #else
       users_.WriteTo(output, _repeated_users_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.User.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             users_.AddEntriesFrom(input, _repeated_users_codec);
             break;
           }
@@ -155,8 +156,6 @@ namespace Saltoapis.Nebula.User.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Unit.V1.Request
         private static readonly MessageParser<CreateUnitRequest> _parser = new(() => new CreateUnitRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateUnitRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateUnitRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UnitReflection.Descriptor.MessageTypes[2]; }
-        }
+            get => UnitReflection.Descriptor.MessageTypes[2];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateUnitRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.Unit.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource under which the unit is created. For
         /// example, `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "unit_id" field.</summary>
         public const int UnitIdFieldNumber = 2;
         private static readonly string UnitIdDefaultValue = "";
 
         private string unitId_;
-
         /// <summary>
         /// The unit id to use for this unit. If it's empty the server will
         /// autogenerate a unique identifier.
         /// </summary>
         public string UnitId
         {
-            get { return unitId_ ?? UnitIdDefaultValue; }
-            set
-            {
-                unitId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => unitId_ ?? UnitIdDefaultValue; set => unitId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "unit_id" field is set</summary>
-        public bool HasUnitId
-        {
-            get { return unitId_ != null; }
-        }
-
+        public bool HasUnitId => unitId_ != null;
         /// <summary>Clears the value of the "unit_id" field</summary>
-        public void ClearUnitId()
-        {
-            unitId_ = null;
-        }
-
+        public void ClearUnitId() => unitId_ = null;
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 3;
         private Unit unit_;
-
         /// <summary>
         /// The unit resource to be created. Client must not set the `Unit.name`
         /// field.
         /// </summary>
         public Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
+            get => unit_; set => unit_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateUnitRequest);
         public bool Equals(CreateUnitRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (UnitId != other.UnitId)) return false;
-            if (!Equals(Unit, other.Unit)) return false;
+            if ((Parent != other.Parent) || (UnitId != other.UnitId) || !Equals(Unit, other.Unit)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.Unit.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasUnitId) {
+      if (HasUnitId)
+      {
         output.WriteRawTag(18);
         output.WriteString(UnitId);
       }
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Unit);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.Unit.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             UnitId = input.ReadString();
             break;
           }
-          case 26: {
-            if (unit_ == null) {
+          case 26:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.Unit.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Gateway.V1
     /// <summary>Holder for reflection information generated from salto/nebula/gateway/v1/gateway.proto</summary>
     public static partial class GatewayReflection
     {
-
         /// <summary>File descriptor for salto/nebula/gateway/v1/gateway.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -147,8 +145,6 @@ namespace Saltoapis.Nebula.Gateway.V1
             new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

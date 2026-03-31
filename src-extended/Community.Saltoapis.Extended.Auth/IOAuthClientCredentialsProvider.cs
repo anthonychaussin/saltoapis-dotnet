@@ -16,7 +16,6 @@ namespace Saltoapis.Auth
         /// </summary>
         /// <exception cref="SaltoOAuthException"></exception>
         Task<string> GetToken();
-
         /// <summary>
         /// Invalidates current token. This method should return immediately.
         /// So implementor may choose to not retrieve a new token until GetToken

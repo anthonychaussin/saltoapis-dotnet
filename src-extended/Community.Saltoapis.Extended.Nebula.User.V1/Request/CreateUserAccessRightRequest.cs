@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1.Request
         private static readonly MessageParser<CreateUserAccessRightRequest> _parser = new(() => new CreateUserAccessRightRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateUserAccessRightRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateUserAccessRightRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[19]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[19];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateUserAccessRightRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where the users's access right
         /// association is to be created. For example:
@@ -49,29 +46,17 @@ namespace Saltoapis.Nebula.User.V1.Request
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "user_access_right" field.</summary>
         public const int UserAccessRightFieldNumber = 2;
         private UserAccessRight userAccessRight_;
-
         /// <summary>
         /// The user's access right association resource to be created. Client must
         /// not set the `UserAccessRight.name` field.
         /// </summary>
         public UserAccessRight UserAccessRight
         {
-            get { return userAccessRight_; }
-            set
-            {
-                userAccessRight_ = value;
-            }
-        }
+            get => userAccessRight_; set => userAccessRight_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateUserAccessRightRequest);
         public bool Equals(CreateUserAccessRightRequest other)
@@ -97,15 +82,18 @@ namespace Saltoapis.Nebula.User.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (userAccessRight_ != null) {
+      if (userAccessRight_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UserAccessRight);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -156,21 +144,27 @@ namespace Saltoapis.Nebula.User.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
-            if (userAccessRight_ == null) {
+          case 18:
+          {
+            if (userAccessRight_ == null)
+            {
               UserAccessRight = new Saltoapis.Nebula.User.V1.UserAccessRight();
             }
             input.ReadMessage(UserAccessRight);
@@ -213,8 +207,6 @@ namespace Saltoapis.Nebula.User.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

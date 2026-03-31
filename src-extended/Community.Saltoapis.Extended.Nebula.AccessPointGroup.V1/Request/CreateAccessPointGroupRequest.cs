@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
         private static readonly MessageParser<CreateAccessPointGroupRequest> _parser = new(() => new CreateAccessPointGroupRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateAccessPointGroupRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateAccessPointGroupRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.MessageTypes[2]; }
-        }
+            get => AccessPointGroupReflection.Descriptor.MessageTypes[2];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateAccessPointGroupRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the access point
         /// group. For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_point_group_id" field.</summary>
         public const int AccessPointGroupIdFieldNumber = 2;
         private static readonly string AccessPointGroupIdDefaultValue = "";
 
         private string accessPointGroupId_;
-
         /// <summary>
         /// The access point group ID to use for this access point group. In
         /// case it's empty the server will autogenerate a unique identifier.
         /// </summary>
         public string AccessPointGroupId
         {
-            get { return accessPointGroupId_ ?? AccessPointGroupIdDefaultValue; }
-            set
-            {
-                accessPointGroupId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => accessPointGroupId_ ?? AccessPointGroupIdDefaultValue; set => accessPointGroupId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "access_point_group_id" field is set</summary>
-        public bool HasAccessPointGroupId
-        {
-            get { return accessPointGroupId_ != null; }
-        }
-
+        public bool HasAccessPointGroupId => accessPointGroupId_ != null;
         /// <summary>Clears the value of the "access_point_group_id" field</summary>
-        public void ClearAccessPointGroupId()
-        {
-            accessPointGroupId_ = null;
-        }
-
+        public void ClearAccessPointGroupId() => accessPointGroupId_ = null;
         /// <summary>Field number for the "access_point_group" field.</summary>
         public const int AccessPointGroupFieldNumber = 3;
         private AccessPointGroup accessPointGroup_;
-
         /// <summary>
         /// The access point group resource to be created. Client must not set the
         /// `AccessPointGroup.name` field.
         /// </summary>
         public AccessPointGroup AccessPointGroup
         {
-            get { return accessPointGroup_; }
-            set
-            {
-                accessPointGroup_ = value;
-            }
-        }
+            get => accessPointGroup_; set => accessPointGroup_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateAccessPointGroupRequest);
         public bool Equals(CreateAccessPointGroupRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (AccessPointGroupId != other.AccessPointGroupId)) return false;
-            if (!Equals(AccessPointGroup, other.AccessPointGroup)) return false;
+            if ((Parent != other.Parent) || (AccessPointGroupId != other.AccessPointGroupId) || !Equals(AccessPointGroup, other.AccessPointGroup)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasAccessPointGroupId) {
+      if (HasAccessPointGroupId)
+      {
         output.WriteRawTag(18);
         output.WriteString(AccessPointGroupId);
       }
-      if (accessPointGroup_ != null) {
+      if (accessPointGroup_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(AccessPointGroup);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             AccessPointGroupId = input.ReadString();
             break;
           }
-          case 26: {
-            if (accessPointGroup_ == null) {
+          case 26:
+          {
+            if (accessPointGroup_ == null)
+            {
               AccessPointGroup = new Saltoapis.Nebula.AccessPointGroup.V1.AccessPointGroup();
             }
             input.ReadMessage(AccessPointGroup);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.DigitalKey.V1
     /// <summary>Holder for reflection information generated from salto/nebula/digitalkey/v1/digital_key.proto</summary>
     public static partial class DigitalKeyReflection
     {
-
         /// <summary>File descriptor for salto/nebula/digitalkey/v1/digital_key.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -115,8 +113,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             new(typeof(UnlockDigitalKeyAccessPointMetadata), UnlockDigitalKeyAccessPointMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

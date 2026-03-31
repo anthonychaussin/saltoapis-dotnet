@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         private static readonly MessageParser<ReadKeyResponse> _parser = new(() => new ReadKeyResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ReadKeyResponse> Parser { get { return _parser; } }
+        public static MessageParser<ReadKeyResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.MessageTypes[24]; }
-        }
+            get => EncoderReflection.Descriptor.MessageTypes[24];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ReadKeyResponse()
         {
@@ -58,7 +56,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         public ReadKeyResponse Clone() => new(this);
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 1;
-
         /// <summary>
         /// Card key reference, belonging to a user.
         /// </summary>
@@ -71,22 +68,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
                 keyCase_ = KeyOneofCase.CardKey;
             }
         }
-
         /// <summary>Gets whether the "card_key" field is set</summary>
-        public bool HasCardKey
-        {
-            get { return keyCase_ == KeyOneofCase.CardKey; }
-        }
-
+        public bool HasCardKey => keyCase_ == KeyOneofCase.CardKey;
         /// <summary> Clears the value of the oneof if it's currently set to "card_key" </summary>
         public void ClearCardKey()
         {
             if (HasCardKey) ClearKey();
         }
-
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 2;
-
         /// <summary>
         /// Electronic key reference, belonging to a user.
         /// </summary>
@@ -99,22 +89,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
                 keyCase_ = KeyOneofCase.ElectronicKey;
             }
         }
-
         /// <summary>Gets whether the "electronic_key" field is set</summary>
-        public bool HasElectronicKey
-        {
-            get { return keyCase_ == KeyOneofCase.ElectronicKey; }
-        }
-
+        public bool HasElectronicKey => keyCase_ == KeyOneofCase.ElectronicKey;
         /// <summary> Clears the value of the oneof if it's currently set to "electronic_key" </summary>
         public void ClearElectronicKey()
         {
             if (HasElectronicKey) ClearKey();
         }
-
         /// <summary>Field number for the "uid" field.</summary>
         public const int UidFieldNumber = 3;
-
         /// <summary>
         /// UID of the key that was read.
         /// </summary>
@@ -127,22 +110,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
                 keyIdCase_ = KeyIdOneofCase.Uid;
             }
         }
-
         /// <summary>Gets whether the "uid" field is set</summary>
-        public bool HasUid
-        {
-            get { return keyIdCase_ == KeyIdOneofCase.Uid; }
-        }
-
+        public bool HasUid => keyIdCase_ == KeyIdOneofCase.Uid;
         /// <summary> Clears the value of the oneof if it's currently set to "uid" </summary>
         public void ClearUid()
         {
             if (HasUid) ClearKeyId();
         }
-
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 4;
-
         /// <summary>
         /// Device ID of the key that was read.
         /// </summary>
@@ -155,13 +131,8 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
                 keyIdCase_ = KeyIdOneofCase.DeviceId;
             }
         }
-
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return keyIdCase_ == KeyIdOneofCase.DeviceId; }
-        }
-
+        public bool HasDeviceId => keyIdCase_ == KeyIdOneofCase.DeviceId;
         /// <summary> Clears the value of the oneof if it's currently set to "device_id" </summary>
         public void ClearDeviceId()
         {
@@ -169,7 +140,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         }
 
         private object key_;
-
         /// <summary>Enum of possible cases for the "key" oneof.</summary>
         public enum KeyOneofCase
         {
@@ -182,8 +152,7 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
 
         public KeyOneofCase KeyCase
         {
-            get { return keyCase_; }
-        }
+            get => keyCase_;}
 
         public void ClearKey()
         {
@@ -192,7 +161,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         }
 
         private object keyId_;
-
         /// <summary>Enum of possible cases for the "key_id" oneof.</summary>
         public enum KeyIdOneofCase
         {
@@ -205,8 +173,7 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
 
         public KeyIdOneofCase KeyIdCase
         {
-            get { return keyIdCase_; }
-        }
+            get => keyIdCase_;}
 
         public void ClearKeyId()
         {
@@ -219,9 +186,7 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((CardKey != other.CardKey) || (ElectronicKey != other.ElectronicKey)) return false;
-            if ((Uid != other.Uid) || (DeviceId != other.DeviceId)) return false;
-            if ((KeyCase != other.KeyCase) || (KeyIdCase != other.KeyIdCase)) return false;
+            if ((CardKey != other.CardKey) || (ElectronicKey != other.ElectronicKey) || (Uid != other.Uid) || (DeviceId != other.DeviceId) || (KeyCase != other.KeyCase) || (KeyIdCase != other.KeyIdCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -244,23 +209,28 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (HasCardKey) {
+      if (HasCardKey)
+      {
         output.WriteRawTag(10);
         output.WriteString(CardKey);
       }
-      if (HasElectronicKey) {
+      if (HasElectronicKey)
+      {
         output.WriteRawTag(18);
         output.WriteString(ElectronicKey);
       }
-      if (HasUid) {
+      if (HasUid)
+      {
         output.WriteRawTag(26);
         output.WriteString(Uid);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(34);
         output.WriteString(DeviceId);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -337,28 +307,35 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             CardKey = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             ElectronicKey = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             Uid = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             DeviceId = input.ReadString();
             break;
           }
@@ -408,8 +385,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

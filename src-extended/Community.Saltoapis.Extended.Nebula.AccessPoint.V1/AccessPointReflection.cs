@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.AccessPoint.V1
     /// <summary>Holder for reflection information generated from salto/nebula/accesspoint/v1/access_point.proto</summary>
     public static partial class AccessPointReflection
     {
-
         /// <summary>File descriptor for salto/nebula/accesspoint/v1/access_point.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -94,8 +92,6 @@ namespace Saltoapis.Nebula.AccessPoint.V1
             new(typeof(LockAccessPointMetadata), LockAccessPointMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

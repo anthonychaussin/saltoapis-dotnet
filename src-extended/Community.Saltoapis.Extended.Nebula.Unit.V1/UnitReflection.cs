@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Unit.V1
     /// <summary>Holder for reflection information generated from salto/nebula/unit/v1/unit.proto</summary>
     public static partial class UnitReflection
     {
-
         /// <summary>File descriptor for salto/nebula/unit/v1/unit.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -125,8 +123,6 @@ namespace Saltoapis.Nebula.Unit.V1
             new(typeof(TestPermissionsResponse), TestPermissionsResponse.Parser, ["Permissions"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

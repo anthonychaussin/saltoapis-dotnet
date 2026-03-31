@@ -11,17 +11,15 @@ namespace Salto.Nebula.EmergencyKey.V1
         private static readonly MessageParser<EmergencyKey> _parser = new(() => new EmergencyKey());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EmergencyKey> Parser { get { return _parser; } }
+        public static MessageParser<EmergencyKey> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EmergencyKeyReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => EmergencyKeyReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EmergencyKey()
         {
@@ -42,7 +40,6 @@ namespace Salto.Nebula.EmergencyKey.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the emergency key. It must have the format
         /// `installations/*/emergency-keys/*`. For example:
@@ -50,53 +47,33 @@ namespace Salto.Nebula.EmergencyKey.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the emergency key.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "uid" field.</summary>
         public const int UidFieldNumber = 3;
         private string uid_ = "";
-
         /// <summary>
         /// Unique identifier of the physical card. Length dependent of technology.
         /// Max length for ISO14443-3 is 10 bytes.
         /// </summary>
         public string Uid
         {
-            get { return uid_; }
-            set
-            {
-                uid_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => uid_; set => uid_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as EmergencyKey);
         public bool Equals(EmergencyKey other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if (Uid != other.Uid) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || Uid != other.Uid) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -116,19 +93,23 @@ namespace Salto.Nebula.EmergencyKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (Uid.Length != 0) {
+      if (Uid.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(Uid);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -182,24 +163,30 @@ namespace Salto.Nebula.EmergencyKey.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             Uid = input.ReadString();
             break;
           }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         private static readonly MessageParser<GenerateAuthorizationTokenResponse> _parser = new(() => new GenerateAuthorizationTokenResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<GenerateAuthorizationTokenResponse> Parser { get { return _parser; } }
+        public static MessageParser<GenerateAuthorizationTokenResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.MessageTypes[27]; }
-        }
+            get => EncoderReflection.Descriptor.MessageTypes[27];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public GenerateAuthorizationTokenResponse()
         {
@@ -40,26 +38,19 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
         /// <summary>Field number for the "authorization_token" field.</summary>
         public const int AuthorizationTokenFieldNumber = 1;
         private ByteString authorizationToken_ = ByteString.Empty;
-
         /// <summary>
         /// Authorization token to be used for connecting against an encoder.
         /// </summary>
         public ByteString AuthorizationToken
         {
-            get { return authorizationToken_; }
-            set
-            {
-                authorizationToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => authorizationToken_; set => authorizationToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as GenerateAuthorizationTokenResponse);
         public bool Equals(GenerateAuthorizationTokenResponse other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (AuthorizationToken != other.AuthorizationToken) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return AuthorizationToken != other.AuthorizationToken ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -76,11 +67,13 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (AuthorizationToken.Length != 0) {
+      if (AuthorizationToken.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteBytes(AuthorizationToken);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -120,16 +113,20 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             AuthorizationToken = input.ReadBytes();
             break;
           }
@@ -164,8 +161,6 @@ namespace Saltoapis.Nebula.Encoder.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.AccessRight.V1
     /// <summary>Holder for reflection information generated from salto/nebula/accessright/v1/access_right.proto</summary>
     public static partial class AccessRightReflection
     {
-
         /// <summary>File descriptor for salto/nebula/accessright/v1/access_right.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -243,8 +241,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             new(typeof(DeleteAccessRightDestinationRequest), DeleteAccessRightDestinationRequest.Parser, ["Name"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Calendar.V1.Request;
+using Saltoapis.Nebula.Calendar.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Calendar.V1.Response;
 
@@ -110,13 +110,10 @@ namespace Saltoapis.Nebula.Calendar.V1
             "DeleteEvent",
             __Marshaller_salto_nebula_calendar_v1_DeleteEventRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return CalendarReflection.Descriptor.Services[0]; }
-        }
-
+            get => CalendarReflection.Descriptor.Services[0];}
         /// <summary>Client for CalendarService</summary>
         public partial class CalendarServiceClient : ClientBase<CalendarServiceClient>
         {
@@ -125,24 +122,20 @@ namespace Saltoapis.Nebula.Calendar.V1
             public CalendarServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for CalendarService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public CalendarServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected CalendarServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected CalendarServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a calendar
             ///
@@ -153,7 +146,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Calendar CreateCalendar(CreateCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateCalendar(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Calendar CreateCalendar(CreateCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateCalendar(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a calendar
             ///
@@ -173,11 +166,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> CreateCalendarAsync(CreateCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Calendar> CreateCalendarAsync(CreateCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a calendar
             ///
@@ -186,11 +175,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> CreateCalendarAsync(CreateCalendarRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateCalendar, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Calendar> CreateCalendarAsync(CreateCalendarRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateCalendar, null, options, request);
             /// <summary>
             /// Get a calendar
             ///
@@ -201,7 +186,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Calendar GetCalendar(GetCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetCalendar(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Calendar GetCalendar(GetCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetCalendar(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a calendar
             ///
@@ -221,11 +206,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> GetCalendarAsync(GetCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Calendar> GetCalendarAsync(GetCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a calendar
             ///
@@ -234,11 +215,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> GetCalendarAsync(GetCalendarRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetCalendar, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Calendar> GetCalendarAsync(GetCalendarRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetCalendar, null, options, request);
             /// <summary>
             /// List calendars
             ///
@@ -249,7 +226,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListCalendarsResponse ListCalendars(ListCalendarsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListCalendars(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListCalendarsResponse ListCalendars(ListCalendarsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListCalendars(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List calendars
             ///
@@ -269,11 +246,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListCalendarsResponse> ListCalendarsAsync(ListCalendarsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListCalendarsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListCalendarsResponse> ListCalendarsAsync(ListCalendarsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListCalendarsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List calendars
             ///
@@ -282,11 +255,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListCalendarsResponse> ListCalendarsAsync(ListCalendarsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListCalendars, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListCalendarsResponse> ListCalendarsAsync(ListCalendarsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListCalendars, null, options, request);
             /// <summary>
             /// Update a calendar
             ///
@@ -297,7 +266,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Calendar UpdateCalendar(UpdateCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateCalendar(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Calendar UpdateCalendar(UpdateCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateCalendar(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a calendar
             ///
@@ -317,11 +286,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> UpdateCalendarAsync(UpdateCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Calendar> UpdateCalendarAsync(UpdateCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a calendar
             ///
@@ -330,11 +295,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Calendar> UpdateCalendarAsync(UpdateCalendarRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateCalendar, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Calendar> UpdateCalendarAsync(UpdateCalendarRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateCalendar, null, options, request);
             /// <summary>
             /// Delete a calendar
             ///
@@ -345,7 +306,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteCalendar(DeleteCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteCalendar(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteCalendar(DeleteCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteCalendar(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a calendar
             ///
@@ -365,11 +326,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteCalendarAsync(DeleteCalendarRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteCalendarAsync(DeleteCalendarRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteCalendarAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a calendar
             ///
@@ -378,11 +335,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteCalendarAsync(DeleteCalendarRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteCalendar, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteCalendarAsync(DeleteCalendarRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteCalendar, null, options, request);
             /// <summary>
             /// Create a calendar event
             ///
@@ -393,7 +346,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Event CreateEvent(CreateEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateEvent(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Event CreateEvent(CreateEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateEvent(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a calendar event
             ///
@@ -413,11 +366,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> CreateEventAsync(CreateEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Event> CreateEventAsync(CreateEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a calendar event
             ///
@@ -426,11 +375,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> CreateEventAsync(CreateEventRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateEvent, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Event> CreateEventAsync(CreateEventRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateEvent, null, options, request);
             /// <summary>
             /// Get a calendar event
             ///
@@ -441,7 +386,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Event GetEvent(GetEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetEvent(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Event GetEvent(GetEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetEvent(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a calendar event
             ///
@@ -461,11 +406,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> GetEventAsync(GetEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Event> GetEventAsync(GetEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a calendar event
             ///
@@ -474,11 +415,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> GetEventAsync(GetEventRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetEvent, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Event> GetEventAsync(GetEventRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetEvent, null, options, request);
             /// <summary>
             /// List calendar events
             ///
@@ -489,7 +426,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListEventsResponse ListEvents(ListEventsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListEvents(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListEventsResponse ListEvents(ListEventsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListEvents(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List calendar events
             ///
@@ -509,11 +446,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListEventsResponse> ListEventsAsync(ListEventsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListEventsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListEventsResponse> ListEventsAsync(ListEventsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListEventsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List calendar events
             ///
@@ -522,11 +455,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListEventsResponse> ListEventsAsync(ListEventsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListEvents, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListEventsResponse> ListEventsAsync(ListEventsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListEvents, null, options, request);
             /// <summary>
             /// Update a calendar event
             ///
@@ -537,7 +466,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Event UpdateEvent(UpdateEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateEvent(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Event UpdateEvent(UpdateEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEvent(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a calendar event
             ///
@@ -557,11 +486,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> UpdateEventAsync(UpdateEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Event> UpdateEventAsync(UpdateEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a calendar event
             ///
@@ -570,11 +495,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Event> UpdateEventAsync(UpdateEventRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateEvent, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Event> UpdateEventAsync(UpdateEventRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateEvent, null, options, request);
             /// <summary>
             /// Delete a calendar event
             ///
@@ -585,7 +506,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteEvent(DeleteEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteEvent(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteEvent(DeleteEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteEvent(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a calendar event
             ///
@@ -605,11 +526,7 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEventAsync(DeleteEventRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEventAsync(DeleteEventRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteEventAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a calendar event
             ///
@@ -618,18 +535,9 @@ namespace Saltoapis.Nebula.Calendar.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEventAsync(DeleteEventRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteEvent, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteEventAsync(DeleteEventRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteEvent, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override CalendarServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

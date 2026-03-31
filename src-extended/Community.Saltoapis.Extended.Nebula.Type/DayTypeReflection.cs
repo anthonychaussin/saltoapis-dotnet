@@ -3,12 +3,10 @@ namespace Saltoapis.Nebula.Type
     /// <summary>Holder for reflection information generated from salto/nebula/type/day_type.proto</summary>
     public static partial class DayTypeReflection
     {
-
         /// <summary>File descriptor for salto/nebula/type/day_type.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -28,8 +26,6 @@ namespace Saltoapis.Nebula.Type
                 [],
                 new GeneratedClrTypeInfo([typeof(DayType),], null, null));
         }
-
     }
-
 
 }

@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.ElectronicLock.V1.Request;
+using Saltoapis.Nebula.ElectronicLock.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.ElectronicLock.V1.Response;
 
@@ -148,13 +148,10 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_electroniclock_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return ElectronicLockReflection.Descriptor.Services[0]; }
-        }
-
+            get => ElectronicLockReflection.Descriptor.Services[0];}
         /// <summary>Client for ElectronicLockService</summary>
         public partial class ElectronicLockServiceClient : ClientBase<ElectronicLockServiceClient>
         {
@@ -163,24 +160,20 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             public ElectronicLockServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for ElectronicLockService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public ElectronicLockServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected ElectronicLockServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected ElectronicLockServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an electronic lock
             ///
@@ -191,7 +184,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicLock CreateElectronicLock(CreateElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicLock CreateElectronicLock(CreateElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an electronic lock
             ///
@@ -211,11 +204,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> CreateElectronicLockAsync(CreateElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> CreateElectronicLockAsync(CreateElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an electronic lock
             ///
@@ -224,11 +213,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> CreateElectronicLockAsync(CreateElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> CreateElectronicLockAsync(CreateElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateElectronicLock, null, options, request);
             /// <summary>
             /// Get an electronic lock
             ///
@@ -239,7 +224,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicLock GetElectronicLock(GetElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicLock GetElectronicLock(GetElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an electronic lock
             ///
@@ -259,11 +244,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> GetElectronicLockAsync(GetElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> GetElectronicLockAsync(GetElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an electronic lock
             ///
@@ -272,11 +253,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> GetElectronicLockAsync(GetElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> GetElectronicLockAsync(GetElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetElectronicLock, null, options, request);
             /// <summary>
             /// List electronic locks
             ///
@@ -287,7 +264,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListElectronicLocksResponse ListElectronicLocks(ListElectronicLocksRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListElectronicLocks(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListElectronicLocksResponse ListElectronicLocks(ListElectronicLocksRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListElectronicLocks(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List electronic locks
             ///
@@ -307,11 +284,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListElectronicLocksResponse> ListElectronicLocksAsync(ListElectronicLocksRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListElectronicLocksAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListElectronicLocksResponse> ListElectronicLocksAsync(ListElectronicLocksRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListElectronicLocksAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List electronic locks
             ///
@@ -320,11 +293,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListElectronicLocksResponse> ListElectronicLocksAsync(ListElectronicLocksRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListElectronicLocks, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListElectronicLocksResponse> ListElectronicLocksAsync(ListElectronicLocksRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListElectronicLocks, null, options, request);
             /// <summary>
             /// Update an electronic lock
             ///
@@ -335,7 +304,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicLock UpdateElectronicLock(UpdateElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicLock UpdateElectronicLock(UpdateElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an electronic lock
             ///
@@ -355,11 +324,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> UpdateElectronicLockAsync(UpdateElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> UpdateElectronicLockAsync(UpdateElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an electronic lock
             ///
@@ -368,11 +333,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicLock> UpdateElectronicLockAsync(UpdateElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicLock> UpdateElectronicLockAsync(UpdateElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicLock, null, options, request);
             /// <summary>
             /// Delete an electronic lock
             ///
@@ -383,7 +344,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteElectronicLock(DeleteElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteElectronicLock(DeleteElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an electronic lock
             ///
@@ -403,11 +364,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicLockAsync(DeleteElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicLockAsync(DeleteElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an electronic lock
             ///
@@ -416,11 +373,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicLockAsync(DeleteElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicLockAsync(DeleteElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteElectronicLock, null, options, request);
             /// <summary>
             /// Bind an electronic lock
             ///
@@ -433,7 +386,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindElectronicLockResponse BindElectronicLock(BindElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindElectronicLockResponse BindElectronicLock(BindElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an electronic lock
             ///
@@ -457,11 +410,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindElectronicLockResponse> BindElectronicLockAsync(BindElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindElectronicLockResponse> BindElectronicLockAsync(BindElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an electronic lock
             ///
@@ -472,11 +421,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindElectronicLockResponse> BindElectronicLockAsync(BindElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindElectronicLockResponse> BindElectronicLockAsync(BindElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindElectronicLock, null, options, request);
             /// <summary>
             /// Unbind an electronic lock
             ///
@@ -493,7 +438,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindElectronicLockResponse UnbindElectronicLock(UnbindElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindElectronicLockResponse UnbindElectronicLock(UnbindElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an electronic lock
             ///
@@ -525,11 +470,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindElectronicLockResponse> UnbindElectronicLockAsync(UnbindElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindElectronicLockResponse> UnbindElectronicLockAsync(UnbindElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an electronic lock
             ///
@@ -544,11 +485,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindElectronicLockResponse> UnbindElectronicLockAsync(UnbindElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindElectronicLockResponse> UnbindElectronicLockAsync(UnbindElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindElectronicLock, null, options, request);
             /// <summary>
             /// Initialize an electronic lock
             ///
@@ -560,7 +497,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeElectronicLock(InitializeElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeElectronicLock(InitializeElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an electronic lock
             ///
@@ -582,11 +519,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicLockAsync(InitializeElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicLockAsync(InitializeElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an electronic lock
             ///
@@ -596,11 +529,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicLockAsync(InitializeElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicLockAsync(InitializeElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeElectronicLock, null, options, request);
             /// <summary>
             /// Configure an electronic lock
             ///
@@ -613,7 +542,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureElectronicLock(ConfigureElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureElectronicLock(ConfigureElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an electronic lock
             ///
@@ -637,11 +566,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicLockAsync(ConfigureElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicLockAsync(ConfigureElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an electronic lock
             ///
@@ -652,11 +577,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicLockAsync(ConfigureElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicLockAsync(ConfigureElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureElectronicLock, null, options, request);
             /// <summary>
             /// Reset an electronic lock
             ///
@@ -670,7 +591,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetElectronicLock(ResetElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetElectronicLock(ResetElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetElectronicLock(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an electronic lock
             ///
@@ -696,11 +617,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicLockAsync(ResetElectronicLockRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicLockAsync(ResetElectronicLockRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetElectronicLockAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an electronic lock
             ///
@@ -712,11 +629,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicLockAsync(ResetElectronicLockRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetElectronicLock, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicLockAsync(ResetElectronicLockRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetElectronicLock, null, options, request);
             /// <summary>
             /// Update electronic lock firmware
             ///
@@ -728,7 +641,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateElectronicLockFirmware(UpdateElectronicLockFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateElectronicLockFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateElectronicLockFirmware(UpdateElectronicLockFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicLockFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update electronic lock firmware
             ///
@@ -750,11 +663,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateElectronicLockFirmwareAsync(UpdateElectronicLockFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateElectronicLockFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateElectronicLockFirmwareAsync(UpdateElectronicLockFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicLockFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update electronic lock firmware
             ///
@@ -764,11 +673,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateElectronicLockFirmwareAsync(UpdateElectronicLockFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicLockFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateElectronicLockFirmwareAsync(UpdateElectronicLockFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicLockFirmware, null, options, request);
             /// <summary>
             /// Generate authorization token for an electronic lock
             ///
@@ -780,7 +685,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate authorization token for an electronic lock
             ///
@@ -802,11 +707,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate authorization token for an electronic lock
             ///
@@ -816,11 +717,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate electronic lock firmware download URI
             ///
@@ -833,7 +730,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate electronic lock firmware download URI
             ///
@@ -857,11 +754,7 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate electronic lock firmware download URI
             ///
@@ -872,18 +765,9 @@ namespace Saltoapis.Nebula.ElectronicLock.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override ElectronicLockServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

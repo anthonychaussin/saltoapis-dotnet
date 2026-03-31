@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<BatchDeleteAccessRightAccessPointsRequest> _parser = new(() => new BatchDeleteAccessRightAccessPointsRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchDeleteAccessRightAccessPointsRequest> Parser { get { return _parser; } }
+        public static MessageParser<BatchDeleteAccessRightAccessPointsRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[28]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[28];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchDeleteAccessRightAccessPointsRequest()
         {
@@ -41,34 +39,25 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the access point's access right relation to be deleted.
         /// For example: `installations/surelock-homes-hq/access-rights/baskerville`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "requests" field.</summary>
         public const int RequestsFieldNumber = 2;
         private static readonly FieldCodec<DeleteAccessRightAccessPointRequest> _repeated_requests_codec
             = FieldCodec.ForMessage(18, DeleteAccessRightAccessPointRequest.Parser);
         private readonly RepeatedField<DeleteAccessRightAccessPointRequest> requests_ = [];
-
         /// <summary>
         /// The request message specifying the resources to delete.
         /// A maximum of 100 access point's access rights associations can be deleted in a batch.
         /// </summary>
         public RepeatedField<DeleteAccessRightAccessPointRequest> Requests
         {
-            get { return requests_; }
-        }
+            get => requests_;}
 
         public override bool Equals(object other) => Equals(other as BatchDeleteAccessRightAccessPointsRequest);
         public bool Equals(BatchDeleteAccessRightAccessPointsRequest other)
@@ -94,12 +83,14 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
       requests_.WriteTo(output, _repeated_requests_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -142,20 +133,25 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             requests_.AddEntriesFrom(input, _repeated_requests_codec);
             break;
           }
@@ -195,8 +191,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

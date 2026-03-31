@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly MessageParser<IPv4Settings> _parser = new(() => new IPv4Settings());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<IPv4Settings> Parser { get { return _parser; } }
+        public static MessageParser<IPv4Settings> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public IPv4Settings()
         {
@@ -44,7 +42,6 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly string IpAddressDefaultValue = "";
 
         private string ipAddress_;
-
         /// <summary>
         /// IP address
         ///
@@ -52,31 +49,16 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public string IpAddress
         {
-            get { return ipAddress_ ?? IpAddressDefaultValue; }
-            set
-            {
-                ipAddress_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => ipAddress_ ?? IpAddressDefaultValue; set => ipAddress_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "ip_address" field is set</summary>
-        public bool HasIpAddress
-        {
-            get { return ipAddress_ != null; }
-        }
-
+        public bool HasIpAddress => ipAddress_ != null;
         /// <summary>Clears the value of the "ip_address" field</summary>
-        public void ClearIpAddress()
-        {
-            ipAddress_ = null;
-        }
-
+        public void ClearIpAddress() => ipAddress_ = null;
         /// <summary>Field number for the "mask" field.</summary>
         public const int MaskFieldNumber = 2;
         private static readonly string MaskDefaultValue = "";
 
         private string mask_;
-
         /// <summary>
         /// Subnet mask is expressed in dot-decimal notation like an address.
         /// For example: 255.255.255.0 is the subnet mask for the prefix
@@ -86,31 +68,16 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public string Mask
         {
-            get { return mask_ ?? MaskDefaultValue; }
-            set
-            {
-                mask_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => mask_ ?? MaskDefaultValue; set => mask_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "mask" field is set</summary>
-        public bool HasMask
-        {
-            get { return mask_ != null; }
-        }
-
+        public bool HasMask => mask_ != null;
         /// <summary>Clears the value of the "mask" field</summary>
-        public void ClearMask()
-        {
-            mask_ = null;
-        }
-
+        public void ClearMask() => mask_ = null;
         /// <summary>Field number for the "router_address" field.</summary>
         public const int RouterAddressFieldNumber = 3;
         private static readonly string RouterAddressDefaultValue = "";
 
         private string routerAddress_;
-
         /// <summary>
         /// Default network router's IP address
         ///
@@ -118,32 +85,18 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public string RouterAddress
         {
-            get { return routerAddress_ ?? RouterAddressDefaultValue; }
-            set
-            {
-                routerAddress_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => routerAddress_ ?? RouterAddressDefaultValue; set => routerAddress_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "router_address" field is set</summary>
-        public bool HasRouterAddress
-        {
-            get { return routerAddress_ != null; }
-        }
-
+        public bool HasRouterAddress => routerAddress_ != null;
         /// <summary>Clears the value of the "router_address" field</summary>
-        public void ClearRouterAddress()
-        {
-            routerAddress_ = null;
-        }
+        public void ClearRouterAddress() => routerAddress_ = null;
 
         public override bool Equals(object other) => Equals(other as IPv4Settings);
         public bool Equals(IPv4Settings other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((IpAddress != other.IpAddress) || (Mask != other.Mask)) return false;
-            if (RouterAddress != other.RouterAddress) return false;
+            if ((IpAddress != other.IpAddress) || (Mask != other.Mask) || RouterAddress != other.RouterAddress) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -163,19 +116,23 @@ namespace Saltoapis.Nebula.Gateway.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (HasIpAddress) {
+      if (HasIpAddress)
+      {
         output.WriteRawTag(10);
         output.WriteString(IpAddress);
       }
-      if (HasMask) {
+      if (HasMask)
+      {
         output.WriteRawTag(18);
         output.WriteString(Mask);
       }
-      if (HasRouterAddress) {
+      if (HasRouterAddress)
+      {
         output.WriteRawTag(26);
         output.WriteString(RouterAddress);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -229,24 +186,30 @@ namespace Saltoapis.Nebula.Gateway.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             IpAddress = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Mask = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             RouterAddress = input.ReadString();
             break;
           }
@@ -291,8 +254,6 @@ namespace Saltoapis.Nebula.Gateway.V1
             }
         }
 #endif
-
     }
-
 
 }

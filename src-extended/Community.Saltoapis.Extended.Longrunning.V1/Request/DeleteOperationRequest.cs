@@ -12,17 +12,15 @@ namespace Saltoapis.Longrunning.V1.Request
         private static readonly MessageParser<DeleteOperationRequest> _parser = new(() => new DeleteOperationRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DeleteOperationRequest> Parser { get { return _parser; } }
+        public static MessageParser<DeleteOperationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return OperationReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => OperationReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DeleteOperationRequest()
         {
@@ -41,29 +39,21 @@ namespace Saltoapis.Longrunning.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the operation to be deleted. For example:
         /// `operations/01ds5r5cbjr9hvke5f6c5s7nm0`.
         /// Format: operations/{operation}
-
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as DeleteOperationRequest);
         public bool Equals(DeleteOperationRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Name != other.Name) return false;
-            return Equals(_unknownFields, other._unknownFields);
+return Name != other.Name ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -80,11 +70,13 @@ namespace Saltoapis.Longrunning.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -124,16 +116,20 @@ namespace Saltoapis.Longrunning.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
@@ -168,8 +164,6 @@ namespace Saltoapis.Longrunning.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

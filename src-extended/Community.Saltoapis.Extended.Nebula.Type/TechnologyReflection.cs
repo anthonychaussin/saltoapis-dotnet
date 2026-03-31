@@ -3,12 +3,10 @@ namespace Saltoapis.Nebula.Type
     /// <summary>Holder for reflection information generated from salto/nebula/type/technology.proto</summary>
     public static partial class TechnologyReflection
     {
-
         /// <summary>File descriptor for salto/nebula/type/technology.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -29,8 +27,6 @@ namespace Saltoapis.Nebula.Type
                 [],
                 new GeneratedClrTypeInfo([typeof(AppKeyTechnology),], null, null));
         }
-
     }
-
 
 }

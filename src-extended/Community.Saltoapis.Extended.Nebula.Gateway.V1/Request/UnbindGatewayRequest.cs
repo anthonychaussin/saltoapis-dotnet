@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
         private static readonly MessageParser<UnbindGatewayRequest> _parser = new(() => new UnbindGatewayRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnbindGatewayRequest> Parser { get { return _parser; } }
+        public static MessageParser<UnbindGatewayRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[13]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[13];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnbindGatewayRequest()
         {
@@ -41,24 +39,16 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The resource name of the gateway to be unbound. For example:
         /// `installations/surelock-homes-hq/gateways/baker-street-entrance`.
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "force" field.</summary>
         public const int ForceFieldNumber = 2;
         private bool force_;
-
         /// <summary>
         /// If set to true, the device identifier is removed (unbound) from the
         /// gateway. Otherwise, the request will only work if the gateway
@@ -66,12 +56,7 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
         /// </summary>
         public bool Force
         {
-            get { return force_; }
-            set
-            {
-                force_ = value;
-            }
-        }
+            get => force_; set => force_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnbindGatewayRequest);
         public bool Equals(UnbindGatewayRequest other)
@@ -97,15 +82,18 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Force != false) {
+      if (Force != false)
+      {
         output.WriteRawTag(16);
         output.WriteBool(Force);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -152,20 +140,25 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 16:
+          {
             Force = input.ReadBool();
             break;
           }
@@ -205,8 +198,6 @@ namespace Saltoapis.Nebula.Gateway.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

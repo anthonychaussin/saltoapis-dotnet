@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.ElectronicKey.V1.Request;
+using Saltoapis.Nebula.ElectronicKey.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.ElectronicKey.V1.Response;
 
@@ -130,13 +130,10 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_electronickey_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return ElectronicKeyReflection.Descriptor.Services[0]; }
-        }
-
+            get => ElectronicKeyReflection.Descriptor.Services[0];}
         /// <summary>Client for ElectronicKeyService</summary>
         public partial class ElectronicKeyServiceClient : ClientBase<ElectronicKeyServiceClient>
         {
@@ -145,24 +142,20 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             public ElectronicKeyServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for ElectronicKeyService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public ElectronicKeyServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected ElectronicKeyServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected ElectronicKeyServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a new electronic key
             ///
@@ -173,7 +166,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicKey CreateElectronicKey(CreateElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicKey CreateElectronicKey(CreateElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a new electronic key
             ///
@@ -193,11 +186,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> CreateElectronicKeyAsync(CreateElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> CreateElectronicKeyAsync(CreateElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a new electronic key
             ///
@@ -206,11 +195,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> CreateElectronicKeyAsync(CreateElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> CreateElectronicKeyAsync(CreateElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateElectronicKey, null, options, request);
             /// <summary>
             /// Get an electronic key
             ///
@@ -221,7 +206,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicKey GetElectronicKey(GetElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicKey GetElectronicKey(GetElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an electronic key
             ///
@@ -241,11 +226,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> GetElectronicKeyAsync(GetElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> GetElectronicKeyAsync(GetElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an electronic key
             ///
@@ -254,11 +235,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> GetElectronicKeyAsync(GetElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> GetElectronicKeyAsync(GetElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetElectronicKey, null, options, request);
             /// <summary>
             /// List electronic keys
             ///
@@ -269,7 +246,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListElectronicKeysResponse ListElectronicKeys(ListElectronicKeysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListElectronicKeys(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListElectronicKeysResponse ListElectronicKeys(ListElectronicKeysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListElectronicKeys(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List electronic keys
             ///
@@ -289,11 +266,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListElectronicKeysResponse> ListElectronicKeysAsync(ListElectronicKeysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListElectronicKeysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListElectronicKeysResponse> ListElectronicKeysAsync(ListElectronicKeysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListElectronicKeysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List electronic keys
             ///
@@ -302,11 +275,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListElectronicKeysResponse> ListElectronicKeysAsync(ListElectronicKeysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListElectronicKeys, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListElectronicKeysResponse> ListElectronicKeysAsync(ListElectronicKeysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListElectronicKeys, null, options, request);
             /// <summary>
             /// Update an electronic key
             ///
@@ -317,7 +286,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ElectronicKey UpdateElectronicKey(UpdateElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ElectronicKey UpdateElectronicKey(UpdateElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an electronic key
             ///
@@ -337,11 +306,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> UpdateElectronicKeyAsync(UpdateElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> UpdateElectronicKeyAsync(UpdateElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an electronic key
             ///
@@ -350,11 +315,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ElectronicKey> UpdateElectronicKeyAsync(UpdateElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ElectronicKey> UpdateElectronicKeyAsync(UpdateElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateElectronicKey, null, options, request);
             /// <summary>
             /// Delete an electronic key
             ///
@@ -365,7 +326,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteElectronicKey(DeleteElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteElectronicKey(DeleteElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an electronic key
             ///
@@ -385,11 +346,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicKeyAsync(DeleteElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicKeyAsync(DeleteElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an electronic key
             ///
@@ -398,11 +355,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicKeyAsync(DeleteElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteElectronicKeyAsync(DeleteElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteElectronicKey, null, options, request);
             /// <summary>
             /// Bind an electronic key
             ///
@@ -415,7 +368,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindElectronicKeyResponse BindElectronicKey(BindElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindElectronicKeyResponse BindElectronicKey(BindElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an electronic key
             ///
@@ -439,11 +392,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindElectronicKeyResponse> BindElectronicKeyAsync(BindElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindElectronicKeyResponse> BindElectronicKeyAsync(BindElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an electronic key
             ///
@@ -454,11 +403,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindElectronicKeyResponse> BindElectronicKeyAsync(BindElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindElectronicKeyResponse> BindElectronicKeyAsync(BindElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindElectronicKey, null, options, request);
             /// <summary>
             /// Unbind an electronic key
             ///
@@ -475,7 +420,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindElectronicKeyResponse UnbindElectronicKey(UnbindElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindElectronicKeyResponse UnbindElectronicKey(UnbindElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an electronic key
             ///
@@ -507,11 +452,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindElectronicKeyResponse> UnbindElectronicKeyAsync(UnbindElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindElectronicKeyResponse> UnbindElectronicKeyAsync(UnbindElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an electronic key
             ///
@@ -526,11 +467,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindElectronicKeyResponse> UnbindElectronicKeyAsync(UnbindElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindElectronicKeyResponse> UnbindElectronicKeyAsync(UnbindElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindElectronicKey, null, options, request);
             /// <summary>
             /// Initialize an electronic key
             ///
@@ -542,7 +479,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeElectronicKey(InitializeElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeElectronicKey(InitializeElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an electronic key
             ///
@@ -564,11 +501,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicKeyAsync(InitializeElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicKeyAsync(InitializeElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an electronic key
             ///
@@ -578,11 +511,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicKeyAsync(InitializeElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeElectronicKeyAsync(InitializeElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeElectronicKey, null, options, request);
             /// <summary>
             /// Configure an electronic key
             ///
@@ -595,7 +524,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureElectronicKey(ConfigureElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureElectronicKey(ConfigureElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an electronic key
             ///
@@ -619,11 +548,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicKeyAsync(ConfigureElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicKeyAsync(ConfigureElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an electronic key
             ///
@@ -634,11 +559,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicKeyAsync(ConfigureElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureElectronicKeyAsync(ConfigureElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureElectronicKey, null, options, request);
             /// <summary>
             /// Reset an electronic key
             ///
@@ -652,7 +573,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetElectronicKey(ResetElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetElectronicKey(ResetElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetElectronicKey(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an electronic key
             ///
@@ -678,11 +599,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicKeyAsync(ResetElectronicKeyRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicKeyAsync(ResetElectronicKeyRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetElectronicKeyAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an electronic key
             ///
@@ -694,11 +611,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicKeyAsync(ResetElectronicKeyRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetElectronicKey, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetElectronicKeyAsync(ResetElectronicKeyRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetElectronicKey, null, options, request);
             /// <summary>
             /// Generate authorization token for an electronic key
             ///
@@ -710,7 +623,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate authorization token for an electronic key
             ///
@@ -732,11 +645,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate authorization token for an electronic key
             ///
@@ -746,11 +655,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate electronic key firmware download URI
             ///
@@ -763,7 +668,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate electronic key firmware download URI
             ///
@@ -787,11 +692,7 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate electronic key firmware download URI
             ///
@@ -802,18 +703,9 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override ElectronicKeyServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

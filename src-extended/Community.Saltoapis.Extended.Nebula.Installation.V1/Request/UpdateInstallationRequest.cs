@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<UpdateInstallationRequest> _parser = new(() => new UpdateInstallationRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateInstallationRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateInstallationRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[12]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[12];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateInstallationRequest()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "installation" field.</summary>
         public const int InstallationFieldNumber = 1;
         private Installation installation_;
-
         /// <summary>
         /// The installation resource which replaces the resource on the server.
         /// </summary>
         public Installation Installation
         {
-            get { return installation_; }
-            set
-            {
-                installation_ = value;
-            }
-        }
-
+            get => installation_; set => installation_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateInstallationRequest);
         public bool Equals(UpdateInstallationRequest other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (installation_ != null) {
+      if (installation_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Installation);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (installation_ == null) {
+          case 10:
+          {
+            if (installation_ == null)
+            {
               Installation = new Saltoapis.Nebula.Installation.V1.Installation();
             }
             input.ReadMessage(Installation);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -218,8 +213,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Salto.Nebula.EmergencyKey.V1.Request
         private static readonly MessageParser<UpdateEmergencyKeyRequest> _parser = new(() => new UpdateEmergencyKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateEmergencyKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateEmergencyKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EmergencyKeyReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => EmergencyKeyReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateEmergencyKeyRequest()
         {
@@ -41,34 +39,21 @@ namespace Salto.Nebula.EmergencyKey.V1.Request
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 1;
         private EmergencyKey emergencyKey_;
-
         /// <summary>
         /// The emergency key resource which replaces the resource on the server.
         /// </summary>
         public EmergencyKey EmergencyKey
         {
-            get { return emergencyKey_; }
-            set
-            {
-                emergencyKey_ = value;
-            }
-        }
-
+            get => emergencyKey_; set => emergencyKey_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateEmergencyKeyRequest);
         public bool Equals(UpdateEmergencyKeyRequest other)
@@ -94,15 +79,18 @@ namespace Salto.Nebula.EmergencyKey.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (emergencyKey_ != null) {
+      if (emergencyKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(EmergencyKey);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Salto.Nebula.EmergencyKey.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (emergencyKey_ == null) {
+          case 10:
+          {
+            if (emergencyKey_ == null)
+            {
               EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
             }
             input.ReadMessage(EmergencyKey);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -216,6 +211,5 @@ namespace Salto.Nebula.EmergencyKey.V1.Request
             }
         }
 #endif
-
     }
 }

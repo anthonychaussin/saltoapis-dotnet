@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Controller.V1.Request
         private static readonly MessageParser<UpdateControllerRequest> _parser = new(() => new UpdateControllerRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateControllerRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateControllerRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ControllerReflection.Descriptor.MessageTypes[6]; }
-        }
+            get => ControllerReflection.Descriptor.MessageTypes[6];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateControllerRequest()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.Controller.V1.Request
         /// <summary>Field number for the "controller" field.</summary>
         public const int ControllerFieldNumber = 1;
         private Controller controller_;
-
         /// <summary>
         /// The controller resource which replaces the resource on the server.
         /// </summary>
         public Controller Controller
         {
-            get { return controller_; }
-            set
-            {
-                controller_ = value;
-            }
-        }
-
+            get => controller_; set => controller_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateControllerRequest);
         public bool Equals(UpdateControllerRequest other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.Controller.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (controller_ != null) {
+      if (controller_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Controller);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Saltoapis.Nebula.Controller.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (controller_ == null) {
+          case 10:
+          {
+            if (controller_ == null)
+            {
               Controller = new Saltoapis.Nebula.Controller.V1.Controller();
             }
             input.ReadMessage(Controller);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -218,8 +213,6 @@ namespace Saltoapis.Nebula.Controller.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

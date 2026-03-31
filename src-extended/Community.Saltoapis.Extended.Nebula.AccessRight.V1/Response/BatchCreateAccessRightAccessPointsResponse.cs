@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Response
         private static readonly MessageParser<BatchCreateAccessRightAccessPointsResponse> _parser = new(() => new BatchCreateAccessRightAccessPointsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchCreateAccessRightAccessPointsResponse> Parser { get { return _parser; } }
+        public static MessageParser<BatchCreateAccessRightAccessPointsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[12]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[12];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchCreateAccessRightAccessPointsResponse()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.AccessRight.V1.Response
         private static readonly FieldCodec<AccessRightAccessPoint> _repeated_accessRightAccessPoints_codec
             = FieldCodec.ForMessage(10, AccessRightAccessPoint.Parser);
         private readonly RepeatedField<AccessRightAccessPoint> accessRightAccessPoints_ = [];
-
         /// <summary>
         /// Access right access points created.
         /// </summary>
         public RepeatedField<AccessRightAccessPoint> AccessRightAccessPoints
         {
-            get { return accessRightAccessPoints_; }
-        }
+            get => accessRightAccessPoints_;}
 
         public override bool Equals(object other) => Equals(other as BatchCreateAccessRightAccessPointsResponse);
         public bool Equals(BatchCreateAccessRightAccessPointsResponse other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.AccessRight.V1.Response
             output.WriteRawMessage(this);
 #else
       accessRightAccessPoints_.WriteTo(output, _repeated_accessRightAccessPoints_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.AccessRight.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             accessRightAccessPoints_.AddEntriesFrom(input, _repeated_accessRightAccessPoints_codec);
             break;
           }
@@ -155,8 +156,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

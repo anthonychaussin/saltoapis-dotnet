@@ -1,15 +1,12 @@
 namespace Saltoapis.Nebula.Event.V1
 {
-
     /// <summary>Holder for reflection information generated from salto/nebula/event/v1/types.proto</summary>
     public static partial class TypesReflection
     {
-
         /// <summary>File descriptor for salto/nebula/event/v1/types.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -272,7 +269,6 @@ namespace Saltoapis.Nebula.Event.V1
             new(typeof(BookingCheckedOut), BookingCheckedOut.Parser, ["Booking", "Actor"], null, null, null, null)
                 ]));
         }
-
     }
     /// <summary>
     /// Represents the principal entity that initiated or performed an action
@@ -291,17 +287,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<Principal> _parser = new(() => new Principal());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Principal> Parser { get { return _parser; } }
+        public static MessageParser<Principal> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Principal()
         {
@@ -325,7 +319,6 @@ namespace Saltoapis.Nebula.Event.V1
         public Principal Clone() => new(this);
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
-
         /// <summary>
         /// A user represents a human actor within the system.
         /// </summary>
@@ -340,7 +333,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object type_;
-
         /// <summary>Enum of possible cases for the "type" oneof.</summary>
         public enum TypeOneofCase
         {
@@ -352,8 +344,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public TypeOneofCase TypeCase
         {
-            get { return typeCase_; }
-        }
+            get => typeCase_;}
 
         public void ClearType()
         {
@@ -385,11 +376,13 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (typeCase_ == TypeOneofCase.User) {
+      if (typeCase_ == TypeOneofCase.User)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -436,18 +429,23 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Saltoapis.Nebula.User.V1.User subBuilder = new Saltoapis.Nebula.User.V1.User();
-            if (typeCase_ == TypeOneofCase.User) {
+            if (typeCase_ == TypeOneofCase.User)
+            {
               subBuilder.MergeFrom(User);
             }
             input.ReadMessage(subBuilder);
@@ -488,9 +486,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// A reusable container that holds the previous values of any fields that were
     /// changed during an update operation. This message is designed to be generic
@@ -506,17 +502,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<PreviousValues> _parser = new(() => new PreviousValues());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<PreviousValues> Parser { get { return _parser; } }
+        public static MessageParser<PreviousValues> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public PreviousValues()
         {
@@ -537,7 +531,6 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MapField<string, Google.Protobuf.WellKnownTypes.Value>.Codec _map_values_codec
             = new(FieldCodec.ForString(10, ""), FieldCodec.ForMessage(18, Google.Protobuf.WellKnownTypes.Value.Parser), 10);
         private readonly MapField<string, Google.Protobuf.WellKnownTypes.Value> values_ = [];
-
         /// <summary>
         /// A map where the key is the field name of the changed attribute (for
         /// example, "display_name") and the value is the field's value before the
@@ -546,8 +539,7 @@ namespace Saltoapis.Nebula.Event.V1
         /// </summary>
         public MapField<string, Google.Protobuf.WellKnownTypes.Value> Values
         {
-            get { return values_; }
-        }
+            get => values_;}
 
         public override bool Equals(object other) => Equals(other as PreviousValues);
         public bool Equals(PreviousValues other)
@@ -573,7 +565,8 @@ namespace Saltoapis.Nebula.Event.V1
             output.WriteRawMessage(this);
 #else
       values_.WriteTo(output, _map_values_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -609,16 +602,20 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             values_.AddEntriesFrom(input, _map_values_codec);
             break;
           }
@@ -653,9 +650,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of an access point.
     /// </summary>
@@ -667,17 +662,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointCreated> _parser = new(() => new AccessPointCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointCreated> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[2]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[2];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointCreated()
         {
@@ -697,34 +690,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// Access point created.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the access point.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointCreated);
         public bool Equals(AccessPointCreated other)
@@ -750,15 +730,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -813,24 +796,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -874,9 +864,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of an access point.
     /// </summary>
@@ -888,17 +876,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointUpdated> _parser = new(() => new AccessPointUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointUpdated> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointUpdated()
         {
@@ -919,58 +905,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// Access point updated.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the access point.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
-
+            get => actor_; set => actor_ = value;}
         /// <summary>Field number for the "previous_values" field.</summary>
         public const int PreviousValuesFieldNumber = 3;
         private PreviousValues previousValues_;
-
         /// <summary>
         /// The previous values of the access point's fields that were changed.
         /// </summary>
         public PreviousValues PreviousValues
         {
-            get { return previousValues_; }
-            set
-            {
-                previousValues_ = value;
-            }
-        }
+            get => previousValues_; set => previousValues_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointUpdated);
         public bool Equals(AccessPointUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Actor, other.Actor))) return false;
-            if (!Equals(PreviousValues, other.PreviousValues)) return false;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Actor, other.Actor)) || !Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -990,19 +955,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (previousValues_ != null) {
+      if (previousValues_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(PreviousValues);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -1068,31 +1037,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
             break;
           }
-          case 26: {
-            if (previousValues_ == null) {
+          case 26:
+          {
+            if (previousValues_ == null)
+            {
               PreviousValues = new Saltoapis.Nebula.Event.V1.PreviousValues();
             }
             input.ReadMessage(PreviousValues);
@@ -1142,9 +1120,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of an access point.
     /// </summary>
@@ -1156,17 +1132,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointDeleted> _parser = new(() => new AccessPointDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointDeleted> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointDeleted()
         {
@@ -1186,34 +1160,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// Access point deleted.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the access point.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointDeleted);
         public bool Equals(AccessPointDeleted other)
@@ -1239,15 +1200,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -1302,24 +1266,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -1363,9 +1334,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the unlocking of an access point.
     /// </summary>
@@ -1377,17 +1346,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointUnlocked> _parser = new(() => new AccessPointUnlocked());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointUnlocked> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointUnlocked> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointUnlocked()
         {
@@ -1430,38 +1397,23 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point that's been unlocked.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 2;
         private User.V1.User user_;
-
         /// <summary>
         /// The user who unlocked the access point, if any.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 3;
-
         /// <summary>
         /// The emergency key used to unlock the access point.
         /// </summary>
@@ -1474,10 +1426,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.EmergencyKey;
             }
         }
-
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 4;
-
         /// <summary>
         /// The card key used to unlock the access point.
         /// </summary>
@@ -1490,10 +1440,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.CardKey;
             }
         }
-
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 5;
-
         /// <summary>
         /// The app key used to unlock the access point.
         /// </summary>
@@ -1506,10 +1454,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.AppKey;
             }
         }
-
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 6;
-
         /// <summary>
         /// The wallet key used to unlock the access point.
         /// </summary>
@@ -1522,10 +1468,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.WalletKey;
             }
         }
-
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 7;
-
         /// <summary>
         /// The passcode used to unlock the access point.
         /// </summary>
@@ -1538,10 +1482,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.Passcode;
             }
         }
-
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 9;
-
         /// <summary>
         /// The electronic key used to unlock the access point.
         /// </summary>
@@ -1554,25 +1496,17 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.ElectronicKey;
             }
         }
-
         /// <summary>Field number for the "direction" field.</summary>
         public const int DirectionFieldNumber = 8;
         private Types.Direction direction_ = Types.Direction.Unspecified;
-
         /// <summary>
         /// Indicates the direction of passage for this unlock event.
         /// </summary>
         public Types.Direction Direction
         {
-            get { return direction_; }
-            set
-            {
-                direction_ = value;
-            }
-        }
+            get => direction_; set => direction_ = value;}
 
         private object credential_;
-
         /// <summary>Enum of possible cases for the "credential" oneof.</summary>
         public enum CredentialOneofCase
         {
@@ -1589,8 +1523,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public CredentialOneofCase CredentialCase
         {
-            get { return credentialCase_; }
-        }
+            get => credentialCase_;}
 
         public void ClearCredential()
         {
@@ -1603,11 +1536,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User))) return false;
-            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
-            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if ((Direction != other.Direction) || (CredentialCase != other.CredentialCase)) return false;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User)) || (!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey)) || (!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey)) || (!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey)) || (Direction != other.Direction) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1634,43 +1563,53 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(User);
       }
-      if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+      if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EmergencyKey);
       }
-      if (credentialCase_ == CredentialOneofCase.CardKey) {
+      if (credentialCase_ == CredentialOneofCase.CardKey)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(CardKey);
       }
-      if (credentialCase_ == CredentialOneofCase.AppKey) {
+      if (credentialCase_ == CredentialOneofCase.AppKey)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(AppKey);
       }
-      if (credentialCase_ == CredentialOneofCase.WalletKey) {
+      if (credentialCase_ == CredentialOneofCase.WalletKey)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(WalletKey);
       }
-      if (credentialCase_ == CredentialOneofCase.Passcode) {
+      if (credentialCase_ == CredentialOneofCase.Passcode)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(Passcode);
       }
-      if (Direction != Saltoapis.Nebula.Event.V1.AccessPointUnlocked.Types.Direction.Unspecified) {
+      if (Direction != Saltoapis.Nebula.Event.V1.AccessPointUnlocked.Types.Direction.Unspecified)
+      {
         output.WriteRawTag(64);
         output.WriteEnum((int) Direction);
       }
-      if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+      if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+      {
         output.WriteRawTag(74);
         output.WriteMessage(ElectronicKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -1796,81 +1735,101 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 18: {
-            if (user_ == null) {
+          case 18:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 26: {
+          case 26:
+          {
             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+            {
               subBuilder.MergeFrom(EmergencyKey);
             }
             input.ReadMessage(subBuilder);
             EmergencyKey = subBuilder;
             break;
           }
-          case 34: {
+          case 34:
+          {
             Saltoapis.Nebula.User.V1.CardKey subBuilder = new Saltoapis.Nebula.User.V1.CardKey();
-            if (credentialCase_ == CredentialOneofCase.CardKey) {
+            if (credentialCase_ == CredentialOneofCase.CardKey)
+            {
               subBuilder.MergeFrom(CardKey);
             }
             input.ReadMessage(subBuilder);
             CardKey = subBuilder;
             break;
           }
-          case 42: {
+          case 42:
+          {
             Saltoapis.Nebula.User.V1.AppKey subBuilder = new Saltoapis.Nebula.User.V1.AppKey();
-            if (credentialCase_ == CredentialOneofCase.AppKey) {
+            if (credentialCase_ == CredentialOneofCase.AppKey)
+            {
               subBuilder.MergeFrom(AppKey);
             }
             input.ReadMessage(subBuilder);
             AppKey = subBuilder;
             break;
           }
-          case 50: {
+          case 50:
+          {
             Saltoapis.Nebula.User.V1.WalletKey subBuilder = new Saltoapis.Nebula.User.V1.WalletKey();
-            if (credentialCase_ == CredentialOneofCase.WalletKey) {
+            if (credentialCase_ == CredentialOneofCase.WalletKey)
+            {
               subBuilder.MergeFrom(WalletKey);
             }
             input.ReadMessage(subBuilder);
             WalletKey = subBuilder;
             break;
           }
-          case 58: {
+          case 58:
+          {
             Saltoapis.Nebula.User.V1.Passcode subBuilder = new Saltoapis.Nebula.User.V1.Passcode();
-            if (credentialCase_ == CredentialOneofCase.Passcode) {
+            if (credentialCase_ == CredentialOneofCase.Passcode)
+            {
               subBuilder.MergeFrom(Passcode);
             }
             input.ReadMessage(subBuilder);
             Passcode = subBuilder;
             break;
           }
-          case 64: {
+          case 64:
+          {
             Direction = (Saltoapis.Nebula.Event.V1.AccessPointUnlocked.Types.Direction) input.ReadEnum();
             break;
           }
-          case 74: {
+          case 74:
+          {
             Saltoapis.Nebula.User.V1.ElectronicKey subBuilder = new Saltoapis.Nebula.User.V1.ElectronicKey();
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+            {
               subBuilder.MergeFrom(ElectronicKey);
             }
             input.ReadMessage(subBuilder);
@@ -1968,7 +1927,6 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the AccessPointUnlocked message type.</summary>
         public static partial class Types
         {
@@ -1990,11 +1948,8 @@ namespace Saltoapis.Nebula.Event.V1
                 /// </summary>
                 [OriginalName("EXIT")] Exit = 2,
             }
-
         }
-
     }
-
     /// <summary>
     /// Event representing the locking of an access point.
     /// </summary>
@@ -2006,17 +1961,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointLocked> _parser = new(() => new AccessPointLocked());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointLocked> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointLocked> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[6]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[6];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointLocked()
         {
@@ -2058,38 +2011,23 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point that's been locked.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 2;
         private User.V1.User user_;
-
         /// <summary>
         /// The user who locked the access point, if any.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 3;
-
         /// <summary>
         /// The emergency key used to lock the access point.
         /// </summary>
@@ -2102,10 +2040,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.EmergencyKey;
             }
         }
-
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 4;
-
         /// <summary>
         /// The card key used to lock the access point.
         /// </summary>
@@ -2118,10 +2054,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.CardKey;
             }
         }
-
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 5;
-
         /// <summary>
         /// The app key used to lock the access point.
         /// </summary>
@@ -2134,10 +2068,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.AppKey;
             }
         }
-
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 6;
-
         /// <summary>
         /// The wallet key used to lock the access point.
         /// </summary>
@@ -2150,10 +2082,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.WalletKey;
             }
         }
-
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 7;
-
         /// <summary>
         /// The passcode used to lock the access point.
         /// </summary>
@@ -2166,10 +2096,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.Passcode;
             }
         }
-
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 8;
-
         /// <summary>
         /// The electronic key used to lock the access point.
         /// </summary>
@@ -2184,7 +2112,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object credential_;
-
         /// <summary>Enum of possible cases for the "credential" oneof.</summary>
         public enum CredentialOneofCase
         {
@@ -2201,8 +2128,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public CredentialOneofCase CredentialCase
         {
-            get { return credentialCase_; }
-        }
+            get => credentialCase_;}
 
         public void ClearCredential()
         {
@@ -2215,11 +2141,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User))) return false;
-            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
-            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if (CredentialCase != other.CredentialCase) return false;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User)) || (!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey)) || (!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey)) || (!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey)) || CredentialCase != other.CredentialCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2245,39 +2167,48 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(User);
       }
-      if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+      if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EmergencyKey);
       }
-      if (credentialCase_ == CredentialOneofCase.CardKey) {
+      if (credentialCase_ == CredentialOneofCase.CardKey)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(CardKey);
       }
-      if (credentialCase_ == CredentialOneofCase.AppKey) {
+      if (credentialCase_ == CredentialOneofCase.AppKey)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(AppKey);
       }
-      if (credentialCase_ == CredentialOneofCase.WalletKey) {
+      if (credentialCase_ == CredentialOneofCase.WalletKey)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(WalletKey);
       }
-      if (credentialCase_ == CredentialOneofCase.Passcode) {
+      if (credentialCase_ == CredentialOneofCase.Passcode)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(Passcode);
       }
-      if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+      if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(ElectronicKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -2396,77 +2327,96 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 18: {
-            if (user_ == null) {
+          case 18:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 26: {
+          case 26:
+          {
             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+            {
               subBuilder.MergeFrom(EmergencyKey);
             }
             input.ReadMessage(subBuilder);
             EmergencyKey = subBuilder;
             break;
           }
-          case 34: {
+          case 34:
+          {
             Saltoapis.Nebula.User.V1.CardKey subBuilder = new Saltoapis.Nebula.User.V1.CardKey();
-            if (credentialCase_ == CredentialOneofCase.CardKey) {
+            if (credentialCase_ == CredentialOneofCase.CardKey)
+            {
               subBuilder.MergeFrom(CardKey);
             }
             input.ReadMessage(subBuilder);
             CardKey = subBuilder;
             break;
           }
-          case 42: {
+          case 42:
+          {
             Saltoapis.Nebula.User.V1.AppKey subBuilder = new Saltoapis.Nebula.User.V1.AppKey();
-            if (credentialCase_ == CredentialOneofCase.AppKey) {
+            if (credentialCase_ == CredentialOneofCase.AppKey)
+            {
               subBuilder.MergeFrom(AppKey);
             }
             input.ReadMessage(subBuilder);
             AppKey = subBuilder;
             break;
           }
-          case 50: {
+          case 50:
+          {
             Saltoapis.Nebula.User.V1.WalletKey subBuilder = new Saltoapis.Nebula.User.V1.WalletKey();
-            if (credentialCase_ == CredentialOneofCase.WalletKey) {
+            if (credentialCase_ == CredentialOneofCase.WalletKey)
+            {
               subBuilder.MergeFrom(WalletKey);
             }
             input.ReadMessage(subBuilder);
             WalletKey = subBuilder;
             break;
           }
-          case 58: {
+          case 58:
+          {
             Saltoapis.Nebula.User.V1.Passcode subBuilder = new Saltoapis.Nebula.User.V1.Passcode();
-            if (credentialCase_ == CredentialOneofCase.Passcode) {
+            if (credentialCase_ == CredentialOneofCase.Passcode)
+            {
               subBuilder.MergeFrom(Passcode);
             }
             input.ReadMessage(subBuilder);
             Passcode = subBuilder;
             break;
           }
-          case 66: {
+          case 66:
+          {
             Saltoapis.Nebula.User.V1.ElectronicKey subBuilder = new Saltoapis.Nebula.User.V1.ElectronicKey();
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+            {
               subBuilder.MergeFrom(ElectronicKey);
             }
             input.ReadMessage(subBuilder);
@@ -2559,9 +2509,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing a forced open of an access point.
     /// </summary>
@@ -2573,17 +2521,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointForcedOpen> _parser = new(() => new AccessPointForcedOpen());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointForcedOpen> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointForcedOpen> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[7]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[7];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointForcedOpen()
         {
@@ -2602,18 +2548,12 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point that's been forced open.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
+            get => accessPoint_; set => accessPoint_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointForcedOpen);
         public bool Equals(AccessPointForcedOpen other)
@@ -2638,11 +2578,13 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -2686,17 +2628,22 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
@@ -2734,9 +2681,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the closing of an access point.
     /// This event might not be triggered with all access point closures, but only
@@ -2751,17 +2696,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointClosed> _parser = new(() => new AccessPointClosed());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointClosed> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointClosed> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[8]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[8];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointClosed()
         {
@@ -2780,18 +2723,12 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point that's been closed.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
+            get => accessPoint_; set => accessPoint_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointClosed);
         public bool Equals(AccessPointClosed other)
@@ -2816,11 +2753,13 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -2864,17 +2803,22 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
@@ -2912,9 +2856,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing a denied access to a user by an access point.
     /// </summary>
@@ -2926,17 +2868,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessDenied> _parser = new(() => new AccessDenied());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessDenied> Parser { get { return _parser; } }
+        public static MessageParser<AccessDenied> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[9]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[9];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessDenied()
         {
@@ -2987,7 +2927,6 @@ namespace Saltoapis.Nebula.Event.V1
         public AccessDenied Clone() => new(this);
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
-
         /// <summary>
         /// Access denied by the access point.
         /// </summary>
@@ -3000,10 +2939,8 @@ namespace Saltoapis.Nebula.Event.V1
                 sourceCase_ = value == null ? SourceOneofCase.None : SourceOneofCase.AccessPoint;
             }
         }
-
         /// <summary>Field number for the "controller" field.</summary>
         public const int ControllerFieldNumber = 10;
-
         /// <summary>
         /// Access denied by the controller.
         /// </summary>
@@ -3016,42 +2953,26 @@ namespace Saltoapis.Nebula.Event.V1
                 sourceCase_ = value == null ? SourceOneofCase.None : SourceOneofCase.Controller;
             }
         }
-
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 2;
         private User.V1.User user_;
-
         /// <summary>
         /// The user whose access was rejected.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "reason" field.</summary>
         public const int ReasonFieldNumber = 3;
         private Types.Reason reason_ = Types.Reason.Unspecified;
-
         /// <summary>
         /// The reason for the access denial.
         /// </summary>
         public Types.Reason Reason
         {
-            get { return reason_; }
-            set
-            {
-                reason_ = value;
-            }
-        }
-
+            get => reason_; set => reason_ = value;}
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 4;
-
         /// <summary>
         /// The emergency key used to attempt access to the access point.
         /// </summary>
@@ -3064,10 +2985,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.EmergencyKey;
             }
         }
-
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 5;
-
         /// <summary>
         /// The card key used to attempt access to the access point.
         /// </summary>
@@ -3080,10 +2999,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.CardKey;
             }
         }
-
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 6;
-
         /// <summary>
         /// The app key used to attempt access to the access point.
         /// </summary>
@@ -3096,10 +3013,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.AppKey;
             }
         }
-
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 7;
-
         /// <summary>
         /// The wallet key used to attempt access to the access point.
         /// </summary>
@@ -3112,10 +3027,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.WalletKey;
             }
         }
-
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 8;
-
         /// <summary>
         /// The passcode used to attempt access to the access point.
         /// </summary>
@@ -3128,10 +3041,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.Passcode;
             }
         }
-
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 9;
-
         /// <summary>
         /// The electronic key used to attempt access to the access point.
         /// </summary>
@@ -3146,7 +3057,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object source_;
-
         /// <summary>Enum of possible cases for the "source" oneof.</summary>
         public enum SourceOneofCase
         {
@@ -3159,8 +3069,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public SourceOneofCase SourceCase
         {
-            get { return sourceCase_; }
-        }
+            get => sourceCase_;}
 
         public void ClearSource()
         {
@@ -3169,7 +3078,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object credential_;
-
         /// <summary>Enum of possible cases for the "credential" oneof.</summary>
         public enum CredentialOneofCase
         {
@@ -3186,8 +3094,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public CredentialOneofCase CredentialCase
         {
-            get { return credentialCase_; }
-        }
+            get => credentialCase_;}
 
         public void ClearCredential()
         {
@@ -3200,12 +3107,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Controller, other.Controller))) return false;
-            if ((!Equals(User, other.User)) || (Reason != other.Reason)) return false;
-            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
-            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if ((SourceCase != other.SourceCase) || (CredentialCase != other.CredentialCase)) return false;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Controller, other.Controller)) || (!Equals(User, other.User)) || (Reason != other.Reason) || (!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey)) || (!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey)) || (!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey)) || (SourceCase != other.SourceCase) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -3234,47 +3136,58 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (sourceCase_ == SourceOneofCase.AccessPoint) {
+      if (sourceCase_ == SourceOneofCase.AccessPoint)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(User);
       }
-      if (Reason != Saltoapis.Nebula.Event.V1.AccessDenied.Types.Reason.Unspecified) {
+      if (Reason != Saltoapis.Nebula.Event.V1.AccessDenied.Types.Reason.Unspecified)
+      {
         output.WriteRawTag(24);
         output.WriteEnum((int) Reason);
       }
-      if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+      if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(EmergencyKey);
       }
-      if (credentialCase_ == CredentialOneofCase.CardKey) {
+      if (credentialCase_ == CredentialOneofCase.CardKey)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(CardKey);
       }
-      if (credentialCase_ == CredentialOneofCase.AppKey) {
+      if (credentialCase_ == CredentialOneofCase.AppKey)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(AppKey);
       }
-      if (credentialCase_ == CredentialOneofCase.WalletKey) {
+      if (credentialCase_ == CredentialOneofCase.WalletKey)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(WalletKey);
       }
-      if (credentialCase_ == CredentialOneofCase.Passcode) {
+      if (credentialCase_ == CredentialOneofCase.Passcode)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(Passcode);
       }
-      if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+      if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+      {
         output.WriteRawTag(74);
         output.WriteMessage(ElectronicKey);
       }
-      if (sourceCase_ == SourceOneofCase.Controller) {
+      if (sourceCase_ == SourceOneofCase.Controller)
+      {
         output.WriteRawTag(82);
         output.WriteMessage(Controller);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -3413,92 +3326,114 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Saltoapis.Nebula.AccessPoint.V1.AccessPoint subBuilder = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
-            if (sourceCase_ == SourceOneofCase.AccessPoint) {
+            if (sourceCase_ == SourceOneofCase.AccessPoint)
+            {
               subBuilder.MergeFrom(AccessPoint);
             }
             input.ReadMessage(subBuilder);
             AccessPoint = subBuilder;
             break;
           }
-          case 18: {
-            if (user_ == null) {
+          case 18:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 24: {
+          case 24:
+          {
             Reason = (Saltoapis.Nebula.Event.V1.AccessDenied.Types.Reason) input.ReadEnum();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+            {
               subBuilder.MergeFrom(EmergencyKey);
             }
             input.ReadMessage(subBuilder);
             EmergencyKey = subBuilder;
             break;
           }
-          case 42: {
+          case 42:
+          {
             Saltoapis.Nebula.User.V1.CardKey subBuilder = new Saltoapis.Nebula.User.V1.CardKey();
-            if (credentialCase_ == CredentialOneofCase.CardKey) {
+            if (credentialCase_ == CredentialOneofCase.CardKey)
+            {
               subBuilder.MergeFrom(CardKey);
             }
             input.ReadMessage(subBuilder);
             CardKey = subBuilder;
             break;
           }
-          case 50: {
+          case 50:
+          {
             Saltoapis.Nebula.User.V1.AppKey subBuilder = new Saltoapis.Nebula.User.V1.AppKey();
-            if (credentialCase_ == CredentialOneofCase.AppKey) {
+            if (credentialCase_ == CredentialOneofCase.AppKey)
+            {
               subBuilder.MergeFrom(AppKey);
             }
             input.ReadMessage(subBuilder);
             AppKey = subBuilder;
             break;
           }
-          case 58: {
+          case 58:
+          {
             Saltoapis.Nebula.User.V1.WalletKey subBuilder = new Saltoapis.Nebula.User.V1.WalletKey();
-            if (credentialCase_ == CredentialOneofCase.WalletKey) {
+            if (credentialCase_ == CredentialOneofCase.WalletKey)
+            {
               subBuilder.MergeFrom(WalletKey);
             }
             input.ReadMessage(subBuilder);
             WalletKey = subBuilder;
             break;
           }
-          case 66: {
+          case 66:
+          {
             Saltoapis.Nebula.User.V1.Passcode subBuilder = new Saltoapis.Nebula.User.V1.Passcode();
-            if (credentialCase_ == CredentialOneofCase.Passcode) {
+            if (credentialCase_ == CredentialOneofCase.Passcode)
+            {
               subBuilder.MergeFrom(Passcode);
             }
             input.ReadMessage(subBuilder);
             Passcode = subBuilder;
             break;
           }
-          case 74: {
+          case 74:
+          {
             Saltoapis.Nebula.User.V1.ElectronicKey subBuilder = new Saltoapis.Nebula.User.V1.ElectronicKey();
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+            {
               subBuilder.MergeFrom(ElectronicKey);
             }
             input.ReadMessage(subBuilder);
             ElectronicKey = subBuilder;
             break;
           }
-          case 82: {
+          case 82:
+          {
             Saltoapis.Nebula.Controller.V1.Controller subBuilder = new Saltoapis.Nebula.Controller.V1.Controller();
-            if (sourceCase_ == SourceOneofCase.Controller) {
+            if (sourceCase_ == SourceOneofCase.Controller)
+            {
               subBuilder.MergeFrom(Controller);
             }
             input.ReadMessage(subBuilder);
@@ -3606,7 +3541,6 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the AccessDenied message type.</summary>
         public static partial class Types
         {
@@ -3671,11 +3605,8 @@ namespace Saltoapis.Nebula.Event.V1
                 /// </summary>
                 [OriginalName("CREDENTIAL_DO_NOT_DISTURB_OVERRIDE_PERMISSION_NOT_PRESENT")] CredentialDoNotDisturbOverridePermissionNotPresent = 8,
             }
-
         }
-
     }
-
     /// <summary>
     /// Event representing the detection of an access point that's been left open.
     /// </summary>
@@ -3687,17 +3618,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessPointLeftOpen> _parser = new(() => new AccessPointLeftOpen());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessPointLeftOpen> Parser { get { return _parser; } }
+        public static MessageParser<AccessPointLeftOpen> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[10]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[10];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessPointLeftOpen()
         {
@@ -3716,18 +3645,12 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 1;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// The access point that's been left open.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
+            get => accessPoint_; set => accessPoint_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessPointLeftOpen);
         public bool Equals(AccessPointLeftOpen other)
@@ -3752,11 +3675,13 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessPoint);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -3800,17 +3725,22 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessPoint_ == null) {
+          case 10:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
@@ -3848,9 +3778,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of an access right.
     /// </summary>
@@ -3862,17 +3790,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightCreated> _parser = new(() => new AccessRightCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightCreated> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[11]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[11];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightCreated()
         {
@@ -3892,34 +3818,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// Access right created.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the access right.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightCreated);
         public bool Equals(AccessRightCreated other)
@@ -3945,15 +3858,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -4008,24 +3924,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -4069,9 +3992,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of an access right.
     /// </summary>
@@ -4083,17 +4004,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightUpdated> _parser = new(() => new AccessRightUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightUpdated> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[12]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[12];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightUpdated()
         {
@@ -4114,58 +4033,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// Access right updated.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the access right.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
-
+            get => actor_; set => actor_ = value;}
         /// <summary>Field number for the "previous_values" field.</summary>
         public const int PreviousValuesFieldNumber = 3;
         private PreviousValues previousValues_;
-
         /// <summary>
         /// The previous values of the access right's fields that were changed.
         /// </summary>
         public PreviousValues PreviousValues
         {
-            get { return previousValues_; }
-            set
-            {
-                previousValues_ = value;
-            }
-        }
+            get => previousValues_; set => previousValues_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightUpdated);
         public bool Equals(AccessRightUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(Actor, other.Actor))) return false;
-            if (!Equals(PreviousValues, other.PreviousValues)) return false;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(Actor, other.Actor)) || !Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -4185,19 +4083,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (previousValues_ != null) {
+      if (previousValues_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(PreviousValues);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -4263,31 +4165,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
             break;
           }
-          case 26: {
-            if (previousValues_ == null) {
+          case 26:
+          {
+            if (previousValues_ == null)
+            {
               PreviousValues = new Saltoapis.Nebula.Event.V1.PreviousValues();
             }
             input.ReadMessage(PreviousValues);
@@ -4337,9 +4248,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of an access right.
     /// </summary>
@@ -4351,17 +4260,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightDeleted> _parser = new(() => new AccessRightDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightDeleted> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[13]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[13];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightDeleted()
         {
@@ -4381,34 +4288,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// Access right deleted.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the access right.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightDeleted);
         public bool Equals(AccessRightDeleted other)
@@ -4434,15 +4328,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -4497,24 +4394,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -4558,9 +4462,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of an access right's access point association.
     /// </summary>
@@ -4572,17 +4474,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightAccessPointCreated> _parser = new(() => new AccessRightAccessPointCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightAccessPointCreated> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightAccessPointCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[14]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[14];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightAccessPointCreated()
         {
@@ -4603,58 +4503,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// Access point's access right association created.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 2;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// Access right's access point association created.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the access right's access point association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointCreated);
         public bool Equals(AccessRightAccessPointCreated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -4674,19 +4553,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessPoint);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -4752,31 +4635,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
-            if (accessPoint_ == null) {
+          case 18:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -4826,9 +4718,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of multiple access right's access points association.
     /// </summary>
@@ -4840,17 +4730,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightAccessPointsBatchCreated> _parser = new(() => new AccessRightAccessPointsBatchCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightAccessPointsBatchCreated> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightAccessPointsBatchCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[15]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[15];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightAccessPointsBatchCreated()
         {
@@ -4871,56 +4759,39 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// The access right to which the access points have been added.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "access_points" field.</summary>
         public const int AccessPointsFieldNumber = 2;
         private static readonly FieldCodec<AccessPoint.V1.AccessPoint> _repeated_accessPoints_codec
             = FieldCodec.ForMessage(18, AccessPoint.V1.AccessPoint.Parser);
         private readonly RepeatedField<AccessPoint.V1.AccessPoint> accessPoints_ = [];
-
         /// <summary>
         /// The access points added to the access right.
         /// </summary>
         public RepeatedField<AccessPoint.V1.AccessPoint> AccessPoints
         {
-            get { return accessPoints_; }
-        }
-
+            get => accessPoints_;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the multiple access rights access points association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointsBatchCreated);
         public bool Equals(AccessRightAccessPointsBatchCreated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -4940,16 +4811,19 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
       accessPoints_.WriteTo(output, _repeated_accessPoints_codec);
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -5007,28 +4881,36 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
+          case 18:
+          {
             accessPoints_.AddEntriesFrom(input, _repeated_accessPoints_codec);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -5077,9 +4959,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of an access right's access point association.
     /// </summary>
@@ -5091,17 +4971,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightAccessPointDeleted> _parser = new(() => new AccessRightAccessPointDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightAccessPointDeleted> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightAccessPointDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[16]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[16];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightAccessPointDeleted()
         {
@@ -5122,58 +5000,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// Access point's access right association deleted.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "access_point" field.</summary>
         public const int AccessPointFieldNumber = 2;
         private AccessPoint.V1.AccessPoint accessPoint_;
-
         /// <summary>
         /// Access right's access point association deleted.
         /// </summary>
         public AccessPoint.V1.AccessPoint AccessPoint
         {
-            get { return accessPoint_; }
-            set
-            {
-                accessPoint_ = value;
-            }
-        }
-
+            get => accessPoint_; set => accessPoint_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the access right's access point association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointDeleted);
         public bool Equals(AccessRightAccessPointDeleted other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -5193,19 +5050,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
-      if (accessPoint_ != null) {
+      if (accessPoint_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessPoint);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -5271,31 +5132,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
-            if (accessPoint_ == null) {
+          case 18:
+          {
+            if (accessPoint_ == null)
+            {
               AccessPoint = new Saltoapis.Nebula.AccessPoint.V1.AccessPoint();
             }
             input.ReadMessage(AccessPoint);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -5345,9 +5215,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of multiple access right's access point association.
     /// </summary>
@@ -5359,17 +5227,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessRightAccessPointsBatchDeleted> _parser = new(() => new AccessRightAccessPointsBatchDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightAccessPointsBatchDeleted> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightAccessPointsBatchDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[17]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[17];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightAccessPointsBatchDeleted()
         {
@@ -5390,56 +5256,39 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 1;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// The access right to which the access points have been removed.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "access_points" field.</summary>
         public const int AccessPointsFieldNumber = 2;
         private static readonly FieldCodec<AccessPoint.V1.AccessPoint> _repeated_accessPoints_codec
             = FieldCodec.ForMessage(18, AccessPoint.V1.AccessPoint.Parser);
         private readonly RepeatedField<AccessPoint.V1.AccessPoint> accessPoints_ = [];
-
         /// <summary>
         /// The access points removed from the access right.
         /// </summary>
         public RepeatedField<AccessPoint.V1.AccessPoint> AccessPoints
         {
-            get { return accessPoints_; }
-        }
-
+            get => accessPoints_;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the multiple access rights access points association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointsBatchDeleted);
         public bool Equals(AccessRightAccessPointsBatchDeleted other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -5459,16 +5308,19 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(AccessRight);
       }
       accessPoints_.WriteTo(output, _repeated_accessPoints_codec);
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -5526,28 +5378,36 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (accessRight_ == null) {
+          case 10:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 18: {
+          case 18:
+          {
             accessPoints_.AddEntriesFrom(input, _repeated_accessPoints_codec);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -5596,9 +5456,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of a user.
     /// </summary>
@@ -5610,17 +5468,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserCreated> _parser = new(() => new UserCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserCreated> Parser { get { return _parser; } }
+        public static MessageParser<UserCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[18]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[18];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserCreated()
         {
@@ -5640,34 +5496,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// User created.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the user.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserCreated);
         public bool Equals(UserCreated other)
@@ -5693,15 +5536,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -5756,24 +5602,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -5817,9 +5670,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of a user.
     /// </summary>
@@ -5831,17 +5682,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserUpdated> _parser = new(() => new UserUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserUpdated> Parser { get { return _parser; } }
+        public static MessageParser<UserUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[19]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[19];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserUpdated()
         {
@@ -5862,58 +5711,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// User updated.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the user.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
-
+            get => actor_; set => actor_ = value;}
         /// <summary>Field number for the "previous_values" field.</summary>
         public const int PreviousValuesFieldNumber = 3;
         private PreviousValues previousValues_;
-
         /// <summary>
         /// The previous values of the user's fields that were changed.
         /// </summary>
         public PreviousValues PreviousValues
         {
-            get { return previousValues_; }
-            set
-            {
-                previousValues_ = value;
-            }
-        }
+            get => previousValues_; set => previousValues_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserUpdated);
         public bool Equals(UserUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
-            if (!Equals(PreviousValues, other.PreviousValues)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor)) || !Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -5933,19 +5761,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (previousValues_ != null) {
+      if (previousValues_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(PreviousValues);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -6011,31 +5843,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
             break;
           }
-          case 26: {
-            if (previousValues_ == null) {
+          case 26:
+          {
+            if (previousValues_ == null)
+            {
               PreviousValues = new Saltoapis.Nebula.Event.V1.PreviousValues();
             }
             input.ReadMessage(PreviousValues);
@@ -6085,9 +5926,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the block of a user.
     /// </summary>
@@ -6099,17 +5938,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserBlocked> _parser = new(() => new UserBlocked());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserBlocked> Parser { get { return _parser; } }
+        public static MessageParser<UserBlocked> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[20]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[20];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserBlocked()
         {
@@ -6129,34 +5966,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// User blocked.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who blocked the user.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserBlocked);
         public bool Equals(UserBlocked other)
@@ -6182,15 +6006,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -6245,24 +6072,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -6306,9 +6140,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the unblock of a user.
     /// </summary>
@@ -6320,17 +6152,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserUnblocked> _parser = new(() => new UserUnblocked());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserUnblocked> Parser { get { return _parser; } }
+        public static MessageParser<UserUnblocked> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[21]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[21];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserUnblocked()
         {
@@ -6350,34 +6180,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// User unblocked.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who unblocked the user.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserUnblocked);
         public bool Equals(UserUnblocked other)
@@ -6403,15 +6220,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -6466,24 +6286,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -6527,9 +6354,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of a user.
     /// </summary>
@@ -6541,17 +6366,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserDeleted> _parser = new(() => new UserDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserDeleted> Parser { get { return _parser; } }
+        public static MessageParser<UserDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[22]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[22];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserDeleted()
         {
@@ -6571,34 +6394,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// User deleted.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the user.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserDeleted);
         public bool Equals(UserDeleted other)
@@ -6624,15 +6434,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -6687,24 +6500,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -6748,9 +6568,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of a user's access right association.
     /// </summary>
@@ -6762,17 +6580,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserAccessRightCreated> _parser = new(() => new UserAccessRightCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserAccessRightCreated> Parser { get { return _parser; } }
+        public static MessageParser<UserAccessRightCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[23]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[23];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserAccessRightCreated()
         {
@@ -6793,58 +6609,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Access right's user association created.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 2;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// User's access right association created.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the user access right association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserAccessRightCreated);
         public bool Equals(UserAccessRightCreated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -6864,19 +6659,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -6942,31 +6741,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (accessRight_ == null) {
+          case 18:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -7016,9 +6824,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of a user's access right association.
     /// </summary>
@@ -7030,17 +6836,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserAccessRightUpdated> _parser = new(() => new UserAccessRightUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserAccessRightUpdated> Parser { get { return _parser; } }
+        public static MessageParser<UserAccessRightUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[24]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[24];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserAccessRightUpdated()
         {
@@ -7061,58 +6865,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Access right's user association updated.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 2;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// User's access right association updated.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the user access right association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserAccessRightUpdated);
         public bool Equals(UserAccessRightUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7132,19 +6915,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -7210,31 +6997,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (accessRight_ == null) {
+          case 18:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -7284,9 +7080,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of a user's access right association.
     /// </summary>
@@ -7298,17 +7092,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UserAccessRightDeleted> _parser = new(() => new UserAccessRightDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UserAccessRightDeleted> Parser { get { return _parser; } }
+        public static MessageParser<UserAccessRightDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[25]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[25];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UserAccessRightDeleted()
         {
@@ -7329,58 +7121,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Access right's user association deleted.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 2;
         private AccessRight.V1.AccessRight accessRight_;
-
         /// <summary>
         /// User's access right association deleted.
         /// </summary>
         public AccessRight.V1.AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
-
+            get => accessRight_; set => accessRight_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the user access right association.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UserAccessRightDeleted);
         public bool Equals(UserAccessRightDeleted other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7400,19 +7171,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AccessRight);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -7478,31 +7253,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (accessRight_ == null) {
+          case 18:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -7552,9 +7336,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the assignment of a user's card key.
     /// </summary>
@@ -7566,17 +7348,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<CardKeyAssigned> _parser = new(() => new CardKeyAssigned());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CardKeyAssigned> Parser { get { return _parser; } }
+        public static MessageParser<CardKeyAssigned> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[26]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[26];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CardKeyAssigned()
         {
@@ -7597,58 +7377,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Card key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 2;
         private User.V1.CardKey cardKey_;
-
         /// <summary>
         /// Card key assigned.
         /// </summary>
         public User.V1.CardKey CardKey
         {
-            get { return cardKey_; }
-            set
-            {
-                cardKey_ = value;
-            }
-        }
-
+            get => cardKey_; set => cardKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who assigned a user's card key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as CardKeyAssigned);
         public bool Equals(CardKeyAssigned other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7668,19 +7427,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (cardKey_ != null) {
+      if (cardKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(CardKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -7746,31 +7509,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (cardKey_ == null) {
+          case 18:
+          {
+            if (cardKey_ == null)
+            {
               CardKey = new Saltoapis.Nebula.User.V1.CardKey();
             }
             input.ReadMessage(CardKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -7820,9 +7592,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the cancelation of a user's card key.
     /// </summary>
@@ -7834,17 +7604,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<CardKeyCanceled> _parser = new(() => new CardKeyCanceled());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CardKeyCanceled> Parser { get { return _parser; } }
+        public static MessageParser<CardKeyCanceled> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[27]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[27];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CardKeyCanceled()
         {
@@ -7865,58 +7633,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Card key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 2;
         private User.V1.CardKey cardKey_;
-
         /// <summary>
         /// Card key canceled.
         /// </summary>
         public User.V1.CardKey CardKey
         {
-            get { return cardKey_; }
-            set
-            {
-                cardKey_ = value;
-            }
-        }
-
+            get => cardKey_; set => cardKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who canceled a user's card key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as CardKeyCanceled);
         public bool Equals(CardKeyCanceled other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7936,19 +7683,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (cardKey_ != null) {
+      if (cardKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(CardKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -8014,31 +7765,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (cardKey_ == null) {
+          case 18:
+          {
+            if (cardKey_ == null)
+            {
               CardKey = new Saltoapis.Nebula.User.V1.CardKey();
             }
             input.ReadMessage(CardKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -8088,9 +7848,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the assignment of a user's app key.
     /// </summary>
@@ -8102,17 +7860,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AppKeyAssigned> _parser = new(() => new AppKeyAssigned());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AppKeyAssigned> Parser { get { return _parser; } }
+        public static MessageParser<AppKeyAssigned> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[28]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[28];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AppKeyAssigned()
         {
@@ -8133,58 +7889,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// App key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 2;
         private User.V1.AppKey appKey_;
-
         /// <summary>
         /// App key assigned.
         /// </summary>
         public User.V1.AppKey AppKey
         {
-            get { return appKey_; }
-            set
-            {
-                appKey_ = value;
-            }
-        }
-
+            get => appKey_; set => appKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who assigned a user's app key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AppKeyAssigned);
         public bool Equals(AppKeyAssigned other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -8204,19 +7939,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (appKey_ != null) {
+      if (appKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AppKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -8282,31 +8021,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (appKey_ == null) {
+          case 18:
+          {
+            if (appKey_ == null)
+            {
               AppKey = new Saltoapis.Nebula.User.V1.AppKey();
             }
             input.ReadMessage(AppKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -8356,9 +8104,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the cancelation of a user's app key.
     /// </summary>
@@ -8370,17 +8116,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AppKeyCanceled> _parser = new(() => new AppKeyCanceled());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AppKeyCanceled> Parser { get { return _parser; } }
+        public static MessageParser<AppKeyCanceled> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[29]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[29];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AppKeyCanceled()
         {
@@ -8401,58 +8145,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// App key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 2;
         private User.V1.AppKey appKey_;
-
         /// <summary>
         /// App key canceled.
         /// </summary>
         public User.V1.AppKey AppKey
         {
-            get { return appKey_; }
-            set
-            {
-                appKey_ = value;
-            }
-        }
-
+            get => appKey_; set => appKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who canceled a user's app key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as AppKeyCanceled);
         public bool Equals(AppKeyCanceled other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -8472,19 +8195,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (appKey_ != null) {
+      if (appKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(AppKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -8550,31 +8277,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (appKey_ == null) {
+          case 18:
+          {
+            if (appKey_ == null)
+            {
               AppKey = new Saltoapis.Nebula.User.V1.AppKey();
             }
             input.ReadMessage(AppKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -8624,9 +8360,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the assignment of a user's wallet key.
     /// </summary>
@@ -8638,17 +8372,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<WalletKeyAssigned> _parser = new(() => new WalletKeyAssigned());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<WalletKeyAssigned> Parser { get { return _parser; } }
+        public static MessageParser<WalletKeyAssigned> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[30]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[30];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public WalletKeyAssigned()
         {
@@ -8669,58 +8401,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Wallet key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 2;
         private User.V1.WalletKey walletKey_;
-
         /// <summary>
         /// Wallet key assigned.
         /// </summary>
         public User.V1.WalletKey WalletKey
         {
-            get { return walletKey_; }
-            set
-            {
-                walletKey_ = value;
-            }
-        }
-
+            get => walletKey_; set => walletKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who assigned a user's wallet key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as WalletKeyAssigned);
         public bool Equals(WalletKeyAssigned other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -8740,19 +8451,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (walletKey_ != null) {
+      if (walletKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(WalletKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -8818,31 +8533,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (walletKey_ == null) {
+          case 18:
+          {
+            if (walletKey_ == null)
+            {
               WalletKey = new Saltoapis.Nebula.User.V1.WalletKey();
             }
             input.ReadMessage(WalletKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -8892,9 +8616,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the cancelation of a user's wallet key.
     /// </summary>
@@ -8906,17 +8628,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<WalletKeyCanceled> _parser = new(() => new WalletKeyCanceled());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<WalletKeyCanceled> Parser { get { return _parser; } }
+        public static MessageParser<WalletKeyCanceled> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[31]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[31];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public WalletKeyCanceled()
         {
@@ -8937,58 +8657,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Wallet key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 2;
         private User.V1.WalletKey walletKey_;
-
         /// <summary>
         /// Wallet key canceled.
         /// </summary>
         public User.V1.WalletKey WalletKey
         {
-            get { return walletKey_; }
-            set
-            {
-                walletKey_ = value;
-            }
-        }
-
+            get => walletKey_; set => walletKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who canceled a user's wallet key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as WalletKeyCanceled);
         public bool Equals(WalletKeyCanceled other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -9008,19 +8707,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (walletKey_ != null) {
+      if (walletKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(WalletKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -9086,31 +8789,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (walletKey_ == null) {
+          case 18:
+          {
+            if (walletKey_ == null)
+            {
               WalletKey = new Saltoapis.Nebula.User.V1.WalletKey();
             }
             input.ReadMessage(WalletKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -9160,9 +8872,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the move in of a unit.
     /// </summary>
@@ -9174,17 +8884,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UnitMovedIn> _parser = new(() => new UnitMovedIn());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnitMovedIn> Parser { get { return _parser; } }
+        public static MessageParser<UnitMovedIn> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[32]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[32];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnitMovedIn()
         {
@@ -9204,34 +8912,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 1;
         private Unit.V1.Unit unit_;
-
         /// <summary>
         /// Unit moved in.
         /// </summary>
         public Unit.V1.Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
-
+            get => unit_; set => unit_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who performed the move in of a unit.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnitMovedIn);
         public bool Equals(UnitMovedIn other)
@@ -9257,15 +8952,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Unit);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -9320,24 +9018,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (unit_ == null) {
+          case 10:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -9381,9 +9086,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the move out of a unit.
     /// </summary>
@@ -9395,17 +9098,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UnitMovedOut> _parser = new(() => new UnitMovedOut());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnitMovedOut> Parser { get { return _parser; } }
+        public static MessageParser<UnitMovedOut> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[33]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[33];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnitMovedOut()
         {
@@ -9425,34 +9126,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 1;
         private Unit.V1.Unit unit_;
-
         /// <summary>
         /// Unit moved out.
         /// </summary>
         public Unit.V1.Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
-
+            get => unit_; set => unit_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who performed the move out of a unit.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnitMovedOut);
         public bool Equals(UnitMovedOut other)
@@ -9478,15 +9166,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Unit);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -9541,24 +9232,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (unit_ == null) {
+          case 10:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -9602,9 +9300,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of a unit.
     /// </summary>
@@ -9616,17 +9312,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UnitCreated> _parser = new(() => new UnitCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnitCreated> Parser { get { return _parser; } }
+        public static MessageParser<UnitCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[34]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[34];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnitCreated()
         {
@@ -9646,34 +9340,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 1;
         private Unit.V1.Unit unit_;
-
         /// <summary>
         /// Unit created.
         /// </summary>
         public Unit.V1.Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
-
+            get => unit_; set => unit_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the unit.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnitCreated);
         public bool Equals(UnitCreated other)
@@ -9699,15 +9380,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Unit);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -9762,24 +9446,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (unit_ == null) {
+          case 10:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -9823,9 +9514,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of a unit.
     /// </summary>
@@ -9837,17 +9526,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UnitUpdated> _parser = new(() => new UnitUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnitUpdated> Parser { get { return _parser; } }
+        public static MessageParser<UnitUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[35]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[35];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnitUpdated()
         {
@@ -9868,58 +9555,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 1;
         private Unit.V1.Unit unit_;
-
         /// <summary>
         /// Unit updated.
         /// </summary>
         public Unit.V1.Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
-
+            get => unit_; set => unit_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the unit.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
-
+            get => actor_; set => actor_ = value;}
         /// <summary>Field number for the "previous_values" field.</summary>
         public const int PreviousValuesFieldNumber = 3;
         private PreviousValues previousValues_;
-
         /// <summary>
         /// The previous values of the unit's fields that were changed.
         /// </summary>
         public PreviousValues PreviousValues
         {
-            get { return previousValues_; }
-            set
-            {
-                previousValues_ = value;
-            }
-        }
+            get => previousValues_; set => previousValues_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnitUpdated);
         public bool Equals(UnitUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
-            if (!Equals(PreviousValues, other.PreviousValues)) return false;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor)) || !Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -9939,19 +9605,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Unit);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (previousValues_ != null) {
+      if (previousValues_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(PreviousValues);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -10017,31 +9687,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (unit_ == null) {
+          case 10:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
             break;
           }
-          case 26: {
-            if (previousValues_ == null) {
+          case 26:
+          {
+            if (previousValues_ == null)
+            {
               PreviousValues = new Saltoapis.Nebula.Event.V1.PreviousValues();
             }
             input.ReadMessage(PreviousValues);
@@ -10091,9 +9770,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of a unit.
     /// </summary>
@@ -10105,17 +9782,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<UnitDeleted> _parser = new(() => new UnitDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UnitDeleted> Parser { get { return _parser; } }
+        public static MessageParser<UnitDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[36]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[36];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UnitDeleted()
         {
@@ -10135,34 +9810,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 1;
         private Unit.V1.Unit unit_;
-
         /// <summary>
         /// Unit deleted.
         /// </summary>
         public Unit.V1.Unit Unit
         {
-            get { return unit_; }
-            set
-            {
-                unit_ = value;
-            }
-        }
-
+            get => unit_; set => unit_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the unit.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as UnitDeleted);
         public bool Equals(UnitDeleted other)
@@ -10188,15 +9850,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (unit_ != null) {
+      if (unit_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Unit);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -10251,24 +9916,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (unit_ == null) {
+          case 10:
+          {
+            if (unit_ == null)
+            {
               Unit = new Saltoapis.Nebula.Unit.V1.Unit();
             }
             input.ReadMessage(Unit);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -10312,9 +9984,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the creation of an emergency key.
     /// </summary>
@@ -10326,17 +9996,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<EmergencyKeyCreated> _parser = new(() => new EmergencyKeyCreated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EmergencyKeyCreated> Parser { get { return _parser; } }
+        public static MessageParser<EmergencyKeyCreated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[37]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[37];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EmergencyKeyCreated()
         {
@@ -10356,34 +10024,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 1;
         private Salto.Nebula.EmergencyKey.V1.EmergencyKey emergencyKey_;
-
         /// <summary>
         /// Emergency key created.
         /// </summary>
         public Salto.Nebula.EmergencyKey.V1.EmergencyKey EmergencyKey
         {
-            get { return emergencyKey_; }
-            set
-            {
-                emergencyKey_ = value;
-            }
-        }
-
+            get => emergencyKey_; set => emergencyKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who created the Emergency Key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as EmergencyKeyCreated);
         public bool Equals(EmergencyKeyCreated other)
@@ -10409,15 +10064,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (emergencyKey_ != null) {
+      if (emergencyKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(EmergencyKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -10472,24 +10130,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (emergencyKey_ == null) {
+          case 10:
+          {
+            if (emergencyKey_ == null)
+            {
               EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
             }
             input.ReadMessage(EmergencyKey);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -10533,9 +10198,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the update of an emergency key.
     /// </summary>
@@ -10547,17 +10210,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<EmergencyKeyUpdated> _parser = new(() => new EmergencyKeyUpdated());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EmergencyKeyUpdated> Parser { get { return _parser; } }
+        public static MessageParser<EmergencyKeyUpdated> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[38]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[38];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EmergencyKeyUpdated()
         {
@@ -10578,58 +10239,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 1;
         private Salto.Nebula.EmergencyKey.V1.EmergencyKey emergencyKey_;
-
         /// <summary>
         /// Emergency key updated.
         /// </summary>
         public Salto.Nebula.EmergencyKey.V1.EmergencyKey EmergencyKey
         {
-            get { return emergencyKey_; }
-            set
-            {
-                emergencyKey_ = value;
-            }
-        }
-
+            get => emergencyKey_; set => emergencyKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who updated the Emergency Key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
-
+            get => actor_; set => actor_ = value;}
         /// <summary>Field number for the "previous_values" field.</summary>
         public const int PreviousValuesFieldNumber = 3;
         private PreviousValues previousValues_;
-
         /// <summary>
         /// The previous values of the emergency key's fields that were changed.
         /// </summary>
         public PreviousValues PreviousValues
         {
-            get { return previousValues_; }
-            set
-            {
-                previousValues_ = value;
-            }
-        }
+            get => previousValues_; set => previousValues_ = value;}
 
         public override bool Equals(object other) => Equals(other as EmergencyKeyUpdated);
         public bool Equals(EmergencyKeyUpdated other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(Actor, other.Actor))) return false;
-            if (!Equals(PreviousValues, other.PreviousValues)) return false;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(Actor, other.Actor)) || !Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -10649,19 +10289,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (emergencyKey_ != null) {
+      if (emergencyKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(EmergencyKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (previousValues_ != null) {
+      if (previousValues_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(PreviousValues);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -10727,31 +10371,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (emergencyKey_ == null) {
+          case 10:
+          {
+            if (emergencyKey_ == null)
+            {
               EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
             }
             input.ReadMessage(EmergencyKey);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
             break;
           }
-          case 26: {
-            if (previousValues_ == null) {
+          case 26:
+          {
+            if (previousValues_ == null)
+            {
               PreviousValues = new Saltoapis.Nebula.Event.V1.PreviousValues();
             }
             input.ReadMessage(PreviousValues);
@@ -10801,9 +10454,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the deletion of an emergency key.
     /// </summary>
@@ -10815,17 +10466,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<EmergencyKeyDeleted> _parser = new(() => new EmergencyKeyDeleted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<EmergencyKeyDeleted> Parser { get { return _parser; } }
+        public static MessageParser<EmergencyKeyDeleted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[39]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[39];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public EmergencyKeyDeleted()
         {
@@ -10845,34 +10494,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 1;
         private Salto.Nebula.EmergencyKey.V1.EmergencyKey emergencyKey_;
-
         /// <summary>
         /// Emergency key deleted.
         /// </summary>
         public Salto.Nebula.EmergencyKey.V1.EmergencyKey EmergencyKey
         {
-            get { return emergencyKey_; }
-            set
-            {
-                emergencyKey_ = value;
-            }
-        }
-
+            get => emergencyKey_; set => emergencyKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who deleted the Emergency Key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as EmergencyKeyDeleted);
         public bool Equals(EmergencyKeyDeleted other)
@@ -10898,15 +10534,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (emergencyKey_ != null) {
+      if (emergencyKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(EmergencyKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -10961,24 +10600,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (emergencyKey_ == null) {
+          case 10:
+          {
+            if (emergencyKey_ == null)
+            {
               EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
             }
             input.ReadMessage(EmergencyKey);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -11022,9 +10668,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the assignment of a user's electronic key.
     /// </summary>
@@ -11036,17 +10680,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<ElectronicKeyAssigned> _parser = new(() => new ElectronicKeyAssigned());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ElectronicKeyAssigned> Parser { get { return _parser; } }
+        public static MessageParser<ElectronicKeyAssigned> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[40]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[40];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ElectronicKeyAssigned()
         {
@@ -11067,58 +10709,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Electronic key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 2;
         private User.V1.ElectronicKey electronicKey_;
-
         /// <summary>
         /// Electronic key assigned.
         /// </summary>
         public User.V1.ElectronicKey ElectronicKey
         {
-            get { return electronicKey_; }
-            set
-            {
-                electronicKey_ = value;
-            }
-        }
-
+            get => electronicKey_; set => electronicKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who assigned a user's electronic key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as ElectronicKeyAssigned);
         public bool Equals(ElectronicKeyAssigned other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11138,19 +10759,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (electronicKey_ != null) {
+      if (electronicKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(ElectronicKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -11216,31 +10841,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (electronicKey_ == null) {
+          case 18:
+          {
+            if (electronicKey_ == null)
+            {
               ElectronicKey = new Saltoapis.Nebula.User.V1.ElectronicKey();
             }
             input.ReadMessage(ElectronicKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -11290,9 +10924,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the cancelation of a user's electronic key.
     /// </summary>
@@ -11304,17 +10936,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<ElectronicKeyCanceled> _parser = new(() => new ElectronicKeyCanceled());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ElectronicKeyCanceled> Parser { get { return _parser; } }
+        public static MessageParser<ElectronicKeyCanceled> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[41]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[41];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ElectronicKeyCanceled()
         {
@@ -11335,58 +10965,37 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 1;
         private User.V1.User user_;
-
         /// <summary>
         /// Electronic key's user.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 2;
         private User.V1.ElectronicKey electronicKey_;
-
         /// <summary>
         /// Electronic key canceled.
         /// </summary>
         public User.V1.ElectronicKey ElectronicKey
         {
-            get { return electronicKey_; }
-            set
-            {
-                electronicKey_ = value;
-            }
-        }
-
+            get => electronicKey_; set => electronicKey_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 3;
         private Principal actor_;
-
         /// <summary>
         /// The actor who canceled a user's electronic key.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as ElectronicKeyCanceled);
         public bool Equals(ElectronicKeyCanceled other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey)) || !Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11406,19 +11015,23 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(User);
       }
-      if (electronicKey_ != null) {
+      if (electronicKey_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(ElectronicKey);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -11484,31 +11097,40 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (user_ == null) {
+          case 10:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 18: {
-            if (electronicKey_ == null) {
+          case 18:
+          {
+            if (electronicKey_ == null)
+            {
               ElectronicKey = new Saltoapis.Nebula.User.V1.ElectronicKey();
             }
             input.ReadMessage(ElectronicKey);
             break;
           }
-          case 26: {
-            if (actor_ == null) {
+          case 26:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -11558,9 +11180,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing access being granted to a user.
     /// This event indicates that a user's key was successfully validated and
@@ -11591,17 +11211,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<AccessGranted> _parser = new(() => new AccessGranted());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessGranted> Parser { get { return _parser; } }
+        public static MessageParser<AccessGranted> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[42]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[42];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessGranted()
         {
@@ -11648,7 +11266,6 @@ namespace Saltoapis.Nebula.Event.V1
         public AccessGranted Clone() => new(this);
         /// <summary>Field number for the "controller" field.</summary>
         public const int ControllerFieldNumber = 1;
-
         /// <summary>
         /// The controller that granted access.
         /// </summary>
@@ -11661,26 +11278,17 @@ namespace Saltoapis.Nebula.Event.V1
                 deviceCase_ = value == null ? DeviceOneofCase.None : DeviceOneofCase.Controller;
             }
         }
-
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 2;
         private User.V1.User user_;
-
         /// <summary>
         /// The user who was granted access, if any.
         /// </summary>
         public User.V1.User User
         {
-            get { return user_; }
-            set
-            {
-                user_ = value;
-            }
-        }
-
+            get => user_; set => user_ = value;}
         /// <summary>Field number for the "emergency_key" field.</summary>
         public const int EmergencyKeyFieldNumber = 3;
-
         /// <summary>
         /// The emergency key used.
         /// </summary>
@@ -11693,10 +11301,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.EmergencyKey;
             }
         }
-
         /// <summary>Field number for the "card_key" field.</summary>
         public const int CardKeyFieldNumber = 4;
-
         /// <summary>
         /// The card key used.
         /// </summary>
@@ -11709,10 +11315,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.CardKey;
             }
         }
-
         /// <summary>Field number for the "app_key" field.</summary>
         public const int AppKeyFieldNumber = 5;
-
         /// <summary>
         /// The app key used.
         /// </summary>
@@ -11725,10 +11329,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.AppKey;
             }
         }
-
         /// <summary>Field number for the "wallet_key" field.</summary>
         public const int WalletKeyFieldNumber = 6;
-
         /// <summary>
         /// The wallet key used.
         /// </summary>
@@ -11741,10 +11343,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.WalletKey;
             }
         }
-
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 7;
-
         /// <summary>
         /// The passcode used.
         /// </summary>
@@ -11757,10 +11357,8 @@ namespace Saltoapis.Nebula.Event.V1
                 credentialCase_ = value == null ? CredentialOneofCase.None : CredentialOneofCase.Passcode;
             }
         }
-
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 8;
-
         /// <summary>
         /// The electronic key used.
         /// </summary>
@@ -11775,7 +11373,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object device_;
-
         /// <summary>Enum of possible cases for the "device" oneof.</summary>
         public enum DeviceOneofCase
         {
@@ -11787,8 +11384,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public DeviceOneofCase DeviceCase
         {
-            get { return deviceCase_; }
-        }
+            get => deviceCase_;}
 
         public void ClearDevice()
         {
@@ -11797,7 +11393,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 
         private object credential_;
-
         /// <summary>Enum of possible cases for the "credential" oneof.</summary>
         public enum CredentialOneofCase
         {
@@ -11814,8 +11409,7 @@ namespace Saltoapis.Nebula.Event.V1
 
         public CredentialOneofCase CredentialCase
         {
-            get { return credentialCase_; }
-        }
+            get => credentialCase_;}
 
         public void ClearCredential()
         {
@@ -11828,11 +11422,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!Equals(Controller, other.Controller)) || (!Equals(User, other.User))) return false;
-            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
-            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
-            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
-            if ((DeviceCase != other.DeviceCase) || (CredentialCase != other.CredentialCase)) return false;
+            if ((!Equals(Controller, other.Controller)) || (!Equals(User, other.User)) || (!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey)) || (!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey)) || (!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey)) || (DeviceCase != other.DeviceCase) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11859,39 +11449,48 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (deviceCase_ == DeviceOneofCase.Controller) {
+      if (deviceCase_ == DeviceOneofCase.Controller)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Controller);
       }
-      if (user_ != null) {
+      if (user_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(User);
       }
-      if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+      if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EmergencyKey);
       }
-      if (credentialCase_ == CredentialOneofCase.CardKey) {
+      if (credentialCase_ == CredentialOneofCase.CardKey)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(CardKey);
       }
-      if (credentialCase_ == CredentialOneofCase.AppKey) {
+      if (credentialCase_ == CredentialOneofCase.AppKey)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(AppKey);
       }
-      if (credentialCase_ == CredentialOneofCase.WalletKey) {
+      if (credentialCase_ == CredentialOneofCase.WalletKey)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(WalletKey);
       }
-      if (credentialCase_ == CredentialOneofCase.Passcode) {
+      if (credentialCase_ == CredentialOneofCase.Passcode)
+      {
         output.WriteRawTag(58);
         output.WriteMessage(Passcode);
       }
-      if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+      if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(ElectronicKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -12013,79 +11612,98 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Saltoapis.Nebula.Controller.V1.Controller subBuilder = new Saltoapis.Nebula.Controller.V1.Controller();
-            if (deviceCase_ == DeviceOneofCase.Controller) {
+            if (deviceCase_ == DeviceOneofCase.Controller)
+            {
               subBuilder.MergeFrom(Controller);
             }
             input.ReadMessage(subBuilder);
             Controller = subBuilder;
             break;
           }
-          case 18: {
-            if (user_ == null) {
+          case 18:
+          {
+            if (user_ == null)
+            {
               User = new Saltoapis.Nebula.User.V1.User();
             }
             input.ReadMessage(User);
             break;
           }
-          case 26: {
+          case 26:
+          {
             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey) {
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
+            {
               subBuilder.MergeFrom(EmergencyKey);
             }
             input.ReadMessage(subBuilder);
             EmergencyKey = subBuilder;
             break;
           }
-          case 34: {
+          case 34:
+          {
             Saltoapis.Nebula.User.V1.CardKey subBuilder = new Saltoapis.Nebula.User.V1.CardKey();
-            if (credentialCase_ == CredentialOneofCase.CardKey) {
+            if (credentialCase_ == CredentialOneofCase.CardKey)
+            {
               subBuilder.MergeFrom(CardKey);
             }
             input.ReadMessage(subBuilder);
             CardKey = subBuilder;
             break;
           }
-          case 42: {
+          case 42:
+          {
             Saltoapis.Nebula.User.V1.AppKey subBuilder = new Saltoapis.Nebula.User.V1.AppKey();
-            if (credentialCase_ == CredentialOneofCase.AppKey) {
+            if (credentialCase_ == CredentialOneofCase.AppKey)
+            {
               subBuilder.MergeFrom(AppKey);
             }
             input.ReadMessage(subBuilder);
             AppKey = subBuilder;
             break;
           }
-          case 50: {
+          case 50:
+          {
             Saltoapis.Nebula.User.V1.WalletKey subBuilder = new Saltoapis.Nebula.User.V1.WalletKey();
-            if (credentialCase_ == CredentialOneofCase.WalletKey) {
+            if (credentialCase_ == CredentialOneofCase.WalletKey)
+            {
               subBuilder.MergeFrom(WalletKey);
             }
             input.ReadMessage(subBuilder);
             WalletKey = subBuilder;
             break;
           }
-          case 58: {
+          case 58:
+          {
             Saltoapis.Nebula.User.V1.Passcode subBuilder = new Saltoapis.Nebula.User.V1.Passcode();
-            if (credentialCase_ == CredentialOneofCase.Passcode) {
+            if (credentialCase_ == CredentialOneofCase.Passcode)
+            {
               subBuilder.MergeFrom(Passcode);
             }
             input.ReadMessage(subBuilder);
             Passcode = subBuilder;
             break;
           }
-          case 66: {
+          case 66:
+          {
             Saltoapis.Nebula.User.V1.ElectronicKey subBuilder = new Saltoapis.Nebula.User.V1.ElectronicKey();
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey) {
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
+            {
               subBuilder.MergeFrom(ElectronicKey);
             }
             input.ReadMessage(subBuilder);
@@ -12180,9 +11798,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the check-in of a booking.
     /// </summary>
@@ -12194,17 +11810,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<BookingCheckedIn> _parser = new(() => new BookingCheckedIn());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BookingCheckedIn> Parser { get { return _parser; } }
+        public static MessageParser<BookingCheckedIn> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[43]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[43];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BookingCheckedIn()
         {
@@ -12224,34 +11838,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "booking" field.</summary>
         public const int BookingFieldNumber = 1;
         private Booking.V1.Booking booking_;
-
         /// <summary>
         /// Booking checked in.
         /// </summary>
         public Booking.V1.Booking Booking
         {
-            get { return booking_; }
-            set
-            {
-                booking_ = value;
-            }
-        }
-
+            get => booking_; set => booking_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who performed the check-in of a booking.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as BookingCheckedIn);
         public bool Equals(BookingCheckedIn other)
@@ -12277,15 +11878,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (booking_ != null) {
+      if (booking_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Booking);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -12340,24 +11944,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (booking_ == null) {
+          case 10:
+          {
+            if (booking_ == null)
+            {
               Booking = new Saltoapis.Nebula.Booking.V1.Booking();
             }
             input.ReadMessage(Booking);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -12401,9 +12012,7 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
     /// <summary>
     /// Event representing the check-out of a booking.
     /// </summary>
@@ -12415,17 +12024,15 @@ namespace Saltoapis.Nebula.Event.V1
         private static readonly MessageParser<BookingCheckedOut> _parser = new(() => new BookingCheckedOut());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BookingCheckedOut> Parser { get { return _parser; } }
+        public static MessageParser<BookingCheckedOut> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TypesReflection.Descriptor.MessageTypes[44]; }
-        }
+            get => TypesReflection.Descriptor.MessageTypes[44];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BookingCheckedOut()
         {
@@ -12445,34 +12052,21 @@ namespace Saltoapis.Nebula.Event.V1
         /// <summary>Field number for the "booking" field.</summary>
         public const int BookingFieldNumber = 1;
         private Booking.V1.Booking booking_;
-
         /// <summary>
         /// Booking checked out.
         /// </summary>
         public Booking.V1.Booking Booking
         {
-            get { return booking_; }
-            set
-            {
-                booking_ = value;
-            }
-        }
-
+            get => booking_; set => booking_ = value;}
         /// <summary>Field number for the "actor" field.</summary>
         public const int ActorFieldNumber = 2;
         private Principal actor_;
-
         /// <summary>
         /// The actor who performed the check-out of a booking.
         /// </summary>
         public Principal Actor
         {
-            get { return actor_; }
-            set
-            {
-                actor_ = value;
-            }
-        }
+            get => actor_; set => actor_ = value;}
 
         public override bool Equals(object other) => Equals(other as BookingCheckedOut);
         public bool Equals(BookingCheckedOut other)
@@ -12498,15 +12092,18 @@ namespace Saltoapis.Nebula.Event.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (booking_ != null) {
+      if (booking_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Booking);
       }
-      if (actor_ != null) {
+      if (actor_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Actor);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -12561,24 +12158,31 @@ namespace Saltoapis.Nebula.Event.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (booking_ == null) {
+          case 10:
+          {
+            if (booking_ == null)
+            {
               Booking = new Saltoapis.Nebula.Booking.V1.Booking();
             }
             input.ReadMessage(Booking);
             break;
           }
-          case 18: {
-            if (actor_ == null) {
+          case 18:
+          {
+            if (actor_ == null)
+            {
               Actor = new Saltoapis.Nebula.Event.V1.Principal();
             }
             input.ReadMessage(Actor);
@@ -12622,8 +12226,6 @@ namespace Saltoapis.Nebula.Event.V1
             }
         }
 #endif
-
     }
-
 
 }

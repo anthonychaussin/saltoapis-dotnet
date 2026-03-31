@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         private static readonly MessageParser<CreateAccessRightRequest> _parser = new(() => new CreateAccessRightRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateAccessRightRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateAccessRightRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateAccessRightRequest()
         {
@@ -42,75 +40,46 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where the access right is to be
         /// created. For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "access_right_id" field.</summary>
         public const int AccessRightIdFieldNumber = 2;
         private static readonly string AccessRightIdDefaultValue = "";
 
         private string accessRightId_;
-
         /// <summary>
         /// The access right ID to use for this access right. In case it's
         /// empty the server will autogenerate a unique identifier.
         /// </summary>
         public string AccessRightId
         {
-            get { return accessRightId_ ?? AccessRightIdDefaultValue; }
-            set
-            {
-                accessRightId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => accessRightId_ ?? AccessRightIdDefaultValue; set => accessRightId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "access_right_id" field is set</summary>
-        public bool HasAccessRightId
-        {
-            get { return accessRightId_ != null; }
-        }
-
+        public bool HasAccessRightId => accessRightId_ != null;
         /// <summary>Clears the value of the "access_right_id" field</summary>
-        public void ClearAccessRightId()
-        {
-            accessRightId_ = null;
-        }
-
+        public void ClearAccessRightId() => accessRightId_ = null;
         /// <summary>Field number for the "access_right" field.</summary>
         public const int AccessRightFieldNumber = 3;
         private AccessRight accessRight_;
-
         /// <summary>
         /// The access right resource to be created. Client must not set the
         /// `AccessRight.name` field.
         /// </summary>
         public AccessRight AccessRight
         {
-            get { return accessRight_; }
-            set
-            {
-                accessRight_ = value;
-            }
-        }
+            get => accessRight_; set => accessRight_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateAccessRightRequest);
         public bool Equals(CreateAccessRightRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (AccessRightId != other.AccessRightId)) return false;
-            if (!Equals(AccessRight, other.AccessRight)) return false;
+            if ((Parent != other.Parent) || (AccessRightId != other.AccessRightId) || !Equals(AccessRight, other.AccessRight)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,19 +99,23 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (HasAccessRightId) {
+      if (HasAccessRightId)
+      {
         output.WriteRawTag(18);
         output.WriteString(AccessRightId);
       }
-      if (accessRight_ != null) {
+      if (accessRight_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(AccessRight);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -200,25 +173,32 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             AccessRightId = input.ReadString();
             break;
           }
-          case 26: {
-            if (accessRight_ == null) {
+          case 26:
+          {
+            if (accessRight_ == null)
+            {
               AccessRight = new Saltoapis.Nebula.AccessRight.V1.AccessRight();
             }
             input.ReadMessage(AccessRight);
@@ -266,8 +246,6 @@ namespace Saltoapis.Nebula.AccessRight.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

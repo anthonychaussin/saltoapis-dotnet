@@ -5,12 +5,10 @@ namespace Saltoapis.Type
     /// </summary>
     public static partial class IntervalReflection
     {
-
         /// <summary>File descriptor for salto/type/interval.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 

@@ -65,7 +65,7 @@ namespace Saltoapis.Auth
         public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
+            AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
             
@@ -84,7 +84,7 @@ namespace Saltoapis.Auth
         public override TResponse BlockingUnaryCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
+            BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
             
@@ -94,7 +94,7 @@ namespace Saltoapis.Auth
 
         public override AsyncClientStreamingCall<TRequest, TResponse> AsyncClientStreamingCall<TRequest, TResponse>(
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncClientStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncClientStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 
@@ -114,7 +114,7 @@ namespace Saltoapis.Auth
         public override AsyncServerStreamingCall<TResponse> AsyncServerStreamingCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncServerStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncServerStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 
@@ -131,7 +131,7 @@ namespace Saltoapis.Auth
 
         public override AsyncDuplexStreamingCall<TRequest, TResponse> AsyncDuplexStreamingCall<TRequest, TResponse>(
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncDuplexStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncDuplexStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
         private static readonly MessageParser<BatchCreateAccessPointGroupAccessPointsResponse> _parser = new(() => new BatchCreateAccessPointGroupAccessPointsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchCreateAccessPointGroupAccessPointsResponse> Parser { get { return _parser; } }
+        public static MessageParser<BatchCreateAccessPointGroupAccessPointsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.MessageTypes[10]; }
-        }
+            get => AccessPointGroupReflection.Descriptor.MessageTypes[10];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchCreateAccessPointGroupAccessPointsResponse()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
         private static readonly FieldCodec<AccessPointGroupAccessPoint> _repeated_accessPointGroupAccessPoints_codec
             = FieldCodec.ForMessage(10, AccessPointGroupAccessPoint.Parser);
         private readonly RepeatedField<AccessPointGroupAccessPoint> accessPointGroupAccessPoints_ = [];
-
         /// <summary>
         /// Access point group access points created.
         /// </summary>
         public RepeatedField<AccessPointGroupAccessPoint> AccessPointGroupAccessPoints
         {
-            get { return accessPointGroupAccessPoints_; }
-        }
+            get => accessPointGroupAccessPoints_;}
 
         public override bool Equals(object other) => Equals(other as BatchCreateAccessPointGroupAccessPointsResponse);
         public bool Equals(BatchCreateAccessPointGroupAccessPointsResponse other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             output.WriteRawMessage(this);
 #else
       accessPointGroupAccessPoints_.WriteTo(output, _repeated_accessPointGroupAccessPoints_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             accessPointGroupAccessPoints_.AddEntriesFrom(input, _repeated_accessPointGroupAccessPoints_codec);
             break;
           }
@@ -155,8 +156,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

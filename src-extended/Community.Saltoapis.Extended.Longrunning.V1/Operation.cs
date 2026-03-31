@@ -11,17 +11,15 @@ namespace Saltoapis.Longrunning.V1
         private static readonly MessageParser<Operation> _parser = new(() => new Operation());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Operation> Parser { get { return _parser; } }
+        public static MessageParser<Operation> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return OperationReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => OperationReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Operation()
         {
@@ -52,7 +50,6 @@ namespace Saltoapis.Longrunning.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// The server-assigned name, which is only unique within the same service
         /// that originally returns it. If you use the default HTTP mapping, the
@@ -60,17 +57,10 @@ namespace Saltoapis.Longrunning.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "metadata" field.</summary>
         public const int MetadataFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.Any metadata_;
-
         /// <summary>
         /// Service-specific metadata associated with the operation.  It typically
         /// contains progress information and common metadata such as create time.
@@ -79,17 +69,10 @@ namespace Saltoapis.Longrunning.V1
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Any Metadata
         {
-            get { return metadata_; }
-            set
-            {
-                metadata_ = value;
-            }
-        }
-
+            get => metadata_; set => metadata_ = value;}
         /// <summary>Field number for the "done" field.</summary>
         public const int DoneFieldNumber = 3;
         private bool done_;
-
         /// <summary>
         /// If the value is `false`, it means the operation is still in progress. If
         /// true, the operation is completed, and either `error` or `response` is
@@ -97,16 +80,9 @@ namespace Saltoapis.Longrunning.V1
         /// </summary>
         public bool Done
         {
-            get { return done_; }
-            set
-            {
-                done_ = value;
-            }
-        }
-
+            get => done_; set => done_ = value;}
         /// <summary>Field number for the "error" field.</summary>
         public const int ErrorFieldNumber = 4;
-
         /// <summary>
         /// The error result of the operation in case of failure or cancellation.
         /// </summary>
@@ -119,10 +95,8 @@ namespace Saltoapis.Longrunning.V1
                 resultCase_ = value == null ? ResultOneofCase.None : ResultOneofCase.Error;
             }
         }
-
         /// <summary>Field number for the "response" field.</summary>
         public const int ResponseFieldNumber = 5;
-
         /// <summary>
         /// The normal response of the operation in case of success. If the
         /// original method returns no data on success, such as `Delete`, the
@@ -144,7 +118,6 @@ namespace Saltoapis.Longrunning.V1
         }
 
         private object result_;
-
         /// <summary>Enum of possible cases for the "result" oneof.</summary>
         public enum ResultOneofCase
         {
@@ -157,8 +130,7 @@ namespace Saltoapis.Longrunning.V1
 
         public ResultOneofCase ResultCase
         {
-            get { return resultCase_; }
-        }
+            get => resultCase_;}
 
         public void ClearResult()
         {
@@ -171,9 +143,7 @@ namespace Saltoapis.Longrunning.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (!Equals(Metadata, other.Metadata))) return false;
-            if ((Done != other.Done) || (!Equals(Error, other.Error))) return false;
-            if ((!Equals(Response, other.Response)) || (ResultCase != other.ResultCase)) return false;
+            if ((Name != other.Name) || (!Equals(Metadata, other.Metadata)) || (Done != other.Done) || (!Equals(Error, other.Error)) || (!Equals(Response, other.Response)) || (ResultCase != other.ResultCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -196,27 +166,33 @@ namespace Saltoapis.Longrunning.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (metadata_ != null) {
+      if (metadata_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(Metadata);
       }
-      if (Done != false) {
+      if (Done != false)
+      {
         output.WriteRawTag(24);
         output.WriteBool(Done);
       }
-      if (resultCase_ == ResultOneofCase.Error) {
+      if (resultCase_ == ResultOneofCase.Error)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(Error);
       }
-      if (resultCase_ == ResultOneofCase.Response) {
+      if (resultCase_ == ResultOneofCase.Response)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(Response);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -298,42 +274,53 @@ namespace Saltoapis.Longrunning.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
-            if (metadata_ == null) {
+          case 18:
+          {
+            if (metadata_ == null)
+            {
               Metadata = new Google.Protobuf.WellKnownTypes.Any();
             }
             input.ReadMessage(Metadata);
             break;
           }
-          case 24: {
+          case 24:
+          {
             Done = input.ReadBool();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Google.Rpc.Status subBuilder = new Google.Rpc.Status();
-            if (resultCase_ == ResultOneofCase.Error) {
+            if (resultCase_ == ResultOneofCase.Error)
+            {
               subBuilder.MergeFrom(Error);
             }
             input.ReadMessage(subBuilder);
             Error = subBuilder;
             break;
           }
-          case 42: {
+          case 42:
+          {
             Google.Protobuf.WellKnownTypes.Any subBuilder = new Google.Protobuf.WellKnownTypes.Any();
-            if (resultCase_ == ResultOneofCase.Response) {
+            if (resultCase_ == ResultOneofCase.Response)
+            {
               subBuilder.MergeFrom(Response);
             }
             input.ReadMessage(subBuilder);
@@ -398,6 +385,5 @@ namespace Saltoapis.Longrunning.V1
             }
         }
 #endif
-
     }
 }

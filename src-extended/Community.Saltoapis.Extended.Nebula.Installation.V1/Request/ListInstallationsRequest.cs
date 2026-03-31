@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<ListInstallationsRequest> _parser = new(() => new ListInstallationsRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListInstallationsRequest> Parser { get { return _parser; } }
+        public static MessageParser<ListInstallationsRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[10]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[10];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListInstallationsRequest()
         {
@@ -44,92 +42,56 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "page_size" field.</summary>
         public const int PageSizeFieldNumber = 1;
         private int pageSize_;
-
         /// <summary>
         /// The maximum number of items to return.
         /// </summary>
         public int PageSize
         {
-            get { return pageSize_; }
-            set
-            {
-                pageSize_ = value;
-            }
-        }
-
+            get => pageSize_; set => pageSize_ = value;}
         /// <summary>Field number for the "page_token" field.</summary>
         public const int PageTokenFieldNumber = 2;
         private string pageToken_ = "";
-
         /// <summary>
         /// The `next_page_token` value returned from a previous `List` request, if
         /// any.
         /// </summary>
         public string PageToken
         {
-            get { return pageToken_; }
-            set
-            {
-                pageToken_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => pageToken_; set => pageToken_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "filter" field.</summary>
         public const int FilterFieldNumber = 3;
         private string filter_ = "";
-
         /// <summary>
         /// A filter that chooses which installations to return.
         /// </summary>
         public string Filter
         {
-            get { return filter_; }
-            set
-            {
-                filter_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => filter_; set => filter_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "order_by" field.</summary>
         public const int OrderByFieldNumber = 4;
         private string orderBy_ = "";
-
         /// <summary>
         /// How the results should be sorted.
         /// </summary>
         public string OrderBy
         {
-            get { return orderBy_; }
-            set
-            {
-                orderBy_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => orderBy_; set => orderBy_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "show_deleted" field.</summary>
         public const int ShowDeletedFieldNumber = 5;
         private bool showDeleted_;
-
         /// <summary>
         /// Show deleted installations.
         /// </summary>
         public bool ShowDeleted
         {
-            get { return showDeleted_; }
-            set
-            {
-                showDeleted_ = value;
-            }
-        }
+            get => showDeleted_; set => showDeleted_ = value;}
 
         public override bool Equals(object other) => Equals(other as ListInstallationsRequest);
         public bool Equals(ListInstallationsRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((PageSize != other.PageSize) || (PageToken != other.PageToken)) return false;
-            if ((Filter != other.Filter) || (OrderBy != other.OrderBy)) return false;
-            if (ShowDeleted != other.ShowDeleted) return false;
+            if ((PageSize != other.PageSize) || (PageToken != other.PageToken) || (Filter != other.Filter) || (OrderBy != other.OrderBy) || ShowDeleted != other.ShowDeleted) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -151,27 +113,33 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (PageSize != 0) {
+      if (PageSize != 0)
+      {
         output.WriteRawTag(8);
         output.WriteInt32(PageSize);
       }
-      if (PageToken.Length != 0) {
+      if (PageToken.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(PageToken);
       }
-      if (Filter.Length != 0) {
+      if (Filter.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(Filter);
       }
-      if (OrderBy.Length != 0) {
+      if (OrderBy.Length != 0)
+      {
         output.WriteRawTag(34);
         output.WriteString(OrderBy);
       }
-      if (ShowDeleted != false) {
+      if (ShowDeleted != false)
+      {
         output.WriteRawTag(40);
         output.WriteBool(ShowDeleted);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -239,32 +207,40 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 8:
+          {
             PageSize = input.ReadInt32();
             break;
           }
-          case 18: {
+          case 18:
+          {
             PageToken = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             Filter = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             OrderBy = input.ReadString();
             break;
           }
-          case 40: {
+          case 40:
+          {
             ShowDeleted = input.ReadBool();
             break;
           }
@@ -319,8 +295,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

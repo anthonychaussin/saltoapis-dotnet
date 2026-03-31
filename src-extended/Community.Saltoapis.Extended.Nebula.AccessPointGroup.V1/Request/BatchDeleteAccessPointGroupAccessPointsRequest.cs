@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
         private static readonly MessageParser<BatchDeleteAccessPointGroupAccessPointsRequest> _parser = new(() => new BatchDeleteAccessPointGroupAccessPointsRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchDeleteAccessPointGroupAccessPointsRequest> Parser { get { return _parser; } }
+        public static MessageParser<BatchDeleteAccessPointGroupAccessPointsRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessPointGroupReflection.Descriptor.MessageTypes[16]; }
-        }
+            get => AccessPointGroupReflection.Descriptor.MessageTypes[16];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchDeleteAccessPointGroupAccessPointsRequest()
         {
@@ -41,7 +39,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// The resource name of the access point group's access point associations to be deleted.
         /// For example:
@@ -49,27 +46,19 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "requests" field.</summary>
         public const int RequestsFieldNumber = 2;
         private static readonly FieldCodec<DeleteAccessPointGroupAccessPointRequest> _repeated_requests_codec
             = FieldCodec.ForMessage(18, DeleteAccessPointGroupAccessPointRequest.Parser);
         private readonly RepeatedField<DeleteAccessPointGroupAccessPointRequest> requests_ = [];
-
         /// <summary>
         /// The request message specifying the resources to delete.
         /// A maximum of 100 access point group access points can be deleted in a batch.
         /// </summary>
         public RepeatedField<DeleteAccessPointGroupAccessPointRequest> Requests
         {
-            get { return requests_; }
-        }
+            get => requests_;}
 
         public override bool Equals(object other) => Equals(other as BatchDeleteAccessPointGroupAccessPointsRequest);
         public bool Equals(BatchDeleteAccessPointGroupAccessPointsRequest other)
@@ -95,12 +84,14 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
       requests_.WriteTo(output, _repeated_requests_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -143,20 +134,25 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             requests_.AddEntriesFrom(input, _repeated_requests_codec);
             break;
           }
@@ -196,8 +192,6 @@ namespace Saltoapis.Nebula.AccessPointGroup.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
         private static readonly MessageParser<ElectronicKey> _parser = new(() => new ElectronicKey());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ElectronicKey> Parser { get { return _parser; } }
+        public static MessageParser<ElectronicKey> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicKeyReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => ElectronicKeyReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ElectronicKey()
         {
@@ -46,7 +44,6 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the electronic key. It must have the format of
         /// `installations/*/electronic-keys/*`. For example:
@@ -54,33 +51,19 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the electronic key.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "initialized" field.</summary>
         public const int InitializedFieldNumber = 3;
         private bool initialized_;
-
         /// <summary>
         /// Indicates whether this electronic key has been initialized or not. This
         /// field cannot be modified using a standard
@@ -93,48 +76,26 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
         /// </summary>
         public bool Initialized
         {
-            get { return initialized_; }
-            set
-            {
-                initialized_ = value;
-            }
-        }
-
+            get => initialized_; set => initialized_ = value;}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 4;
         private static readonly string DeviceIdDefaultValue = "";
 
         private string deviceId_;
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, electronic keys and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_ ?? DeviceIdDefaultValue; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_ ?? DeviceIdDefaultValue; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return deviceId_ != null; }
-        }
-
+        public bool HasDeviceId => deviceId_ != null;
         /// <summary>Clears the value of the "device_id" field</summary>
-        public void ClearDeviceId()
-        {
-            deviceId_ = null;
-        }
-
+        public void ClearDeviceId() => deviceId_ = null;
         /// <summary>Field number for the "outdated" field.</summary>
         public const int OutdatedFieldNumber = 5;
         private bool outdated_;
-
         /// <summary>
         /// Indicates whether this electronic key has pending updates or not. This
         /// could be because there was a pending configuration or a firmware update
@@ -142,68 +103,38 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
         /// </summary>
         public bool Outdated
         {
-            get { return outdated_; }
-            set
-            {
-                outdated_ = value;
-            }
-        }
-
+            get => outdated_; set => outdated_ = value;}
         /// <summary>Field number for the "device_metadata" field.</summary>
         public const int DeviceMetadataFieldNumber = 6;
         private Type.DeviceMetadata deviceMetadata_;
-
         /// <summary>
         /// Device metadata contains information about a device hardware and firmware.
         /// </summary>
         public Type.DeviceMetadata DeviceMetadata
         {
-            get { return deviceMetadata_; }
-            set
-            {
-                deviceMetadata_ = value;
-            }
-        }
-
+            get => deviceMetadata_; set => deviceMetadata_ = value;}
         /// <summary>Field number for the "user" field.</summary>
         public const int UserFieldNumber = 8;
         private static readonly string UserDefaultValue = "";
 
         private string user_;
-
         /// <summary>
         /// User associated with this electronic key.
         /// </summary>
         public string User
         {
-            get { return user_ ?? UserDefaultValue; }
-            set
-            {
-                user_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => user_ ?? UserDefaultValue; set => user_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "user" field is set</summary>
-        public bool HasUser
-        {
-            get { return user_ != null; }
-        }
-
+        public bool HasUser => user_ != null;
         /// <summary>Clears the value of the "user" field</summary>
-        public void ClearUser()
-        {
-            user_ = null;
-        }
+        public void ClearUser() => user_ = null;
 
         public override bool Equals(object other) => Equals(other as ElectronicKey);
         public bool Equals(ElectronicKey other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((Initialized != other.Initialized) || (DeviceId != other.DeviceId)) return false;
-            if ((Outdated != other.Outdated) || (!Equals(DeviceMetadata, other.DeviceMetadata))) return false;
-            if (User != other.User) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (Initialized != other.Initialized) || (DeviceId != other.DeviceId) || (Outdated != other.Outdated) || (!Equals(DeviceMetadata, other.DeviceMetadata)) || User != other.User) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -227,35 +158,43 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (Initialized != false) {
+      if (Initialized != false)
+      {
         output.WriteRawTag(24);
         output.WriteBool(Initialized);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(34);
         output.WriteString(DeviceId);
       }
-      if (Outdated != false) {
+      if (Outdated != false)
+      {
         output.WriteRawTag(40);
         output.WriteBool(Outdated);
       }
-      if (deviceMetadata_ != null) {
+      if (deviceMetadata_ != null)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(DeviceMetadata);
       }
-      if (HasUser) {
+      if (HasUser)
+      {
         output.WriteRawTag(66);
         output.WriteString(User);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -341,43 +280,54 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 24: {
+          case 24:
+          {
             Initialized = input.ReadBool();
             break;
           }
-          case 34: {
+          case 34:
+          {
             DeviceId = input.ReadString();
             break;
           }
-          case 40: {
+          case 40:
+          {
             Outdated = input.ReadBool();
             break;
           }
-          case 50: {
-            if (deviceMetadata_ == null) {
+          case 50:
+          {
+            if (deviceMetadata_ == null)
+            {
               DeviceMetadata = new Saltoapis.Nebula.Type.DeviceMetadata();
             }
             input.ReadMessage(DeviceMetadata);
             break;
           }
-          case 66: {
+          case 66:
+          {
             User = input.ReadString();
             break;
           }
@@ -443,6 +393,5 @@ namespace Saltoapis.Nebula.ElectronicKey.V1
             }
         }
 #endif
-
     }
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         private static readonly MessageParser<UpdateElectronicKeyRequest> _parser = new(() => new UpdateElectronicKeyRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<UpdateElectronicKeyRequest> Parser { get { return _parser; } }
+        public static MessageParser<UpdateElectronicKeyRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ElectronicKeyReflection.Descriptor.MessageTypes[5]; }
-        }
+            get => ElectronicKeyReflection.Descriptor.MessageTypes[5];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public UpdateElectronicKeyRequest()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 1;
         private ElectronicKey electronicKey_;
-
         /// <summary>
         /// The electronic key resource which replaces the resource on the server.
         /// </summary>
         public ElectronicKey ElectronicKey
         {
-            get { return electronicKey_; }
-            set
-            {
-                electronicKey_ = value;
-            }
-        }
-
+            get => electronicKey_; set => electronicKey_ = value;}
         /// <summary>Field number for the "update_mask" field.</summary>
         public const int UpdateMaskFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.FieldMask updateMask_;
-
         /// <summary>
         /// The update mask applied to the resource.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.FieldMask UpdateMask
         {
-            get { return updateMask_; }
-            set
-            {
-                updateMask_ = value;
-            }
-        }
+            get => updateMask_; set => updateMask_ = value;}
 
         public override bool Equals(object other) => Equals(other as UpdateElectronicKeyRequest);
         public bool Equals(UpdateElectronicKeyRequest other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (electronicKey_ != null) {
+      if (electronicKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(ElectronicKey);
       }
-      if (updateMask_ != null) {
+      if (updateMask_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(UpdateMask);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -157,24 +145,31 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (electronicKey_ == null) {
+          case 10:
+          {
+            if (electronicKey_ == null)
+            {
               ElectronicKey = new Saltoapis.Nebula.ElectronicKey.V1.ElectronicKey();
             }
             input.ReadMessage(ElectronicKey);
             break;
           }
-          case 18: {
-            if (updateMask_ == null) {
+          case 18:
+          {
+            if (updateMask_ == null)
+            {
               UpdateMask = new Google.Protobuf.WellKnownTypes.FieldMask();
             }
             input.ReadMessage(UpdateMask);
@@ -218,8 +213,6 @@ namespace Saltoapis.Nebula.ElectronicKey.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

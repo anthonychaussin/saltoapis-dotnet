@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Request
         private static readonly MessageParser<CreateOpeningModeScheduleRequest> _parser = new(() => new CreateOpeningModeScheduleRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CreateOpeningModeScheduleRequest> Parser { get { return _parser; } }
+        public static MessageParser<CreateOpeningModeScheduleRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return OpeningModeScheduleReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => OpeningModeScheduleReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CreateOpeningModeScheduleRequest()
         {
@@ -42,61 +40,40 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Request
         /// <summary>Field number for the "parent" field.</summary>
         public const int ParentFieldNumber = 1;
         private string parent_ = "";
-
         /// <summary>
         /// Resource name of the parent resource where to create the opening mode
         /// schedule. For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Parent
         {
-            get { return parent_; }
-            set
-            {
-                parent_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => parent_; set => parent_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "opening_mode_schedule_id" field.</summary>
         public const int OpeningModeScheduleIdFieldNumber = 2;
         private string openingModeScheduleId_ = "";
-
         /// <summary>
         /// The opening mode schedule ID to use for this opening mode schedule. In
         /// case it's empty the server will autogenerate a unique identifier.
         /// </summary>
         public string OpeningModeScheduleId
         {
-            get { return openingModeScheduleId_; }
-            set
-            {
-                openingModeScheduleId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => openingModeScheduleId_; set => openingModeScheduleId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "opening_mode_schedule" field.</summary>
         public const int OpeningModeScheduleFieldNumber = 3;
         private OpeningModeSchedule openingModeSchedule_;
-
         /// <summary>
         /// The opening mode schedule resource to be created. Client must not set the
         /// `OpeningModeSchedule.name` field.
         /// </summary>
         public OpeningModeSchedule OpeningModeSchedule
         {
-            get { return openingModeSchedule_; }
-            set
-            {
-                openingModeSchedule_ = value;
-            }
-        }
+            get => openingModeSchedule_; set => openingModeSchedule_ = value;}
 
         public override bool Equals(object other) => Equals(other as CreateOpeningModeScheduleRequest);
         public bool Equals(CreateOpeningModeScheduleRequest other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Parent != other.Parent) || (OpeningModeScheduleId != other.OpeningModeScheduleId)) return false;
-            if (!Equals(OpeningModeSchedule, other.OpeningModeSchedule)) return false;
+            if ((Parent != other.Parent) || (OpeningModeScheduleId != other.OpeningModeScheduleId) || !Equals(OpeningModeSchedule, other.OpeningModeSchedule)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -116,19 +93,23 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Parent.Length != 0) {
+      if (Parent.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Parent);
       }
-      if (OpeningModeScheduleId.Length != 0) {
+      if (OpeningModeScheduleId.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(OpeningModeScheduleId);
       }
-      if (openingModeSchedule_ != null) {
+      if (openingModeSchedule_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(OpeningModeSchedule);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -186,25 +167,32 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Parent = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             OpeningModeScheduleId = input.ReadString();
             break;
           }
-          case 26: {
-            if (openingModeSchedule_ == null) {
+          case 26:
+          {
+            if (openingModeSchedule_ == null)
+            {
               OpeningModeSchedule = new Saltoapis.Nebula.OpeningModeSchedule.V1.OpeningModeSchedule();
             }
             input.ReadMessage(OpeningModeSchedule);
@@ -252,8 +240,6 @@ namespace Saltoapis.Nebula.OpeningModeSchedule.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

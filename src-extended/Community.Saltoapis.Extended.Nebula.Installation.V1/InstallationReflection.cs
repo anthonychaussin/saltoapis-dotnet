@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Installation.V1
     /// <summary>Holder for reflection information generated from salto/nebula/installation/v1/installation.proto</summary>
     public static partial class InstallationReflection
     {
-
         /// <summary>File descriptor for salto/nebula/installation/v1/installation.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -255,8 +253,6 @@ namespace Saltoapis.Nebula.Installation.V1
             new(typeof(GenerateAuthorizationTokenResponse), GenerateAuthorizationTokenResponse.Parser, ["AuthorizationToken"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Unit.V1
         private static readonly MessageParser<Policy> _parser = new(() => new Policy());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Policy> Parser { get { return _parser; } }
+        public static MessageParser<Policy> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UnitReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => UnitReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Policy()
         {
@@ -42,7 +40,6 @@ namespace Saltoapis.Nebula.Unit.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the policy. It must have the format of
         /// `installations/*/units/*/iam-policies`, for example:
@@ -50,50 +47,34 @@ namespace Saltoapis.Nebula.Unit.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "member" field.</summary>
         public const int MemberFieldNumber = 2;
         private string member_ = "";
-
         /// <summary>
         /// Specifies the identity requesting access to this resource.
         /// </summary>
         public string Member
         {
-            get { return member_; }
-            set
-            {
-                member_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => member_; set => member_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "roles" field.</summary>
         public const int RolesFieldNumber = 3;
         private static readonly FieldCodec<string> _repeated_roles_codec
             = FieldCodec.ForString(26);
         private readonly RepeatedField<string> roles_ = [];
-
         /// <summary>
         /// The names of the roles this policy grants.
         /// </summary>
         public RepeatedField<string> Roles
         {
-            get { return roles_; }
-        }
+            get => roles_;}
 
         public override bool Equals(object other) => Equals(other as Policy);
         public bool Equals(Policy other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (Member != other.Member)) return false;
-            if (!roles_.Equals(other.roles_)) return false;
+            if ((Name != other.Name) || (Member != other.Member) || !roles_.Equals(other.roles_)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -113,16 +94,19 @@ namespace Saltoapis.Nebula.Unit.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Member.Length != 0) {
+      if (Member.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Member);
       }
       roles_.WriteTo(output, _repeated_roles_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -172,24 +156,30 @@ namespace Saltoapis.Nebula.Unit.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Member = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             roles_.AddEntriesFrom(input, _repeated_roles_codec);
             break;
           }
@@ -234,8 +224,6 @@ namespace Saltoapis.Nebula.Unit.V1
             }
         }
 #endif
-
     }
-
 
 }

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Type
         private static readonly MessageParser<Schedule> _parser = new(() => new Schedule());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Schedule> Parser { get { return _parser; } }
+        public static MessageParser<Schedule> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return ScheduleReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => ScheduleReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Schedule()
         {
@@ -44,54 +42,37 @@ namespace Saltoapis.Nebula.Type
         private static readonly FieldCodec<Types.Day> _repeated_days_codec
             = FieldCodec.ForMessage(10, Types.Day.Parser);
         private readonly RepeatedField<Types.Day> days_ = [];
-
         /// <summary>
         /// Days when it's valid.
         /// </summary>
         public RepeatedField<Types.Day> Days
         {
-            get { return days_; }
-        }
-
+            get => days_;}
         /// <summary>Field number for the "start_time" field.</summary>
         public const int StartTimeFieldNumber = 2;
         private Saltoapis.Type.TimeOfDay startTime_;
-
         /// <summary>
         /// Start time of day when schedule starts being valid.
         /// </summary>
         public Saltoapis.Type.TimeOfDay StartTime
         {
-            get { return startTime_; }
-            set
-            {
-                startTime_ = value;
-            }
-        }
-
+            get => startTime_; set => startTime_ = value;}
         /// <summary>Field number for the "end_time" field.</summary>
         public const int EndTimeFieldNumber = 3;
         private Saltoapis.Type.TimeOfDay endTime_;
-
         /// <summary>
         /// End time of day when schedule ends being valid.
         /// </summary>
         public Saltoapis.Type.TimeOfDay EndTime
         {
-            get { return endTime_; }
-            set
-            {
-                endTime_ = value;
-            }
-        }
+            get => endTime_; set => endTime_ = value;}
 
         public override bool Equals(object other) => Equals(other as Schedule);
         public bool Equals(Schedule other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((!days_.Equals(other.days_)) || (!Equals(StartTime, other.StartTime))) return false;
-            if (!Equals(EndTime, other.EndTime)) return false;
+            if ((!days_.Equals(other.days_)) || (!Equals(StartTime, other.StartTime)) || !Equals(EndTime, other.EndTime)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -112,15 +93,18 @@ namespace Saltoapis.Nebula.Type
             output.WriteRawMessage(this);
 #else
       days_.WriteTo(output, _repeated_days_codec);
-      if (startTime_ != null) {
+      if (startTime_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(StartTime);
       }
-      if (endTime_ != null) {
+      if (endTime_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EndTime);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -178,28 +162,36 @@ namespace Saltoapis.Nebula.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             days_.AddEntriesFrom(input, _repeated_days_codec);
             break;
           }
-          case 18: {
-            if (startTime_ == null) {
+          case 18:
+          {
+            if (startTime_ == null)
+            {
               StartTime = new Saltoapis.Type.TimeOfDay();
             }
             input.ReadMessage(StartTime);
             break;
           }
-          case 26: {
-            if (endTime_ == null) {
+          case 26:
+          {
+            if (endTime_ == null)
+            {
               EndTime = new Saltoapis.Type.TimeOfDay();
             }
             input.ReadMessage(EndTime);
@@ -248,7 +240,6 @@ namespace Saltoapis.Nebula.Type
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Schedule message type.</summary>
         public static partial class Types
         {
@@ -263,17 +254,15 @@ namespace Saltoapis.Nebula.Type
                 private static readonly MessageParser<Day> _parser = new(() => new Day());
                 private UnknownFieldSet _unknownFields;
 
-                public static MessageParser<Day> Parser { get { return _parser; } }
+                public static MessageParser<Day> Parser { get => _parser;}
 
                 public static MessageDescriptor Descriptor
                 {
-                    get { return Schedule.Descriptor.NestedTypes[0]; }
-                }
+                    get => Schedule.Descriptor.NestedTypes[0];}
 
                 MessageDescriptor IMessage.Descriptor
                 {
-                    get { return Descriptor; }
-                }
+                    get => Descriptor;}
 
                 public Day()
                 {
@@ -293,34 +282,21 @@ namespace Saltoapis.Nebula.Type
                 /// <summary>Field number for the "day_type" field.</summary>
                 public const int DayTypeFieldNumber = 1;
                 private DayType dayType_ = DayType.Unspecified;
-
                 /// <summary>
                 /// Day type
                 /// </summary>
                 public DayType DayType
                 {
-                    get { return dayType_; }
-                    set
-                    {
-                        dayType_ = value;
-                    }
-                }
-
+                    get => dayType_; set => dayType_ = value;}
                 /// <summary>Field number for the "day_of_week" field.</summary>
                 public const int DayOfWeekFieldNumber = 2;
                 private Saltoapis.Type.DayOfWeek dayOfWeek_ = Saltoapis.Type.DayOfWeek.Unspecified;
-
                 /// <summary>
                 /// In case `day_type` is `NORMAL`, the specific day of the week.
                 /// </summary>
                 public Saltoapis.Type.DayOfWeek DayOfWeek
                 {
-                    get { return dayOfWeek_; }
-                    set
-                    {
-                        dayOfWeek_ = value;
-                    }
-                }
+                    get => dayOfWeek_; set => dayOfWeek_ = value;}
 
                 public override bool Equals(object other) => Equals(other as Day);
                 public bool Equals(Day other)
@@ -346,15 +322,18 @@ namespace Saltoapis.Nebula.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
                     output.WriteRawMessage(this);
 #else
-          if (DayType != Saltoapis.Nebula.Type.DayType.Unspecified) {
+          if (DayType != Saltoapis.Nebula.Type.DayType.Unspecified)
+          {
             output.WriteRawTag(8);
             output.WriteEnum((int) DayType);
           }
-          if (DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified) {
+          if (DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified)
+          {
             output.WriteRawTag(16);
             output.WriteEnum((int) DayOfWeek);
           }
-          if (_unknownFields != null) {
+          if (_unknownFields != null)
+          {
             _unknownFields.WriteTo(output);
           }
 #endif
@@ -401,20 +380,25 @@ namespace Saltoapis.Nebula.Type
                     input.ReadRawMessage(this);
 #else
           uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-          if ((tag & 7) == 4) {
+          while ((tag = input.ReadTag()) != 0)
+          {
+          if ((tag & 7) == 4)
+          {
             // Abort on any end group tag.
             return;
           }
-          switch(tag) {
+          switch(tag)
+          {
               default:
                 _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 8: {
+              case 8:
+              {
                 DayType = (Saltoapis.Nebula.Type.DayType) input.ReadEnum();
                 break;
               }
-              case 16: {
+              case 16:
+              {
                 DayOfWeek = (Saltoapis.Type.DayOfWeek) input.ReadEnum();
                 break;
               }
@@ -454,12 +438,8 @@ namespace Saltoapis.Nebula.Type
                     }
                 }
 #endif
-
             }
-
         }
-
     }
-
 
 }

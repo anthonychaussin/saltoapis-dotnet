@@ -8,17 +8,15 @@ namespace Saltoapis.Nebula.Calendar.V1
         private static readonly MessageParser<Event> _parser = new(() => new Event());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Event> Parser { get { return _parser; } }
+        public static MessageParser<Event> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return CalendarReflection.Descriptor.MessageTypes[1]; }
-        }
+            get => CalendarReflection.Descriptor.MessageTypes[1];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Event()
         {
@@ -40,7 +38,6 @@ namespace Saltoapis.Nebula.Calendar.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the calendar event. It must have the
         /// format of `installations/*/calendars/*/events/*`. For example:
@@ -48,68 +45,41 @@ namespace Saltoapis.Nebula.Calendar.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "day_type" field.</summary>
         public const int DayTypeFieldNumber = 2;
         private Type.DayType dayType_ = Type.DayType.Unspecified;
-
         /// <summary>
         /// Day type.
         /// </summary>
         public Type.DayType DayType
         {
-            get { return dayType_; }
-            set
-            {
-                dayType_ = value;
-            }
-        }
-
+            get => dayType_; set => dayType_ = value;}
         /// <summary>Field number for the "start_date" field.</summary>
         public const int StartDateFieldNumber = 3;
         private Saltoapis.Type.Date startDate_;
-
         /// <summary>
         /// Start date.
         /// </summary>
         public Saltoapis.Type.Date StartDate
         {
-            get { return startDate_; }
-            set
-            {
-                startDate_ = value;
-            }
-        }
-
+            get => startDate_; set => startDate_ = value;}
         /// <summary>Field number for the "end_date" field.</summary>
         public const int EndDateFieldNumber = 4;
         private Saltoapis.Type.Date endDate_;
-
         /// <summary>
         /// End date.
         /// </summary>
         public Saltoapis.Type.Date EndDate
         {
-            get { return endDate_; }
-            set
-            {
-                endDate_ = value;
-            }
-        }
+            get => endDate_; set => endDate_ = value;}
 
         public override bool Equals(object other) => Equals(other as Event);
         public bool Equals(Event other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DayType != other.DayType)) return false;
-            if ((!Equals(StartDate, other.StartDate)) || (!Equals(EndDate, other.EndDate))) return false;
+            if ((Name != other.Name) || (DayType != other.DayType) || (!Equals(StartDate, other.StartDate)) || (!Equals(EndDate, other.EndDate))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -130,23 +100,28 @@ namespace Saltoapis.Nebula.Calendar.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DayType != Saltoapis.Nebula.Type.DayType.Unspecified) {
+      if (DayType != Saltoapis.Nebula.Type.DayType.Unspecified)
+      {
         output.WriteRawTag(16);
         output.WriteEnum((int) DayType);
       }
-      if (startDate_ != null) {
+      if (startDate_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(StartDate);
       }
-      if (endDate_ != null) {
+      if (endDate_ != null)
+      {
         output.WriteRawTag(34);
         output.WriteMessage(EndDate);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -215,32 +190,41 @@ namespace Saltoapis.Nebula.Calendar.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 16:
+          {
             DayType = (Saltoapis.Nebula.Type.DayType) input.ReadEnum();
             break;
           }
-          case 26: {
-            if (startDate_ == null) {
+          case 26:
+          {
+            if (startDate_ == null)
+            {
               StartDate = new Saltoapis.Type.Date();
             }
             input.ReadMessage(StartDate);
             break;
           }
-          case 34: {
-            if (endDate_ == null) {
+          case 34:
+          {
+            if (endDate_ == null)
+            {
               EndDate = new Saltoapis.Type.Date();
             }
             input.ReadMessage(EndDate);
@@ -294,8 +278,6 @@ namespace Saltoapis.Nebula.Calendar.V1
             }
         }
 #endif
-
     }
-
 
 }

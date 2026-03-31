@@ -23,5 +23,4 @@ namespace Saltoapis.Nebula.Type
         [OriginalName("AUTOLOCK")] Autolock = 3,
     }
 
-
 }

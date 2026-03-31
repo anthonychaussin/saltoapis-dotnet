@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Gateway.V1
         private static readonly MessageParser<Gateway> _parser = new(() => new Gateway());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Gateway> Parser { get { return _parser; } }
+        public static MessageParser<Gateway> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return GatewayReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => GatewayReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Gateway()
         {
@@ -47,7 +45,6 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         ///  Resource name of the gateway. It must have the format of
         /// `installations/*/gateways/*`. For example:
@@ -55,64 +52,35 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the gateway.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 3;
         private static readonly string DeviceIdDefaultValue = "";
 
         private string deviceId_;
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, encoders and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_ ?? DeviceIdDefaultValue; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_ ?? DeviceIdDefaultValue; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return deviceId_ != null; }
-        }
-
+        public bool HasDeviceId => deviceId_ != null;
         /// <summary>Clears the value of the "device_id" field</summary>
-        public void ClearDeviceId()
-        {
-            deviceId_ = null;
-        }
-
+        public void ClearDeviceId() => deviceId_ = null;
         /// <summary>Field number for the "initialized" field.</summary>
         public const int InitializedFieldNumber = 4;
         private bool initialized_;
-
         /// <summary>
         /// Indicates whether this gateway has been initialized or not. This
         /// field cannot be modified using a standard
@@ -125,33 +93,19 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public bool Initialized
         {
-            get { return initialized_; }
-            set
-            {
-                initialized_ = value;
-            }
-        }
-
+            get => initialized_; set => initialized_ = value;}
         /// <summary>Field number for the "device_metadata" field.</summary>
         public const int DeviceMetadataFieldNumber = 8;
         private Type.DeviceMetadata deviceMetadata_;
-
         /// <summary>
         /// Device metadata contains information about a device hardware and firmware.
         /// </summary>
         public Type.DeviceMetadata DeviceMetadata
         {
-            get { return deviceMetadata_; }
-            set
-            {
-                deviceMetadata_ = value;
-            }
-        }
-
+            get => deviceMetadata_; set => deviceMetadata_ = value;}
         /// <summary>Field number for the "connected" field.</summary>
         public const int ConnectedFieldNumber = 7;
         private bool connected_;
-
         /// <summary>
         /// Indicates whether this gateway is connected or not. It's considered
         /// connected if the gateway has successfully established communication
@@ -159,54 +113,32 @@ namespace Saltoapis.Nebula.Gateway.V1
         /// </summary>
         public bool Connected
         {
-            get { return connected_; }
-            set
-            {
-                connected_ = value;
-            }
-        }
-
+            get => connected_; set => connected_ = value;}
         /// <summary>Field number for the "ethernet_settings" field.</summary>
         public const int EthernetSettingsFieldNumber = 5;
         private EthernetSettings ethernetSettings_;
-
         /// <summary>
         /// Ethernet network settings for a gateway
         /// </summary>
         public EthernetSettings EthernetSettings
         {
-            get { return ethernetSettings_; }
-            set
-            {
-                ethernetSettings_ = value;
-            }
-        }
-
+            get => ethernetSettings_; set => ethernetSettings_ = value;}
         /// <summary>Field number for the "wifi_settings" field.</summary>
         public const int WifiSettingsFieldNumber = 6;
         private WifiSettings wifiSettings_;
-
         /// <summary>
         /// WiFi network settings for a gateway
         /// </summary>
         public WifiSettings WifiSettings
         {
-            get { return wifiSettings_; }
-            set
-            {
-                wifiSettings_ = value;
-            }
-        }
+            get => wifiSettings_; set => wifiSettings_ = value;}
 
         public override bool Equals(object other) => Equals(other as Gateway);
         public bool Equals(Gateway other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((DeviceId != other.DeviceId) || (Initialized != other.Initialized)) return false;
-            if ((!Equals(DeviceMetadata, other.DeviceMetadata)) || (Connected != other.Connected)) return false;
-            if ((!Equals(EthernetSettings, other.EthernetSettings)) || (!Equals(WifiSettings, other.WifiSettings))) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (DeviceId != other.DeviceId) || (Initialized != other.Initialized) || (!Equals(DeviceMetadata, other.DeviceMetadata)) || (Connected != other.Connected) || (!Equals(EthernetSettings, other.EthernetSettings)) || (!Equals(WifiSettings, other.WifiSettings))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -231,39 +163,48 @@ namespace Saltoapis.Nebula.Gateway.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(26);
         output.WriteString(DeviceId);
       }
-      if (Initialized != false) {
+      if (Initialized != false)
+      {
         output.WriteRawTag(32);
         output.WriteBool(Initialized);
       }
-      if (ethernetSettings_ != null) {
+      if (ethernetSettings_ != null)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(EthernetSettings);
       }
-      if (wifiSettings_ != null) {
+      if (wifiSettings_ != null)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(WifiSettings);
       }
-      if (Connected != false) {
+      if (Connected != false)
+      {
         output.WriteRawTag(56);
         output.WriteBool(Connected);
       }
-      if (deviceMetadata_ != null) {
+      if (deviceMetadata_ != null)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(DeviceMetadata);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -364,51 +305,65 @@ namespace Saltoapis.Nebula.Gateway.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DeviceId = input.ReadString();
             break;
           }
-          case 32: {
+          case 32:
+          {
             Initialized = input.ReadBool();
             break;
           }
-          case 42: {
-            if (ethernetSettings_ == null) {
+          case 42:
+          {
+            if (ethernetSettings_ == null)
+            {
               EthernetSettings = new Saltoapis.Nebula.Gateway.V1.EthernetSettings();
             }
             input.ReadMessage(EthernetSettings);
             break;
           }
-          case 50: {
-            if (wifiSettings_ == null) {
+          case 50:
+          {
+            if (wifiSettings_ == null)
+            {
               WifiSettings = new Saltoapis.Nebula.Gateway.V1.WifiSettings();
             }
             input.ReadMessage(WifiSettings);
             break;
           }
-          case 56: {
+          case 56:
+          {
             Connected = input.ReadBool();
             break;
           }
-          case 66: {
-            if (deviceMetadata_ == null) {
+          case 66:
+          {
+            if (deviceMetadata_ == null)
+            {
               DeviceMetadata = new Saltoapis.Nebula.Type.DeviceMetadata();
             }
             input.ReadMessage(DeviceMetadata);
@@ -483,6 +438,5 @@ namespace Saltoapis.Nebula.Gateway.V1
             }
         }
 #endif
-
     }
 }

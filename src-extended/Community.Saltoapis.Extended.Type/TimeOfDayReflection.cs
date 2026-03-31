@@ -1,6 +1,5 @@
 namespace Saltoapis.Type
 {
-
     /// <summary>Holder for reflection information generated from salto/type/time_of_day.proto
     /// Represents a time of day. The date and time zone are either not significant
     /// or are specified elsewhere. An API may chose to allow leap seconds. Related
@@ -9,12 +8,10 @@ namespace Saltoapis.Type
     /// </summary>
     public static partial class TimeOfDayReflection
     {
-
         /// <summary>File descriptor for salto/type/time_of_day.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 

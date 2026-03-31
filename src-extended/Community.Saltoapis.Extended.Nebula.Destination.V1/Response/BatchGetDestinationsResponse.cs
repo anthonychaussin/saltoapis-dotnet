@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Destination.V1.Response
         private static readonly MessageParser<BatchGetDestinationsResponse> _parser = new(() => new BatchGetDestinationsResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BatchGetDestinationsResponse> Parser { get { return _parser; } }
+        public static MessageParser<BatchGetDestinationsResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DestinationReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => DestinationReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BatchGetDestinationsResponse()
         {
@@ -42,14 +40,12 @@ namespace Saltoapis.Nebula.Destination.V1.Response
         private static readonly FieldCodec<Destination> _repeated_destinations_codec
             = FieldCodec.ForMessage(10, Destination.Parser);
         private readonly RepeatedField<Destination> destinations_ = [];
-
         /// <summary>
         /// Destinations requested.
         /// </summary>
         public RepeatedField<Destination> Destinations
         {
-            get { return destinations_; }
-        }
+            get => destinations_;}
 
         public override bool Equals(object other) => Equals(other as BatchGetDestinationsResponse);
         public bool Equals(BatchGetDestinationsResponse other)
@@ -75,7 +71,8 @@ namespace Saltoapis.Nebula.Destination.V1.Response
             output.WriteRawMessage(this);
 #else
       destinations_.WriteTo(output, _repeated_destinations_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -111,16 +108,20 @@ namespace Saltoapis.Nebula.Destination.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             destinations_.AddEntriesFrom(input, _repeated_destinations_codec);
             break;
           }
@@ -155,8 +156,6 @@ namespace Saltoapis.Nebula.Destination.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

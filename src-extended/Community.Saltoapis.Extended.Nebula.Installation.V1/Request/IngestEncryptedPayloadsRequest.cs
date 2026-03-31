@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         private static readonly MessageParser<IngestEncryptedPayloadsRequest> _parser = new(() => new IngestEncryptedPayloadsRequest());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<IngestEncryptedPayloadsRequest> Parser { get { return _parser; } }
+        public static MessageParser<IngestEncryptedPayloadsRequest> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncryptedPayloadReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => EncryptedPayloadReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public IngestEncryptedPayloadsRequest()
         {
@@ -41,33 +39,24 @@ namespace Saltoapis.Nebula.Installation.V1.Request
         /// <summary>Field number for the "installation" field.</summary>
         public const int InstallationFieldNumber = 1;
         private string installation_ = "";
-
         /// <summary>
         /// The parent installation resource name.
         /// For example: `installations/surelock-homes-hq`.
         /// </summary>
         public string Installation
         {
-            get { return installation_; }
-            set
-            {
-                installation_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => installation_; set => installation_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "encrypted_payloads" field.</summary>
         public const int EncryptedPayloadsFieldNumber = 2;
         private static readonly FieldCodec<ByteString> _repeated_encryptedPayloads_codec
             = FieldCodec.ForBytes(18);
         private readonly RepeatedField<ByteString> encryptedPayloads_ = [];
-
         /// <summary>
         /// The encrypted payloads to be ingested.
         /// </summary>
         public RepeatedField<ByteString> EncryptedPayloads
         {
-            get { return encryptedPayloads_; }
-        }
+            get => encryptedPayloads_;}
 
         public override bool Equals(object other) => Equals(other as IngestEncryptedPayloadsRequest);
         public bool Equals(IngestEncryptedPayloadsRequest other)
@@ -93,12 +82,14 @@ namespace Saltoapis.Nebula.Installation.V1.Request
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Installation.Length != 0) {
+      if (Installation.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Installation);
       }
       encryptedPayloads_.WriteTo(output, _repeated_encryptedPayloads_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -141,20 +132,25 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Installation = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             encryptedPayloads_.AddEntriesFrom(input, _repeated_encryptedPayloads_codec);
             break;
           }
@@ -194,8 +190,6 @@ namespace Saltoapis.Nebula.Installation.V1.Request
             }
         }
 #endif
-
     }
-
 
 }

@@ -13,17 +13,15 @@ namespace Saltoapis.Nebula.Installation.V1.Response
         private static readonly MessageParser<ListInvoicesResponse> _parser = new(() => new ListInvoicesResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<ListInvoicesResponse> Parser { get { return _parser; } }
+        public static MessageParser<ListInvoicesResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return InstallationReflection.Descriptor.MessageTypes[34]; }
-        }
+            get => InstallationReflection.Descriptor.MessageTypes[34];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public ListInvoicesResponse()
         {
@@ -44,14 +42,12 @@ namespace Saltoapis.Nebula.Installation.V1.Response
         private static readonly FieldCodec<Invoice> _repeated_invoices_codec
             = FieldCodec.ForMessage(10, Invoice.Parser);
         private readonly RepeatedField<Invoice> invoices_ = [];
-
         /// <summary>
         /// The field name should match the noun `invoices` in the method name.
         /// </summary>
         public RepeatedField<Invoice> Invoices
         {
-            get { return invoices_; }
-        }
+            get => invoices_;}
 
         public override bool Equals(object other) => Equals(other as ListInvoicesResponse);
         public bool Equals(ListInvoicesResponse other)
@@ -77,7 +73,8 @@ namespace Saltoapis.Nebula.Installation.V1.Response
             output.WriteRawMessage(this);
 #else
       invoices_.WriteTo(output, _repeated_invoices_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -113,16 +110,20 @@ namespace Saltoapis.Nebula.Installation.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             invoices_.AddEntriesFrom(input, _repeated_invoices_codec);
             break;
           }
@@ -157,8 +158,6 @@ namespace Saltoapis.Nebula.Installation.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

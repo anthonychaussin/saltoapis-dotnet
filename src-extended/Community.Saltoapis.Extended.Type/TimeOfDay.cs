@@ -8,17 +8,15 @@ namespace Saltoapis.Type
         private static readonly MessageParser<TimeOfDay> _parser = new(() => new TimeOfDay());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<TimeOfDay> Parser { get { return _parser; } }
+        public static MessageParser<TimeOfDay> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return TimeOfDayReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => TimeOfDayReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public TimeOfDay()
         {
@@ -37,82 +35,52 @@ namespace Saltoapis.Type
         }
 
         public TimeOfDay Clone() => new(this);
-
         /// <summary>Field number for the "hours" field.</summary>
         public const int HoursFieldNumber = 1;
         private int hours_;
-
         /// <summary>
         /// Hours of day in 24 hour format. Should be from 0 to 23.
         /// </summary>
         public int Hours
         {
-            get { return hours_; }
-            set
-            {
-                hours_ = value;
-            }
-        }
-
+            get => hours_; set => hours_ = value;}
         /// <summary>Field number for the "minutes" field.</summary>
         public const int MinutesFieldNumber = 2;
         private int minutes_;
-
         /// <summary>
         /// Minutes of hour of day. Must be from 0 to 59.
         /// </summary>
         public int Minutes
         {
-            get { return minutes_; }
-            set
-            {
-                minutes_ = value;
-            }
-        }
-
+            get => minutes_; set => minutes_ = value;}
         /// <summary>Field number for the "seconds" field.</summary>
         public const int SecondsFieldNumber = 3;
         private int seconds_;
-
         /// <summary>
         /// Seconds of minutes of the time. Must be from 0 to 59.
         /// </summary>
         public int Seconds
         {
-            get { return seconds_; }
-            set
-            {
-                seconds_ = value;
-            }
-        }
-
+            get => seconds_; set => seconds_ = value;}
         /// <summary>Field number for the "nanos" field.</summary>
         public const int NanosFieldNumber = 4;
         private int nanos_;
-
         /// <summary>
         /// Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
         /// </summary>
         public int Nanos
         {
-            get { return nanos_; }
-            set
-            {
-                nanos_ = value;
-            }
-        }
+            get => nanos_; set => nanos_ = value;}
 
         public override bool Equals(object other) => Equals(other as TimeOfDay);
         public bool Equals(TimeOfDay other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if (Hours != other.Hours
+return Hours != other.Hours
                 || Minutes != other.Minutes
                 || Seconds != other.Seconds
-                || Nanos != other.Nanos) return false;
-
-            return Equals(_unknownFields, other._unknownFields);
+                || Nanos != other.Nanos ? false : Equals(_unknownFields, other._unknownFields);
         }
 
         public override int GetHashCode()
@@ -132,23 +100,28 @@ namespace Saltoapis.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Hours != 0) {
+      if (Hours != 0)
+      {
         output.WriteRawTag(8);
         output.WriteInt32(Hours);
       }
-      if (Minutes != 0) {
+      if (Minutes != 0)
+      {
         output.WriteRawTag(16);
         output.WriteInt32(Minutes);
       }
-      if (Seconds != 0) {
+      if (Seconds != 0)
+      {
         output.WriteRawTag(24);
         output.WriteInt32(Seconds);
       }
-      if (Nanos != 0) {
+      if (Nanos != 0)
+      {
         output.WriteRawTag(32);
         output.WriteInt32(Nanos);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -209,28 +182,35 @@ namespace Saltoapis.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 8:
+          {
             Hours = input.ReadInt32();
             break;
           }
-          case 16: {
+          case 16:
+          {
             Minutes = input.ReadInt32();
             break;
           }
-          case 24: {
+          case 24:
+          {
             Seconds = input.ReadInt32();
             break;
           }
-          case 32: {
+          case 32:
+          {
             Nanos = input.ReadInt32();
             break;
           }
@@ -280,6 +260,5 @@ namespace Saltoapis.Type
             }
         }
 #endif
-
     }
 }

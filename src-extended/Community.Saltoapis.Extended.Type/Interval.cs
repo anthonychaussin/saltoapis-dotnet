@@ -8,17 +8,15 @@ namespace Saltoapis.Type
         private static readonly MessageParser<Interval> _parser = new(() => new Interval());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Interval> Parser { get { return _parser; } }
+        public static MessageParser<Interval> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntervalReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => IntervalReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Interval()
         {
@@ -38,34 +36,21 @@ namespace Saltoapis.Type
         /// <summary>Field number for the "start_time" field.</summary>
         public const int StartTimeFieldNumber = 1;
         private Google.Protobuf.WellKnownTypes.Timestamp startTime_;
-
         /// <summary>
         /// The start time of the interval.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp StartTime
         {
-            get { return startTime_; }
-            set
-            {
-                startTime_ = value;
-            }
-        }
-
+            get => startTime_; set => startTime_ = value;}
         /// <summary>Field number for the "end_time" field.</summary>
         public const int EndTimeFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.Timestamp endTime_;
-
         /// <summary>
         /// The end time of the interval.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp EndTime
         {
-            get { return endTime_; }
-            set
-            {
-                endTime_ = value;
-            }
-        }
+            get => endTime_; set => endTime_ = value;}
 
         public override bool Equals(object other) => Equals(other as Interval);
         public bool Equals(Interval other)
@@ -91,15 +76,18 @@ namespace Saltoapis.Type
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (startTime_ != null) {
+      if (startTime_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(StartTime);
       }
-      if (endTime_ != null) {
+      if (endTime_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(EndTime);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -154,24 +142,31 @@ namespace Saltoapis.Type
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (startTime_ == null) {
+          case 10:
+          {
+            if (startTime_ == null)
+            {
               StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(StartTime);
             break;
           }
-          case 18: {
-            if (endTime_ == null) {
+          case 18:
+          {
+            if (endTime_ == null)
+            {
               EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(EndTime);
@@ -215,6 +210,5 @@ namespace Saltoapis.Type
             }
         }
 #endif
-
     }
 }

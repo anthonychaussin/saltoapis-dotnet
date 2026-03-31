@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Response
         private static readonly MessageParser<BindIntercomAdaptorResponse> _parser = new(() => new BindIntercomAdaptorResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<BindIntercomAdaptorResponse> Parser { get { return _parser; } }
+        public static MessageParser<BindIntercomAdaptorResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.MessageTypes[9]; }
-        }
+            get => IntercomAdaptorReflection.Descriptor.MessageTypes[9];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public BindIntercomAdaptorResponse()
         {
@@ -57,7 +55,8 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Response
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -90,12 +89,15 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Response
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -123,8 +125,6 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1.Response
             }
         }
 #endif
-
     }
-
 
 }

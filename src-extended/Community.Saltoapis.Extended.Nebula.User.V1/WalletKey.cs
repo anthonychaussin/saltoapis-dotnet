@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<WalletKey> _parser = new(() => new WalletKey());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<WalletKey> Parser { get { return _parser; } }
+        public static MessageParser<WalletKey> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public WalletKey()
         {
@@ -42,7 +40,6 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the user's wallet key. It must have the
         /// format of `installations/*/users/*/wallet-key`. For example:
@@ -50,17 +47,10 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "state" field.</summary>
         public const int StateFieldNumber = 2;
         private Types.State state_ = Types.State.Unspecified;
-
         /// <summary>
         /// Indicates whether this wallet key has been assigned or not. This field
         /// cannot be modified using a standard
@@ -70,17 +60,10 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public Types.State State
         {
-            get { return state_; }
-            set
-            {
-                state_ = value;
-            }
-        }
-
+            get => state_; set => state_ = value;}
         /// <summary>Field number for the "outdated" field.</summary>
         public const int OutdatedFieldNumber = 3;
         private bool outdated_;
-
         /// <summary>
         /// Indicates whether this wallet key has pending updates or not.
         /// This field cannot be modified using a standard
@@ -90,20 +73,14 @@ namespace Saltoapis.Nebula.User.V1
         /// </summary>
         public bool Outdated
         {
-            get { return outdated_; }
-            set
-            {
-                outdated_ = value;
-            }
-        }
+            get => outdated_; set => outdated_ = value;}
 
         public override bool Equals(object other) => Equals(other as WalletKey);
         public bool Equals(WalletKey other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (State != other.State)) return false;
-            if (Outdated != other.Outdated) return false;
+            if ((Name != other.Name) || (State != other.State) || Outdated != other.Outdated) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -123,19 +100,23 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (State != Saltoapis.Nebula.User.V1.WalletKey.Types.State.Unspecified) {
+      if (State != Saltoapis.Nebula.User.V1.WalletKey.Types.State.Unspecified)
+      {
         output.WriteRawTag(16);
         output.WriteEnum((int) State);
       }
-      if (Outdated != false) {
+      if (Outdated != false)
+      {
         output.WriteRawTag(24);
         output.WriteBool(Outdated);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -189,24 +170,30 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 16:
+          {
             State = (Saltoapis.Nebula.User.V1.WalletKey.Types.State) input.ReadEnum();
             break;
           }
-          case 24: {
+          case 24:
+          {
             Outdated = input.ReadBool();
             break;
           }
@@ -251,37 +238,5 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
-        /// <summary>Container for nested types declared in the WalletKey message type.</summary>
-        public static partial class Types
-        {
-            /// <summary>
-            /// State for a wallet key.
-            /// </summary>
-            public enum State
-            {
-                /// <summary>
-                /// Sentinel value used to indicate that the state is unknown, omitted,
-                /// or is not applicable.
-                /// </summary>
-                [OriginalName("STATE_UNSPECIFIED")] Unspecified = 0,
-                /// <summary>
-                /// The wallet key is not assigned.
-                /// </summary>
-                [OriginalName("NOT_ASSIGNED")] NotAssigned = 1,
-                /// <summary>
-                /// The wallet key is pending activation.
-                /// </summary>
-                [OriginalName("PENDING")] Pending = 2,
-                /// <summary>
-                /// The wallet key is active and ready to be used.
-                /// </summary>
-                [OriginalName("ACTIVE")] Active = 3,
-            }
-
-        }
-
     }
-
-
 }

@@ -3,12 +3,10 @@ namespace Saltoapis.Nebula.Type
     /// <summary>Holder for reflection information generated from salto/nebula/type/schedule.proto</summary>
     public static partial class ScheduleReflection
     {
-
         /// <summary>File descriptor for salto/nebula/type/schedule.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -36,8 +34,6 @@ namespace Saltoapis.Nebula.Type
             new(typeof(Schedule), Schedule.Parser, ["Days", "StartTime", "EndTime"], null, null, null, [new(typeof(Schedule.Types.Day), Schedule.Types.Day.Parser, ["DayType", "DayOfWeek"], null, null, null, null)])
                 ]));
         }
-
     }
-
 
 }

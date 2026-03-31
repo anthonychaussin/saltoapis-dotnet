@@ -125,6 +125,4 @@ namespace Saltoapis.Nebula.User.V1
 #endif
 
     }
-
-
 }

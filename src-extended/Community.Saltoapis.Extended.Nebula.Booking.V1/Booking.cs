@@ -13,17 +13,15 @@ namespace Saltoapis.Nebula.Booking.V1
         private static readonly MessageParser<Booking> _parser = new(() => new Booking());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Booking> Parser { get { return _parser; } }
+        public static MessageParser<Booking> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return BookingReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => BookingReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Booking()
         {
@@ -55,7 +53,6 @@ namespace Saltoapis.Nebula.Booking.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the booking. It must have the format of
         /// `installations/*/bookings/*`. For example:
@@ -63,17 +60,10 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "start_time" field.</summary>
         public const int StartTimeFieldNumber = 2;
         private Google.Protobuf.WellKnownTypes.Timestamp startTime_;
-
         /// <summary>
         /// The start time of the booking. When creating a booking, this is the planned
         /// start time. Once the booking has started/checked in, it represents the
@@ -81,17 +71,10 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp StartTime
         {
-            get { return startTime_; }
-            set
-            {
-                startTime_ = value;
-            }
-        }
-
+            get => startTime_; set => startTime_ = value;}
         /// <summary>Field number for the "end_time" field.</summary>
         public const int EndTimeFieldNumber = 3;
         private Google.Protobuf.WellKnownTypes.Timestamp endTime_;
-
         /// <summary>
         /// The end time of the booking. When creating a booking, this is the planned
         /// end time. Once the booking has completed/checked out, it represents the
@@ -99,64 +82,36 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp EndTime
         {
-            get { return endTime_; }
-            set
-            {
-                endTime_ = value;
-            }
-        }
-
+            get => endTime_; set => endTime_ = value;}
         /// <summary>Field number for the "state" field.</summary>
         public const int StateFieldNumber = 4;
         private Types.State state_ = Types.State.Unspecified;
-
         /// <summary>
         /// The lifecycle state of the booking.
         /// </summary>
         public Types.State State
         {
-            get { return state_; }
-            set
-            {
-                state_ = value;
-            }
-        }
-
+            get => state_; set => state_ = value;}
         /// <summary>Field number for the "check_in_time" field.</summary>
         public const int CheckInTimeFieldNumber = 5;
         private Google.Protobuf.WellKnownTypes.Timestamp checkInTime_;
-
         /// <summary>
         /// The timestamp when the check-in was performed.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp CheckInTime
         {
-            get { return checkInTime_; }
-            set
-            {
-                checkInTime_ = value;
-            }
-        }
-
+            get => checkInTime_; set => checkInTime_ = value;}
         /// <summary>Field number for the "check_out_time" field.</summary>
         public const int CheckOutTimeFieldNumber = 6;
         private Google.Protobuf.WellKnownTypes.Timestamp checkOutTime_;
-
         /// <summary>
         /// The timestamp when the check-out was performed.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp CheckOutTime
         {
-            get { return checkOutTime_; }
-            set
-            {
-                checkOutTime_ = value;
-            }
-        }
-
+            get => checkOutTime_; set => checkOutTime_ = value;}
         /// <summary>Field number for the "unit" field.</summary>
         public const int UnitFieldNumber = 7;
-
         /// <summary>
         /// The unit resource reference assigned to the booking.
         /// </summary>
@@ -169,25 +124,18 @@ namespace Saltoapis.Nebula.Booking.V1
                 assetCase_ = AssetOneofCase.Unit;
             }
         }
-
         /// <summary>Gets whether the "unit" field is set</summary>
-        public bool HasUnit
-        {
-            get { return assetCase_ == AssetOneofCase.Unit; }
-        }
-
+        public bool HasUnit => assetCase_ == AssetOneofCase.Unit;
         /// <summary> Clears the value of the oneof if it's currently set to "unit" </summary>
         public void ClearUnit()
         {
             if (HasUnit) ClearAsset();
         }
-
         /// <summary>Field number for the "access_rights" field.</summary>
         public const int AccessRightsFieldNumber = 8;
         private static readonly FieldCodec<string> _repeated_accessRights_codec
             = FieldCodec.ForString(66);
         private readonly RepeatedField<string> accessRights_ = [];
-
         /// <summary>
         /// Access rights explicitly associated with the booking, such as common areas
         /// or facilities. A maximum of 5 access rights can be specified.
@@ -198,11 +146,9 @@ namespace Saltoapis.Nebula.Booking.V1
         /// </summary>
         public RepeatedField<string> AccessRights
         {
-            get { return accessRights_; }
-        }
+            get => accessRights_;}
 
         private object asset_;
-
         /// <summary>Enum of possible cases for the "asset" oneof.</summary>
         public enum AssetOneofCase
         {
@@ -214,8 +160,7 @@ namespace Saltoapis.Nebula.Booking.V1
 
         public AssetOneofCase AssetCase
         {
-            get { return assetCase_; }
-        }
+            get => assetCase_;}
 
         public void ClearAsset()
         {
@@ -228,11 +173,7 @@ namespace Saltoapis.Nebula.Booking.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (!Equals(StartTime, other.StartTime))) return false;
-            if ((!Equals(EndTime, other.EndTime)) || (State != other.State)) return false;
-            if ((!Equals(CheckInTime, other.CheckInTime)) || (!Equals(CheckOutTime, other.CheckOutTime))) return false;
-            if ((Unit != other.Unit) || (!accessRights_.Equals(other.accessRights_))) return false;
-            if (AssetCase != other.AssetCase) return false;
+            if ((Name != other.Name) || (!Equals(StartTime, other.StartTime)) || (!Equals(EndTime, other.EndTime)) || (State != other.State) || (!Equals(CheckInTime, other.CheckInTime)) || (!Equals(CheckOutTime, other.CheckOutTime)) || (Unit != other.Unit) || (!accessRights_.Equals(other.accessRights_)) || AssetCase != other.AssetCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -258,36 +199,44 @@ namespace Saltoapis.Nebula.Booking.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (startTime_ != null) {
+      if (startTime_ != null)
+      {
         output.WriteRawTag(18);
         output.WriteMessage(StartTime);
       }
-      if (endTime_ != null) {
+      if (endTime_ != null)
+      {
         output.WriteRawTag(26);
         output.WriteMessage(EndTime);
       }
-      if (State != Saltoapis.Nebula.Booking.V1.Booking.Types.State.Unspecified) {
+      if (State != Saltoapis.Nebula.Booking.V1.Booking.Types.State.Unspecified)
+      {
         output.WriteRawTag(32);
         output.WriteEnum((int) State);
       }
-      if (checkInTime_ != null) {
+      if (checkInTime_ != null)
+      {
         output.WriteRawTag(42);
         output.WriteMessage(CheckInTime);
       }
-      if (checkOutTime_ != null) {
+      if (checkOutTime_ != null)
+      {
         output.WriteRawTag(50);
         output.WriteMessage(CheckOutTime);
       }
-      if (HasUnit) {
+      if (HasUnit)
+      {
         output.WriteRawTag(58);
         output.WriteString(Unit);
       }
       accessRights_.WriteTo(output, _repeated_accessRights_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -394,56 +343,71 @@ namespace Saltoapis.Nebula.Booking.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
-            if (startTime_ == null) {
+          case 18:
+          {
+            if (startTime_ == null)
+            {
               StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(StartTime);
             break;
           }
-          case 26: {
-            if (endTime_ == null) {
+          case 26:
+          {
+            if (endTime_ == null)
+            {
               EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(EndTime);
             break;
           }
-          case 32: {
+          case 32:
+          {
             State = (Saltoapis.Nebula.Booking.V1.Booking.Types.State) input.ReadEnum();
             break;
           }
-          case 42: {
-            if (checkInTime_ == null) {
+          case 42:
+          {
+            if (checkInTime_ == null)
+            {
               CheckInTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(CheckInTime);
             break;
           }
-          case 50: {
-            if (checkOutTime_ == null) {
+          case 50:
+          {
+            if (checkOutTime_ == null)
+            {
               CheckOutTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(CheckOutTime);
             break;
           }
-          case 58: {
+          case 58:
+          {
             Unit = input.ReadString();
             break;
           }
-          case 66: {
+          case 66:
+          {
             accessRights_.AddEntriesFrom(input, _repeated_accessRights_codec);
             break;
           }
@@ -517,7 +481,6 @@ namespace Saltoapis.Nebula.Booking.V1
             }
         }
 #endif
-
         /// <summary>Container for nested types declared in the Booking message type.</summary>
         public static partial class Types
         {
@@ -544,8 +507,6 @@ namespace Saltoapis.Nebula.Booking.V1
                 /// </summary>
                 [OriginalName("CHECKED_OUT")] CheckedOut = 3,
             }
-
         }
-
     }
 }

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Device.V1
     /// <summary>Holder for reflection information generated from salto/nebula/device/v1/device.proto</summary>
     public static partial class DeviceReflection
     {
-
         /// <summary>File descriptor for salto/nebula/device/v1/device.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -55,8 +53,6 @@ namespace Saltoapis.Nebula.Device.V1
             new(typeof(ListDevicesResponse), ListDevicesResponse.Parser, ["Devices", "NextPageToken", "TotalSize"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

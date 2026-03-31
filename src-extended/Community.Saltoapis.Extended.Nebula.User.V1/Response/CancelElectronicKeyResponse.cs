@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<CancelElectronicKeyResponse> _parser = new(() => new CancelElectronicKeyResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<CancelElectronicKeyResponse> Parser { get { return _parser; } }
+        public static MessageParser<CancelElectronicKeyResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[45]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[45];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public CancelElectronicKeyResponse()
         {
@@ -40,18 +38,12 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "electronic_key" field.</summary>
         public const int ElectronicKeyFieldNumber = 1;
         private ElectronicKey electronicKey_;
-
         /// <summary>
         /// The canceled electronic key.
         /// </summary>
         public ElectronicKey ElectronicKey
         {
-            get { return electronicKey_; }
-            set
-            {
-                electronicKey_ = value;
-            }
-        }
+            get => electronicKey_; set => electronicKey_ = value;}
 
         public override bool Equals(object other) => Equals(other as CancelElectronicKeyResponse);
         public bool Equals(CancelElectronicKeyResponse other)
@@ -76,11 +68,13 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (electronicKey_ != null) {
+      if (electronicKey_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(ElectronicKey);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -124,17 +118,22 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (electronicKey_ == null) {
+          case 10:
+          {
+            if (electronicKey_ == null)
+            {
               ElectronicKey = new Saltoapis.Nebula.User.V1.ElectronicKey();
             }
             input.ReadMessage(ElectronicKey);
@@ -172,8 +171,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }

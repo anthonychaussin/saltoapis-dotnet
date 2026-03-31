@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.Encoder.V1
         private static readonly MessageParser<Encoder> _parser = new(() => new Encoder());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<Encoder> Parser { get { return _parser; } }
+        public static MessageParser<Encoder> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return EncoderReflection.Descriptor.MessageTypes[0]; }
-        }
+            get => EncoderReflection.Descriptor.MessageTypes[0];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public Encoder()
         {
@@ -58,7 +56,6 @@ namespace Saltoapis.Nebula.Encoder.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Output only. Resource name of the encoder. It must have the format of
         /// `installations/*/encoders/*`. For example:
@@ -66,63 +63,34 @@ namespace Saltoapis.Nebula.Encoder.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the encoder.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 3;
         private static readonly string DeviceIdDefaultValue = "";
 
         private string deviceId_;
-
         /// <summary>
         /// Globally unique identifier that is used across all devices manufactured
         /// by SALTO, including gateways, extenders, encoders and so on.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_ ?? DeviceIdDefaultValue; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_ ?? DeviceIdDefaultValue; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Gets whether the "device_id" field is set</summary>
-        public bool HasDeviceId
-        {
-            get { return deviceId_ != null; }
-        }
-
+        public bool HasDeviceId => deviceId_ != null;
         /// <summary>Clears the value of the "device_id" field</summary>
-        public void ClearDeviceId()
-        {
-            deviceId_ = null;
-        }
-
+        public void ClearDeviceId() => deviceId_ = null;
         /// <summary>Field number for the "gateway" field.</summary>
         public const int GatewayFieldNumber = 4;
-
         /// <summary>
         /// Parent name, when encoder is connected to a gateway
         /// </summary>
@@ -135,22 +103,15 @@ namespace Saltoapis.Nebula.Encoder.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Gateway;
             }
         }
-
         /// <summary>Gets whether the "gateway" field is set</summary>
-        public bool HasGateway
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Gateway; }
-        }
-
+        public bool HasGateway => parentDeviceCase_ == ParentDeviceOneofCase.Gateway;
         /// <summary> Clears the value of the oneof if it's currently set to "gateway" </summary>
         public void ClearGateway()
         {
             if (HasGateway) ClearParentDevice();
         }
-
         /// <summary>Field number for the "extender" field.</summary>
         public const int ExtenderFieldNumber = 5;
-
         /// <summary>
         /// Parent name, when encoder is connected to an extender
         /// </summary>
@@ -163,23 +124,16 @@ namespace Saltoapis.Nebula.Encoder.V1
                 parentDeviceCase_ = ParentDeviceOneofCase.Extender;
             }
         }
-
         /// <summary>Gets whether the "extender" field is set</summary>
-        public bool HasExtender
-        {
-            get { return parentDeviceCase_ == ParentDeviceOneofCase.Extender; }
-        }
-
+        public bool HasExtender => parentDeviceCase_ == ParentDeviceOneofCase.Extender;
         /// <summary> Clears the value of the oneof if it's currently set to "extender" </summary>
         public void ClearExtender()
         {
             if (HasExtender) ClearParentDevice();
         }
-
         /// <summary>Field number for the "initialized" field.</summary>
         public const int InitializedFieldNumber = 6;
         private bool initialized_;
-
         /// <summary>
         /// Indicates whether this encoder has been initialized or not. This
         /// field cannot be modified using a standard
@@ -192,33 +146,19 @@ namespace Saltoapis.Nebula.Encoder.V1
         /// </summary>
         public bool Initialized
         {
-            get { return initialized_; }
-            set
-            {
-                initialized_ = value;
-            }
-        }
-
+            get => initialized_; set => initialized_ = value;}
         /// <summary>Field number for the "device_metadata" field.</summary>
         public const int DeviceMetadataFieldNumber = 11;
         private Type.DeviceMetadata deviceMetadata_;
-
         /// <summary>
         /// Device metadata contains information about a device hardware and firmware.
         /// </summary>
         public Type.DeviceMetadata DeviceMetadata
         {
-            get { return deviceMetadata_; }
-            set
-            {
-                deviceMetadata_ = value;
-            }
-        }
-
+            get => deviceMetadata_; set => deviceMetadata_ = value;}
         /// <summary>Field number for the "connected" field.</summary>
         public const int ConnectedFieldNumber = 7;
         private bool connected_;
-
         /// <summary>
         /// Indicates whether this encoder is connected or not. It's considered
         /// connected if there has been at least one communication with it within the
@@ -226,33 +166,19 @@ namespace Saltoapis.Nebula.Encoder.V1
         /// </summary>
         public bool Connected
         {
-            get { return connected_; }
-            set
-            {
-                connected_ = value;
-            }
-        }
-
+            get => connected_; set => connected_ = value;}
         /// <summary>Field number for the "last_event_time" field.</summary>
         public const int LastEventTimeFieldNumber = 8;
         private Google.Protobuf.WellKnownTypes.Timestamp lastEventTime_;
-
         /// <summary>
         /// The last time an event was received.
         /// </summary>
         public Google.Protobuf.WellKnownTypes.Timestamp LastEventTime
         {
-            get { return lastEventTime_; }
-            set
-            {
-                lastEventTime_ = value;
-            }
-        }
-
+            get => lastEventTime_; set => lastEventTime_ = value;}
         /// <summary>Field number for the "outdated" field.</summary>
         public const int OutdatedFieldNumber = 9;
         private bool outdated_;
-
         /// <summary>
         /// Indicates whether this encoder has pending updates or not. This could be
         /// because there was a pending configuration or a firmware update and is
@@ -260,31 +186,18 @@ namespace Saltoapis.Nebula.Encoder.V1
         /// </summary>
         public bool Outdated
         {
-            get { return outdated_; }
-            set
-            {
-                outdated_ = value;
-            }
-        }
-
+            get => outdated_; set => outdated_ = value;}
         /// <summary>Field number for the "disable_sound" field.</summary>
         public const int DisableSoundFieldNumber = 10;
         private bool disableSound_;
-
         /// <summary>
         /// Disables the sound emitted by the encoder during operation.
         /// </summary>
         public bool DisableSound
         {
-            get { return disableSound_; }
-            set
-            {
-                disableSound_ = value;
-            }
-        }
+            get => disableSound_; set => disableSound_ = value;}
 
         private object parentDevice_;
-
         /// <summary>Enum of possible cases for the "parent_device" oneof.</summary>
         public enum ParentDeviceOneofCase
         {
@@ -297,8 +210,7 @@ namespace Saltoapis.Nebula.Encoder.V1
 
         public ParentDeviceOneofCase ParentDeviceCase
         {
-            get { return parentDeviceCase_; }
-        }
+            get => parentDeviceCase_;}
 
         public void ClearParentDevice()
         {
@@ -311,12 +223,7 @@ namespace Saltoapis.Nebula.Encoder.V1
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((DeviceId != other.DeviceId) || (Gateway != other.Gateway)) return false;
-            if ((Extender != other.Extender) || (Initialized != other.Initialized)) return false;
-            if ((!Equals(DeviceMetadata, other.DeviceMetadata)) || (Connected != other.Connected)) return false;
-            if ((!Equals(LastEventTime, other.LastEventTime)) || (Outdated != other.Outdated)) return false;
-            if ((DisableSound != other.DisableSound) || (ParentDeviceCase != other.ParentDeviceCase)) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (DeviceId != other.DeviceId) || (Gateway != other.Gateway) || (Extender != other.Extender) || (Initialized != other.Initialized) || (!Equals(DeviceMetadata, other.DeviceMetadata)) || (Connected != other.Connected) || (!Equals(LastEventTime, other.LastEventTime)) || (Outdated != other.Outdated) || (DisableSound != other.DisableSound) || (ParentDeviceCase != other.ParentDeviceCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -345,51 +252,63 @@ namespace Saltoapis.Nebula.Encoder.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (HasDeviceId) {
+      if (HasDeviceId)
+      {
         output.WriteRawTag(26);
         output.WriteString(DeviceId);
       }
-      if (HasGateway) {
+      if (HasGateway)
+      {
         output.WriteRawTag(34);
         output.WriteString(Gateway);
       }
-      if (HasExtender) {
+      if (HasExtender)
+      {
         output.WriteRawTag(42);
         output.WriteString(Extender);
       }
-      if (Initialized != false) {
+      if (Initialized != false)
+      {
         output.WriteRawTag(48);
         output.WriteBool(Initialized);
       }
-      if (Connected != false) {
+      if (Connected != false)
+      {
         output.WriteRawTag(56);
         output.WriteBool(Connected);
       }
-      if (lastEventTime_ != null) {
+      if (lastEventTime_ != null)
+      {
         output.WriteRawTag(66);
         output.WriteMessage(LastEventTime);
       }
-      if (Outdated != false) {
+      if (Outdated != false)
+      {
         output.WriteRawTag(72);
         output.WriteBool(Outdated);
       }
-      if (DisableSound != false) {
+      if (DisableSound != false)
+      {
         output.WriteRawTag(80);
         output.WriteBool(DisableSound);
       }
-      if (deviceMetadata_ != null) {
+      if (deviceMetadata_ != null)
+      {
         output.WriteRawTag(90);
         output.WriteMessage(DeviceMetadata);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -514,60 +433,76 @@ namespace Saltoapis.Nebula.Encoder.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DeviceId = input.ReadString();
             break;
           }
-          case 34: {
+          case 34:
+          {
             Gateway = input.ReadString();
             break;
           }
-          case 42: {
+          case 42:
+          {
             Extender = input.ReadString();
             break;
           }
-          case 48: {
+          case 48:
+          {
             Initialized = input.ReadBool();
             break;
           }
-          case 56: {
+          case 56:
+          {
             Connected = input.ReadBool();
             break;
           }
-          case 66: {
-            if (lastEventTime_ == null) {
+          case 66:
+          {
+            if (lastEventTime_ == null)
+            {
               LastEventTime = new Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(LastEventTime);
             break;
           }
-          case 72: {
+          case 72:
+          {
             Outdated = input.ReadBool();
             break;
           }
-          case 80: {
+          case 80:
+          {
             DisableSound = input.ReadBool();
             break;
           }
-          case 90: {
-            if (deviceMetadata_ == null) {
+          case 90:
+          {
+            if (deviceMetadata_ == null)
+            {
               DeviceMetadata = new Saltoapis.Nebula.Type.DeviceMetadata();
             }
             input.ReadMessage(DeviceMetadata);
@@ -656,6 +591,5 @@ namespace Saltoapis.Nebula.Encoder.V1
             }
         }
 #endif
-
     }
 }

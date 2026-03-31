@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Event.V1
     /// <summary>Holder for reflection information generated from salto/nebula/event/v1/event.proto</summary>
     public static partial class EventReflection
     {
-
         /// <summary>File descriptor for salto/nebula/event/v1/event.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -50,8 +48,6 @@ namespace Saltoapis.Nebula.Event.V1
             new(typeof(ListEventsResponse), ListEventsResponse.Parser, ["Events", "NextPageToken"], null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

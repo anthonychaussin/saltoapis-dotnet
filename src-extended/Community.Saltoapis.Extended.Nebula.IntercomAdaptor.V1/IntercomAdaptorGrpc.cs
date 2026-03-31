@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.IntercomAdaptor.V1.Request;
+using Saltoapis.Nebula.IntercomAdaptor.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.IntercomAdaptor.V1.Response;
 
@@ -142,13 +142,10 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             "GenerateFirmwareDownloadUri",
             __Marshaller_salto_nebula_intercomadaptor_v1_GenerateFirmwareDownloadUriRequest,
             __Marshaller_salto_longrunning_v1_Operation);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return IntercomAdaptorReflection.Descriptor.Services[0]; }
-        }
-
+            get => IntercomAdaptorReflection.Descriptor.Services[0];}
         /// <summary>Client for IntercomAdaptorService</summary>
         public partial class IntercomAdaptorServiceClient : ClientBase<IntercomAdaptorServiceClient>
         {
@@ -157,24 +154,20 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             public IntercomAdaptorServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for IntercomAdaptorService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public IntercomAdaptorServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected IntercomAdaptorServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected IntercomAdaptorServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create an intercom adaptor
             ///
@@ -185,7 +178,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual IntercomAdaptor CreateIntercomAdaptor(CreateIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual IntercomAdaptor CreateIntercomAdaptor(CreateIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an intercom adaptor
             ///
@@ -205,11 +198,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> CreateIntercomAdaptorAsync(CreateIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> CreateIntercomAdaptorAsync(CreateIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create an intercom adaptor
             ///
@@ -218,11 +207,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> CreateIntercomAdaptorAsync(CreateIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> CreateIntercomAdaptorAsync(CreateIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateIntercomAdaptor, null, options, request);
             /// <summary>
             /// Get an intercom adaptor
             ///
@@ -233,7 +218,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual IntercomAdaptor GetIntercomAdaptor(GetIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual IntercomAdaptor GetIntercomAdaptor(GetIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an intercom adaptor
             ///
@@ -253,11 +238,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> GetIntercomAdaptorAsync(GetIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> GetIntercomAdaptorAsync(GetIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get an intercom adaptor
             ///
@@ -266,11 +247,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> GetIntercomAdaptorAsync(GetIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> GetIntercomAdaptorAsync(GetIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetIntercomAdaptor, null, options, request);
             /// <summary>
             /// List intercom adaptors
             ///
@@ -281,7 +258,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListIntercomAdaptorsResponse ListIntercomAdaptors(ListIntercomAdaptorsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListIntercomAdaptors(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListIntercomAdaptorsResponse ListIntercomAdaptors(ListIntercomAdaptorsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListIntercomAdaptors(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List intercom adaptors
             ///
@@ -301,11 +278,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListIntercomAdaptorsResponse> ListIntercomAdaptorsAsync(ListIntercomAdaptorsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListIntercomAdaptorsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListIntercomAdaptorsResponse> ListIntercomAdaptorsAsync(ListIntercomAdaptorsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListIntercomAdaptorsAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List intercom adaptors
             ///
@@ -314,11 +287,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListIntercomAdaptorsResponse> ListIntercomAdaptorsAsync(ListIntercomAdaptorsRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListIntercomAdaptors, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListIntercomAdaptorsResponse> ListIntercomAdaptorsAsync(ListIntercomAdaptorsRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListIntercomAdaptors, null, options, request);
             /// <summary>
             /// Update an intercom adaptor
             ///
@@ -329,7 +298,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual IntercomAdaptor UpdateIntercomAdaptor(UpdateIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual IntercomAdaptor UpdateIntercomAdaptor(UpdateIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an intercom adaptor
             ///
@@ -349,11 +318,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> UpdateIntercomAdaptorAsync(UpdateIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> UpdateIntercomAdaptorAsync(UpdateIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update an intercom adaptor
             ///
@@ -362,11 +327,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<IntercomAdaptor> UpdateIntercomAdaptorAsync(UpdateIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<IntercomAdaptor> UpdateIntercomAdaptorAsync(UpdateIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateIntercomAdaptor, null, options, request);
             /// <summary>
             /// Delete an intercom adaptor
             ///
@@ -377,7 +338,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteIntercomAdaptor(DeleteIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteIntercomAdaptor(DeleteIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an intercom adaptor
             ///
@@ -397,11 +358,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteIntercomAdaptorAsync(DeleteIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteIntercomAdaptorAsync(DeleteIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete an intercom adaptor
             ///
@@ -410,11 +367,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteIntercomAdaptorAsync(DeleteIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteIntercomAdaptorAsync(DeleteIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteIntercomAdaptor, null, options, request);
             /// <summary>
             /// Bind an intercom adaptor
             ///
@@ -427,7 +380,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindIntercomAdaptorResponse BindIntercomAdaptor(BindIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindIntercomAdaptorResponse BindIntercomAdaptor(BindIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an intercom adaptor
             ///
@@ -451,11 +404,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindIntercomAdaptorResponse> BindIntercomAdaptorAsync(BindIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindIntercomAdaptorResponse> BindIntercomAdaptorAsync(BindIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind an intercom adaptor
             ///
@@ -466,11 +415,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindIntercomAdaptorResponse> BindIntercomAdaptorAsync(BindIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindIntercomAdaptorResponse> BindIntercomAdaptorAsync(BindIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindIntercomAdaptor, null, options, request);
             /// <summary>
             /// Unbind an intercom adaptor
             ///
@@ -487,7 +432,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindIntercomAdaptorResponse UnbindIntercomAdaptor(UnbindIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindIntercomAdaptorResponse UnbindIntercomAdaptor(UnbindIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an intercom adaptor
             ///
@@ -519,11 +464,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindIntercomAdaptorResponse> UnbindIntercomAdaptorAsync(UnbindIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindIntercomAdaptorResponse> UnbindIntercomAdaptorAsync(UnbindIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind an intercom adaptor
             ///
@@ -538,11 +479,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindIntercomAdaptorResponse> UnbindIntercomAdaptorAsync(UnbindIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindIntercomAdaptorResponse> UnbindIntercomAdaptorAsync(UnbindIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindIntercomAdaptor, null, options, request);
             /// <summary>
             /// Initialize an intercom adaptor
             ///
@@ -554,7 +491,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeIntercomAdaptor(InitializeIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeIntercomAdaptor(InitializeIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an intercom adaptor
             ///
@@ -576,11 +513,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeIntercomAdaptorAsync(InitializeIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeIntercomAdaptorAsync(InitializeIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize an intercom adaptor
             ///
@@ -590,11 +523,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeIntercomAdaptorAsync(InitializeIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeIntercomAdaptorAsync(InitializeIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeIntercomAdaptor, null, options, request);
             /// <summary>
             /// Configure an intercom adaptor
             ///
@@ -607,7 +536,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureIntercomAdaptor(ConfigureIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureIntercomAdaptor(ConfigureIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an intercom adaptor
             ///
@@ -631,11 +560,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureIntercomAdaptorAsync(ConfigureIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureIntercomAdaptorAsync(ConfigureIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure an intercom adaptor
             ///
@@ -646,11 +571,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureIntercomAdaptorAsync(ConfigureIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureIntercomAdaptorAsync(ConfigureIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureIntercomAdaptor, null, options, request);
             /// <summary>
             /// Reset an intercom adaptor
             ///
@@ -664,7 +585,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetIntercomAdaptor(ResetIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetIntercomAdaptor(ResetIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetIntercomAdaptor(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an intercom adaptor
             ///
@@ -690,11 +611,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetIntercomAdaptorAsync(ResetIntercomAdaptorRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetIntercomAdaptorAsync(ResetIntercomAdaptorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetIntercomAdaptorAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset an intercom adaptor
             ///
@@ -706,11 +623,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetIntercomAdaptorAsync(ResetIntercomAdaptorRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetIntercomAdaptor, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetIntercomAdaptorAsync(ResetIntercomAdaptorRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetIntercomAdaptor, null, options, request);
             /// <summary>
             /// Update intercom adaptor firmware
             ///
@@ -722,7 +635,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateIntercomAdaptorFirmware(UpdateIntercomAdaptorFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateIntercomAdaptorFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateIntercomAdaptorFirmware(UpdateIntercomAdaptorFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateIntercomAdaptorFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update intercom adaptor firmware
             ///
@@ -744,11 +657,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateIntercomAdaptorFirmwareAsync(UpdateIntercomAdaptorFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateIntercomAdaptorFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateIntercomAdaptorFirmwareAsync(UpdateIntercomAdaptorFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateIntercomAdaptorFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update intercom adaptor firmware
             ///
@@ -758,11 +667,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateIntercomAdaptorFirmwareAsync(UpdateIntercomAdaptorFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateIntercomAdaptorFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateIntercomAdaptorFirmwareAsync(UpdateIntercomAdaptorFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateIntercomAdaptorFirmware, null, options, request);
             /// <summary>
             /// Generates an authorization token for an intercom adaptor
             ///
@@ -774,7 +679,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for an intercom adaptor
             ///
@@ -796,11 +701,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for an intercom adaptor
             ///
@@ -810,11 +711,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate intercom adaptor firmware download URI
             ///
@@ -827,7 +724,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate intercom adaptor firmware download URI
             ///
@@ -851,11 +748,7 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate intercom adaptor firmware download URI
             ///
@@ -866,18 +759,9 @@ namespace Saltoapis.Nebula.IntercomAdaptor.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override IntercomAdaptorServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.AccessRight.V1
         private static readonly MessageParser<AccessRightDestination> _parser = new(() => new AccessRightDestination());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AccessRightDestination> Parser { get { return _parser; } }
+        public static MessageParser<AccessRightDestination> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return AccessRightReflection.Descriptor.MessageTypes[3]; }
-        }
+            get => AccessRightReflection.Descriptor.MessageTypes[3];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AccessRightDestination()
         {
@@ -42,7 +40,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         /// Resource name of the access right's destination association. It must
         /// have the format of `installations/*/access-rights/*/destinations/*`.
@@ -51,17 +48,10 @@ namespace Saltoapis.Nebula.AccessRight.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "destination" field.</summary>
         public const int DestinationFieldNumber = 2;
         private string destination_ = "";
-
         /// <summary>
         /// The destination resource name to bind as an association to the parent
         /// access right. For example:
@@ -69,36 +59,23 @@ namespace Saltoapis.Nebula.AccessRight.V1
         /// </summary>
         public string Destination
         {
-            get { return destination_; }
-            set
-            {
-                destination_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => destination_; set => destination_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 3;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the associated entity. In this case a destination.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as AccessRightDestination);
         public bool Equals(AccessRightDestination other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (Destination != other.Destination)) return false;
-            if (DisplayName != other.DisplayName) return false;
+            if ((Name != other.Name) || (Destination != other.Destination) || DisplayName != other.DisplayName) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -118,19 +95,23 @@ namespace Saltoapis.Nebula.AccessRight.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Destination.Length != 0) {
+      if (Destination.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Destination);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(DisplayName);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -184,24 +165,30 @@ namespace Saltoapis.Nebula.AccessRight.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             Destination = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DisplayName = input.ReadString();
             break;
           }
@@ -246,8 +233,6 @@ namespace Saltoapis.Nebula.AccessRight.V1
             }
         }
 #endif
-
     }
-
 
 }

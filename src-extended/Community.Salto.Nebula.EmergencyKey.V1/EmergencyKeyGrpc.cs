@@ -1,4 +1,4 @@
-﻿using Salto.Nebula.EmergencyKey.V1.Request;
+using Salto.Nebula.EmergencyKey.V1.Request;
 using Saltoapis.Grpc;
 using Salto.Nebula.EmergencyKey.V1.Response;
 
@@ -62,15 +62,9 @@ namespace Salto.Nebula.EmergencyKey.V1
             "DeleteEmergencyKey",
             __Marshaller_salto_nebula_emergencykey_v1_DeleteEmergencyKeyRequest,
             GrpcMessageHelper.EmptyMarshaller);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return EmergencyKeyReflection.Descriptor.Services[0]; }
-        }
+            get => EmergencyKeyReflection.Descriptor.Services[0];}
     }
 }
-
-
-
-

@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         private static readonly MessageParser<DigitalKeyAccessPoint> _parser = new(() => new DigitalKeyAccessPoint());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<DigitalKeyAccessPoint> Parser { get { return _parser; } }
+        public static MessageParser<DigitalKeyAccessPoint> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return DigitalKeyReflection.Descriptor.MessageTypes[4]; }
-        }
+            get => DigitalKeyReflection.Descriptor.MessageTypes[4];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public DigitalKeyAccessPoint()
         {
@@ -43,7 +41,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         /// <summary>Field number for the "name" field.</summary>
         public const int NameFieldNumber = 1;
         private string name_ = "";
-
         /// <summary>
         ///  Resource name of the access point. It must have the format
         /// `digital-keys/{digital-key}/access-points/*`. For example:
@@ -51,66 +48,43 @@ namespace Saltoapis.Nebula.DigitalKey.V1
         /// </summary>
         public string Name
         {
-            get { return name_; }
-            set
-            {
-                name_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => name_; set => name_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "display_name" field.</summary>
         public const int DisplayNameFieldNumber = 2;
         private string displayName_ = "";
-
         /// <summary>
         /// Display name of the access point.
         /// </summary>
         public string DisplayName
         {
-            get { return displayName_; }
-            set
-            {
-                displayName_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => displayName_; set => displayName_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "device_id" field.</summary>
         public const int DeviceIdFieldNumber = 3;
         private string deviceId_ = "";
-
         /// <summary>
         /// The device which gives coverage to the access point.
         /// </summary>
         public string DeviceId
         {
-            get { return deviceId_; }
-            set
-            {
-                deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
-
+            get => deviceId_; set => deviceId_ = ProtoPreconditions.CheckNotNull(value, "value");}
         /// <summary>Field number for the "supported_technologies" field.</summary>
         public const int SupportedTechnologiesFieldNumber = 4;
         private static readonly FieldCodec<Type.AppKeyTechnology> _repeated_supportedTechnologies_codec
             = FieldCodec.ForEnum(34, x => (int)x, x => (Type.AppKeyTechnology)x);
         private readonly RepeatedField<Type.AppKeyTechnology> supportedTechnologies_ = [];
-
         /// <summary>
         /// Supported technologies used by the app to open an access point.
         /// </summary>
         public RepeatedField<Type.AppKeyTechnology> SupportedTechnologies
         {
-            get { return supportedTechnologies_; }
-        }
+            get => supportedTechnologies_;}
 
         public override bool Equals(object other) => Equals(other as DigitalKeyAccessPoint);
         public bool Equals(DigitalKeyAccessPoint other)
         {
             if (other is null) return false;
             if (ReferenceEquals(other, this)) return true;
-            if ((Name != other.Name) || (DisplayName != other.DisplayName)) return false;
-            if ((DeviceId != other.DeviceId) || (!supportedTechnologies_.Equals(other.supportedTechnologies_))) return false;
+            if ((Name != other.Name) || (DisplayName != other.DisplayName) || (DeviceId != other.DeviceId) || (!supportedTechnologies_.Equals(other.supportedTechnologies_))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -131,20 +105,24 @@ namespace Saltoapis.Nebula.DigitalKey.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (Name.Length != 0) {
+      if (Name.Length != 0)
+      {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (DisplayName.Length != 0) {
+      if (DisplayName.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(DisplayName);
       }
-      if (DeviceId.Length != 0) {
+      if (DeviceId.Length != 0)
+      {
         output.WriteRawTag(26);
         output.WriteString(DeviceId);
       }
       supportedTechnologies_.WriteTo(output, _repeated_supportedTechnologies_codec);
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -201,29 +179,36 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 10:
+          {
             Name = input.ReadString();
             break;
           }
-          case 18: {
+          case 18:
+          {
             DisplayName = input.ReadString();
             break;
           }
-          case 26: {
+          case 26:
+          {
             DeviceId = input.ReadString();
             break;
           }
           case 34:
-          case 32: {
+          case 32:
+          {
             supportedTechnologies_.AddEntriesFrom(input, _repeated_supportedTechnologies_codec);
             break;
           }
@@ -274,8 +259,6 @@ namespace Saltoapis.Nebula.DigitalKey.V1
             }
         }
 #endif
-
     }
-
 
 }

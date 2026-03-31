@@ -1,4 +1,4 @@
-﻿using Saltoapis.Nebula.Controller.V1.Request;
+using Saltoapis.Nebula.Controller.V1.Request;
 using Saltoapis.Grpc;
 using Saltoapis.Nebula.Controller.V1.Response;
 
@@ -226,13 +226,10 @@ namespace Saltoapis.Nebula.Controller.V1
             "BatchDeleteControllerRelays",
             __Marshaller_salto_nebula_controller_v1_BatchDeleteControllerRelaysRequest,
             __Marshaller_salto_nebula_controller_v1_BatchDeleteControllerRelaysResponse);
-
         /// <summary>Service descriptor</summary>
-        public static Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+        public static ServiceDescriptor Descriptor
         {
-            get { return ControllerReflection.Descriptor.Services[0]; }
-        }
-
+            get => ControllerReflection.Descriptor.Services[0];}
         /// <summary>Client for ControllerService</summary>
         public partial class ControllerServiceClient : ClientBase<ControllerServiceClient>
         {
@@ -241,24 +238,20 @@ namespace Saltoapis.Nebula.Controller.V1
             public ControllerServiceClient(ChannelBase channel) : base(channel)
             {
             }
-
             /// <summary>Creates a new client for ControllerService that uses a custom <c>CallInvoker</c>.</summary>
             /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
             public ControllerServiceClient(CallInvoker callInvoker) : base(callInvoker)
             {
             }
-
             /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
             protected ControllerServiceClient() : base()
             {
             }
-
             /// <summary>Protected constructor to allow creation of configured clients.</summary>
             /// <param name="configuration">The client configuration.</param>
             protected ControllerServiceClient(ClientBaseConfiguration configuration) : base(configuration)
             {
             }
-
             /// <summary>
             /// Create a controller
             ///
@@ -269,7 +262,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Controller CreateController(CreateControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Controller CreateController(CreateControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a controller
             ///
@@ -289,11 +282,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> CreateControllerAsync(CreateControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Controller> CreateControllerAsync(CreateControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a controller
             ///
@@ -302,11 +291,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> CreateControllerAsync(CreateControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Controller> CreateControllerAsync(CreateControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateController, null, options, request);
             /// <summary>
             /// Get a controller
             ///
@@ -317,7 +302,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Controller GetController(GetControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Controller GetController(GetControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a controller
             ///
@@ -337,11 +322,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> GetControllerAsync(GetControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Controller> GetControllerAsync(GetControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a controller
             ///
@@ -350,11 +331,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> GetControllerAsync(GetControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Controller> GetControllerAsync(GetControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetController, null, options, request);
             /// <summary>
             /// List controllers
             ///
@@ -365,7 +342,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListControllersResponse ListControllers(ListControllersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListControllers(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListControllersResponse ListControllers(ListControllersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListControllers(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List controllers
             ///
@@ -385,11 +362,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListControllersResponse> ListControllersAsync(ListControllersRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListControllersAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListControllersResponse> ListControllersAsync(ListControllersRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListControllersAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List controllers
             ///
@@ -398,11 +371,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListControllersResponse> ListControllersAsync(ListControllersRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListControllers, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListControllersResponse> ListControllersAsync(ListControllersRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListControllers, null, options, request);
             /// <summary>
             /// Update a controller
             ///
@@ -413,7 +382,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Controller UpdateController(UpdateControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Controller UpdateController(UpdateControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a controller
             ///
@@ -433,11 +402,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> UpdateControllerAsync(UpdateControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Controller> UpdateControllerAsync(UpdateControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a controller
             ///
@@ -446,11 +411,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Controller> UpdateControllerAsync(UpdateControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Controller> UpdateControllerAsync(UpdateControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateController, null, options, request);
             /// <summary>
             /// Delete a controller
             ///
@@ -461,7 +422,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteController(DeleteControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteController(DeleteControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a controller
             ///
@@ -481,11 +442,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerAsync(DeleteControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerAsync(DeleteControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a controller
             ///
@@ -494,11 +451,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerAsync(DeleteControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerAsync(DeleteControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteController, null, options, request);
             /// <summary>
             /// Bind a controller
             ///
@@ -511,7 +464,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BindControllerResponse BindController(BindControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BindController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BindControllerResponse BindController(BindControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind a controller
             ///
@@ -535,11 +488,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindControllerResponse> BindControllerAsync(BindControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BindControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BindControllerResponse> BindControllerAsync(BindControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BindControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Bind a controller
             ///
@@ -550,11 +499,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BindControllerResponse> BindControllerAsync(BindControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BindController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BindControllerResponse> BindControllerAsync(BindControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BindController, null, options, request);
             /// <summary>
             /// Unbind a controller
             ///
@@ -571,7 +516,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual UnbindControllerResponse UnbindController(UnbindControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UnbindController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual UnbindControllerResponse UnbindController(UnbindControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind a controller
             ///
@@ -603,11 +548,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindControllerResponse> UnbindControllerAsync(UnbindControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UnbindControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<UnbindControllerResponse> UnbindControllerAsync(UnbindControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UnbindControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Unbind a controller
             ///
@@ -622,11 +563,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<UnbindControllerResponse> UnbindControllerAsync(UnbindControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UnbindController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<UnbindControllerResponse> UnbindControllerAsync(UnbindControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UnbindController, null, options, request);
             /// <summary>
             /// Initialize a controller
             ///
@@ -638,7 +575,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation InitializeController(InitializeControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => InitializeController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation InitializeController(InitializeControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize a controller
             ///
@@ -660,11 +597,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeControllerAsync(InitializeControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return InitializeControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeControllerAsync(InitializeControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => InitializeControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Initialize a controller
             ///
@@ -674,11 +607,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeControllerAsync(InitializeControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_InitializeController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> InitializeControllerAsync(InitializeControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_InitializeController, null, options, request);
             /// <summary>
             /// Configure a controller
             ///
@@ -691,7 +620,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ConfigureController(ConfigureControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ConfigureController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ConfigureController(ConfigureControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure a controller
             ///
@@ -715,11 +644,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureControllerAsync(ConfigureControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ConfigureControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureControllerAsync(ConfigureControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ConfigureControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Configure a controller
             ///
@@ -730,11 +655,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureControllerAsync(ConfigureControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ConfigureController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ConfigureControllerAsync(ConfigureControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ConfigureController, null, options, request);
             /// <summary>
             /// Reset a controller
             ///
@@ -748,7 +669,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation ResetController(ResetControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ResetController(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation ResetController(ResetControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetController(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset a controller
             ///
@@ -774,11 +695,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetControllerAsync(ResetControllerRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ResetControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetControllerAsync(ResetControllerRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ResetControllerAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Reset a controller
             ///
@@ -790,11 +707,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetControllerAsync(ResetControllerRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ResetController, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> ResetControllerAsync(ResetControllerRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ResetController, null, options, request);
             /// <summary>
             /// Update controller firmware
             ///
@@ -806,7 +719,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation UpdateControllerFirmware(UpdateControllerFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateControllerFirmware(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation UpdateControllerFirmware(UpdateControllerFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateControllerFirmware(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update controller firmware
             ///
@@ -828,11 +741,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateControllerFirmwareAsync(UpdateControllerFirmwareRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateControllerFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateControllerFirmwareAsync(UpdateControllerFirmwareRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateControllerFirmwareAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update controller firmware
             ///
@@ -842,11 +751,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateControllerFirmwareAsync(UpdateControllerFirmwareRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateControllerFirmware, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> UpdateControllerFirmwareAsync(UpdateControllerFirmwareRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateControllerFirmware, null, options, request);
             /// <summary>
             /// Generates an authorization token for a controller
             ///
@@ -858,7 +763,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual GenerateAuthorizationTokenResponse GenerateAuthorizationToken(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationToken(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for a controller
             ///
@@ -880,11 +785,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateAuthorizationTokenAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generates an authorization token for a controller
             ///
@@ -894,11 +795,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<GenerateAuthorizationTokenResponse> GenerateAuthorizationTokenAsync(GenerateAuthorizationTokenRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateAuthorizationToken, null, options, request);
             /// <summary>
             /// Generate controller firmware download URI
             ///
@@ -911,7 +808,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Longrunning.V1.Operation GenerateFirmwareDownloadUri(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUri(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate controller firmware download URI
             ///
@@ -935,11 +832,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GenerateFirmwareDownloadUriAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Generate controller firmware download URI
             ///
@@ -950,11 +843,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Longrunning.V1.Operation> GenerateFirmwareDownloadUriAsync(GenerateFirmwareDownloadUriRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GenerateFirmwareDownloadUri, null, options, request);
             /// <summary>
             /// Create a controller relay
             ///
@@ -965,7 +854,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ControllerRelay CreateControllerRelay(CreateControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CreateControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ControllerRelay CreateControllerRelay(CreateControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a controller relay
             ///
@@ -985,11 +874,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> CreateControllerRelayAsync(CreateControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return CreateControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> CreateControllerRelayAsync(CreateControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => CreateControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a controller relay
             ///
@@ -998,11 +883,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> CreateControllerRelayAsync(CreateControllerRelayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_CreateControllerRelay, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> CreateControllerRelayAsync(CreateControllerRelayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_CreateControllerRelay, null, options, request);
             /// <summary>
             /// Create a batch of controller relays
             ///
@@ -1014,7 +895,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchCreateControllerRelaysResponse BatchCreateControllerRelays(BatchCreateControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchCreateControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchCreateControllerRelaysResponse BatchCreateControllerRelays(BatchCreateControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of controller relays
             ///
@@ -1036,11 +917,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateControllerRelaysResponse> BatchCreateControllerRelaysAsync(BatchCreateControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchCreateControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateControllerRelaysResponse> BatchCreateControllerRelaysAsync(BatchCreateControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchCreateControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Create a batch of controller relays
             ///
@@ -1050,11 +927,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchCreateControllerRelaysResponse> BatchCreateControllerRelaysAsync(BatchCreateControllerRelaysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchCreateControllerRelays, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchCreateControllerRelaysResponse> BatchCreateControllerRelaysAsync(BatchCreateControllerRelaysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchCreateControllerRelays, null, options, request);
             /// <summary>
             /// Get a controller relay
             ///
@@ -1065,7 +938,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ControllerRelay GetControllerRelay(GetControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ControllerRelay GetControllerRelay(GetControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a controller relay
             ///
@@ -1085,11 +958,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> GetControllerRelayAsync(GetControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return GetControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> GetControllerRelayAsync(GetControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => GetControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Get a controller relay
             ///
@@ -1098,11 +967,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> GetControllerRelayAsync(GetControllerRelayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_GetControllerRelay, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> GetControllerRelayAsync(GetControllerRelayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_GetControllerRelay, null, options, request);
             /// <summary>
             /// List controller relays
             ///
@@ -1113,7 +978,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ListControllerRelaysResponse ListControllerRelays(ListControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ListControllerRelaysResponse ListControllerRelays(ListControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List controller relays
             ///
@@ -1133,11 +998,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListControllerRelaysResponse> ListControllerRelaysAsync(ListControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return ListControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ListControllerRelaysResponse> ListControllerRelaysAsync(ListControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => ListControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// List controller relays
             ///
@@ -1146,11 +1007,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ListControllerRelaysResponse> ListControllerRelaysAsync(ListControllerRelaysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_ListControllerRelays, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ListControllerRelaysResponse> ListControllerRelaysAsync(ListControllerRelaysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_ListControllerRelays, null, options, request);
             /// <summary>
             /// Update a controller relay
             ///
@@ -1161,7 +1018,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual ControllerRelay UpdateControllerRelay(UpdateControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => UpdateControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual ControllerRelay UpdateControllerRelay(UpdateControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a controller relay
             ///
@@ -1181,11 +1038,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> UpdateControllerRelayAsync(UpdateControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return UpdateControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> UpdateControllerRelayAsync(UpdateControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => UpdateControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a controller relay
             ///
@@ -1194,11 +1047,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<ControllerRelay> UpdateControllerRelayAsync(UpdateControllerRelayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_UpdateControllerRelay, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<ControllerRelay> UpdateControllerRelayAsync(UpdateControllerRelayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_UpdateControllerRelay, null, options, request);
             /// <summary>
             /// Update a batch of controller relays
             ///
@@ -1209,7 +1058,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchUpdateControllerRelaysResponse BatchUpdateControllerRelays(BatchUpdateControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchUpdateControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchUpdateControllerRelaysResponse BatchUpdateControllerRelays(BatchUpdateControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchUpdateControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a batch of controller relays
             ///
@@ -1229,11 +1078,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchUpdateControllerRelaysResponse> BatchUpdateControllerRelaysAsync(BatchUpdateControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchUpdateControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchUpdateControllerRelaysResponse> BatchUpdateControllerRelaysAsync(BatchUpdateControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchUpdateControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Update a batch of controller relays
             ///
@@ -1242,11 +1087,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchUpdateControllerRelaysResponse> BatchUpdateControllerRelaysAsync(BatchUpdateControllerRelaysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchUpdateControllerRelays, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchUpdateControllerRelaysResponse> BatchUpdateControllerRelaysAsync(BatchUpdateControllerRelaysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchUpdateControllerRelays, null, options, request);
             /// <summary>
             /// Delete a controller relay
             ///
@@ -1257,7 +1098,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteControllerRelay(DeleteControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual Google.Protobuf.WellKnownTypes.Empty DeleteControllerRelay(DeleteControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteControllerRelay(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a controller relay
             ///
@@ -1277,11 +1118,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerRelayAsync(DeleteControllerRelayRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return DeleteControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerRelayAsync(DeleteControllerRelayRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => DeleteControllerRelayAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a controller relay
             ///
@@ -1290,11 +1127,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerRelayAsync(DeleteControllerRelayRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_DeleteControllerRelay, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<Google.Protobuf.WellKnownTypes.Empty> DeleteControllerRelayAsync(DeleteControllerRelayRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_DeleteControllerRelay, null, options, request);
             /// <summary>
             /// Delete a batch of controller relays
             ///
@@ -1305,7 +1138,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
-            public virtual BatchDeleteControllerRelaysResponse BatchDeleteControllerRelays(BatchDeleteControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => BatchDeleteControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
+            public virtual BatchDeleteControllerRelaysResponse BatchDeleteControllerRelays(BatchDeleteControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteControllerRelays(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of controller relays
             ///
@@ -1325,11 +1158,7 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteControllerRelaysResponse> BatchDeleteControllerRelaysAsync(BatchDeleteControllerRelaysRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default)
-            {
-                return BatchDeleteControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteControllerRelaysResponse> BatchDeleteControllerRelaysAsync(BatchDeleteControllerRelaysRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default) => BatchDeleteControllerRelaysAsync(request, new CallOptions(headers, deadline, cancellationToken));
             /// <summary>
             /// Delete a batch of controller relays
             ///
@@ -1338,18 +1167,9 @@ namespace Saltoapis.Nebula.Controller.V1
             /// <param name="request">The request to send to the server.</param>
             /// <param name="options">The options for the call.</param>
             /// <returns>The call object.</returns>
-            public virtual AsyncUnaryCall<BatchDeleteControllerRelaysResponse> BatchDeleteControllerRelaysAsync(BatchDeleteControllerRelaysRequest request, CallOptions options)
-            {
-                return CallInvoker.AsyncUnaryCall(__Method_BatchDeleteControllerRelays, null, options, request);
-            }
-
+            public virtual AsyncUnaryCall<BatchDeleteControllerRelaysResponse> BatchDeleteControllerRelaysAsync(BatchDeleteControllerRelaysRequest request, CallOptions options) => CallInvoker.AsyncUnaryCall(__Method_BatchDeleteControllerRelays, null, options, request);
             /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
             protected override ControllerServiceClient NewInstance(ClientBaseConfiguration configuration) => new(configuration);
         }
-
     }
 }
-
-
-
-

@@ -6,12 +6,10 @@ namespace Saltoapis.Nebula.Encoder.V1
     /// <summary>Holder for reflection information generated from salto/nebula/encoder/v1/encoder.proto</summary>
     public static partial class EncoderReflection
     {
-
         /// <summary>File descriptor for salto/nebula/encoder/v1/encoder.proto</summary>
         public static FileDescriptor Descriptor
         {
-            get { return descriptor; }
-        }
+            get => descriptor;}
 
         private static FileDescriptor descriptor;
 
@@ -142,8 +140,6 @@ namespace Saltoapis.Nebula.Encoder.V1
             new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
                 ]));
         }
-
     }
-
 
 }

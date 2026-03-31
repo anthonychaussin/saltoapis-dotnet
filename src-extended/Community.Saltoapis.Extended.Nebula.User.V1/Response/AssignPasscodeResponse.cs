@@ -11,17 +11,15 @@ namespace Saltoapis.Nebula.User.V1
         private static readonly MessageParser<AssignPasscodeResponse> _parser = new(() => new AssignPasscodeResponse());
         private UnknownFieldSet _unknownFields;
 
-        public static MessageParser<AssignPasscodeResponse> Parser { get { return _parser; } }
+        public static MessageParser<AssignPasscodeResponse> Parser { get => _parser;}
 
         public static MessageDescriptor Descriptor
         {
-            get { return UserReflection.Descriptor.MessageTypes[39]; }
-        }
+            get => UserReflection.Descriptor.MessageTypes[39];}
 
         MessageDescriptor IMessage.Descriptor
         {
-            get { return Descriptor; }
-        }
+            get => Descriptor;}
 
         public AssignPasscodeResponse()
         {
@@ -41,34 +39,21 @@ namespace Saltoapis.Nebula.User.V1
         /// <summary>Field number for the "passcode" field.</summary>
         public const int PasscodeFieldNumber = 1;
         private Passcode passcode_;
-
         /// <summary>
         /// The assigned passcode.
         /// </summary>
         public Passcode Passcode
         {
-            get { return passcode_; }
-            set
-            {
-                passcode_ = value;
-            }
-        }
-
+            get => passcode_; set => passcode_ = value;}
         /// <summary>Field number for the "value" field.</summary>
         public const int ValueFieldNumber = 2;
         private string value_ = "";
-
         /// <summary>
         /// The passcode value.
         /// </summary>
         public string Value
         {
-            get { return value_; }
-            set
-            {
-                value_ = ProtoPreconditions.CheckNotNull(value, "value");
-            }
-        }
+            get => value_; set => value_ = ProtoPreconditions.CheckNotNull(value, "value");}
 
         public override bool Equals(object other) => Equals(other as AssignPasscodeResponse);
         public bool Equals(AssignPasscodeResponse other)
@@ -94,15 +79,18 @@ namespace Saltoapis.Nebula.User.V1
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
             output.WriteRawMessage(this);
 #else
-      if (passcode_ != null) {
+      if (passcode_ != null)
+      {
         output.WriteRawTag(10);
         output.WriteMessage(Passcode);
       }
-      if (Value.Length != 0) {
+      if (Value.Length != 0)
+      {
         output.WriteRawTag(18);
         output.WriteString(Value);
       }
-      if (_unknownFields != null) {
+      if (_unknownFields != null)
+      {
         _unknownFields.WriteTo(output);
       }
 #endif
@@ -153,23 +141,29 @@ namespace Saltoapis.Nebula.User.V1
             input.ReadRawMessage(this);
 #else
       uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
+      while ((tag = input.ReadTag()) != 0)
+      {
+      if ((tag & 7) == 4)
+      {
         // Abort on any end group tag.
         return;
       }
-      switch(tag) {
+      switch(tag)
+      {
           default:
             _unknownFields = UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (passcode_ == null) {
+          case 10:
+          {
+            if (passcode_ == null)
+            {
               Passcode = new Saltoapis.Nebula.User.V1.Passcode();
             }
             input.ReadMessage(Passcode);
             break;
           }
-          case 18: {
+          case 18:
+          {
             Value = input.ReadString();
             break;
           }
@@ -210,8 +204,6 @@ namespace Saltoapis.Nebula.User.V1
             }
         }
 #endif
-
     }
-
 
 }
