@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Community.Saltoapis.Nebula.AccessRight.V1</PackageId>
+    <Description>Contains the SDK related to 'Community.Saltoapis.Nebula.AccessRight.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" />
+    <PackageReference Include="Grpc.Core.Api" />
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="Google.Api.CommonProtos" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\Community.Saltoapis.Nebula.Type\\Community.Saltoapis.Nebula.Type.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Google.Protobuf" />
+    <Using Include="Google.Protobuf.Collections" />
+    <Using Include="Google.Protobuf.Reflection" />
+    <Using Include="Grpc.Core" />
+  </ItemGroup>
+</Project>

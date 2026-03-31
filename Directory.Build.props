@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <Authors>SALTO Systems S.L.</Authors>
@@ -7,6 +7,13 @@
     <RepositoryUrl>https://github.com/anthonychaussin/saltoapis-dotnet</RepositoryUrl>
     <PackageProjectUrl>https://github.com/anthonychaussin/saltoapis-dotnet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsTestProject)' != 'true'">
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSource>True</IncludeSource>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="System.Reflection" />
