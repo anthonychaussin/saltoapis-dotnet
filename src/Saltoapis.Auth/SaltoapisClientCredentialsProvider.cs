@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic; // KeyValuePair
-
 using System.Net.Http; // HttpClient
-using System.Threading.Tasks; // Task
-
-using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json;
+using System.Threading.Tasks; // Task
+using System;
 
 namespace Saltoapis.Auth
 {
@@ -38,10 +36,10 @@ namespace Saltoapis.Auth
         [JsonPropertyName("scope")]
         public string Scope
         { get; set; }
-        
+
         [JsonPropertyName("expires_in")]
         public double? ExpiresIn // expiration in seconds
-        { 
+        {
             get => _expiresIn;
             set
             {
@@ -89,13 +87,13 @@ namespace Saltoapis.Auth
     public class SaltoOAuthClient : OAuthClientCredentialsProvider
     {
         OIDCConfiguration cachedOidcConfiguration; // refeshed every 24 hours
-        DateTimeOffset oidcCacheExpiration;
+        DateTimeOffset? oidcCacheExpiration;
 
         SaltoTokenResponse token;
 
-        readonly String   discoveryUri;
-        readonly String   clientId;
-        readonly String   clientSecret;
+        readonly String discoveryUri;
+        readonly String clientId;
+        readonly String clientSecret;
         readonly String[] scopes;
 
         public SaltoOAuthClient(String id, String secret, String[] scopes, String discoveryHost = "account.saltosystems.com")
@@ -108,7 +106,7 @@ namespace Saltoapis.Auth
 
         /**
          * Returns a client token. The token may be cached and return immediately.
-         * 
+         *
          * It may throw a SaltoOAuthException if authentication server is not accessible
          * or credentials are invalid.
          */
@@ -121,13 +119,13 @@ namespace Saltoapis.Auth
             else
             {
                 // Token is expired or null. Getting a new one.
-                
+
                 // expired token => get a new one
                 var tokenResult = await GetNewToken();
 
                 this.token = tokenResult;
             }
-            
+
             return this.token.AccessToken;
         }
 
@@ -151,7 +149,8 @@ namespace Saltoapis.Auth
          */
         async Task EnsureOidcConfiguration(HttpClient httpClient)
         {
-            if (cachedOidcConfiguration == null || IsOidcCacheExpired()) {
+            if (cachedOidcConfiguration == null || IsOidcCacheExpired())
+            {
                 var responseMessage = await httpClient.GetAsync(discoveryUri);
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -163,10 +162,13 @@ namespace Saltoapis.Auth
                 else
                 {
                     // we could not get the oidc config.
-                    if (cachedOidcConfiguration != null) {
+                    if (cachedOidcConfiguration != null)
+                    {
                         // just continue with the previous value
                         Console.WriteLine("WARN: Could not get the oidc config. Trying with the previous value.");
-                    } else {
+                    }
+                    else
+                    {
                         throw new SaltoOAuthException("Could not get the oidc config. Is server accesible?");
                     }
                 }
@@ -176,11 +178,13 @@ namespace Saltoapis.Auth
         async Task<SaltoTokenResponse> ObtainOAuthToken(HttpClient httpClient)
         {
             // build token request post data
-            var postData = new List<KeyValuePair<string, string>>();
-            postData.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-            postData.Add(new KeyValuePair<string, string>("client_id", this.clientId));
-            postData.Add(new KeyValuePair<string, string>("client_secret", this.clientSecret));
-            postData.Add(new KeyValuePair<string, string>("scope", string.Join(" ", this.scopes)));
+            var postData = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("grant_type", "client_credentials"),
+                new KeyValuePair<string, string>("client_id", this.clientId),
+                new KeyValuePair<string, string>("client_secret", this.clientSecret),
+                new KeyValuePair<string, string>("scope", string.Join(" ", this.scopes))
+            };
 
             using (var formBody = new FormUrlEncodedContent(postData))
             {
@@ -188,7 +192,7 @@ namespace Saltoapis.Auth
                 var result = await responseMessage.Content.ReadAsStringAsync();
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    token = JsonSerializer.Deserialize<SaltoTokenResponse>(result);  
+                    token = JsonSerializer.Deserialize<SaltoTokenResponse>(result);
                     return token;
                 }
                 else
@@ -200,11 +204,7 @@ namespace Saltoapis.Auth
             }
         }
 
-        bool IsOidcCacheExpired()
-        {
-            return oidcCacheExpiration != null && DateTimeOffset.Now >= oidcCacheExpiration;
-        }
-
+        bool IsOidcCacheExpired() => oidcCacheExpiration != null && DateTimeOffset.Now >= oidcCacheExpiration.Value;
         public void InvalidateToken()
         {
             token = null;

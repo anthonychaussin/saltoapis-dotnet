@@ -8,3 +8,7 @@ paket.dependencies
 paket.lock
 paket.*.bzl
 paket.*_extension.bzl
+/.dotnet/.dotnet
+/.vs
+bin/
+obj/

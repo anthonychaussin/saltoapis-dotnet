@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Saltoapis.Nebula.ElectronicLock.V1</PackageId>
+    <Description>Contains the SDK related to 'Saltoapis.Nebula.ElectronicLock.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" />
+    <PackageReference Include="Grpc.Core.Api" />
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="Google.Api.CommonProtos" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\Saltoapis.Longrunning.V1\\Saltoapis.Longrunning.V1.csproj" />
+    <ProjectReference Include="..\\Saltoapis.Nebula.Type\\Saltoapis.Nebula.Type.csproj" />
+  </ItemGroup>
+</Project>

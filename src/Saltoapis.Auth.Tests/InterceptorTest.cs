@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Grpc.Core;
 using Grpc.Core.Interceptors;
-using Grpc.Core.Internal;
 using Grpc.Core.Utils;
-
-using Saltoapis.Auth;
-
+using Grpc.Core;
 using NUnit.Framework;
+using Saltoapis.Auth;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
 
 namespace workspace.Tests
 {
@@ -46,8 +40,8 @@ namespace workspace.Tests
             // having: server unary handler
             var authorization_received = false;
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.UnaryHandler = new UnaryServerMethod<string, string>((request, context) =>
             {
@@ -64,15 +58,14 @@ namespace workspace.Tests
             Assert.True(authorization_received);
         }
 
-
         [Test]
         public async Task AsyncUnaryCall_AddsAuthorizationHeaders()
         {
             // having: server unary handler
             var authorization_received = false;
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.UnaryHandler = new UnaryServerMethod<string, string>((request, context) =>
             {
@@ -95,8 +88,8 @@ namespace workspace.Tests
             // having: server unary handler
             var authorization_received = false;
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.ClientStreamingHandler = new ClientStreamingServerMethod<string, string>((request, context) =>
             {
@@ -118,8 +111,8 @@ namespace workspace.Tests
             // having: server unary handler
             var authorization_received = false;
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.ServerStreamingHandler = new ServerStreamingServerMethod<string, string>((request, responseStream, context) =>
             {
@@ -141,8 +134,8 @@ namespace workspace.Tests
             // having: server unary handler
             var authorization_received = false;
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.DuplexStreamingHandler = new DuplexStreamingServerMethod<string, string>((requestStream, responseStream, context) =>
             {
@@ -160,14 +153,13 @@ namespace workspace.Tests
             Assert.True(authorization_received);
         }
 
-
         [Test]
         public void BlockingUnaryCall_InvalidatesTokenOnAuthError()
         {
             // having: server unary handler
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.UnaryHandler = new UnaryServerMethod<string, string>((request, context) =>
             {
@@ -176,7 +168,7 @@ namespace workspace.Tests
 
             // when
             CallInvoker invoker = ChannelExtensions.Intercept(channel, credentialsInterceptor);
-            
+
             try
             {
                 var response = helper.CreateBlockingUnaryCall(invoker, "request");
@@ -195,8 +187,8 @@ namespace workspace.Tests
         {
             // having: server unary handler
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.UnaryHandler = new UnaryServerMethod<string, string>((request, context) =>
             {
@@ -224,8 +216,8 @@ namespace workspace.Tests
         {
             // having: server unary handler
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.ClientStreamingHandler = new ClientStreamingServerMethod<string, string>((request, context) =>
             {
@@ -252,8 +244,8 @@ namespace workspace.Tests
         {
             // having: server unary handler
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.ServerStreamingHandler = new ServerStreamingServerMethod<string, string>((request, responseStream, context) =>
             {
@@ -280,8 +272,8 @@ namespace workspace.Tests
         {
             // having: server unary handler
             string credentials = "any_credentials";
-            TestCredentialsProvider credentialsProvider = new TestCredentialsProvider(credentials);
-            SaltoapisAuthInterceptor credentialsInterceptor = new SaltoapisAuthInterceptor(credentialsProvider);
+            TestCredentialsProvider credentialsProvider = new(credentials);
+            SaltoapisAuthInterceptor credentialsInterceptor = new(credentialsProvider);
 
             helper.DuplexStreamingHandler = new DuplexStreamingServerMethod<string, string>((requestStream, responseStream, context) =>
             {
@@ -305,13 +297,12 @@ namespace workspace.Tests
             Assert.True(credentialsProvider.WasInvalidated);
         }
 
-
         bool MetadataContainsAuth(Metadata metadata, string credentials)
         {
             var auth = metadata.GetAll("authorization");
             foreach (var m in auth)
             {
-                if (String.Equals(m.Key, "authorization", StringComparison.OrdinalIgnoreCase) 
+                if (String.Equals(m.Key, "authorization", StringComparison.OrdinalIgnoreCase)
                     && String.Equals(m.Value, $"bearer {credentials}", StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
@@ -326,26 +317,25 @@ namespace workspace.Tests
     {
         string credentials;
         bool wasInvalidated = false;
-        internal TestCredentialsProvider(string credentials) {
+        internal TestCredentialsProvider(string credentials)
+        {
             this.credentials = credentials;
         }
 
-        public Task<string> GetToken()
+        public Task<string> GetToken() => Task.Run(() => this.credentials);
+        public void InvalidateToken()
         {
-            return Task.Run(() => this.credentials);
-        }
-
-        public void InvalidateToken() {
             wasInvalidated = true;
         }
 
-        public bool WasInvalidated {
+        public bool WasInvalidated
+        {
             get
             {
                 return this.wasInvalidated;
             }
         }
-        
+
     }
 
     /// <summary>
@@ -375,7 +365,7 @@ namespace workspace.Tests
         {
             this.host = host ?? "localhost";
             this.channelOptions = channelOptions;
-            marshaller = marshaller ?? Marshallers.StringMarshaller;
+            marshaller ??= Marshallers.StringMarshaller;
 
             unaryMethod = new Method<string, string>(
                 MethodType.Unary,
@@ -444,55 +434,24 @@ namespace workspace.Tests
         /// </summary>
         public Server GetServer()
         {
-            if (server == null)
+            // Disable SO_REUSEPORT to prevent https://github.com/grpc/grpc/issues/10755
+            server ??= new Server([new ChannelOption(ChannelOptions.SoReuseport, 0)])
             {
-                // Disable SO_REUSEPORT to prevent https://github.com/grpc/grpc/issues/10755
-                server = new Server(new[] { new ChannelOption(ChannelOptions.SoReuseport, 0) })
-                {
-                    Services = { ServiceDefinition },
-                    Ports = { { Host, ServerPort.PickUnused, ServerCredentials.Insecure } }
-                };
-            }
+                Services = { ServiceDefinition },
+                Ports = { { Host, ServerPort.PickUnused, ServerCredentials.Insecure } }
+            };
             return server;
         }
 
         /// <summary>
         /// Returns the default channel for this service and creates one if not yet created.
         /// </summary>
-        public Channel GetChannel()
-        {
-            if (channel == null)
-            {
-                channel = new Channel(Host, GetServer().Ports.Single().BoundPort, ChannelCredentials.Insecure, channelOptions);
-            }
-            return channel;
-        }
-
-        public string CreateBlockingUnaryCall(CallInvoker invoker, string request, CallOptions options = default(CallOptions))
-        {
-            return invoker.BlockingUnaryCall(unaryMethod, Host, options, request);
-        }
-
-        public AsyncUnaryCall<string> CreateAsyncUnaryCall(CallInvoker invoker, string request, CallOptions options = default(CallOptions))
-        {
-            return invoker.AsyncUnaryCall(unaryMethod, Host, options, request);
-        }
-
-        public AsyncClientStreamingCall<string, string> CreateClientStreamingCall(CallInvoker invoker, CallOptions options = default(CallOptions))
-        {
-            return invoker.AsyncClientStreamingCall(clientStreamingMethod, Host, options);
-        }
-
-        public AsyncServerStreamingCall<string> CreateServerStreamingCall(CallInvoker invoker, string request, CallOptions options = default(CallOptions))
-        {
-            return invoker.AsyncServerStreamingCall(serverStreamingMethod, Host, options, request);
-        }
-
-        public AsyncDuplexStreamingCall<string, string> CreateDuplexStreamingCall(CallInvoker invoker, CallOptions options = default(CallOptions))
-        {
-            return invoker.AsyncDuplexStreamingCall(duplexStreamingMethod, Host, options);
-        }
-
+        public Channel GetChannel() => channel ??= new Channel(Host, GetServer().Ports.Single().BoundPort, ChannelCredentials.Insecure, channelOptions);
+        public string CreateBlockingUnaryCall(CallInvoker invoker, string request, CallOptions options = default) => invoker.BlockingUnaryCall(unaryMethod, Host, options, request);
+        public AsyncUnaryCall<string> CreateAsyncUnaryCall(CallInvoker invoker, string request, CallOptions options = default) => invoker.AsyncUnaryCall(unaryMethod, Host, options, request);
+        public AsyncClientStreamingCall<string, string> CreateClientStreamingCall(CallInvoker invoker, CallOptions options = default) => invoker.AsyncClientStreamingCall(clientStreamingMethod, Host, options);
+        public AsyncServerStreamingCall<string> CreateServerStreamingCall(CallInvoker invoker, string request, CallOptions options = default) => invoker.AsyncServerStreamingCall(serverStreamingMethod, Host, options, request);
+        public AsyncDuplexStreamingCall<string, string> CreateDuplexStreamingCall(CallInvoker invoker, CallOptions options = default) => invoker.AsyncDuplexStreamingCall(duplexStreamingMethod, Host, options);
         public string Host
         {
             get
@@ -502,7 +461,7 @@ namespace workspace.Tests
         }
 
         public ServerServiceDefinition ServiceDefinition { get; set; }
-      
+
         public UnaryServerMethod<string, string> UnaryHandler
         {
             get

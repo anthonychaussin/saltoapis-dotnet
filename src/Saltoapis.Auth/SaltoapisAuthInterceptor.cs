@@ -1,16 +1,13 @@
-using System;
-
-using Grpc.Core;
 using Grpc.Core.Interceptors;
-
-using System.Net.Http; // HttpClient
-using System.Threading; // CancellationToken
+using Grpc.Core;
 using System.Threading.Tasks; // Task
+using System.Threading; // CancellationToken
+using System;
 
 namespace Saltoapis.Auth
 {
     /// <summary>
-    /// Provides a valid access token for an OAuth server. 
+    /// Provides a valid access token for an OAuth server.
     ///
     /// The access token should be stored and cached by this class,
     /// requesting a new one to the server before previous token expiration.
@@ -65,12 +62,12 @@ namespace Saltoapis.Auth
         public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
+            AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
-            
+
             var call = continuation(request, context);
-            
+
             // wrap response to capture errors
             return new AsyncUnaryCall<TResponse>(
                 HandleRpcUnauthenticated(call.ResponseAsync),
@@ -80,21 +77,21 @@ namespace Saltoapis.Auth
                 call.Dispose
             );
         }
-        
+
         public override TResponse BlockingUnaryCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
+            BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
-            
+
             // call server using a task. This way we can use the same method to handle authentication exceptions.
-            return HandleRpcUnauthenticated( Task.Run(() => continuation(request, context)) ).Result;
+            return HandleRpcUnauthenticated(Task.Run(() => continuation(request, context))).Result;
         }
 
         public override AsyncClientStreamingCall<TRequest, TResponse> AsyncClientStreamingCall<TRequest, TResponse>(
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncClientStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncClientStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 
@@ -114,7 +111,7 @@ namespace Saltoapis.Auth
         public override AsyncServerStreamingCall<TResponse> AsyncServerStreamingCall<TRequest, TResponse>(
             TRequest request,
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncServerStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncServerStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 
@@ -131,7 +128,7 @@ namespace Saltoapis.Auth
 
         public override AsyncDuplexStreamingCall<TRequest, TResponse> AsyncDuplexStreamingCall<TRequest, TResponse>(
             ClientInterceptorContext<TRequest, TResponse> context,
-            Interceptor.AsyncDuplexStreamingCallContinuation<TRequest, TResponse> continuation)
+            AsyncDuplexStreamingCallContinuation<TRequest, TResponse> continuation)
         {
             AddCallerMetadata(ref context);
 
@@ -155,8 +152,7 @@ namespace Saltoapis.Auth
             }
             catch (RpcException ex) when (ex.StatusCode == StatusCode.Unauthenticated)
             {
-                Console.WriteLine("Server responded with unauthenticated error. Invalidating current token.");
-                InvalidateToken();
+                OAuthErrorHandler.InvalidateOnUnauthenticated(this);
                 throw;
             }
         }
@@ -171,7 +167,7 @@ namespace Saltoapis.Auth
             // Need to create a new context with headers for the call.
             if (headers == null)
             {
-                headers = new Metadata();
+                headers = [];
                 var options = context.Options.WithHeaders(headers);
                 context = new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, options);
             }
@@ -189,7 +185,6 @@ namespace Saltoapis.Auth
 
     internal class AuthErrorStreamReader<T> : IAsyncStreamReader<T>
     {
-
         IAsyncStreamReader<T> stream;
         SaltoapisAuthInterceptor interceptor;
 
@@ -200,18 +195,27 @@ namespace Saltoapis.Auth
         }
 
         public T Current => this.stream.Current;
-        
+
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
         {
-            try {
+            try
+            {
                 return await this.stream.MoveNext(cancellationToken);
             }
             catch (RpcException ex) when (ex.StatusCode == StatusCode.Unauthenticated)
             {
-                Console.WriteLine("Server responded with unauthenticated error. Invalidating current token.");
-                interceptor.InvalidateToken();
+                OAuthErrorHandler.InvalidateOnUnauthenticated(interceptor);
                 throw;
             }
+        }
+    }
+
+    static class OAuthErrorHandler
+    {
+        internal static void InvalidateOnUnauthenticated(SaltoapisAuthInterceptor interceptor)
+        {
+            Console.WriteLine("Server responded with unauthenticated error. Invalidating current token.");
+            interceptor.InvalidateToken();
         }
     }
 }
