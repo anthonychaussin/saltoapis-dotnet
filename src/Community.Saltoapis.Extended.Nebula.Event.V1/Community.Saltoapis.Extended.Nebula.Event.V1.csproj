@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Community.Saltoapis.Extended.Nebula.Event.V1</PackageId>
+    <Description>Contains the SDK related to 'Community.Saltoapis.Extended.Nebula.Event.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" />
+    <PackageReference Include="Grpc.Core.Api" />
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="Google.Api.CommonProtos" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.AccessPoint.V1\\Community.Saltoapis.Extended.Nebula.AccessPoint.V1.csproj" />
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.AccessRight.V1\\Community.Saltoapis.Extended.Nebula.AccessRight.V1.csproj" />
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.Booking.V1\\Community.Saltoapis.Extended.Nebula.Booking.V1.csproj" />
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.Controller.V1\\Community.Saltoapis.Extended.Nebula.Controller.V1.csproj" />
+    <ProjectReference Include="..\Community.Salto.Nebula.EmergencyKey.V1\Community.Salto.Extended.Nebula.EmergencyKey.V1.csproj" />
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.Unit.V1\\Community.Saltoapis.Extended.Nebula.Unit.V1.csproj" />
+    <ProjectReference Include="..\\Community.Saltoapis.Extended.Nebula.User.V1\\Community.Saltoapis.Extended.Nebula.User.V1.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+</Project>

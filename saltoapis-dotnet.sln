@@ -1,65 +1,65 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.4.11620.152 stable
+VisualStudioVersion = 18.4.11620.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-extended", "src-extended", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salto.Nebula.EmergencyKey.V1", "src\Salto.Nebula.EmergencyKey.V1\Salto.Nebula.EmergencyKey.V1.csproj", "{E7F79D76-A862-4AC5-8A12-10B981F3A866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Salto.Extended.Nebula.EmergencyKey.V1", "src\Community.Salto.Nebula.EmergencyKey.V1\Community.Salto.Extended.Nebula.EmergencyKey.V1.csproj", "{E7F79D76-A862-4AC5-8A12-10B981F3A866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Auth", "src\Saltoapis.Auth\Saltoapis.Auth.csproj", "{550F689C-D342-410F-A761-CB9E7C6BE532}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Auth", "src\Community.Saltoapis.Extended.Auth\Community.Saltoapis.Extended.Auth.csproj", "{550F689C-D342-410F-A761-CB9E7C6BE532}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Auth.Tests", "src\Saltoapis.Auth.Tests\Saltoapis.Auth.Tests.csproj", "{E05F977F-9647-499A-8BCF-57D070981769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Auth.Tests", "src\Community.Saltoapis.Extended.Auth.Tests\Community.Saltoapis.Extended.Auth.Tests.csproj", "{E05F977F-9647-499A-8BCF-57D070981769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Longrunning.V1", "src\Saltoapis.Longrunning.V1\Saltoapis.Longrunning.V1.csproj", "{063367BB-3A2F-4759-A363-0DF6927828F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Longrunning.V1", "src\Community.Saltoapis.Extended.Longrunning.V1\Community.Saltoapis.Extended.Longrunning.V1.csproj", "{063367BB-3A2F-4759-A363-0DF6927828F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.AccessPoint.V1", "src\Saltoapis.Nebula.AccessPoint.V1\Saltoapis.Nebula.AccessPoint.V1.csproj", "{C8C4BC40-A377-4E49-A5F7-6ABCEE7BE96A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.AccessPoint.V1", "src\Community.Saltoapis.Extended.Nebula.AccessPoint.V1\Community.Saltoapis.Extended.Nebula.AccessPoint.V1.csproj", "{C8C4BC40-A377-4E49-A5F7-6ABCEE7BE96A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.AccessPointGroup.V1", "src\Saltoapis.Nebula.AccessPointGroup.V1\Saltoapis.Nebula.AccessPointGroup.V1.csproj", "{5BA071BE-E5F7-4585-A57C-6BD0606AC85D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.AccessPointGroup.V1", "src\Community.Saltoapis.Extended.Nebula.AccessPointGroup.V1\Community.Saltoapis.Extended.Nebula.AccessPointGroup.V1.csproj", "{5BA071BE-E5F7-4585-A57C-6BD0606AC85D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.AccessRight.V1", "src\Saltoapis.Nebula.AccessRight.V1\Saltoapis.Nebula.AccessRight.V1.csproj", "{5D2825BA-5435-49C9-86BF-561712BDF5B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.AccessRight.V1", "src\Community.Saltoapis.Extended.Nebula.AccessRight.V1\Community.Saltoapis.Extended.Nebula.AccessRight.V1.csproj", "{5D2825BA-5435-49C9-86BF-561712BDF5B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Booking.V1", "src\Saltoapis.Nebula.Booking.V1\Saltoapis.Nebula.Booking.V1.csproj", "{8EAB3D24-849C-401A-BF82-DED321060E68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Booking.V1", "src\Community.Saltoapis.Extended.Nebula.Booking.V1\Community.Saltoapis.Extended.Nebula.Booking.V1.csproj", "{8EAB3D24-849C-401A-BF82-DED321060E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Calendar.V1", "src\Saltoapis.Nebula.Calendar.V1\Saltoapis.Nebula.Calendar.V1.csproj", "{FF707670-6AD7-4E63-82D2-D8DFF3D68B67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Calendar.V1", "src\Community.Saltoapis.Extended.Nebula.Calendar.V1\Community.Saltoapis.Extended.Nebula.Calendar.V1.csproj", "{FF707670-6AD7-4E63-82D2-D8DFF3D68B67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Controller.V1", "src\Saltoapis.Nebula.Controller.V1\Saltoapis.Nebula.Controller.V1.csproj", "{D36537BD-208C-4C03-A167-4EC0E39A7AA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Controller.V1", "src\Community.Saltoapis.Extended.Nebula.Controller.V1\Community.Saltoapis.Extended.Nebula.Controller.V1.csproj", "{D36537BD-208C-4C03-A167-4EC0E39A7AA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Destination.V1", "src\Saltoapis.Nebula.Destination.V1\Saltoapis.Nebula.Destination.V1.csproj", "{A5D09F0D-F692-4F6D-926D-41EFA98E8DBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Destination.V1", "src\Community.Saltoapis.Extended.Nebula.Destination.V1\Community.Saltoapis.Extended.Nebula.Destination.V1.csproj", "{A5D09F0D-F692-4F6D-926D-41EFA98E8DBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Device.V1", "src\Saltoapis.Nebula.Device.V1\Saltoapis.Nebula.Device.V1.csproj", "{92884F7B-21A6-4908-953B-1ADE6273E48E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Device.V1", "src\Community.Saltoapis.Extended.Nebula.Device.V1\Community.Saltoapis.Extended.Nebula.Device.V1.csproj", "{92884F7B-21A6-4908-953B-1ADE6273E48E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.DigitalKey.V1", "src\Saltoapis.Nebula.DigitalKey.V1\Saltoapis.Nebula.DigitalKey.V1.csproj", "{A6BF3C2E-30B3-4B97-8181-B1271CE39125}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.DigitalKey.V1", "src\Community.Saltoapis.Extended.Nebula.DigitalKey.V1\Community.Saltoapis.Extended.Nebula.DigitalKey.V1.csproj", "{A6BF3C2E-30B3-4B97-8181-B1271CE39125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.ElectronicKey.V1", "src\Saltoapis.Nebula.ElectronicKey.V1\Saltoapis.Nebula.ElectronicKey.V1.csproj", "{1958B0D8-9453-4B7B-8DFD-369F6C667FD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.ElectronicKey.V1", "src\Community.Saltoapis.Extended.Nebula.ElectronicKey.V1\Community.Saltoapis.Extended.Nebula.ElectronicKey.V1.csproj", "{1958B0D8-9453-4B7B-8DFD-369F6C667FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.ElectronicLock.V1", "src\Saltoapis.Nebula.ElectronicLock.V1\Saltoapis.Nebula.ElectronicLock.V1.csproj", "{020EECEC-AE94-4A87-BC62-24068C5594CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.ElectronicLock.V1", "src\Community.Saltoapis.Extended.Nebula.ElectronicLock.V1\Community.Saltoapis.Extended.Nebula.ElectronicLock.V1.csproj", "{020EECEC-AE94-4A87-BC62-24068C5594CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Encoder.V1", "src\Saltoapis.Nebula.Encoder.V1\Saltoapis.Nebula.Encoder.V1.csproj", "{FA095254-4B05-4DDB-A292-C803E4A7CE18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Encoder.V1", "src\Community.Saltoapis.Extended.Nebula.Encoder.V1\Community.Saltoapis.Extended.Nebula.Encoder.V1.csproj", "{FA095254-4B05-4DDB-A292-C803E4A7CE18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Event.V1", "src\Saltoapis.Nebula.Event.V1\Saltoapis.Nebula.Event.V1.csproj", "{9055BE82-3EE6-4E44-8E4E-4A9EFA118092}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Event.V1", "src\Community.Saltoapis.Extended.Nebula.Event.V1\Community.Saltoapis.Extended.Nebula.Event.V1.csproj", "{9055BE82-3EE6-4E44-8E4E-4A9EFA118092}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Extender.V1", "src\Saltoapis.Nebula.Extender.V1\Saltoapis.Nebula.Extender.V1.csproj", "{37827041-ACD7-4832-90EE-3097C4BFE889}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Extender.V1", "src\Community.Saltoapis.Extended.Nebula.Extender.V1\Community.Saltoapis.Extended.Nebula.Extender.V1.csproj", "{37827041-ACD7-4832-90EE-3097C4BFE889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.File.V1", "src\Saltoapis.Nebula.File.V1\Saltoapis.Nebula.File.V1.csproj", "{FC4B47A9-4BAD-46C6-8C72-481E51C47C7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.File.V1", "src\Community.Saltoapis.Extended.Nebula.File.V1\Community.Saltoapis.Extended.Nebula.File.V1.csproj", "{FC4B47A9-4BAD-46C6-8C72-481E51C47C7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Gateway.V1", "src\Saltoapis.Nebula.Gateway.V1\Saltoapis.Nebula.Gateway.V1.csproj", "{DAB06697-221F-4E6E-A07B-CECC6240AD72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Gateway.V1", "src\Community.Saltoapis.Extended.Nebula.Gateway.V1\Community.Saltoapis.Extended.Nebula.Gateway.V1.csproj", "{DAB06697-221F-4E6E-A07B-CECC6240AD72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Iam.V1", "src\Saltoapis.Nebula.Iam.V1\Saltoapis.Nebula.Iam.V1.csproj", "{456B8389-1D8C-4694-9C96-337FBA9206EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Iam.V1", "src\Community.Saltoapis.Extended.Nebula.Iam.V1\Community.Saltoapis.Extended.Nebula.Iam.V1.csproj", "{456B8389-1D8C-4694-9C96-337FBA9206EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Installation.V1", "src\Saltoapis.Nebula.Installation.V1\Saltoapis.Nebula.Installation.V1.csproj", "{30472643-8C82-4AC9-A9A5-315214DDDF60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Installation.V1", "src\Community.Saltoapis.Extended.Nebula.Installation.V1\Community.Saltoapis.Extended.Nebula.Installation.V1.csproj", "{30472643-8C82-4AC9-A9A5-315214DDDF60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.IntercomAdaptor.V1", "src\Saltoapis.Nebula.IntercomAdaptor.V1\Saltoapis.Nebula.IntercomAdaptor.V1.csproj", "{B9F42B03-3B2C-4886-8160-7F1458612904}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.IntercomAdaptor.V1", "src\Community.Saltoapis.Extended.Nebula.IntercomAdaptor.V1\Community.Saltoapis.Extended.Nebula.IntercomAdaptor.V1.csproj", "{B9F42B03-3B2C-4886-8160-7F1458612904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.OpeningModeSchedule.V1", "src\Saltoapis.Nebula.OpeningModeSchedule.V1\Saltoapis.Nebula.OpeningModeSchedule.V1.csproj", "{B2B346BD-E1E5-405C-8EDB-4E2881D66A5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.OpeningModeSchedule.V1", "src\Community.Saltoapis.Extended.Nebula.OpeningModeSchedule.V1\Community.Saltoapis.Extended.Nebula.OpeningModeSchedule.V1.csproj", "{B2B346BD-E1E5-405C-8EDB-4E2881D66A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Type", "src\Saltoapis.Nebula.Type\Saltoapis.Nebula.Type.csproj", "{B63CE187-E2D7-491F-BAA0-9A8F3F2B4592}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Type", "src\Community.Saltoapis.Extended.Nebula.Type\Community.Saltoapis.Extended.Nebula.Type.csproj", "{B63CE187-E2D7-491F-BAA0-9A8F3F2B4592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.Unit.V1", "src\Saltoapis.Nebula.Unit.V1\Saltoapis.Nebula.Unit.V1.csproj", "{5857E726-61E4-4936-9D86-E33F7760EC6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.Unit.V1", "src\Community.Saltoapis.Extended.Nebula.Unit.V1\Community.Saltoapis.Extended.Nebula.Unit.V1.csproj", "{5857E726-61E4-4936-9D86-E33F7760EC6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Nebula.User.V1", "src\Saltoapis.Nebula.User.V1\Saltoapis.Nebula.User.V1.csproj", "{4288DDBB-BA14-45D2-967E-8A7D8E5808AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Nebula.User.V1", "src\Community.Saltoapis.Extended.Nebula.User.V1\Community.Saltoapis.Extended.Nebula.User.V1.csproj", "{4288DDBB-BA14-45D2-967E-8A7D8E5808AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saltoapis.Type", "src\Saltoapis.Type\Saltoapis.Type.csproj", "{A6122443-6CDA-4733-9D65-22E1A18F8EB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.Saltoapis.Extended.Type", "src\Community.Saltoapis.Extended.Type\Community.Saltoapis.Extended.Type.csproj", "{A6122443-6CDA-4733-9D65-22E1A18F8EB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

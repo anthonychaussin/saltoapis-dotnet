@@ -8,4 +8,8 @@
     <PackageProjectUrl>https://github.com/anthonychaussin/saltoapis-dotnet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+  <ItemGroup>
+    <Using Include="System.Reflection" />
+    <Using Include="System.Text.Json.Serialization" />
+  </ItemGroup>
 </Project>

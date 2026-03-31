@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <Using Include="Google.Protobuf"
+           Condition="@(PackageReference->WithMetadataValue('Identity','Google.Protobuf')) != ''" />
+    <Using Include="Google.Protobuf.Reflection"
+           Condition="@(PackageReference->WithMetadataValue('Identity','Google.Protobuf')) != ''" />
+    <Using Include="Google.Protobuf.Collections"
+           Condition="@(PackageReference->WithMetadataValue('Identity','Google.Protobuf')) != ''" />
+    <Using Include="Grpc.Core"
+           Condition="@(PackageReference->WithMetadataValue('Identity','Grpc.Core.Api')) != ''" />
+  </ItemGroup>
+</Project>
