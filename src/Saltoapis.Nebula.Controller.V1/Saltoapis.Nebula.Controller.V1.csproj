@@ -14,4 +14,7 @@
     <ProjectReference Include="..\\Saltoapis.Longrunning.V1\\Saltoapis.Longrunning.V1.csproj" />
     <ProjectReference Include="..\\Saltoapis.Nebula.Type\\Saltoapis.Nebula.Type.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

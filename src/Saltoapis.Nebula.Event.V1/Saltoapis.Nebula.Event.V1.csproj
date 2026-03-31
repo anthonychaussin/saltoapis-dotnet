@@ -19,4 +19,7 @@
     <ProjectReference Include="..\\Saltoapis.Nebula.Unit.V1\\Saltoapis.Nebula.Unit.V1.csproj" />
     <ProjectReference Include="..\\Saltoapis.Nebula.User.V1\\Saltoapis.Nebula.User.V1.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

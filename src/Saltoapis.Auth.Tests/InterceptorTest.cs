@@ -313,7 +313,7 @@ namespace workspace.Tests
 
     }
 
-    internal class TestCredentialsProvider : OAuthClientCredentialsProvider
+    internal class TestCredentialsProvider : IOAuthClientCredentialsProvider
     {
         string credentials;
         bool wasInvalidated = false;

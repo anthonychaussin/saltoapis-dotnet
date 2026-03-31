@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.Calendar.V1.Request;
+using Saltoapis.Nebula.Calendar.V1.Response;
 
 namespace Saltoapis.Nebula.Calendar.V1
 {

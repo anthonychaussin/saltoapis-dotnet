@@ -3,11 +3,21 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>Saltoapis.Auth</PackageId>
     <Description>Saltoapis Authentication Library handles authentication with Nebula.</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Net.Client" />
     <PackageReference Include="Grpc.Core.Api" />
     <PackageReference Include="Google.Protobuf" />
     <PackageReference Include="Google.Api.CommonProtos" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Text.Json.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Request\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Response\" />
   </ItemGroup>
 </Project>

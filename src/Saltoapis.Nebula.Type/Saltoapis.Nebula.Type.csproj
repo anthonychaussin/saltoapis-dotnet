@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\\Saltoapis.Type\\Saltoapis.Type.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

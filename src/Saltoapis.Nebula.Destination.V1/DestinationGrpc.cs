@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.Destination.V1.Request;
+using Saltoapis.Nebula.Destination.V1.Response;
 
 namespace Saltoapis.Nebula.Destination.V1
 {

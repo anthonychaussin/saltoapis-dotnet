@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.Device.V1.Request;
+using Saltoapis.Nebula.Device.V1.Response;
 
 namespace Saltoapis.Nebula.Device.V1
 {

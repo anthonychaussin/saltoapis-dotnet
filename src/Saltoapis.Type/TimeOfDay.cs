@@ -1,46 +1,5 @@
 namespace Saltoapis.Type
 {
-
-    /// <summary>Holder for reflection information generated from salto/type/time_of_day.proto</summary>
-    public static partial class TimeOfDayReflection
-    {
-
-        #region Descriptor
-        /// <summary>File descriptor for salto/type/time_of_day.proto</summary>
-        public static FileDescriptor Descriptor
-        {
-            get { return descriptor; }
-        }
-
-        private static FileDescriptor descriptor;
-
-        static TimeOfDayReflection()
-        {
-            byte[] descriptorData = System.Convert.FromBase64String(
-                string.Concat(
-                  "ChxzYWx0by90eXBlL3RpbWVfb2ZfZGF5LnByb3RvEgpzYWx0by50eXBlIksK",
-                  "CVRpbWVPZkRheRINCgVob3VycxgBIAEoBRIPCgdtaW51dGVzGAIgASgFEg8K",
-                  "B3NlY29uZHMYAyABKAUSDQoFbmFub3MYBCABKAVCqgEKEmNvbS5zYWx0b2Fw",
-                  "aXMudHlwZUIOVGltZU9mRGF5UHJvdG9QAVpDZ2l0aHViLmNvbS9zYWx0b2Fw",
-                  "aXMtaW50ZXJuYWwvc2FsdG9hcGlzLWdvL3R5cGUvdGltZW9mZGF5O3RpbWVv",
-                  "ZmRheaoCDlNhbHRvYXBpcy5UeXBlygIOU2FsdG9hcGlzXFR5cGXiAhpHUEJN",
-                  "ZXRhZGF0YVxTYWx0b2FwaXNcVHlwZWIGcHJvdG8z"));
-            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
-                [],
-                new GeneratedClrTypeInfo(null, null, [
-            new(typeof(TimeOfDay), TimeOfDay.Parser, ["Hours", "Minutes", "Seconds", "Nanos"], null, null, null, null)
-                ]));
-        }
-        #endregion
-
-    }
-    #region Messages
-    /// <summary>
-    /// Represents a time of day. The date and time zone are either not significant
-    /// or are specified elsewhere. An API may chose to allow leap seconds. Related
-    /// types are [`salto.type.Date`][salto.type.Date] and
-    /// `google.protobuf.Timestamp`.
-    /// </summary>
     public sealed partial class TimeOfDay : IMessage<TimeOfDay>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         , IBufferMessage
@@ -146,14 +105,8 @@ namespace Saltoapis.Type
         public override bool Equals(object other) => Equals(other as TimeOfDay);
         public bool Equals(TimeOfDay other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (Hours != other.Hours
                 || Minutes != other.Minutes
                 || Seconds != other.Seconds
@@ -329,7 +282,4 @@ namespace Saltoapis.Type
 #endif
 
     }
-
-    #endregion
-
 }

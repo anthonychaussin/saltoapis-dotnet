@@ -1,0 +1,164 @@
+using Google.Protobuf.Reflection;
+using Saltoapis.Nebula.ElectronicLock.V1.Request;
+using Saltoapis.Nebula.ElectronicLock.V1.Response;
+
+namespace Saltoapis.Nebula.ElectronicLock.V1
+{
+    /// <summary>Holder for reflection information generated from salto/nebula/electroniclock/v1/electronic_lock.proto</summary>
+    public static partial class ElectronicLockReflection
+    {
+
+        /// <summary>File descriptor for salto/nebula/electroniclock/v1/electronic_lock.proto</summary>
+        public static FileDescriptor Descriptor
+        {
+            get { return descriptor; }
+        }
+
+        private static FileDescriptor descriptor;
+
+        static ElectronicLockReflection()
+        {
+            byte[] descriptorData = System.Convert.FromBase64String(
+                string.Concat(
+                  "CjRzYWx0by9uZWJ1bGEvZWxlY3Ryb25pY2xvY2svdjEvZWxlY3Ryb25pY19s",
+                  "b2NrLnByb3RvEh5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEaHmdv",
+                  "b2dsZS9wcm90b2J1Zi9kdXJhdGlvbi5wcm90bxobZ29vZ2xlL3Byb3RvYnVm",
+                  "L2VtcHR5LnByb3RvGiBnb29nbGUvcHJvdG9idWYvZmllbGRfbWFzay5wcm90",
+                  "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90bxokc2FsdG8vbG9u",
+                  "Z3J1bm5pbmcvdjEvb3BlcmF0aW9uLnByb3RvGidzYWx0by9uZWJ1bGEvdHlw",
+                  "ZS9kZXZpY2VfbWV0YWRhdGEucHJvdG8i3AQKDkVsZWN0cm9uaWNMb2NrEgwK",
+                  "BG5hbWUYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhYKCWRldmljZV9p",
+                  "ZBgDIAEoCUgBiAEBEhEKB2dhdGV3YXkYBCABKAlIABISCghleHRlbmRlchgF",
+                  "IAEoCUgAEhQKDGFjY2Vzc19wb2ludBgGIAEoCRITCgtpbml0aWFsaXplZBgH",
+                  "IAEoCBI6Cg9kZXZpY2VfbWV0YWRhdGEYDyABKAsyIS5zYWx0by5uZWJ1bGEu",
+                  "dHlwZS5EZXZpY2VNZXRhZGF0YRIQCghvdXRkYXRlZBgIIAEoCBIWCgljb25u",
+                  "ZWN0ZWQYCSABKAhIAogBARITCgtsb3dfYmF0dGVyeRgKIAEoCBIzCg9sYXN0",
+                  "X2V2ZW50X3RpbWUYCyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+                  "EiEKFGNhbGlicmF0aW9uX3NldHRpbmdzGAwgASgMSAOIAQESJgoZZm9yY2Vf",
+                  "cm90YXRlX2NhcnJpYWdlX2VuZBgNIAEoCEgEiAEBEkAKGGhvbGRfYmFja19s",
+                  "YXRjaF9kdXJhdGlvbhgOIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlv",
+                  "bkgFiAEBQg8KDXBhcmVudF9kZXZpY2VCDAoKX2RldmljZV9pZEIMCgpfY29u",
+                  "bmVjdGVkQhcKFV9jYWxpYnJhdGlvbl9zZXR0aW5nc0IcChpfZm9yY2Vfcm90",
+                  "YXRlX2NhcnJpYWdlX2VuZEIbChlfaG9sZF9iYWNrX2xhdGNoX2R1cmF0aW9u",
+                  "Iq4BChtDcmVhdGVFbGVjdHJvbmljTG9ja1JlcXVlc3QSDgoGcGFyZW50GAEg",
+                  "ASgJEh8KEmVsZWN0cm9uaWNfbG9ja19pZBgCIAEoCUgAiAEBEkcKD2VsZWN0",
+                  "cm9uaWNfbG9jaxgDIAEoCzIuLnNhbHRvLm5lYnVsYS5lbGVjdHJvbmljbG9j",
+                  "ay52MS5FbGVjdHJvbmljTG9ja0IVChNfZWxlY3Ryb25pY19sb2NrX2lkIigK",
+                  "GEdldEVsZWN0cm9uaWNMb2NrUmVxdWVzdBIMCgRuYW1lGAEgASgJInUKGkxp",
+                  "c3RFbGVjdHJvbmljTG9ja3NSZXF1ZXN0Eg4KBnBhcmVudBgBIAEoCRIRCglw",
+                  "YWdlX3NpemUYAiABKAUSEgoKcGFnZV90b2tlbhgDIAEoCRIOCgZmaWx0ZXIY",
+                  "BCABKAkSEAoIb3JkZXJfYnkYBSABKAkigAEKG0xpc3RFbGVjdHJvbmljTG9j",
+                  "a3NSZXNwb25zZRJIChBlbGVjdHJvbmljX2xvY2tzGAEgAygLMi4uc2FsdG8u",
+                  "bmVidWxhLmVsZWN0cm9uaWNsb2NrLnYxLkVsZWN0cm9uaWNMb2NrEhcKD25l",
+                  "eHRfcGFnZV90b2tlbhgCIAEoCSKXAQobVXBkYXRlRWxlY3Ryb25pY0xvY2tS",
+                  "ZXF1ZXN0EkcKD2VsZWN0cm9uaWNfbG9jaxgBIAEoCzIuLnNhbHRvLm5lYnVs",
+                  "YS5lbGVjdHJvbmljbG9jay52MS5FbGVjdHJvbmljTG9jaxIvCgt1cGRhdGVf",
+                  "bWFzaxgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE1hc2siKwobRGVs",
+                  "ZXRlRWxlY3Ryb25pY0xvY2tSZXF1ZXN0EgwKBG5hbWUYASABKAkiPAoZQmlu",
+                  "ZEVsZWN0cm9uaWNMb2NrUmVxdWVzdBIMCgRuYW1lGAEgASgJEhEKCWRldmlj",
+                  "ZV9pZBgCIAEoCSIcChpCaW5kRWxlY3Ryb25pY0xvY2tSZXNwb25zZSI6ChtV",
+                  "bmJpbmRFbGVjdHJvbmljTG9ja1JlcXVlc3QSDAoEbmFtZRgBIAEoCRINCgVm",
+                  "b3JjZRgCIAEoCCIeChxVbmJpbmRFbGVjdHJvbmljTG9ja1Jlc3BvbnNlIi8K",
+                  "H0luaXRpYWxpemVFbGVjdHJvbmljTG9ja1JlcXVlc3QSDAoEbmFtZRgBIAEo",
+                  "CSIiCiBJbml0aWFsaXplRWxlY3Ryb25pY0xvY2tSZXNwb25zZSI8CiBJbml0",
+                  "aWFsaXplRWxlY3Ryb25pY0xvY2tNZXRhZGF0YRIYChBwcm9ncmVzc19wZXJj",
+                  "ZW50GAEgASgFIi4KHkNvbmZpZ3VyZUVsZWN0cm9uaWNMb2NrUmVxdWVzdBIM",
+                  "CgRuYW1lGAEgASgJIiEKH0NvbmZpZ3VyZUVsZWN0cm9uaWNMb2NrUmVzcG9u",
+                  "c2UiIQofQ29uZmlndXJlRWxlY3Ryb25pY0xvY2tNZXRhZGF0YSIqChpSZXNl",
+                  "dEVsZWN0cm9uaWNMb2NrUmVxdWVzdBIMCgRuYW1lGAEgASgJIh0KG1Jlc2V0",
+                  "RWxlY3Ryb25pY0xvY2tSZXNwb25zZSIdChtSZXNldEVsZWN0cm9uaWNMb2Nr",
+                  "TWV0YWRhdGEiPgojVXBkYXRlRWxlY3Ryb25pY0xvY2tGaXJtd2FyZVJlcXVl",
+                  "c3QSFwoPZWxlY3Ryb25pY19sb2NrGAEgASgJIiYKJFVwZGF0ZUVsZWN0cm9u",
+                  "aWNMb2NrRmlybXdhcmVSZXNwb25zZSJACiRVcGRhdGVFbGVjdHJvbmljTG9j",
+                  "a0Zpcm13YXJlTWV0YWRhdGESGAoQcHJvZ3Jlc3NfcGVyY2VudBgBIAEoBSI8",
+                  "CiFHZW5lcmF0ZUF1dGhvcml6YXRpb25Ub2tlblJlcXVlc3QSFwoPZWxlY3Ry",
+                  "b25pY19sb2NrGAEgASgJIkEKIkdlbmVyYXRlQXV0aG9yaXphdGlvblRva2Vu",
+                  "UmVzcG9uc2USGwoTYXV0aG9yaXphdGlvbl90b2tlbhgBIAEoDCI9CiJHZW5l",
+                  "cmF0ZUZpcm13YXJlRG93bmxvYWRVcmlSZXF1ZXN0EhcKD2VsZWN0cm9uaWNf",
+                  "bG9jaxgBIAEoCSJLCiNHZW5lcmF0ZUZpcm13YXJlRG93bmxvYWRVcmlSZXNw",
+                  "b25zZRIUCgxkb3dubG9hZF91cmkYASABKAkSDgoGZGlnZXN0GAIgASgJIiUK",
+                  "I0dlbmVyYXRlRmlybXdhcmVEb3dubG9hZFVyaU1ldGFkYXRhMuINChVFbGVj",
+                  "dHJvbmljTG9ja1NlcnZpY2USgwEKFENyZWF0ZUVsZWN0cm9uaWNMb2NrEjsu",
+                  "c2FsdG8ubmVidWxhLmVsZWN0cm9uaWNsb2NrLnYxLkNyZWF0ZUVsZWN0cm9u",
+                  "aWNMb2NrUmVxdWVzdBouLnNhbHRvLm5lYnVsYS5lbGVjdHJvbmljbG9jay52",
+                  "MS5FbGVjdHJvbmljTG9jaxJ9ChFHZXRFbGVjdHJvbmljTG9jaxI4LnNhbHRv",
+                  "Lm5lYnVsYS5lbGVjdHJvbmljbG9jay52MS5HZXRFbGVjdHJvbmljTG9ja1Jl",
+                  "cXVlc3QaLi5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEuRWxlY3Ry",
+                  "b25pY0xvY2sSjgEKE0xpc3RFbGVjdHJvbmljTG9ja3MSOi5zYWx0by5uZWJ1",
+                  "bGEuZWxlY3Ryb25pY2xvY2sudjEuTGlzdEVsZWN0cm9uaWNMb2Nrc1JlcXVl",
+                  "c3QaOy5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEuTGlzdEVsZWN0",
+                  "cm9uaWNMb2Nrc1Jlc3BvbnNlEoMBChRVcGRhdGVFbGVjdHJvbmljTG9jaxI7",
+                  "LnNhbHRvLm5lYnVsYS5lbGVjdHJvbmljbG9jay52MS5VcGRhdGVFbGVjdHJv",
+                  "bmljTG9ja1JlcXVlc3QaLi5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2su",
+                  "djEuRWxlY3Ryb25pY0xvY2sSawoURGVsZXRlRWxlY3Ryb25pY0xvY2sSOy5z",
+                  "YWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEuRGVsZXRlRWxlY3Ryb25p",
+                  "Y0xvY2tSZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EosBChJCaW5k",
+                  "RWxlY3Ryb25pY0xvY2sSOS5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2su",
+                  "djEuQmluZEVsZWN0cm9uaWNMb2NrUmVxdWVzdBo6LnNhbHRvLm5lYnVsYS5l",
+                  "bGVjdHJvbmljbG9jay52MS5CaW5kRWxlY3Ryb25pY0xvY2tSZXNwb25zZRKR",
+                  "AQoUVW5iaW5kRWxlY3Ryb25pY0xvY2sSOy5zYWx0by5uZWJ1bGEuZWxlY3Ry",
+                  "b25pY2xvY2sudjEuVW5iaW5kRWxlY3Ryb25pY0xvY2tSZXF1ZXN0Gjwuc2Fs",
+                  "dG8ubmVidWxhLmVsZWN0cm9uaWNsb2NrLnYxLlVuYmluZEVsZWN0cm9uaWNM",
+                  "b2NrUmVzcG9uc2USfAoYSW5pdGlhbGl6ZUVsZWN0cm9uaWNMb2NrEj8uc2Fs",
+                  "dG8ubmVidWxhLmVsZWN0cm9uaWNsb2NrLnYxLkluaXRpYWxpemVFbGVjdHJv",
+                  "bmljTG9ja1JlcXVlc3QaHy5zYWx0by5sb25ncnVubmluZy52MS5PcGVyYXRp",
+                  "b24SegoXQ29uZmlndXJlRWxlY3Ryb25pY0xvY2sSPi5zYWx0by5uZWJ1bGEu",
+                  "ZWxlY3Ryb25pY2xvY2sudjEuQ29uZmlndXJlRWxlY3Ryb25pY0xvY2tSZXF1",
+                  "ZXN0Gh8uc2FsdG8ubG9uZ3J1bm5pbmcudjEuT3BlcmF0aW9uEnIKE1Jlc2V0",
+                  "RWxlY3Ryb25pY0xvY2sSOi5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2su",
+                  "djEuUmVzZXRFbGVjdHJvbmljTG9ja1JlcXVlc3QaHy5zYWx0by5sb25ncnVu",
+                  "bmluZy52MS5PcGVyYXRpb24ShAEKHFVwZGF0ZUVsZWN0cm9uaWNMb2NrRmly",
+                  "bXdhcmUSQy5zYWx0by5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEuVXBkYXRl",
+                  "RWxlY3Ryb25pY0xvY2tGaXJtd2FyZVJlcXVlc3QaHy5zYWx0by5sb25ncnVu",
+                  "bmluZy52MS5PcGVyYXRpb24SowEKGkdlbmVyYXRlQXV0aG9yaXphdGlvblRv",
+                  "a2VuEkEuc2FsdG8ubmVidWxhLmVsZWN0cm9uaWNsb2NrLnYxLkdlbmVyYXRl",
+                  "QXV0aG9yaXphdGlvblRva2VuUmVxdWVzdBpCLnNhbHRvLm5lYnVsYS5lbGVj",
+                  "dHJvbmljbG9jay52MS5HZW5lcmF0ZUF1dGhvcml6YXRpb25Ub2tlblJlc3Bv",
+                  "bnNlEoIBChtHZW5lcmF0ZUZpcm13YXJlRG93bmxvYWRVcmkSQi5zYWx0by5u",
+                  "ZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjEuR2VuZXJhdGVGaXJtd2FyZURvd25s",
+                  "b2FkVXJpUmVxdWVzdBofLnNhbHRvLmxvbmdydW5uaW5nLnYxLk9wZXJhdGlv",
+                  "bkKOAgomY29tLnNhbHRvYXBpcy5uZWJ1bGEuZWxlY3Ryb25pY2xvY2sudjFC",
+                  "E0VsZWN0cm9uaWNMb2NrUHJvdG9QAVpSZ2l0aHViLmNvbS9zYWx0b2FwaXMt",
+                  "aW50ZXJuYWwvc2FsdG9hcGlzLWdvL25lYnVsYS9lbGVjdHJvbmljbG9jay92",
+                  "MTtlbGVjdHJvbmljbG9ja6oCIlNhbHRvYXBpcy5OZWJ1bGEuRWxlY3Ryb25p",
+                  "Y0xvY2suVjHKAiJTYWx0b2FwaXNcTmVidWxhXEVsZWN0cm9uaWNMb2NrXFYx",
+                  "4gIuR1BCTWV0YWRhdGFcU2FsdG9hcGlzXE5lYnVsYVxFbGVjdHJvbmljTG9j",
+                  "a1xWMWIGcHJvdG8z"));
+            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
+                [Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, Google.Protobuf.WellKnownTypes.FieldMaskReflection.Descriptor, Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, Longrunning.V1.OperationReflection.Descriptor, Type.DeviceMetadataReflection.Descriptor,],
+                new GeneratedClrTypeInfo(null, null, [
+            new(typeof(ElectronicLock), ElectronicLock.Parser, ["Name", "DisplayName", "DeviceId", "Gateway", "Extender", "AccessPoint", "Initialized", "DeviceMetadata", "Outdated", "Connected", "LowBattery", "LastEventTime", "CalibrationSettings", "ForceRotateCarriageEnd", "HoldBackLatchDuration"], ["ParentDevice", "DeviceId", "Connected", "CalibrationSettings", "ForceRotateCarriageEnd", "HoldBackLatchDuration"], null, null, null),
+            new(typeof(CreateElectronicLockRequest), CreateElectronicLockRequest.Parser, ["Parent", "ElectronicLockId", "ElectronicLock"], ["ElectronicLockId"], null, null, null),
+            new(typeof(GetElectronicLockRequest), GetElectronicLockRequest.Parser, ["Name"], null, null, null, null),
+            new(typeof(ListElectronicLocksRequest), ListElectronicLocksRequest.Parser, ["Parent", "PageSize", "PageToken", "Filter", "OrderBy"], null, null, null, null),
+            new(typeof(ListElectronicLocksResponse), ListElectronicLocksResponse.Parser, ["ElectronicLocks", "NextPageToken"], null, null, null, null),
+            new(typeof(UpdateElectronicLockRequest), UpdateElectronicLockRequest.Parser, ["ElectronicLock", "UpdateMask"], null, null, null, null),
+            new(typeof(DeleteElectronicLockRequest), DeleteElectronicLockRequest.Parser, ["Name"], null, null, null, null),
+            new(typeof(BindElectronicLockRequest), BindElectronicLockRequest.Parser, ["Name", "DeviceId"], null, null, null, null),
+            new(typeof(BindElectronicLockResponse), BindElectronicLockResponse.Parser, null, null, null, null, null),
+            new(typeof(UnbindElectronicLockRequest), UnbindElectronicLockRequest.Parser, ["Name", "Force"], null, null, null, null),
+            new(typeof(UnbindElectronicLockResponse), UnbindElectronicLockResponse.Parser, null, null, null, null, null),
+            new(typeof(InitializeElectronicLockRequest), InitializeElectronicLockRequest.Parser, ["Name"], null, null, null, null),
+            new(typeof(InitializeElectronicLockResponse), InitializeElectronicLockResponse.Parser, null, null, null, null, null),
+            new(typeof(InitializeElectronicLockMetadata), InitializeElectronicLockMetadata.Parser, ["ProgressPercent"], null, null, null, null),
+            new(typeof(ConfigureElectronicLockRequest), ConfigureElectronicLockRequest.Parser, ["Name"], null, null, null, null),
+            new(typeof(ConfigureElectronicLockResponse), ConfigureElectronicLockResponse.Parser, null, null, null, null, null),
+            new(typeof(ConfigureElectronicLockMetadata), ConfigureElectronicLockMetadata.Parser, null, null, null, null, null),
+            new(typeof(ResetElectronicLockRequest), ResetElectronicLockRequest.Parser, ["Name"], null, null, null, null),
+            new(typeof(ResetElectronicLockResponse), ResetElectronicLockResponse.Parser, null, null, null, null, null),
+            new(typeof(ResetElectronicLockMetadata), ResetElectronicLockMetadata.Parser, null, null, null, null, null),
+            new(typeof(UpdateElectronicLockFirmwareRequest), UpdateElectronicLockFirmwareRequest.Parser, ["ElectronicLock"], null, null, null, null),
+            new(typeof(UpdateElectronicLockFirmwareResponse), UpdateElectronicLockFirmwareResponse.Parser, null, null, null, null, null),
+            new(typeof(UpdateElectronicLockFirmwareMetadata), UpdateElectronicLockFirmwareMetadata.Parser, ["ProgressPercent"], null, null, null, null),
+            new(typeof(GenerateAuthorizationTokenRequest), GenerateAuthorizationTokenRequest.Parser, ["ElectronicLock"], null, null, null, null),
+            new(typeof(GenerateAuthorizationTokenResponse), GenerateAuthorizationTokenResponse.Parser, ["AuthorizationToken"], null, null, null, null),
+            new(typeof(GenerateFirmwareDownloadUriRequest), GenerateFirmwareDownloadUriRequest.Parser, ["ElectronicLock"], null, null, null, null),
+            new(typeof(GenerateFirmwareDownloadUriResponse), GenerateFirmwareDownloadUriResponse.Parser, ["DownloadUri", "Digest"], null, null, null, null),
+            new(typeof(GenerateFirmwareDownloadUriMetadata), GenerateFirmwareDownloadUriMetadata.Parser, null, null, null, null, null)
+                ]));
+        }
+
+    }
+
+
+}

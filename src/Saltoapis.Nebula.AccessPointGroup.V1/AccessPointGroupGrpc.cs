@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.AccessPointGroup.V1.Request;
+using Saltoapis.Nebula.AccessPointGroup.V1.Response;
 
 namespace Saltoapis.Nebula.AccessPointGroup.V1
 {

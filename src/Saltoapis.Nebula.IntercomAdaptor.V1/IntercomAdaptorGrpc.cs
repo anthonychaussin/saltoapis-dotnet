@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.IntercomAdaptor.V1.Request;
+using Saltoapis.Nebula.IntercomAdaptor.V1.Response;
 
 namespace Saltoapis.Nebula.IntercomAdaptor.V1
 {

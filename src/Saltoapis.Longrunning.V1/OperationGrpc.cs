@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Longrunning.V1.Request;
+using Saltoapis.Longrunning.V1.Response;
 
 namespace Saltoapis.Longrunning.V1
 {
@@ -129,6 +131,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Operation GetOperation(GetOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => GetOperation(request, new CallOptions(headers, deadline, cancellationToken));
+            
             /// <summary>
             /// Get a operation
             ///
@@ -138,6 +141,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Operation GetOperation(GetOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_GetOperation, null, options, request);
+            
             /// <summary>
             /// Get a operation
             ///
@@ -177,6 +181,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual ListOperationsResponse ListOperations(ListOperationsRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => ListOperations(request, new CallOptions(headers, deadline, cancellationToken));
+            
             /// <summary>
             /// List operations
             ///
@@ -186,6 +191,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual ListOperationsResponse ListOperations(ListOperationsRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_ListOperations, null, options, request);
+            
             /// <summary>
             /// List operations
             ///
@@ -225,6 +231,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOperation(DeleteOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => DeleteOperation(request, new CallOptions(headers, deadline, cancellationToken));
+            
             /// <summary>
             /// Delete an operation
             ///
@@ -234,6 +241,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty DeleteOperation(DeleteOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_DeleteOperation, null, options, request);
+            
             /// <summary>
             /// Delete an operation
             ///
@@ -282,6 +290,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="cancellationToken">An optional token for canceling the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty CancelOperation(CancelOperationRequest request, Metadata headers = null, System.DateTime? deadline = null, System.Threading.CancellationToken cancellationToken = default) => CancelOperation(request, new CallOptions(headers, deadline, cancellationToken));
+            
             /// <summary>
             /// Cancel an operation
             ///
@@ -300,6 +309,7 @@ namespace Saltoapis.Longrunning.V1
             /// <param name="options">The options for the call.</param>
             /// <returns>The response received from the server.</returns>
             public virtual Google.Protobuf.WellKnownTypes.Empty CancelOperation(CancelOperationRequest request, CallOptions options) => CallInvoker.BlockingUnaryCall(__Method_CancelOperation, null, options, request);
+            
             /// <summary>
             /// Cancel an operation
             ///

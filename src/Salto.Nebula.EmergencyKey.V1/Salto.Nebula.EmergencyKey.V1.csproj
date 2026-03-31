@@ -3,11 +3,23 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>Salto.Nebula.EmergencyKey.V1</PackageId>
     <Description>Contains the SDK related to 'Salto.Nebula.EmergencyKey.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Net.Client" />
     <PackageReference Include="Grpc.Core.Api" />
     <PackageReference Include="Google.Protobuf" />
     <PackageReference Include="Google.Api.CommonProtos" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Google.Protobuf" />
+    <Using Include="Google.Protobuf.Collections" />
+    <Using Include="Google.Protobuf.Reflection" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Request\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Response\" />
   </ItemGroup>
 </Project>

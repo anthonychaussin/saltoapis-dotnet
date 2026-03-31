@@ -1,44 +1,5 @@
 namespace Saltoapis.Type
 {
-
-    /// <summary>Holder for reflection information generated from salto/type/interval.proto</summary>
-    public static partial class IntervalReflection
-    {
-
-        #region Descriptor
-        /// <summary>File descriptor for salto/type/interval.proto</summary>
-        public static FileDescriptor Descriptor
-        {
-            get { return descriptor; }
-        }
-
-        private static FileDescriptor descriptor;
-
-        static IntervalReflection()
-        {
-            byte[] descriptorData = System.Convert.FromBase64String(
-                string.Concat(
-                  "ChlzYWx0by90eXBlL2ludGVydmFsLnByb3RvEgpzYWx0by50eXBlGh9nb29n",
-                  "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvImgKCEludGVydmFsEi4KCnN0",
-                  "YXJ0X3RpbWUYASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiwK",
-                  "CGVuZF90aW1lGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEKn",
-                  "AQoSY29tLnNhbHRvYXBpcy50eXBlQg1JbnRlcnZhbFByb3RvUAFaQWdpdGh1",
-                  "Yi5jb20vc2FsdG9hcGlzLWludGVybmFsL3NhbHRvYXBpcy1nby90eXBlL2lu",
-                  "dGVydmFsO2ludGVydmFsqgIOU2FsdG9hcGlzLlR5cGXKAg5TYWx0b2FwaXNc",
-                  "VHlwZeICGkdQQk1ldGFkYXRhXFNhbHRvYXBpc1xUeXBlYgZwcm90bzM="));
-            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
-                [Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor,],
-                new GeneratedClrTypeInfo(null, null, [
-            new(typeof(Interval), Interval.Parser, ["StartTime", "EndTime"], null, null, null, null)
-                ]));
-        }
-        #endregion
-
-    }
-    #region Messages
-    /// <summary>
-    /// Represents a time interval with a start and end time.
-    /// </summary>
     public sealed partial class Interval : IMessage<Interval>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         , IBufferMessage
@@ -109,16 +70,9 @@ namespace Saltoapis.Type
         public override bool Equals(object other) => Equals(other as Interval);
         public bool Equals(Interval other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(StartTime, other.StartTime)) return false;
-            if (!Equals(EndTime, other.EndTime)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(StartTime, other.StartTime)) || (!Equals(EndTime, other.EndTime))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -127,10 +81,7 @@ namespace Saltoapis.Type
             int hash = 1;
             if (startTime_ != null) hash ^= StartTime.GetHashCode();
             if (endTime_ != null) hash ^= EndTime.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -175,41 +126,23 @@ namespace Saltoapis.Type
         public int CalculateSize()
         {
             int size = 0;
-            if (startTime_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(StartTime);
-            }
-            if (endTime_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EndTime);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (startTime_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(StartTime);
+            if (endTime_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(EndTime);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(Interval other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.startTime_ != null)
             {
-                if (startTime_ == null)
-                {
-                    StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
-                }
+                if (startTime_ == null) StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                 StartTime.MergeFrom(other.StartTime);
             }
             if (other.endTime_ != null)
             {
-                if (endTime_ == null)
-                {
-                    EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
-                }
+                if (endTime_ == null) EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                 EndTime.MergeFrom(other.EndTime);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -268,19 +201,13 @@ namespace Saltoapis.Type
                         break;
                     case 10:
                         {
-                            if (startTime_ == null)
-                            {
-                                StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
-                            }
+                            if (startTime_ == null) StartTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                             input.ReadMessage(StartTime);
                             break;
                         }
                     case 18:
                         {
-                            if (endTime_ == null)
-                            {
-                                EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
-                            }
+                            if (endTime_ == null) EndTime = new Google.Protobuf.WellKnownTypes.Timestamp();
                             input.ReadMessage(EndTime);
                             break;
                         }
@@ -290,7 +217,4 @@ namespace Saltoapis.Type
 #endif
 
     }
-
-    #endregion
-
 }

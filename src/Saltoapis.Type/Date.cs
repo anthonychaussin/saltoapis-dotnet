@@ -1,49 +1,5 @@
 namespace Saltoapis.Type
 {
-
-    /// <summary>Holder for reflection information generated from salto/type/date.proto</summary>
-    public static partial class DateReflection
-    {
-
-        #region Descriptor
-        /// <summary>File descriptor for salto/type/date.proto</summary>
-        public static FileDescriptor Descriptor
-        {
-            get { return descriptor; }
-        }
-
-        private static FileDescriptor descriptor;
-
-        static DateReflection()
-        {
-            byte[] descriptorData = System.Convert.FromBase64String(
-                string.Concat(
-                  "ChVzYWx0by90eXBlL2RhdGUucHJvdG8SCnNhbHRvLnR5cGUiMAoERGF0ZRIM",
-                  "CgR5ZWFyGAEgASgFEg0KBW1vbnRoGAIgASgFEgsKA2RheRgDIAEoBUKbAQoS",
-                  "Y29tLnNhbHRvYXBpcy50eXBlQglEYXRlUHJvdG9QAVo5Z2l0aHViLmNvbS9z",
-                  "YWx0b2FwaXMtaW50ZXJuYWwvc2FsdG9hcGlzLWdvL3R5cGUvZGF0ZTtkYXRl",
-                  "qgIOU2FsdG9hcGlzLlR5cGXKAg5TYWx0b2FwaXNcVHlwZeICGkdQQk1ldGFk",
-                  "YXRhXFNhbHRvYXBpc1xUeXBlYgZwcm90bzM="));
-            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
-                [],
-                new GeneratedClrTypeInfo(null, null, [
-            new(typeof(Date), Date.Parser, ["Year", "Month", "Day"], null, null, null, null)
-                ]));
-        }
-        #endregion
-
-    }
-    #region Messages
-    /// <summary>
-    /// Represents a whole calendar date, for example: date of birth. The time of day
-    /// and time zone are either specified elsewhere or are not significant. The date
-    /// is relative to the Proleptic Gregorian Calendar. The day may be 0 to
-    /// represent a year and month where the day is not significant, for example:
-    /// credit card expiration date. The year may be 0 to represent a month and day
-    /// independent of year, for example: anniversary date. Related types are
-    /// [`salto.type.TimeOfDay`][salto.type.TimeOfDay] and
-    /// `google.protobuf.Timestamp`.
-    /// </summary>
     public sealed partial class Date : IMessage<Date>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         , IBufferMessage
@@ -133,16 +89,9 @@ namespace Saltoapis.Type
         public override bool Equals(object other) => Equals(other as Date);
         public bool Equals(Date other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (Year != other.Year) return false;
-            if (Month != other.Month) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((Year != other.Year) || (Month != other.Month)) return false;
             if (Day != other.Day) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -153,10 +102,7 @@ namespace Saltoapis.Type
             if (Year != 0) hash ^= Year.GetHashCode();
             if (Month != 0) hash ^= Month.GetHashCode();
             if (Day != 0) hash ^= Day.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -210,43 +156,19 @@ namespace Saltoapis.Type
         public int CalculateSize()
         {
             int size = 0;
-            if (Year != 0)
-            {
-                size += 1 + CodedOutputStream.ComputeInt32Size(Year);
-            }
-            if (Month != 0)
-            {
-                size += 1 + CodedOutputStream.ComputeInt32Size(Month);
-            }
-            if (Day != 0)
-            {
-                size += 1 + CodedOutputStream.ComputeInt32Size(Day);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (Year != 0) size += 1 + CodedOutputStream.ComputeInt32Size(Year);
+            if (Month != 0) size += 1 + CodedOutputStream.ComputeInt32Size(Month);
+            if (Day != 0) size += 1 + CodedOutputStream.ComputeInt32Size(Day);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(Date other)
         {
-            if (other == null)
-            {
-                return;
-            }
-            if (other.Year != 0)
-            {
-                Year = other.Year;
-            }
-            if (other.Month != 0)
-            {
-                Month = other.Month;
-            }
-            if (other.Day != 0)
-            {
-                Day = other.Day;
-            }
+            if (other == null) return;
+            if (other.Year != 0) Year = other.Year;
+            if (other.Month != 0) Month = other.Month;
+            if (other.Day != 0) Day = other.Day;
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -320,7 +242,4 @@ namespace Saltoapis.Type
 #endif
 
     }
-
-    #endregion
-
 }

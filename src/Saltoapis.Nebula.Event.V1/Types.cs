@@ -9,7 +9,6 @@ namespace Saltoapis.Nebula.Event.V1
     public static partial class TypesReflection
     {
 
-        #region Descriptor
         /// <summary>File descriptor for salto/nebula/event/v1/types.proto</summary>
         public static FileDescriptor Descriptor
         {
@@ -277,10 +276,8 @@ namespace Saltoapis.Nebula.Event.V1
             new(typeof(BookingCheckedOut), BookingCheckedOut.Parser, ["Booking", "Actor"], null, null, null, null)
                 ]));
         }
-        #endregion
 
     }
-    #region Messages
     /// <summary>
     /// Represents the principal entity that initiated or performed an action
     /// associated with an event. This could be a user, a service account, or
@@ -371,16 +368,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as Principal);
         public bool Equals(Principal other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (TypeCase != other.TypeCase) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (TypeCase != other.TypeCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -389,10 +379,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (typeCase_ == TypeOneofCase.User) hash ^= User.GetHashCode();
             hash ^= (int)typeCase_;
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -428,30 +415,18 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (typeCase_ == TypeOneofCase.User)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (typeCase_ == TypeOneofCase.User) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(Principal other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             switch (other.TypeCase)
             {
                 case TypeOneofCase.User:
-                    if (User == null)
-                    {
-                        User = new User.V1.User();
-                    }
+                    if (User == null) User = new User.V1.User();
                     User.MergeFrom(other.User);
                     break;
             }
@@ -508,10 +483,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 10:
                         {
                             User.V1.User subBuilder = new();
-                            if (typeCase_ == TypeOneofCase.User)
-                            {
-                                subBuilder.MergeFrom(User);
-                            }
+                            if (typeCase_ == TypeOneofCase.User) subBuilder.MergeFrom(User);
                             input.ReadMessage(subBuilder);
                             User = subBuilder;
                             break;
@@ -584,14 +556,8 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as PreviousValues);
         public bool Equals(PreviousValues other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (!Values.Equals(other.Values)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -600,10 +566,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             int hash = 1;
             hash ^= Values.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -633,19 +596,13 @@ namespace Saltoapis.Nebula.Event.V1
         {
             int size = 0;
             size += values_.CalculateSize(_map_values_codec);
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(PreviousValues other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             values_.MergeFrom(other.values_);
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -776,16 +733,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointCreated);
         public bool Equals(AccessPointCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -794,10 +744,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -842,41 +789,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -935,19 +864,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -1048,16 +971,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointUpdated);
         public bool Equals(AccessPointUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Actor, other.Actor))) return false;
             if (!Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -1068,10 +984,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
             if (previousValues_ != null) hash ^= PreviousValues.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -1125,53 +1038,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (previousValues_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (previousValues_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             if (other.previousValues_ != null)
             {
-                if (previousValues_ == null)
-                {
-                    PreviousValues = new PreviousValues();
-                }
+                if (previousValues_ == null) PreviousValues = new PreviousValues();
                 PreviousValues.MergeFrom(other.PreviousValues);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1237,28 +1126,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
                     case 26:
                         {
-                            if (previousValues_ == null)
-                            {
-                                PreviousValues = new PreviousValues();
-                            }
+                            if (previousValues_ == null) PreviousValues = new PreviousValues();
                             input.ReadMessage(PreviousValues);
                             break;
                         }
@@ -1342,16 +1222,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointDeleted);
         public bool Equals(AccessPointDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1360,10 +1233,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -1408,41 +1278,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1501,19 +1353,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -1759,24 +1605,13 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointUnlocked);
         public bool Equals(AccessPointUnlocked other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
-            if (!Equals(Passcode, other.Passcode)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
-            if (Direction != other.Direction) return false;
-            if (CredentialCase != other.CredentialCase) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User))) return false;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
+            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
+            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
+            if ((Direction != other.Direction) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1793,10 +1628,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (credentialCase_ == CredentialOneofCase.ElectronicKey) hash ^= ElectronicKey.GetHashCode();
             if (Direction != Types.Direction.Unspecified) hash ^= Direction.GetHashCode();
             hash ^= (int)credentialCase_;
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -1904,117 +1736,57 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.CardKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.AppKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.WalletKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.Passcode)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
-            }
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (Direction != Types.Direction.Unspecified)
-            {
-                size += 1 + CodedOutputStream.ComputeEnumSize((int)Direction);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (credentialCase_ == CredentialOneofCase.CardKey) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (credentialCase_ == CredentialOneofCase.AppKey) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (credentialCase_ == CredentialOneofCase.WalletKey) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (credentialCase_ == CredentialOneofCase.Passcode) size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (Direction != Types.Direction.Unspecified) size += 1 + CodedOutputStream.ComputeEnumSize((int)Direction);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointUnlocked other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
-            if (other.Direction != Types.Direction.Unspecified)
-            {
-                Direction = other.Direction;
-            }
+            if (other.Direction != Types.Direction.Unspecified) Direction = other.Direction;
             switch (other.CredentialCase)
             {
                 case CredentialOneofCase.EmergencyKey:
-                    if (EmergencyKey == null)
-                    {
-                        EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                    }
+                    if (EmergencyKey == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                     EmergencyKey.MergeFrom(other.EmergencyKey);
                     break;
                 case CredentialOneofCase.CardKey:
-                    if (CardKey == null)
-                    {
-                        CardKey = new User.V1.CardKey();
-                    }
+                    if (CardKey == null) CardKey = new User.V1.CardKey();
                     CardKey.MergeFrom(other.CardKey);
                     break;
                 case CredentialOneofCase.AppKey:
-                    if (AppKey == null)
-                    {
-                        AppKey = new User.V1.AppKey();
-                    }
+                    if (AppKey == null) AppKey = new User.V1.AppKey();
                     AppKey.MergeFrom(other.AppKey);
                     break;
                 case CredentialOneofCase.WalletKey:
-                    if (WalletKey == null)
-                    {
-                        WalletKey = new User.V1.WalletKey();
-                    }
+                    if (WalletKey == null) WalletKey = new User.V1.WalletKey();
                     WalletKey.MergeFrom(other.WalletKey);
                     break;
                 case CredentialOneofCase.Passcode:
-                    if (Passcode == null)
-                    {
-                        Passcode = new User.V1.Passcode();
-                    }
+                    if (Passcode == null) Passcode = new User.V1.Passcode();
                     Passcode.MergeFrom(other.Passcode);
                     break;
                 case CredentialOneofCase.ElectronicKey:
-                    if (ElectronicKey == null)
-                    {
-                        ElectronicKey = new User.V1.ElectronicKey();
-                    }
+                    if (ElectronicKey == null) ElectronicKey = new User.V1.ElectronicKey();
                     ElectronicKey.MergeFrom(other.ElectronicKey);
                     break;
             }
@@ -2133,29 +1905,20 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 18:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 26:
                         {
                             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-                            {
-                                subBuilder.MergeFrom(EmergencyKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.EmergencyKey) subBuilder.MergeFrom(EmergencyKey);
                             input.ReadMessage(subBuilder);
                             EmergencyKey = subBuilder;
                             break;
@@ -2163,10 +1926,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 34:
                         {
                             User.V1.CardKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.CardKey)
-                            {
-                                subBuilder.MergeFrom(CardKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.CardKey) subBuilder.MergeFrom(CardKey);
                             input.ReadMessage(subBuilder);
                             CardKey = subBuilder;
                             break;
@@ -2174,10 +1934,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 42:
                         {
                             User.V1.AppKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.AppKey)
-                            {
-                                subBuilder.MergeFrom(AppKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.AppKey) subBuilder.MergeFrom(AppKey);
                             input.ReadMessage(subBuilder);
                             AppKey = subBuilder;
                             break;
@@ -2185,10 +1942,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 50:
                         {
                             User.V1.WalletKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.WalletKey)
-                            {
-                                subBuilder.MergeFrom(WalletKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.WalletKey) subBuilder.MergeFrom(WalletKey);
                             input.ReadMessage(subBuilder);
                             WalletKey = subBuilder;
                             break;
@@ -2196,10 +1950,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 58:
                         {
                             User.V1.Passcode subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.Passcode)
-                            {
-                                subBuilder.MergeFrom(Passcode);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.Passcode) subBuilder.MergeFrom(Passcode);
                             input.ReadMessage(subBuilder);
                             Passcode = subBuilder;
                             break;
@@ -2212,10 +1963,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 74:
                         {
                             User.V1.ElectronicKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-                            {
-                                subBuilder.MergeFrom(ElectronicKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.ElectronicKey) subBuilder.MergeFrom(ElectronicKey);
                             input.ReadMessage(subBuilder);
                             ElectronicKey = subBuilder;
                             break;
@@ -2225,7 +1973,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 #endif
 
-        #region Nested types
         /// <summary>Container for nested types declared in the AccessPointUnlocked message type.</summary>
         public static partial class Types
         {
@@ -2249,7 +1996,6 @@ namespace Saltoapis.Nebula.Event.V1
             }
 
         }
-        #endregion
 
     }
 
@@ -2471,22 +2217,12 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointLocked);
         public bool Equals(AccessPointLocked other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
-            if (!Equals(Passcode, other.Passcode)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(User, other.User))) return false;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
+            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
+            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
             if (CredentialCase != other.CredentialCase) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -2503,10 +2239,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (credentialCase_ == CredentialOneofCase.Passcode) hash ^= Passcode.GetHashCode();
             if (credentialCase_ == CredentialOneofCase.ElectronicKey) hash ^= ElectronicKey.GetHashCode();
             hash ^= (int)credentialCase_;
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -2605,109 +2338,55 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.CardKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.AppKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.WalletKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.Passcode)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
-            }
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (credentialCase_ == CredentialOneofCase.CardKey) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (credentialCase_ == CredentialOneofCase.AppKey) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (credentialCase_ == CredentialOneofCase.WalletKey) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (credentialCase_ == CredentialOneofCase.Passcode) size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointLocked other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             switch (other.CredentialCase)
             {
                 case CredentialOneofCase.EmergencyKey:
-                    if (EmergencyKey == null)
-                    {
-                        EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                    }
+                    if (EmergencyKey == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                     EmergencyKey.MergeFrom(other.EmergencyKey);
                     break;
                 case CredentialOneofCase.CardKey:
-                    if (CardKey == null)
-                    {
-                        CardKey = new User.V1.CardKey();
-                    }
+                    if (CardKey == null) CardKey = new User.V1.CardKey();
                     CardKey.MergeFrom(other.CardKey);
                     break;
                 case CredentialOneofCase.AppKey:
-                    if (AppKey == null)
-                    {
-                        AppKey = new User.V1.AppKey();
-                    }
+                    if (AppKey == null) AppKey = new User.V1.AppKey();
                     AppKey.MergeFrom(other.AppKey);
                     break;
                 case CredentialOneofCase.WalletKey:
-                    if (WalletKey == null)
-                    {
-                        WalletKey = new User.V1.WalletKey();
-                    }
+                    if (WalletKey == null) WalletKey = new User.V1.WalletKey();
                     WalletKey.MergeFrom(other.WalletKey);
                     break;
                 case CredentialOneofCase.Passcode:
-                    if (Passcode == null)
-                    {
-                        Passcode = new User.V1.Passcode();
-                    }
+                    if (Passcode == null) Passcode = new User.V1.Passcode();
                     Passcode.MergeFrom(other.Passcode);
                     break;
                 case CredentialOneofCase.ElectronicKey:
-                    if (ElectronicKey == null)
-                    {
-                        ElectronicKey = new User.V1.ElectronicKey();
-                    }
+                    if (ElectronicKey == null) ElectronicKey = new User.V1.ElectronicKey();
                     ElectronicKey.MergeFrom(other.ElectronicKey);
                     break;
             }
@@ -2822,29 +2501,20 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 18:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 26:
                         {
                             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-                            {
-                                subBuilder.MergeFrom(EmergencyKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.EmergencyKey) subBuilder.MergeFrom(EmergencyKey);
                             input.ReadMessage(subBuilder);
                             EmergencyKey = subBuilder;
                             break;
@@ -2852,10 +2522,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 34:
                         {
                             User.V1.CardKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.CardKey)
-                            {
-                                subBuilder.MergeFrom(CardKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.CardKey) subBuilder.MergeFrom(CardKey);
                             input.ReadMessage(subBuilder);
                             CardKey = subBuilder;
                             break;
@@ -2863,10 +2530,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 42:
                         {
                             User.V1.AppKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.AppKey)
-                            {
-                                subBuilder.MergeFrom(AppKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.AppKey) subBuilder.MergeFrom(AppKey);
                             input.ReadMessage(subBuilder);
                             AppKey = subBuilder;
                             break;
@@ -2874,10 +2538,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 50:
                         {
                             User.V1.WalletKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.WalletKey)
-                            {
-                                subBuilder.MergeFrom(WalletKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.WalletKey) subBuilder.MergeFrom(WalletKey);
                             input.ReadMessage(subBuilder);
                             WalletKey = subBuilder;
                             break;
@@ -2885,10 +2546,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 58:
                         {
                             User.V1.Passcode subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.Passcode)
-                            {
-                                subBuilder.MergeFrom(Passcode);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.Passcode) subBuilder.MergeFrom(Passcode);
                             input.ReadMessage(subBuilder);
                             Passcode = subBuilder;
                             break;
@@ -2896,10 +2554,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 66:
                         {
                             User.V1.ElectronicKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-                            {
-                                subBuilder.MergeFrom(ElectronicKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.ElectronicKey) subBuilder.MergeFrom(ElectronicKey);
                             input.ReadMessage(subBuilder);
                             ElectronicKey = subBuilder;
                             break;
@@ -2967,14 +2622,8 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointForcedOpen);
         public bool Equals(AccessPointForcedOpen other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (!Equals(AccessPoint, other.AccessPoint)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -2983,10 +2632,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             int hash = 1;
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -3022,29 +2668,17 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointForcedOpen other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3096,10 +2730,7 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
@@ -3169,14 +2800,8 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointClosed);
         public bool Equals(AccessPointClosed other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (!Equals(AccessPoint, other.AccessPoint)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -3185,10 +2810,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             int hash = 1;
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -3224,29 +2846,17 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointClosed other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3298,10 +2908,7 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
@@ -3595,26 +3202,14 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessDenied);
         public bool Equals(AccessDenied other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
-            if (!Equals(Controller, other.Controller)) return false;
-            if (!Equals(User, other.User)) return false;
-            if (Reason != other.Reason) return false;
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
-            if (!Equals(Passcode, other.Passcode)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
-            if (SourceCase != other.SourceCase) return false;
-            if (CredentialCase != other.CredentialCase) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessPoint, other.AccessPoint)) || (!Equals(Controller, other.Controller))) return false;
+            if ((!Equals(User, other.User)) || (Reason != other.Reason)) return false;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
+            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
+            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
+            if ((SourceCase != other.SourceCase) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -3633,10 +3228,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (credentialCase_ == CredentialOneofCase.ElectronicKey) hash ^= ElectronicKey.GetHashCode();
             hash ^= (int)sourceCase_;
             hash ^= (int)credentialCase_;
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -3753,85 +3345,37 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (sourceCase_ == SourceOneofCase.AccessPoint)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (sourceCase_ == SourceOneofCase.Controller)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Controller);
-            }
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (Reason != Types.Reason.Unspecified)
-            {
-                size += 1 + CodedOutputStream.ComputeEnumSize((int)Reason);
-            }
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.CardKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.AppKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.WalletKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.Passcode)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
-            }
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (sourceCase_ == SourceOneofCase.AccessPoint) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (sourceCase_ == SourceOneofCase.Controller) size += 1 + CodedOutputStream.ComputeMessageSize(Controller);
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (Reason != Types.Reason.Unspecified) size += 1 + CodedOutputStream.ComputeEnumSize((int)Reason);
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (credentialCase_ == CredentialOneofCase.CardKey) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (credentialCase_ == CredentialOneofCase.AppKey) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (credentialCase_ == CredentialOneofCase.WalletKey) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (credentialCase_ == CredentialOneofCase.Passcode) size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessDenied other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
-            if (other.Reason != Types.Reason.Unspecified)
-            {
-                Reason = other.Reason;
-            }
+            if (other.Reason != Types.Reason.Unspecified) Reason = other.Reason;
             switch (other.SourceCase)
             {
                 case SourceOneofCase.AccessPoint:
-                    if (AccessPoint == null)
-                    {
-                        AccessPoint = new AccessPoint.V1.AccessPoint();
-                    }
+                    if (AccessPoint == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                     AccessPoint.MergeFrom(other.AccessPoint);
                     break;
                 case SourceOneofCase.Controller:
-                    if (Controller == null)
-                    {
-                        Controller = new Controller.V1.Controller();
-                    }
+                    if (Controller == null) Controller = new Controller.V1.Controller();
                     Controller.MergeFrom(other.Controller);
                     break;
             }
@@ -3839,45 +3383,27 @@ namespace Saltoapis.Nebula.Event.V1
             switch (other.CredentialCase)
             {
                 case CredentialOneofCase.EmergencyKey:
-                    if (EmergencyKey == null)
-                    {
-                        EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                    }
+                    if (EmergencyKey == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                     EmergencyKey.MergeFrom(other.EmergencyKey);
                     break;
                 case CredentialOneofCase.CardKey:
-                    if (CardKey == null)
-                    {
-                        CardKey = new User.V1.CardKey();
-                    }
+                    if (CardKey == null) CardKey = new User.V1.CardKey();
                     CardKey.MergeFrom(other.CardKey);
                     break;
                 case CredentialOneofCase.AppKey:
-                    if (AppKey == null)
-                    {
-                        AppKey = new User.V1.AppKey();
-                    }
+                    if (AppKey == null) AppKey = new User.V1.AppKey();
                     AppKey.MergeFrom(other.AppKey);
                     break;
                 case CredentialOneofCase.WalletKey:
-                    if (WalletKey == null)
-                    {
-                        WalletKey = new User.V1.WalletKey();
-                    }
+                    if (WalletKey == null) WalletKey = new User.V1.WalletKey();
                     WalletKey.MergeFrom(other.WalletKey);
                     break;
                 case CredentialOneofCase.Passcode:
-                    if (Passcode == null)
-                    {
-                        Passcode = new User.V1.Passcode();
-                    }
+                    if (Passcode == null) Passcode = new User.V1.Passcode();
                     Passcode.MergeFrom(other.Passcode);
                     break;
                 case CredentialOneofCase.ElectronicKey:
-                    if (ElectronicKey == null)
-                    {
-                        ElectronicKey = new User.V1.ElectronicKey();
-                    }
+                    if (ElectronicKey == null) ElectronicKey = new User.V1.ElectronicKey();
                     ElectronicKey.MergeFrom(other.ElectronicKey);
                     break;
             }
@@ -4008,20 +3534,14 @@ namespace Saltoapis.Nebula.Event.V1
                     case 10:
                         {
                             AccessPoint.V1.AccessPoint subBuilder = new();
-                            if (sourceCase_ == SourceOneofCase.AccessPoint)
-                            {
-                                subBuilder.MergeFrom(AccessPoint);
-                            }
+                            if (sourceCase_ == SourceOneofCase.AccessPoint) subBuilder.MergeFrom(AccessPoint);
                             input.ReadMessage(subBuilder);
                             AccessPoint = subBuilder;
                             break;
                         }
                     case 18:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
@@ -4033,10 +3553,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 34:
                         {
                             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-                            {
-                                subBuilder.MergeFrom(EmergencyKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.EmergencyKey) subBuilder.MergeFrom(EmergencyKey);
                             input.ReadMessage(subBuilder);
                             EmergencyKey = subBuilder;
                             break;
@@ -4044,10 +3561,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 42:
                         {
                             User.V1.CardKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.CardKey)
-                            {
-                                subBuilder.MergeFrom(CardKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.CardKey) subBuilder.MergeFrom(CardKey);
                             input.ReadMessage(subBuilder);
                             CardKey = subBuilder;
                             break;
@@ -4055,10 +3569,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 50:
                         {
                             User.V1.AppKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.AppKey)
-                            {
-                                subBuilder.MergeFrom(AppKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.AppKey) subBuilder.MergeFrom(AppKey);
                             input.ReadMessage(subBuilder);
                             AppKey = subBuilder;
                             break;
@@ -4066,10 +3577,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 58:
                         {
                             User.V1.WalletKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.WalletKey)
-                            {
-                                subBuilder.MergeFrom(WalletKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.WalletKey) subBuilder.MergeFrom(WalletKey);
                             input.ReadMessage(subBuilder);
                             WalletKey = subBuilder;
                             break;
@@ -4077,10 +3585,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 66:
                         {
                             User.V1.Passcode subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.Passcode)
-                            {
-                                subBuilder.MergeFrom(Passcode);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.Passcode) subBuilder.MergeFrom(Passcode);
                             input.ReadMessage(subBuilder);
                             Passcode = subBuilder;
                             break;
@@ -4088,10 +3593,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 74:
                         {
                             User.V1.ElectronicKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-                            {
-                                subBuilder.MergeFrom(ElectronicKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.ElectronicKey) subBuilder.MergeFrom(ElectronicKey);
                             input.ReadMessage(subBuilder);
                             ElectronicKey = subBuilder;
                             break;
@@ -4099,10 +3601,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 82:
                         {
                             Controller.V1.Controller subBuilder = new();
-                            if (sourceCase_ == SourceOneofCase.Controller)
-                            {
-                                subBuilder.MergeFrom(Controller);
-                            }
+                            if (sourceCase_ == SourceOneofCase.Controller) subBuilder.MergeFrom(Controller);
                             input.ReadMessage(subBuilder);
                             Controller = subBuilder;
                             break;
@@ -4112,7 +3611,6 @@ namespace Saltoapis.Nebula.Event.V1
         }
 #endif
 
-        #region Nested types
         /// <summary>Container for nested types declared in the AccessDenied message type.</summary>
         public static partial class Types
         {
@@ -4179,7 +3677,6 @@ namespace Saltoapis.Nebula.Event.V1
             }
 
         }
-        #endregion
 
     }
 
@@ -4239,14 +3736,8 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessPointLeftOpen);
         public bool Equals(AccessPointLeftOpen other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (!Equals(AccessPoint, other.AccessPoint)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -4255,10 +3746,7 @@ namespace Saltoapis.Nebula.Event.V1
         {
             int hash = 1;
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -4294,29 +3782,17 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessPointLeftOpen other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4368,10 +3844,7 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
@@ -4455,16 +3928,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightCreated);
         public bool Equals(AccessRightCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -4473,10 +3939,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -4521,41 +3984,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4614,19 +4059,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -4727,16 +4166,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightUpdated);
         public bool Equals(AccessRightUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(Actor, other.Actor))) return false;
             if (!Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -4747,10 +4179,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
             if (previousValues_ != null) hash ^= PreviousValues.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -4804,53 +4233,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (previousValues_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (previousValues_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             if (other.previousValues_ != null)
             {
-                if (previousValues_ == null)
-                {
-                    PreviousValues = new PreviousValues();
-                }
+                if (previousValues_ == null) PreviousValues = new PreviousValues();
                 PreviousValues.MergeFrom(other.PreviousValues);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4916,28 +4321,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
                     case 26:
                         {
-                            if (previousValues_ == null)
-                            {
-                                PreviousValues = new PreviousValues();
-                            }
+                            if (previousValues_ == null) PreviousValues = new PreviousValues();
                             input.ReadMessage(PreviousValues);
                             break;
                         }
@@ -5021,16 +4417,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightDeleted);
         public bool Equals(AccessRightDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -5039,10 +4428,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -5087,41 +4473,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -5180,19 +4548,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -5293,16 +4655,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointCreated);
         public bool Equals(AccessRightAccessPointCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -5313,10 +4668,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -5370,53 +4722,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightAccessPointCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -5482,28 +4810,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 18:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -5602,16 +4921,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointsBatchCreated);
         public bool Equals(AccessRightAccessPointsBatchCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!accessPoints_.Equals(other.accessPoints_)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -5622,10 +4934,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             hash ^= accessPoints_.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -5672,43 +4981,25 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
             size += accessPoints_.CalculateSize(_repeated_accessPoints_codec);
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightAccessPointsBatchCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             accessPoints_.Add(other.accessPoints_);
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -5771,10 +5062,7 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
@@ -5785,10 +5073,7 @@ namespace Saltoapis.Nebula.Event.V1
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -5889,16 +5174,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointDeleted);
         public bool Equals(AccessRightAccessPointDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!Equals(AccessPoint, other.AccessPoint)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!Equals(AccessPoint, other.AccessPoint))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -5909,10 +5187,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (accessPoint_ != null) hash ^= AccessPoint.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -5966,53 +5241,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (accessPoint_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (accessPoint_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessPoint);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightAccessPointDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.accessPoint_ != null)
             {
-                if (accessPoint_ == null)
-                {
-                    AccessPoint = new AccessPoint.V1.AccessPoint();
-                }
+                if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                 AccessPoint.MergeFrom(other.AccessPoint);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -6078,28 +5329,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 18:
                         {
-                            if (accessPoint_ == null)
-                            {
-                                AccessPoint = new AccessPoint.V1.AccessPoint();
-                            }
+                            if (accessPoint_ == null) AccessPoint = new AccessPoint.V1.AccessPoint();
                             input.ReadMessage(AccessPoint);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -6198,16 +5440,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessRightAccessPointsBatchDeleted);
         public bool Equals(AccessRightAccessPointsBatchDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(AccessRight, other.AccessRight)) return false;
-            if (!accessPoints_.Equals(other.accessPoints_)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(AccessRight, other.AccessRight)) || (!accessPoints_.Equals(other.accessPoints_))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -6218,10 +5453,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             hash ^= accessPoints_.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -6268,43 +5500,25 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
             size += accessPoints_.CalculateSize(_repeated_accessPoints_codec);
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessRightAccessPointsBatchDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             accessPoints_.Add(other.accessPoints_);
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -6367,10 +5581,7 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
@@ -6381,10 +5592,7 @@ namespace Saltoapis.Nebula.Event.V1
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -6468,16 +5676,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserCreated);
         public bool Equals(UserCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -6486,10 +5687,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (user_ != null) hash ^= User.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -6534,41 +5732,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -6627,19 +5807,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -6740,16 +5914,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserUpdated);
         public bool Equals(UserUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
             if (!Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -6760,10 +5927,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
             if (previousValues_ != null) hash ^= PreviousValues.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -6817,53 +5981,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (previousValues_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (previousValues_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             if (other.previousValues_ != null)
             {
-                if (previousValues_ == null)
-                {
-                    PreviousValues = new PreviousValues();
-                }
+                if (previousValues_ == null) PreviousValues = new PreviousValues();
                 PreviousValues.MergeFrom(other.PreviousValues);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -6929,28 +6069,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
                     case 26:
                         {
-                            if (previousValues_ == null)
-                            {
-                                PreviousValues = new PreviousValues();
-                            }
+                            if (previousValues_ == null) PreviousValues = new PreviousValues();
                             input.ReadMessage(PreviousValues);
                             break;
                         }
@@ -7034,16 +6165,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserBlocked);
         public bool Equals(UserBlocked other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7052,10 +6176,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (user_ != null) hash ^= User.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -7100,41 +6221,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserBlocked other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -7193,19 +6296,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -7289,16 +6386,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserUnblocked);
         public bool Equals(UserUnblocked other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7307,10 +6397,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (user_ != null) hash ^= User.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -7355,41 +6442,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserUnblocked other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -7448,19 +6517,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -7544,16 +6607,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserDeleted);
         public bool Equals(UserDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -7562,10 +6618,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (user_ != null) hash ^= User.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -7610,41 +6663,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -7703,19 +6738,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -7816,16 +6845,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserAccessRightCreated);
         public bool Equals(UserAccessRightCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(AccessRight, other.AccessRight)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -7836,10 +6858,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -7893,53 +6912,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserAccessRightCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -8005,28 +7000,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -8127,16 +7113,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserAccessRightUpdated);
         public bool Equals(UserAccessRightUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(AccessRight, other.AccessRight)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -8147,10 +7126,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -8204,53 +7180,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserAccessRightUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -8316,28 +7268,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -8438,16 +7381,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UserAccessRightDeleted);
         public bool Equals(UserAccessRightDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(AccessRight, other.AccessRight)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(AccessRight, other.AccessRight))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -8458,10 +7394,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (accessRight_ != null) hash ^= AccessRight.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -8515,53 +7448,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (accessRight_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (accessRight_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AccessRight);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UserAccessRightDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.accessRight_ != null)
             {
-                if (accessRight_ == null)
-                {
-                    AccessRight = new AccessRight.V1.AccessRight();
-                }
+                if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                 AccessRight.MergeFrom(other.AccessRight);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -8627,28 +7536,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (accessRight_ == null)
-                            {
-                                AccessRight = new AccessRight.V1.AccessRight();
-                            }
+                            if (accessRight_ == null) AccessRight = new AccessRight.V1.AccessRight();
                             input.ReadMessage(AccessRight);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -8749,16 +7649,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as CardKeyAssigned);
         public bool Equals(CardKeyAssigned other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -8769,10 +7662,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (cardKey_ != null) hash ^= CardKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -8826,53 +7716,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (cardKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (cardKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(CardKeyAssigned other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.cardKey_ != null)
             {
-                if (cardKey_ == null)
-                {
-                    CardKey = new User.V1.CardKey();
-                }
+                if (cardKey_ == null) CardKey = new User.V1.CardKey();
                 CardKey.MergeFrom(other.CardKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -8938,28 +7804,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (cardKey_ == null)
-                            {
-                                CardKey = new User.V1.CardKey();
-                            }
+                            if (cardKey_ == null) CardKey = new User.V1.CardKey();
                             input.ReadMessage(CardKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -9060,16 +7917,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as CardKeyCanceled);
         public bool Equals(CardKeyCanceled other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(CardKey, other.CardKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -9080,10 +7930,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (cardKey_ != null) hash ^= CardKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -9137,53 +7984,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (cardKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (cardKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(CardKeyCanceled other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.cardKey_ != null)
             {
-                if (cardKey_ == null)
-                {
-                    CardKey = new User.V1.CardKey();
-                }
+                if (cardKey_ == null) CardKey = new User.V1.CardKey();
                 CardKey.MergeFrom(other.CardKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -9249,28 +8072,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (cardKey_ == null)
-                            {
-                                CardKey = new User.V1.CardKey();
-                            }
+                            if (cardKey_ == null) CardKey = new User.V1.CardKey();
                             input.ReadMessage(CardKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -9371,16 +8185,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AppKeyAssigned);
         public bool Equals(AppKeyAssigned other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -9391,10 +8198,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (appKey_ != null) hash ^= AppKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -9448,53 +8252,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (appKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (appKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AppKeyAssigned other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.appKey_ != null)
             {
-                if (appKey_ == null)
-                {
-                    AppKey = new User.V1.AppKey();
-                }
+                if (appKey_ == null) AppKey = new User.V1.AppKey();
                 AppKey.MergeFrom(other.AppKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -9560,28 +8340,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (appKey_ == null)
-                            {
-                                AppKey = new User.V1.AppKey();
-                            }
+                            if (appKey_ == null) AppKey = new User.V1.AppKey();
                             input.ReadMessage(AppKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -9682,16 +8453,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AppKeyCanceled);
         public bool Equals(AppKeyCanceled other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(AppKey, other.AppKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -9702,10 +8466,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (appKey_ != null) hash ^= AppKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -9759,53 +8520,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (appKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (appKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AppKeyCanceled other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.appKey_ != null)
             {
-                if (appKey_ == null)
-                {
-                    AppKey = new User.V1.AppKey();
-                }
+                if (appKey_ == null) AppKey = new User.V1.AppKey();
                 AppKey.MergeFrom(other.AppKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -9871,28 +8608,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (appKey_ == null)
-                            {
-                                AppKey = new User.V1.AppKey();
-                            }
+                            if (appKey_ == null) AppKey = new User.V1.AppKey();
                             input.ReadMessage(AppKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -9993,16 +8721,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as WalletKeyAssigned);
         public bool Equals(WalletKeyAssigned other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -10013,10 +8734,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (walletKey_ != null) hash ^= WalletKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -10070,53 +8788,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (walletKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (walletKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(WalletKeyAssigned other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.walletKey_ != null)
             {
-                if (walletKey_ == null)
-                {
-                    WalletKey = new User.V1.WalletKey();
-                }
+                if (walletKey_ == null) WalletKey = new User.V1.WalletKey();
                 WalletKey.MergeFrom(other.WalletKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10182,28 +8876,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (walletKey_ == null)
-                            {
-                                WalletKey = new User.V1.WalletKey();
-                            }
+                            if (walletKey_ == null) WalletKey = new User.V1.WalletKey();
                             input.ReadMessage(WalletKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -10304,16 +8989,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as WalletKeyCanceled);
         public bool Equals(WalletKeyCanceled other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(WalletKey, other.WalletKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -10324,10 +9002,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (walletKey_ != null) hash ^= WalletKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -10381,53 +9056,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (walletKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (walletKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(WalletKeyCanceled other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.walletKey_ != null)
             {
-                if (walletKey_ == null)
-                {
-                    WalletKey = new User.V1.WalletKey();
-                }
+                if (walletKey_ == null) WalletKey = new User.V1.WalletKey();
                 WalletKey.MergeFrom(other.WalletKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10493,28 +9144,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (walletKey_ == null)
-                            {
-                                WalletKey = new User.V1.WalletKey();
-                            }
+                            if (walletKey_ == null) WalletKey = new User.V1.WalletKey();
                             input.ReadMessage(WalletKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -10598,16 +9240,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UnitMovedIn);
         public bool Equals(UnitMovedIn other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Unit, other.Unit)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -10616,10 +9251,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (unit_ != null) hash ^= Unit.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -10664,41 +9296,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (unit_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (unit_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UnitMovedIn other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.unit_ != null)
             {
-                if (unit_ == null)
-                {
-                    Unit = new Unit.V1.Unit();
-                }
+                if (unit_ == null) Unit = new Unit.V1.Unit();
                 Unit.MergeFrom(other.Unit);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10757,19 +9371,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (unit_ == null)
-                            {
-                                Unit = new Unit.V1.Unit();
-                            }
+                            if (unit_ == null) Unit = new Unit.V1.Unit();
                             input.ReadMessage(Unit);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -10853,16 +9461,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UnitMovedOut);
         public bool Equals(UnitMovedOut other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Unit, other.Unit)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -10871,10 +9472,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (unit_ != null) hash ^= Unit.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -10919,41 +9517,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (unit_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (unit_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UnitMovedOut other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.unit_ != null)
             {
-                if (unit_ == null)
-                {
-                    Unit = new Unit.V1.Unit();
-                }
+                if (unit_ == null) Unit = new Unit.V1.Unit();
                 Unit.MergeFrom(other.Unit);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -11012,19 +9592,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (unit_ == null)
-                            {
-                                Unit = new Unit.V1.Unit();
-                            }
+                            if (unit_ == null) Unit = new Unit.V1.Unit();
                             input.ReadMessage(Unit);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -11108,16 +9682,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UnitCreated);
         public bool Equals(UnitCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Unit, other.Unit)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11126,10 +9693,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (unit_ != null) hash ^= Unit.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -11174,41 +9738,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (unit_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (unit_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UnitCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.unit_ != null)
             {
-                if (unit_ == null)
-                {
-                    Unit = new Unit.V1.Unit();
-                }
+                if (unit_ == null) Unit = new Unit.V1.Unit();
                 Unit.MergeFrom(other.Unit);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -11267,19 +9813,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (unit_ == null)
-                            {
-                                Unit = new Unit.V1.Unit();
-                            }
+                            if (unit_ == null) Unit = new Unit.V1.Unit();
                             input.ReadMessage(Unit);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -11380,16 +9920,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UnitUpdated);
         public bool Equals(UnitUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Unit, other.Unit)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
             if (!Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -11400,10 +9933,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (unit_ != null) hash ^= Unit.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
             if (previousValues_ != null) hash ^= PreviousValues.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -11457,53 +9987,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (unit_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (previousValues_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (unit_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (previousValues_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UnitUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.unit_ != null)
             {
-                if (unit_ == null)
-                {
-                    Unit = new Unit.V1.Unit();
-                }
+                if (unit_ == null) Unit = new Unit.V1.Unit();
                 Unit.MergeFrom(other.Unit);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             if (other.previousValues_ != null)
             {
-                if (previousValues_ == null)
-                {
-                    PreviousValues = new PreviousValues();
-                }
+                if (previousValues_ == null) PreviousValues = new PreviousValues();
                 PreviousValues.MergeFrom(other.PreviousValues);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -11569,28 +10075,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (unit_ == null)
-                            {
-                                Unit = new Unit.V1.Unit();
-                            }
+                            if (unit_ == null) Unit = new Unit.V1.Unit();
                             input.ReadMessage(Unit);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
                     case 26:
                         {
-                            if (previousValues_ == null)
-                            {
-                                PreviousValues = new PreviousValues();
-                            }
+                            if (previousValues_ == null) PreviousValues = new PreviousValues();
                             input.ReadMessage(PreviousValues);
                             break;
                         }
@@ -11674,16 +10171,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as UnitDeleted);
         public bool Equals(UnitDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Unit, other.Unit)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Unit, other.Unit)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11692,10 +10182,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (unit_ != null) hash ^= Unit.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -11740,41 +10227,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (unit_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (unit_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Unit);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(UnitDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.unit_ != null)
             {
-                if (unit_ == null)
-                {
-                    Unit = new Unit.V1.Unit();
-                }
+                if (unit_ == null) Unit = new Unit.V1.Unit();
                 Unit.MergeFrom(other.Unit);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -11833,19 +10302,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (unit_ == null)
-                            {
-                                Unit = new Unit.V1.Unit();
-                            }
+                            if (unit_ == null) Unit = new Unit.V1.Unit();
                             input.ReadMessage(Unit);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -11929,16 +10392,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as EmergencyKeyCreated);
         public bool Equals(EmergencyKeyCreated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -11947,10 +10403,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (emergencyKey_ != null) hash ^= EmergencyKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -11995,41 +10448,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (emergencyKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (emergencyKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(EmergencyKeyCreated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.emergencyKey_ != null)
             {
-                if (emergencyKey_ == null)
-                {
-                    EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                }
+                if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                 EmergencyKey.MergeFrom(other.EmergencyKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -12088,19 +10523,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (emergencyKey_ == null)
-                            {
-                                EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                            }
+                            if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                             input.ReadMessage(EmergencyKey);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -12201,16 +10630,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as EmergencyKeyUpdated);
         public bool Equals(EmergencyKeyUpdated other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(Actor, other.Actor))) return false;
             if (!Equals(PreviousValues, other.PreviousValues)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -12221,10 +10643,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (emergencyKey_ != null) hash ^= EmergencyKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
             if (previousValues_ != null) hash ^= PreviousValues.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -12278,53 +10697,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (emergencyKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (previousValues_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (emergencyKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (previousValues_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(PreviousValues);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(EmergencyKeyUpdated other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.emergencyKey_ != null)
             {
-                if (emergencyKey_ == null)
-                {
-                    EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                }
+                if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                 EmergencyKey.MergeFrom(other.EmergencyKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             if (other.previousValues_ != null)
             {
-                if (previousValues_ == null)
-                {
-                    PreviousValues = new PreviousValues();
-                }
+                if (previousValues_ == null) PreviousValues = new PreviousValues();
                 PreviousValues.MergeFrom(other.PreviousValues);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -12390,28 +10785,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (emergencyKey_ == null)
-                            {
-                                EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                            }
+                            if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                             input.ReadMessage(EmergencyKey);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
                     case 26:
                         {
-                            if (previousValues_ == null)
-                            {
-                                PreviousValues = new PreviousValues();
-                            }
+                            if (previousValues_ == null) PreviousValues = new PreviousValues();
                             input.ReadMessage(PreviousValues);
                             break;
                         }
@@ -12495,16 +10881,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as EmergencyKeyDeleted);
         public bool Equals(EmergencyKeyDeleted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -12513,10 +10892,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (emergencyKey_ != null) hash ^= EmergencyKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -12561,41 +10937,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (emergencyKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (emergencyKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(EmergencyKeyDeleted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.emergencyKey_ != null)
             {
-                if (emergencyKey_ == null)
-                {
-                    EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                }
+                if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                 EmergencyKey.MergeFrom(other.EmergencyKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -12654,19 +11012,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (emergencyKey_ == null)
-                            {
-                                EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                            }
+                            if (emergencyKey_ == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                             input.ReadMessage(EmergencyKey);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -12767,16 +11119,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as ElectronicKeyAssigned);
         public bool Equals(ElectronicKeyAssigned other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -12787,10 +11132,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (electronicKey_ != null) hash ^= ElectronicKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -12844,53 +11186,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (electronicKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (electronicKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(ElectronicKeyAssigned other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.electronicKey_ != null)
             {
-                if (electronicKey_ == null)
-                {
-                    ElectronicKey = new User.V1.ElectronicKey();
-                }
+                if (electronicKey_ == null) ElectronicKey = new User.V1.ElectronicKey();
                 ElectronicKey.MergeFrom(other.ElectronicKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -12956,28 +11274,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (electronicKey_ == null)
-                            {
-                                ElectronicKey = new User.V1.ElectronicKey();
-                            }
+                            if (electronicKey_ == null) ElectronicKey = new User.V1.ElectronicKey();
                             input.ReadMessage(ElectronicKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -13078,16 +11387,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as ElectronicKeyCanceled);
         public bool Equals(ElectronicKeyCanceled other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(User, other.User)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
             if (!Equals(Actor, other.Actor)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -13098,10 +11400,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (user_ != null) hash ^= User.GetHashCode();
             if (electronicKey_ != null) hash ^= ElectronicKey.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -13155,53 +11454,29 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (electronicKey_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (electronicKey_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(ElectronicKeyCanceled other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             if (other.electronicKey_ != null)
             {
-                if (electronicKey_ == null)
-                {
-                    ElectronicKey = new User.V1.ElectronicKey();
-                }
+                if (electronicKey_ == null) ElectronicKey = new User.V1.ElectronicKey();
                 ElectronicKey.MergeFrom(other.ElectronicKey);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -13267,28 +11542,19 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 18:
                         {
-                            if (electronicKey_ == null)
-                            {
-                                ElectronicKey = new User.V1.ElectronicKey();
-                            }
+                            if (electronicKey_ == null) ElectronicKey = new User.V1.ElectronicKey();
                             input.ReadMessage(ElectronicKey);
                             break;
                         }
                     case 26:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -13564,24 +11830,13 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as AccessGranted);
         public bool Equals(AccessGranted other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Controller, other.Controller)) return false;
-            if (!Equals(User, other.User)) return false;
-            if (!Equals(EmergencyKey, other.EmergencyKey)) return false;
-            if (!Equals(CardKey, other.CardKey)) return false;
-            if (!Equals(AppKey, other.AppKey)) return false;
-            if (!Equals(WalletKey, other.WalletKey)) return false;
-            if (!Equals(Passcode, other.Passcode)) return false;
-            if (!Equals(ElectronicKey, other.ElectronicKey)) return false;
-            if (DeviceCase != other.DeviceCase) return false;
-            if (CredentialCase != other.CredentialCase) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Controller, other.Controller)) || (!Equals(User, other.User))) return false;
+            if ((!Equals(EmergencyKey, other.EmergencyKey)) || (!Equals(CardKey, other.CardKey))) return false;
+            if ((!Equals(AppKey, other.AppKey)) || (!Equals(WalletKey, other.WalletKey))) return false;
+            if ((!Equals(Passcode, other.Passcode)) || (!Equals(ElectronicKey, other.ElectronicKey))) return false;
+            if ((DeviceCase != other.DeviceCase) || (CredentialCase != other.CredentialCase)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -13598,10 +11853,7 @@ namespace Saltoapis.Nebula.Event.V1
             if (credentialCase_ == CredentialOneofCase.ElectronicKey) hash ^= ElectronicKey.GetHashCode();
             hash ^= (int)deviceCase_;
             hash ^= (int)credentialCase_;
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -13700,66 +11952,30 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (deviceCase_ == DeviceOneofCase.Controller)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Controller);
-            }
-            if (user_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(User);
-            }
-            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.CardKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.AppKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.WalletKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
-            }
-            if (credentialCase_ == CredentialOneofCase.Passcode)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
-            }
-            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (deviceCase_ == DeviceOneofCase.Controller) size += 1 + CodedOutputStream.ComputeMessageSize(Controller);
+            if (user_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(User);
+            if (credentialCase_ == CredentialOneofCase.EmergencyKey) size += 1 + CodedOutputStream.ComputeMessageSize(EmergencyKey);
+            if (credentialCase_ == CredentialOneofCase.CardKey) size += 1 + CodedOutputStream.ComputeMessageSize(CardKey);
+            if (credentialCase_ == CredentialOneofCase.AppKey) size += 1 + CodedOutputStream.ComputeMessageSize(AppKey);
+            if (credentialCase_ == CredentialOneofCase.WalletKey) size += 1 + CodedOutputStream.ComputeMessageSize(WalletKey);
+            if (credentialCase_ == CredentialOneofCase.Passcode) size += 1 + CodedOutputStream.ComputeMessageSize(Passcode);
+            if (credentialCase_ == CredentialOneofCase.ElectronicKey) size += 1 + CodedOutputStream.ComputeMessageSize(ElectronicKey);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(AccessGranted other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.user_ != null)
             {
-                if (user_ == null)
-                {
-                    User = new User.V1.User();
-                }
+                if (user_ == null) User = new User.V1.User();
                 User.MergeFrom(other.User);
             }
             switch (other.DeviceCase)
             {
                 case DeviceOneofCase.Controller:
-                    if (Controller == null)
-                    {
-                        Controller = new Controller.V1.Controller();
-                    }
+                    if (Controller == null) Controller = new Controller.V1.Controller();
                     Controller.MergeFrom(other.Controller);
                     break;
             }
@@ -13767,45 +11983,27 @@ namespace Saltoapis.Nebula.Event.V1
             switch (other.CredentialCase)
             {
                 case CredentialOneofCase.EmergencyKey:
-                    if (EmergencyKey == null)
-                    {
-                        EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
-                    }
+                    if (EmergencyKey == null) EmergencyKey = new Salto.Nebula.EmergencyKey.V1.EmergencyKey();
                     EmergencyKey.MergeFrom(other.EmergencyKey);
                     break;
                 case CredentialOneofCase.CardKey:
-                    if (CardKey == null)
-                    {
-                        CardKey = new User.V1.CardKey();
-                    }
+                    if (CardKey == null) CardKey = new User.V1.CardKey();
                     CardKey.MergeFrom(other.CardKey);
                     break;
                 case CredentialOneofCase.AppKey:
-                    if (AppKey == null)
-                    {
-                        AppKey = new User.V1.AppKey();
-                    }
+                    if (AppKey == null) AppKey = new User.V1.AppKey();
                     AppKey.MergeFrom(other.AppKey);
                     break;
                 case CredentialOneofCase.WalletKey:
-                    if (WalletKey == null)
-                    {
-                        WalletKey = new User.V1.WalletKey();
-                    }
+                    if (WalletKey == null) WalletKey = new User.V1.WalletKey();
                     WalletKey.MergeFrom(other.WalletKey);
                     break;
                 case CredentialOneofCase.Passcode:
-                    if (Passcode == null)
-                    {
-                        Passcode = new User.V1.Passcode();
-                    }
+                    if (Passcode == null) Passcode = new User.V1.Passcode();
                     Passcode.MergeFrom(other.Passcode);
                     break;
                 case CredentialOneofCase.ElectronicKey:
-                    if (ElectronicKey == null)
-                    {
-                        ElectronicKey = new User.V1.ElectronicKey();
-                    }
+                    if (ElectronicKey == null) ElectronicKey = new User.V1.ElectronicKey();
                     ElectronicKey.MergeFrom(other.ElectronicKey);
                     break;
             }
@@ -13923,30 +12121,21 @@ namespace Saltoapis.Nebula.Event.V1
                     case 10:
                         {
                             Controller.V1.Controller subBuilder = new();
-                            if (deviceCase_ == DeviceOneofCase.Controller)
-                            {
-                                subBuilder.MergeFrom(Controller);
-                            }
+                            if (deviceCase_ == DeviceOneofCase.Controller) subBuilder.MergeFrom(Controller);
                             input.ReadMessage(subBuilder);
                             Controller = subBuilder;
                             break;
                         }
                     case 18:
                         {
-                            if (user_ == null)
-                            {
-                                User = new User.V1.User();
-                            }
+                            if (user_ == null) User = new User.V1.User();
                             input.ReadMessage(User);
                             break;
                         }
                     case 26:
                         {
                             Salto.Nebula.EmergencyKey.V1.EmergencyKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.EmergencyKey)
-                            {
-                                subBuilder.MergeFrom(EmergencyKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.EmergencyKey) subBuilder.MergeFrom(EmergencyKey);
                             input.ReadMessage(subBuilder);
                             EmergencyKey = subBuilder;
                             break;
@@ -13954,10 +12143,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 34:
                         {
                             User.V1.CardKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.CardKey)
-                            {
-                                subBuilder.MergeFrom(CardKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.CardKey) subBuilder.MergeFrom(CardKey);
                             input.ReadMessage(subBuilder);
                             CardKey = subBuilder;
                             break;
@@ -13965,10 +12151,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 42:
                         {
                             User.V1.AppKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.AppKey)
-                            {
-                                subBuilder.MergeFrom(AppKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.AppKey) subBuilder.MergeFrom(AppKey);
                             input.ReadMessage(subBuilder);
                             AppKey = subBuilder;
                             break;
@@ -13976,10 +12159,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 50:
                         {
                             User.V1.WalletKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.WalletKey)
-                            {
-                                subBuilder.MergeFrom(WalletKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.WalletKey) subBuilder.MergeFrom(WalletKey);
                             input.ReadMessage(subBuilder);
                             WalletKey = subBuilder;
                             break;
@@ -13987,10 +12167,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 58:
                         {
                             User.V1.Passcode subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.Passcode)
-                            {
-                                subBuilder.MergeFrom(Passcode);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.Passcode) subBuilder.MergeFrom(Passcode);
                             input.ReadMessage(subBuilder);
                             Passcode = subBuilder;
                             break;
@@ -13998,10 +12175,7 @@ namespace Saltoapis.Nebula.Event.V1
                     case 66:
                         {
                             User.V1.ElectronicKey subBuilder = new();
-                            if (credentialCase_ == CredentialOneofCase.ElectronicKey)
-                            {
-                                subBuilder.MergeFrom(ElectronicKey);
-                            }
+                            if (credentialCase_ == CredentialOneofCase.ElectronicKey) subBuilder.MergeFrom(ElectronicKey);
                             input.ReadMessage(subBuilder);
                             ElectronicKey = subBuilder;
                             break;
@@ -14086,16 +12260,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as BookingCheckedIn);
         public bool Equals(BookingCheckedIn other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Booking, other.Booking)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Booking, other.Booking)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -14104,10 +12271,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (booking_ != null) hash ^= Booking.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -14152,41 +12316,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (booking_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Booking);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (booking_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Booking);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(BookingCheckedIn other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.booking_ != null)
             {
-                if (booking_ == null)
-                {
-                    Booking = new Booking.V1.Booking();
-                }
+                if (booking_ == null) Booking = new Booking.V1.Booking();
                 Booking.MergeFrom(other.Booking);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -14245,19 +12391,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (booking_ == null)
-                            {
-                                Booking = new Booking.V1.Booking();
-                            }
+                            if (booking_ == null) Booking = new Booking.V1.Booking();
                             input.ReadMessage(Booking);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -14341,16 +12481,9 @@ namespace Saltoapis.Nebula.Event.V1
         public override bool Equals(object other) => Equals(other as BookingCheckedOut);
         public bool Equals(BookingCheckedOut other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!Equals(Booking, other.Booking)) return false;
-            if (!Equals(Actor, other.Actor)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!Equals(Booking, other.Booking)) || (!Equals(Actor, other.Actor))) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -14359,10 +12492,7 @@ namespace Saltoapis.Nebula.Event.V1
             int hash = 1;
             if (booking_ != null) hash ^= Booking.GetHashCode();
             if (actor_ != null) hash ^= Actor.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -14407,41 +12537,23 @@ namespace Saltoapis.Nebula.Event.V1
         public int CalculateSize()
         {
             int size = 0;
-            if (booking_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Booking);
-            }
-            if (actor_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (booking_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Booking);
+            if (actor_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(Actor);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(BookingCheckedOut other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             if (other.booking_ != null)
             {
-                if (booking_ == null)
-                {
-                    Booking = new Booking.V1.Booking();
-                }
+                if (booking_ == null) Booking = new Booking.V1.Booking();
                 Booking.MergeFrom(other.Booking);
             }
             if (other.actor_ != null)
             {
-                if (actor_ == null)
-                {
-                    Actor = new Principal();
-                }
+                if (actor_ == null) Actor = new Principal();
                 Actor.MergeFrom(other.Actor);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -14500,19 +12612,13 @@ namespace Saltoapis.Nebula.Event.V1
                         break;
                     case 10:
                         {
-                            if (booking_ == null)
-                            {
-                                Booking = new Booking.V1.Booking();
-                            }
+                            if (booking_ == null) Booking = new Booking.V1.Booking();
                             input.ReadMessage(Booking);
                             break;
                         }
                     case 18:
                         {
-                            if (actor_ == null)
-                            {
-                                Actor = new Principal();
-                            }
+                            if (actor_ == null) Actor = new Principal();
                             input.ReadMessage(Actor);
                             break;
                         }
@@ -14523,6 +12629,5 @@ namespace Saltoapis.Nebula.Event.V1
 
     }
 
-    #endregion
 
 }

@@ -1,108 +1,25 @@
-using System.Collections.Generic; // KeyValuePair
-using System.Net.Http; // HttpClient
-using System.Text.Json.Serialization;
+using Saltoapis.Auth.Response;
 using System.Text.Json;
-using System.Threading.Tasks; // Task
-using System;
 
 namespace Saltoapis.Auth
 {
-    class OIDCConfiguration
-    {
-        [JsonPropertyName("token_endpoint")]
-        public string TokenEndpoint
-        { get; set; }
-    }
-
-    class SaltoTokenResponse
-    {
-        internal const int TokenExpiryTimeWindowSeconds = 60 * 5;
-
-        private double? _expiresIn;
-        private DateTimeOffset? authenticationExpiration;
-
-        [JsonPropertyName("access_token")]
-        public string AccessToken
-        { get; set; }
-
-        [JsonPropertyName("token_type")]
-        public string TokenType
-        { get; set; }
-
-        [JsonPropertyName("refresh_token")]
-        public string RefreshToken
-        { get; set; }
-
-        [JsonPropertyName("scope")]
-        public string Scope
-        { get; set; }
-
-        [JsonPropertyName("expires_in")]
-        public double? ExpiresIn // expiration in seconds
-        {
-            get => _expiresIn;
-            set
-            {
-                _expiresIn = value;
-                this.UpdateExpiration();
-            }
-        }
-
-        void UpdateExpiration()
-        {
-            // update expiration time
-            if (this.ExpiresIn.HasValue)
-            {
-                authenticationExpiration = DateTimeOffset.Now.AddSeconds(this.ExpiresIn ?? 0);
-            }
-            else
-            {
-                authenticationExpiration = null;
-            }
-        }
-
-        public bool IsExpired() => authenticationExpiration != null && DateTimeOffset.Now.AddSeconds(TokenExpiryTimeWindowSeconds) >= authenticationExpiration;
-    }
-
-    class TokenError
-    {
-        [JsonPropertyName("error")]
-        public string Error
-        { get; set; }
-
-        [JsonPropertyName("error_hint")]
-        public string ErrorHint
-        { get; set; }
-
-        [JsonPropertyName("error_description")]
-        public string ErrorDescription
-        { get; set; }
-    }
 
     /// <summary>
     /// This class performs the OAuth2 client credentials flow. It gets a valid
     /// access token from the authorization server and stores it while it's still
     /// valid. When its close to expiration a new one will be automatically requested.
     /// </summary>
-    public class SaltoOAuthClient : OAuthClientCredentialsProvider
+    public class SaltoOAuthClient(String id, String secret, String[] scopes, String discoveryHost = "account.saltosystems.com") : IOAuthClientCredentialsProvider
     {
         OIDCConfiguration cachedOidcConfiguration; // refeshed every 24 hours
         DateTimeOffset? oidcCacheExpiration;
 
         SaltoTokenResponse token;
 
-        readonly String discoveryUri;
-        readonly String clientId;
-        readonly String clientSecret;
-        readonly String[] scopes;
-
-        public SaltoOAuthClient(String id, String secret, String[] scopes, String discoveryHost = "account.saltosystems.com")
-        {
-            this.discoveryUri = string.Format("https://{0}/.well-known/openid-configuration", discoveryHost);
-            this.clientId = id;
-            this.clientSecret = secret;
-            this.scopes = scopes;
-        }
+        readonly String discoveryUri = string.Format("https://{0}/.well-known/openid-configuration", discoveryHost);
+        readonly String clientId = id;
+        readonly String clientSecret = secret;
+        readonly String[] scopes = scopes;
 
         /**
          * Returns a client token. The token may be cached and return immediately.
@@ -131,14 +48,12 @@ namespace Saltoapis.Auth
 
         async Task<SaltoTokenResponse> GetNewToken()
         {
-            using (var httpClient = new HttpClient())
-            {
-                // oidc discovery
-                await EnsureOidcConfiguration(httpClient);
+            using var httpClient = new HttpClient();
+            // oidc discovery
+            await EnsureOidcConfiguration(httpClient);
 
-                // OAuth token
-                return await ObtainOAuthToken(httpClient);
-            }
+            // OAuth token
+            return await ObtainOAuthToken(httpClient);
         }
 
         /**
@@ -180,27 +95,25 @@ namespace Saltoapis.Auth
             // build token request post data
             var postData = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("grant_type", "client_credentials"),
-                new KeyValuePair<string, string>("client_id", this.clientId),
-                new KeyValuePair<string, string>("client_secret", this.clientSecret),
-                new KeyValuePair<string, string>("scope", string.Join(" ", this.scopes))
+                new("grant_type", "client_credentials"),
+                new("client_id", this.clientId),
+                new("client_secret", this.clientSecret),
+                new("scope", string.Join(" ", this.scopes))
             };
 
-            using (var formBody = new FormUrlEncodedContent(postData))
+            using var formBody = new FormUrlEncodedContent(postData);
+            var responseMessage = await httpClient.PostAsync(cachedOidcConfiguration.TokenEndpoint, formBody);
+            var result = await responseMessage.Content.ReadAsStringAsync();
+            if (responseMessage.IsSuccessStatusCode)
             {
-                var responseMessage = await httpClient.PostAsync(cachedOidcConfiguration.TokenEndpoint, formBody);
-                var result = await responseMessage.Content.ReadAsStringAsync();
-                if (responseMessage.IsSuccessStatusCode)
-                {
-                    token = JsonSerializer.Deserialize<SaltoTokenResponse>(result);
-                    return token;
-                }
-                else
-                {
-                    // get error
-                    var error = JsonSerializer.Deserialize<TokenError>(result);
-                    throw new SaltoOAuthException($"Error getting the access_token. Server returned {responseMessage.StatusCode} error ( error = '{error.Error}', error_hint = '{error.ErrorHint}', description = '{error.ErrorDescription}')");
-                }
+                token = JsonSerializer.Deserialize<SaltoTokenResponse>(result);
+                return token;
+            }
+            else
+            {
+                // get error
+                var error = JsonSerializer.Deserialize<TokenError>(result);
+                throw new SaltoOAuthException($"Error getting the access_token. Server returned {responseMessage.StatusCode} error ( error = '{error.Error}', error_hint = '{error.ErrorHint}', description = '{error.ErrorDescription}')");
             }
         }
 

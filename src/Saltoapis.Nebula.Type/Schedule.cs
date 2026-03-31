@@ -4,48 +4,6 @@ using Google.Protobuf;
 
 namespace Saltoapis.Nebula.Type
 {
-
-    /// <summary>Holder for reflection information generated from salto/nebula/type/schedule.proto</summary>
-    public static partial class ScheduleReflection
-    {
-
-        #region Descriptor
-        /// <summary>File descriptor for salto/nebula/type/schedule.proto</summary>
-        public static FileDescriptor Descriptor
-        {
-            get { return descriptor; }
-        }
-
-        private static FileDescriptor descriptor;
-
-        static ScheduleReflection()
-        {
-            byte[] descriptorData = System.Convert.FromBase64String(
-                string.Concat(
-                  "CiBzYWx0by9uZWJ1bGEvdHlwZS9zY2hlZHVsZS5wcm90bxIRc2FsdG8ubmVi",
-                  "dWxhLnR5cGUaIHNhbHRvL25lYnVsYS90eXBlL2RheV90eXBlLnByb3RvGhxz",
-                  "YWx0by90eXBlL2RheV9vZl93ZWVrLnByb3RvGhxzYWx0by90eXBlL3RpbWVf",
-                  "b2ZfZGF5LnByb3RvIu4BCghTY2hlZHVsZRItCgRkYXlzGAEgAygLMh8uc2Fs",
-                  "dG8ubmVidWxhLnR5cGUuU2NoZWR1bGUuRGF5EikKCnN0YXJ0X3RpbWUYAiAB",
-                  "KAsyFS5zYWx0by50eXBlLlRpbWVPZkRheRInCghlbmRfdGltZRgDIAEoCzIV",
-                  "LnNhbHRvLnR5cGUuVGltZU9mRGF5Gl8KA0RheRIsCghkYXlfdHlwZRgBIAEo",
-                  "DjIaLnNhbHRvLm5lYnVsYS50eXBlLkRheVR5cGUSKgoLZGF5X29mX3dlZWsY",
-                  "AiABKA4yFS5zYWx0by50eXBlLkRheU9mV2Vla0LKAQoZY29tLnNhbHRvYXBp",
-                  "cy5uZWJ1bGEudHlwZUINU2NoZWR1bGVQcm90b1ABWkhnaXRodWIuY29tL3Nh",
-                  "bHRvYXBpcy1pbnRlcm5hbC9zYWx0b2FwaXMtZ28vbmVidWxhL3R5cGUvc2No",
-                  "ZWR1bGU7c2NoZWR1bGWqAhVTYWx0b2FwaXMuTmVidWxhLlR5cGXKAhVTYWx0",
-                  "b2FwaXNcTmVidWxhXFR5cGXiAiFHUEJNZXRhZGF0YVxTYWx0b2FwaXNcTmVi",
-                  "dWxhXFR5cGViBnByb3RvMw=="));
-            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
-                [DayTypeReflection.Descriptor, Saltoapis.Type.DayOfWeekReflection.Descriptor, Saltoapis.Type.TimeOfDayReflection.Descriptor,],
-                new GeneratedClrTypeInfo(null, null, [
-            new(typeof(Schedule), Schedule.Parser, ["Days", "StartTime", "EndTime"], null, null, null, [new(typeof(Schedule.Types.Day), Schedule.Types.Day.Parser, ["DayType", "DayOfWeek"], null, null, null, null)])
-                ]));
-        }
-        #endregion
-
-    }
-    #region Messages
     /// <summary>
     /// Represents an schedule.
     /// </summary>
@@ -134,16 +92,9 @@ namespace Saltoapis.Nebula.Type
         public override bool Equals(object other) => Equals(other as Schedule);
         public bool Equals(Schedule other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
-            if (!days_.Equals(other.days_)) return false;
-            if (!Equals(StartTime, other.StartTime)) return false;
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
+            if ((!days_.Equals(other.days_)) || (!Equals(StartTime, other.StartTime))) return false;
             if (!Equals(EndTime, other.EndTime)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -154,10 +105,7 @@ namespace Saltoapis.Nebula.Type
             hash ^= days_.GetHashCode();
             if (startTime_ != null) hash ^= StartTime.GetHashCode();
             if (endTime_ != null) hash ^= EndTime.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -205,42 +153,24 @@ namespace Saltoapis.Nebula.Type
         {
             int size = 0;
             size += days_.CalculateSize(_repeated_days_codec);
-            if (startTime_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(StartTime);
-            }
-            if (endTime_ != null)
-            {
-                size += 1 + CodedOutputStream.ComputeMessageSize(EndTime);
-            }
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (startTime_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(StartTime);
+            if (endTime_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(EndTime);
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(Schedule other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             days_.Add(other.days_);
             if (other.startTime_ != null)
             {
-                if (startTime_ == null)
-                {
-                    StartTime = new Saltoapis.Type.TimeOfDay();
-                }
+                if (startTime_ == null) StartTime = new Saltoapis.Type.TimeOfDay();
                 StartTime.MergeFrom(other.StartTime);
             }
             if (other.endTime_ != null)
             {
-                if (endTime_ == null)
-                {
-                    EndTime = new Saltoapis.Type.TimeOfDay();
-                }
+                if (endTime_ == null) EndTime = new Saltoapis.Type.TimeOfDay();
                 EndTime.MergeFrom(other.EndTime);
             }
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -308,19 +238,13 @@ namespace Saltoapis.Nebula.Type
                         }
                     case 18:
                         {
-                            if (startTime_ == null)
-                            {
-                                StartTime = new Saltoapis.Type.TimeOfDay();
-                            }
+                            if (startTime_ == null) StartTime = new Saltoapis.Type.TimeOfDay();
                             input.ReadMessage(StartTime);
                             break;
                         }
                     case 26:
                         {
-                            if (endTime_ == null)
-                            {
-                                EndTime = new Saltoapis.Type.TimeOfDay();
-                            }
+                            if (endTime_ == null) EndTime = new Saltoapis.Type.TimeOfDay();
                             input.ReadMessage(EndTime);
                             break;
                         }
@@ -329,7 +253,6 @@ namespace Saltoapis.Nebula.Type
         }
 #endif
 
-        #region Nested types
         /// <summary>Container for nested types declared in the Schedule message type.</summary>
         public static partial class Types
         {
@@ -406,16 +329,9 @@ namespace Saltoapis.Nebula.Type
                 public override bool Equals(object other) => Equals(other as Day);
                 public bool Equals(Day other)
                 {
-                    if (other is null)
-                    {
-                        return false;
-                    }
-                    if (ReferenceEquals(other, this))
-                    {
-                        return true;
-                    }
-                    if (DayType != other.DayType) return false;
-                    if (DayOfWeek != other.DayOfWeek) return false;
+                    if (other is null) return false;
+                    if (ReferenceEquals(other, this)) return true;
+                    if ((DayType != other.DayType) || (DayOfWeek != other.DayOfWeek)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
 
@@ -424,10 +340,7 @@ namespace Saltoapis.Nebula.Type
                     int hash = 1;
                     if (DayType != DayType.Unspecified) hash ^= DayType.GetHashCode();
                     if (DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified) hash ^= DayOfWeek.GetHashCode();
-                    if (_unknownFields != null)
-                    {
-                        hash ^= _unknownFields.GetHashCode();
-                    }
+                    if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
                     return hash;
                 }
 
@@ -472,35 +385,17 @@ namespace Saltoapis.Nebula.Type
                 public int CalculateSize()
                 {
                     int size = 0;
-                    if (DayType != DayType.Unspecified)
-                    {
-                        size += 1 + CodedOutputStream.ComputeEnumSize((int)DayType);
-                    }
-                    if (DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified)
-                    {
-                        size += 1 + CodedOutputStream.ComputeEnumSize((int)DayOfWeek);
-                    }
-                    if (_unknownFields != null)
-                    {
-                        size += _unknownFields.CalculateSize();
-                    }
+                    if (DayType != DayType.Unspecified) size += 1 + CodedOutputStream.ComputeEnumSize((int)DayType);
+                    if (DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified) size += 1 + CodedOutputStream.ComputeEnumSize((int)DayOfWeek);
+                    if (_unknownFields != null) size += _unknownFields.CalculateSize();
                     return size;
                 }
 
                 public void MergeFrom(Day other)
                 {
-                    if (other == null)
-                    {
-                        return;
-                    }
-                    if (other.DayType != DayType.Unspecified)
-                    {
-                        DayType = other.DayType;
-                    }
-                    if (other.DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified)
-                    {
-                        DayOfWeek = other.DayOfWeek;
-                    }
+                    if (other == null) return;
+                    if (other.DayType != DayType.Unspecified) DayType = other.DayType;
+                    if (other.DayOfWeek != Saltoapis.Type.DayOfWeek.Unspecified) DayOfWeek = other.DayOfWeek;
                     _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
                 }
 
@@ -567,10 +462,8 @@ namespace Saltoapis.Nebula.Type
             }
 
         }
-        #endregion
 
     }
 
-    #endregion
 
 }

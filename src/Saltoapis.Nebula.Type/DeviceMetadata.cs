@@ -4,48 +4,6 @@ using Google.Protobuf;
 
 namespace Saltoapis.Nebula.Type
 {
-
-    /// <summary>Holder for reflection information generated from salto/nebula/type/device_metadata.proto</summary>
-    public static partial class DeviceMetadataReflection
-    {
-
-        #region Descriptor
-        /// <summary>File descriptor for salto/nebula/type/device_metadata.proto</summary>
-        public static FileDescriptor Descriptor
-        {
-            get { return descriptor; }
-        }
-
-        private static FileDescriptor descriptor;
-
-        static DeviceMetadataReflection()
-        {
-            byte[] descriptorData = System.Convert.FromBase64String(
-                string.Concat(
-                  "CidzYWx0by9uZWJ1bGEvdHlwZS9kZXZpY2VfbWV0YWRhdGEucHJvdG8SEXNh",
-                  "bHRvLm5lYnVsYS50eXBlGhVzYWx0by90eXBlL2RhdGUucHJvdG8itwIKDkRl",
-                  "dmljZU1ldGFkYXRhEkYKDmNpcmN1aXRfYm9hcmRzGAEgAygLMi4uc2FsdG8u",
-                  "bmVidWxhLnR5cGUuRGV2aWNlTWV0YWRhdGEuQ2lyY3VpdEJvYXJkGtwBCgxD",
-                  "aXJjdWl0Qm9hcmQSKgoQbWFudWZhY3R1cmVfZGF0ZRgCIAEoCzIQLnNhbHRv",
-                  "LnR5cGUuRGF0ZRIVCg1zZXJpYWxfbnVtYmVyGAMgASgJEkoKCWZpcm13YXJl",
-                  "cxgEIAMoCzI3LnNhbHRvLm5lYnVsYS50eXBlLkRldmljZU1ldGFkYXRhLkNp",
-                  "cmN1aXRCb2FyZC5GaXJtd2FyZRo9CghGaXJtd2FyZRIOCgZudW1iZXIYASAB",
-                  "KAkSDwoHdmVyc2lvbhgCIAEoCRIQCghyZXZpc2lvbhgDIAEoCULcAQoZY29t",
-                  "LnNhbHRvYXBpcy5uZWJ1bGEudHlwZUITRGV2aWNlTWV0YWRhdGFQcm90b1AB",
-                  "WlRnaXRodWIuY29tL3NhbHRvYXBpcy1pbnRlcm5hbC9zYWx0b2FwaXMtZ28v",
-                  "bmVidWxhL3R5cGUvZGV2aWNlbWV0YWRhdGE7ZGV2aWNlbWV0YWRhdGGqAhVT",
-                  "YWx0b2FwaXMuTmVidWxhLlR5cGXKAhVTYWx0b2FwaXNcTmVidWxhXFR5cGXi",
-                  "AiFHUEJNZXRhZGF0YVxTYWx0b2FwaXNcTmVidWxhXFR5cGViBnByb3RvMw=="));
-            descriptor = FileDescriptor.FromGeneratedCode(descriptorData,
-                [Saltoapis.Type.DateReflection.Descriptor,],
-                new GeneratedClrTypeInfo(null, null, [
-            new(typeof(DeviceMetadata), DeviceMetadata.Parser, ["CircuitBoards"], null, null, null, [new(typeof(DeviceMetadata.Types.CircuitBoard), DeviceMetadata.Types.CircuitBoard.Parser, ["ManufactureDate", "SerialNumber", "Firmwares"], null, null, null, [new(typeof(DeviceMetadata.Types.CircuitBoard.Types.Firmware), DeviceMetadata.Types.CircuitBoard.Types.Firmware.Parser, ["Number", "Version", "Revision"], null, null, null, null)])])
-                ]));
-        }
-        #endregion
-
-    }
-    #region Messages
     /// <summary>
     /// Metadata contains information about a device. Most metadata is immutable.
     /// </summary>
@@ -100,14 +58,8 @@ namespace Saltoapis.Nebula.Type
         public override bool Equals(object other) => Equals(other as DeviceMetadata);
         public bool Equals(DeviceMetadata other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-            if (ReferenceEquals(other, this))
-            {
-                return true;
-            }
+            if (other is null) return false;
+            if (ReferenceEquals(other, this)) return true;
             if (!circuitBoards_.Equals(other.circuitBoards_)) return false;
             return Equals(_unknownFields, other._unknownFields);
         }
@@ -116,10 +68,7 @@ namespace Saltoapis.Nebula.Type
         {
             int hash = 1;
             hash ^= circuitBoards_.GetHashCode();
-            if (_unknownFields != null)
-            {
-                hash ^= _unknownFields.GetHashCode();
-            }
+            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
             return hash;
         }
 
@@ -149,19 +98,13 @@ namespace Saltoapis.Nebula.Type
         {
             int size = 0;
             size += circuitBoards_.CalculateSize(_repeated_circuitBoards_codec);
-            if (_unknownFields != null)
-            {
-                size += _unknownFields.CalculateSize();
-            }
+            if (_unknownFields != null) size += _unknownFields.CalculateSize();
             return size;
         }
 
         public void MergeFrom(DeviceMetadata other)
         {
-            if (other == null)
-            {
-                return;
-            }
+            if (other == null) return;
             circuitBoards_.Add(other.circuitBoards_);
             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -217,7 +160,6 @@ namespace Saltoapis.Nebula.Type
         }
 #endif
 
-        #region Nested types
         /// <summary>Container for nested types declared in the DeviceMetadata message type.</summary>
         public static partial class Types
         {
@@ -309,16 +251,9 @@ namespace Saltoapis.Nebula.Type
                 public override bool Equals(object other) => Equals(other as CircuitBoard);
                 public bool Equals(CircuitBoard other)
                 {
-                    if (other is null)
-                    {
-                        return false;
-                    }
-                    if (ReferenceEquals(other, this))
-                    {
-                        return true;
-                    }
-                    if (!Equals(ManufactureDate, other.ManufactureDate)) return false;
-                    if (SerialNumber != other.SerialNumber) return false;
+                    if (other is null) return false;
+                    if (ReferenceEquals(other, this)) return true;
+                    if ((!Equals(ManufactureDate, other.ManufactureDate)) || (SerialNumber != other.SerialNumber)) return false;
                     if (!firmwares_.Equals(other.firmwares_)) return false;
                     return Equals(_unknownFields, other._unknownFields);
                 }
@@ -329,10 +264,7 @@ namespace Saltoapis.Nebula.Type
                     if (manufactureDate_ != null) hash ^= ManufactureDate.GetHashCode();
                     if (SerialNumber.Length != 0) hash ^= SerialNumber.GetHashCode();
                     hash ^= firmwares_.GetHashCode();
-                    if (_unknownFields != null)
-                    {
-                        hash ^= _unknownFields.GetHashCode();
-                    }
+                    if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
                     return hash;
                 }
 
@@ -379,40 +311,22 @@ namespace Saltoapis.Nebula.Type
                 public int CalculateSize()
                 {
                     int size = 0;
-                    if (manufactureDate_ != null)
-                    {
-                        size += 1 + CodedOutputStream.ComputeMessageSize(ManufactureDate);
-                    }
-                    if (SerialNumber.Length != 0)
-                    {
-                        size += 1 + CodedOutputStream.ComputeStringSize(SerialNumber);
-                    }
+                    if (manufactureDate_ != null) size += 1 + CodedOutputStream.ComputeMessageSize(ManufactureDate);
+                    if (SerialNumber.Length != 0) size += 1 + CodedOutputStream.ComputeStringSize(SerialNumber);
                     size += firmwares_.CalculateSize(_repeated_firmwares_codec);
-                    if (_unknownFields != null)
-                    {
-                        size += _unknownFields.CalculateSize();
-                    }
+                    if (_unknownFields != null) size += _unknownFields.CalculateSize();
                     return size;
                 }
 
                 public void MergeFrom(CircuitBoard other)
                 {
-                    if (other == null)
-                    {
-                        return;
-                    }
+                    if (other == null) return;
                     if (other.manufactureDate_ != null)
                     {
-                        if (manufactureDate_ == null)
-                        {
-                            ManufactureDate = new Saltoapis.Type.Date();
-                        }
+                        if (manufactureDate_ == null) ManufactureDate = new Saltoapis.Type.Date();
                         ManufactureDate.MergeFrom(other.ManufactureDate);
                     }
-                    if (other.SerialNumber.Length != 0)
-                    {
-                        SerialNumber = other.SerialNumber;
-                    }
+                    if (other.SerialNumber.Length != 0) SerialNumber = other.SerialNumber;
                     firmwares_.Add(other.firmwares_);
                     _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
                 }
@@ -471,10 +385,7 @@ namespace Saltoapis.Nebula.Type
                                 break;
                             case 18:
                                 {
-                                    if (manufactureDate_ == null)
-                                    {
-                                        ManufactureDate = new Saltoapis.Type.Date();
-                                    }
+                                    if (manufactureDate_ == null) ManufactureDate = new Saltoapis.Type.Date();
                                     input.ReadMessage(ManufactureDate);
                                     break;
                                 }
@@ -493,7 +404,6 @@ namespace Saltoapis.Nebula.Type
                 }
 #endif
 
-                #region Nested types
                 /// <summary>Container for nested types declared in the CircuitBoard message type.</summary>
                 public static partial class Types
                 {
@@ -587,16 +497,9 @@ namespace Saltoapis.Nebula.Type
                         public override bool Equals(object other) => Equals(other as Firmware);
                         public bool Equals(Firmware other)
                         {
-                            if (other is null)
-                            {
-                                return false;
-                            }
-                            if (ReferenceEquals(other, this))
-                            {
-                                return true;
-                            }
-                            if (Number != other.Number) return false;
-                            if (Version != other.Version) return false;
+                            if (other is null) return false;
+                            if (ReferenceEquals(other, this)) return true;
+                            if ((Number != other.Number) || (Version != other.Version)) return false;
                             if (Revision != other.Revision) return false;
                             return Equals(_unknownFields, other._unknownFields);
                         }
@@ -607,10 +510,7 @@ namespace Saltoapis.Nebula.Type
                             if (Number.Length != 0) hash ^= Number.GetHashCode();
                             if (Version.Length != 0) hash ^= Version.GetHashCode();
                             if (Revision.Length != 0) hash ^= Revision.GetHashCode();
-                            if (_unknownFields != null)
-                            {
-                                hash ^= _unknownFields.GetHashCode();
-                            }
+                            if (_unknownFields != null) hash ^= _unknownFields.GetHashCode();
                             return hash;
                         }
 
@@ -664,43 +564,19 @@ namespace Saltoapis.Nebula.Type
                         public int CalculateSize()
                         {
                             int size = 0;
-                            if (Number.Length != 0)
-                            {
-                                size += 1 + CodedOutputStream.ComputeStringSize(Number);
-                            }
-                            if (Version.Length != 0)
-                            {
-                                size += 1 + CodedOutputStream.ComputeStringSize(Version);
-                            }
-                            if (Revision.Length != 0)
-                            {
-                                size += 1 + CodedOutputStream.ComputeStringSize(Revision);
-                            }
-                            if (_unknownFields != null)
-                            {
-                                size += _unknownFields.CalculateSize();
-                            }
+                            if (Number.Length != 0) size += 1 + CodedOutputStream.ComputeStringSize(Number);
+                            if (Version.Length != 0) size += 1 + CodedOutputStream.ComputeStringSize(Version);
+                            if (Revision.Length != 0) size += 1 + CodedOutputStream.ComputeStringSize(Revision);
+                            if (_unknownFields != null) size += _unknownFields.CalculateSize();
                             return size;
                         }
 
                         public void MergeFrom(Firmware other)
                         {
-                            if (other == null)
-                            {
-                                return;
-                            }
-                            if (other.Number.Length != 0)
-                            {
-                                Number = other.Number;
-                            }
-                            if (other.Version.Length != 0)
-                            {
-                                Version = other.Version;
-                            }
-                            if (other.Revision.Length != 0)
-                            {
-                                Revision = other.Revision;
-                            }
+                            if (other == null) return;
+                            if (other.Number.Length != 0) Number = other.Number;
+                            if (other.Version.Length != 0) Version = other.Version;
+                            if (other.Revision.Length != 0) Revision = other.Revision;
                             _unknownFields = UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
                         }
 
@@ -776,15 +652,10 @@ namespace Saltoapis.Nebula.Type
                     }
 
                 }
-                #endregion
 
             }
 
         }
-        #endregion
 
     }
-
-    #endregion
-
 }

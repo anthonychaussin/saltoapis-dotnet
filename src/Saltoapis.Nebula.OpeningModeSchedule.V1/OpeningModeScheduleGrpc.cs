@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.OpeningModeSchedule.V1.Request;
+using Saltoapis.Nebula.OpeningModeSchedule.V1.Response;
 
 namespace Saltoapis.Nebula.OpeningModeSchedule.V1
 {

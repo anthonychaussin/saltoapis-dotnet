@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.Booking.V1.Request;
+using Saltoapis.Nebula.Booking.V1.Response;
 
 namespace Saltoapis.Nebula.Booking.V1
 {

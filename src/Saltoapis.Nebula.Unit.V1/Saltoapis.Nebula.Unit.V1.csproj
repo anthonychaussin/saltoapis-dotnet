@@ -10,4 +10,7 @@
     <PackageReference Include="Google.Protobuf" />
     <PackageReference Include="Google.Api.CommonProtos" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

@@ -3,6 +3,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>Saltoapis.Nebula.Booking.V1</PackageId>
     <Description>Contains the SDK related to 'Saltoapis.Nebula.Booking.V1'. Check out https://developer.saltosystems.com/nebula/ for more information</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Net.Client" />

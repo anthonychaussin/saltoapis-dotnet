@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\\Saltoapis.Longrunning.V1\\Saltoapis.Longrunning.V1.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\\Saltoapis.Nebula.Type\\Saltoapis.Nebula.Type.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>

@@ -1,3 +1,6 @@
+using Saltoapis.Nebula.AccessRight.V1.Request;
+using Saltoapis.Nebula.AccessRight.V1.Response;
+
 namespace Saltoapis.Nebula.AccessRight.V1
 {
     /// <summary>

@@ -1,4 +1,6 @@
 using Grpc.Core;
+using Saltoapis.Nebula.DigitalKey.V1.Request;
+using Saltoapis.Nebula.DigitalKey.V1.Response;
 
 namespace Saltoapis.Nebula.DigitalKey.V1
 {
