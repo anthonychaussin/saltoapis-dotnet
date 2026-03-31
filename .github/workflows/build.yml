@@ -13,26 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
     steps:
-      - uses: actions/checkout@v2
-      - name: init
-        run: |
-          docker build -f Dockerfile.build -t saltoapis-dotnet .
-          docker run --env GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} --env GITHUB_ACTOR=$GITHUB_ACTOR --env NUGET_API_KEY=${{ secrets.NUGET_API_KEY }} --rm -i -d --name saltoapis-dotnet saltoapis-dotnet
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+          include-prerelease: true
 
       - name: prepare
-        run: docker exec -i saltoapis-dotnet make prepare
-      - name: sanity-check
-        run: docker exec -i saltoapis-dotnet make sanity-check
+        run: make prepare
       - name: build
-        run: docker exec -i saltoapis-dotnet make build
+        run: make build
       - name: test
-        run: docker exec -i saltoapis-dotnet make test
+        run: make test
       - name: release
         if: github.ref == 'refs/heads/master'
-        run: docker exec -i saltoapis-dotnet make release
-      - name: clean
-        run: |
-          docker exec -i saltoapis-dotnet make clean
-          docker stop saltoapis-dotnet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: make release
